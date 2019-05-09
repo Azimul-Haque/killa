@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <section class="wow fadeIn bg-gray">
+    <section class="wow fadeIn bg-gray content-top-margin">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-10 col-xs-11 center-col login-box">
