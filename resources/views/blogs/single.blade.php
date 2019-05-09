@@ -109,7 +109,7 @@
 
                         <div class="separator-line bg-black no-margin-lr margin-four"></div>
                         <div>
-                            <a href="#!" class="blog-like" @if(Auth::check()) onclick="likeBlog({{ Auth::user()->id }}, {{ $blog->id }})" @endif>
+                            <a href="#!" class="blog-like" @if(Auth::check()) onclick="likeBlog({{ Auth::user()->id }}, {{ $blog->id }})" @else title="Login to Like!" @endif>
                                 <i class="fa fa-heart-o" id="like_icon"></i>
                                 <span id="like_span">{{ $blog->likes }} Like(s)</span>
                             </a>

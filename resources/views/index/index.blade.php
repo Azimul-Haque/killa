@@ -128,7 +128,12 @@
                                     url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ url('/blog/'.$blog->slug) }}",
                                     dataType: "jsonp",
                                     success: function(data) {
-                                        $('#comment_count{{ $blog->id }}').text(data.share.comment_count);
+                                        if(data.share) {
+                                            $('#comment_count{{ $blog->id }}').text(data.share.comment_count);
+                                        } else {
+                                            $('#comment_count{{ $blog->id }}').text(0);
+                                        }
+                                        
                                     }
                                 });
                             </script>

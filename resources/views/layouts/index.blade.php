@@ -3,7 +3,7 @@
 
 <head>
     <title>@yield('title')</title>
-    <meta name="description" content="Official website of IITDU Alimni Association">
+    <meta name="description" content="Official website of IITDU Alimni Association. Developed by A. H. M. Azimul Haque and Md. Abdul Mannan.">
     <meta name="keywords" content="IITDU, IIT, University of Dhaka, IIT Alumni">
     <meta charset="utf-8">
     <meta name="author" content="A. H. M. Azimul Haque">
@@ -242,7 +242,7 @@
     <!-- animation -->
     <script type="text/javascript" src="{{ asset('vendor/hcode/js/wow.min.js') }}"></script>
     <!-- page scroll -->
-    <script type="text/javascript" src="{{ asset('vendor/hcode/js/page-scroll.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('vendor/hcode/js/page-scroll.js') }}"></script> --}}
     <!-- easy piechart-->
     <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.easypiechart.js') }}"></script>
     <!-- parallax -->
