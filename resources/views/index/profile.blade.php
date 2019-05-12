@@ -149,7 +149,7 @@
                             <tbody>
                                 @foreach($blogs as $blog)
                                 <tr>
-                                    <td>{{ $blog->title }}</td>
+                                    <td><a href="{{ route('blog.single', $blog->slug) }}">{{ $blog->title }}</a></td>
                                     <td>{{ $blog->category->name }}</td>
                                     <td>{{ $blog->created_at }}</td>
                                     <td>
