@@ -29,7 +29,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        $blogs = Blog::orderBy('id', 'DESC')->get()->take(4);
+        $blogs = Blog::orderBy('id', 'DESC')->get()->take(3);
         return view('index.index')->withBlogs($blogs);
     }
 
@@ -54,24 +54,30 @@ class IndexController extends Controller
         return view('index.adhoc')->withAdhocmembers($adhocmembers);
     }
 
+    public function getExecutive()
+    {
+        return view('index.executive');
+    }
+
     public function getNews()
     {
-        //
+        return view('index.news');
     }
 
     public function getEvents()
     {
-        //
+        return view('index.events');
     }
 
     public function getGallery()
     {
-        //
+        return view('index.gallery');
     }
 
     public function getMembers()
     {
         $members = User::where('role', 'alumni')
+                       ->where('payment_status', 1)
                        ->orderBy('passing_year')
                        ->get();
         return view('index.members')->withMembers($members);
@@ -142,6 +148,7 @@ class IndexController extends Controller
             'dob'                       => 'required|max:255',
             'degree'                    => 'required|max:255',
             'batch'                     => 'required|max:255',
+            'roll'                      => 'required|max:255',
             'passing_year'              => 'required|numeric',
             'current_job'               => 'sometimes|max:255',
             'designation'               => 'sometimes|max:255',
@@ -162,6 +169,7 @@ class IndexController extends Controller
         $application->dob = new Carbon($dob);
         $application->degree = htmlspecialchars(preg_replace("/\s+/", " ", $request->degree));
         $application->batch = htmlspecialchars(preg_replace("/\s+/", " ", $request->batch));
+        $application->roll = htmlspecialchars(preg_replace("/\s+/", " ", $request->roll));
         $application->passing_year = htmlspecialchars(preg_replace("/\s+/", " ", $request->passing_year));
         $application->current_job = htmlspecialchars(preg_replace("/\s+/", " ", $request->current_job));
         $application->designation = htmlspecialchars(preg_replace("/\s+/", " ", $request->designation));

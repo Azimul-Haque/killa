@@ -19,7 +19,9 @@
             <div class="row margin-two">
                 <div class="col-md-12 text-center">
                     <span>Please Pay tk. {{ $user->amount }} to get the membership.</span><br/>
-                    <button class="btn highlight-button-dark btn-small btn-round margin-two"><i class="fa fa-pencil"></i> Pay Via AAMARPAY</button>
+                    {{-- <button class="btn highlight-button-dark btn-small btn-round margin-two"><i class="fa fa-pencil"></i> Pay Via AAMARPAY</button> --}}
+                    <h4>Please make the payment against this Rocket Number: 01********* and send a sms to the same number</h4>
+                    <h5>SMS Format: &#60;UserID&#62; &#60;Amount&#62; &#60;your mobile number&#62; </h5>
                 </div>
             </div>
             @endif
@@ -107,53 +109,61 @@
     </section>
     <section class="wow fadeIn bg-gray">
         <div class="container">
-            {{-- blog part --}}
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2 class="section-title no-padding">Blog</h2>
-                </div>
-            </div>
-            <div class="row margin-three no-margin-bottom">
-                <div class="col-md-12">
-                    <div class="row margin-one">
-                        <div class="col-md-6">
-                            <span style="font-size: 20px;"><b>Your Blogs</b></span>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="{{ route('blogs.create') }}" style="float: right; padding: 5px; margin-left: 10px; border: 1px solid #000">
-                                <h3><i class="fa fa-plus"></i> Create New Blog</h3>
-                            </a>
-                            <a href="{{ route('blogger.profile', $user->unique_key) }}" style="float: right; padding: 5px; margin-left: 10px; border: 1px solid #000" target="_blank">
-                                <h3><i class="fa fa-user"></i> Your Blogger Profile</h3>
-                            </a>
-                        </div>
+            @if($user->payment_status == 0)
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h4 class="">After the successfull payment, you will get access to your blogger profile to create blogs and stuffs!</h4>
                     </div>
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Created At</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($blogs as $blog)
-                            <tr>
-                                <td>{{ $blog->title }}</td>
-                                <td>{{ $blog->category->name }}</td>
-                                <td>{{ $blog->created_at }}</td>
-                                <td>
-                                    <button class="btn highlight-button-dark btn-small btn-round margin-two"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn highlight-button-dark btn-small btn-round margin-two"><i class="fa fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
                 </div>
-            </div>
-            {{-- blog part --}}
+            @else
+                {{-- blog part --}}
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="section-title no-padding">Blog</h2>
+                    </div>
+                </div>
+                <div class="row margin-three no-margin-bottom">
+                    <div class="col-md-12">
+                        <div class="row margin-one">
+                            <div class="col-md-6">
+                                <span style="font-size: 20px;"><b>Your Blogs</b></span>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{ route('blogs.create') }}" style="float: right; padding: 5px; margin-left: 10px; border: 1px solid #000">
+                                    <h3><i class="fa fa-plus"></i> Create New Blog</h3>
+                                </a>
+                                <a href="{{ route('blogger.profile', $user->unique_key) }}" style="float: right; padding: 5px; margin-left: 10px; border: 1px solid #000" target="_blank">
+                                    <h3><i class="fa fa-user"></i> Your Blogger Profile</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Created At</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($blogs as $blog)
+                                <tr>
+                                    <td>{{ $blog->title }}</td>
+                                    <td>{{ $blog->category->name }}</td>
+                                    <td>{{ $blog->created_at }}</td>
+                                    <td>
+                                        <button class="btn highlight-button-dark btn-small btn-round margin-two"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn highlight-button-dark btn-small btn-round margin-two"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {{-- blog part --}}
+            @endif
         </div>
     </section>
 @endsection

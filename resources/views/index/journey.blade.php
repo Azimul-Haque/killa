@@ -34,7 +34,7 @@
       <section class="border-bottom-light sm-text-center">
           <div class="container">
               <div class="row">
-                  <div class="col-md-7 wow fadeInUp" data-wow-duration="400ms"><img src="{{ asset('vendor/hcode/images/about-us-img-12.png') }}" alt=""/></div>
+                  <div class="col-md-7 wow fadeInUp" data-wow-duration="400ms"><img src="{{ asset('images/contact2.jpg') }}" alt=""/></div>
                   <div class="col-md-5 wow fadeInUp" data-wow-duration="800ms">
                       <h1 class="title-extra-large font-weight-700 black-text margin-five text-transform-none">What we do</h1>
                       <p class="title-small font-weight-300">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's standard dummy text.</p>
@@ -45,7 +45,7 @@
       </section>
       <!-- end WHATWEDO section -->
       <!-- content section -->
-      <section class="content-section">
+      {{-- <section class="content-section">
           <div class="container">
               <div class="row">
                   <div class="col-md-4 col-sm-12">
@@ -104,7 +104,7 @@
                   </div>
               </div>
           </div>
-      </section>
+      </section> --}}
       <!-- end content section -->
 @endsection
 

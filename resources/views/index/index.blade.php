@@ -9,32 +9,44 @@
 
 @section('content')
     @extends('partials._slider')
-    <section>
+    <!-- about section -->
+    <section class="no-padding-bottom wow fadeIn">
         <div class="container">
             <div class="row">
-                <div class="col-md-5">
-                    <span class="title-large text-uppercase letter-spacing-1 font-weight-600 black-text">Who are we</span>
-                    <div class="separator-line-thick bg-fast-pink no-margin-lr"></div>
-                    <p class="no-margin-bottom">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                        it to make a type specimen book.</p>
-                    <a class="highlight-button-black-border btn btn-small no-margin-bottom inner-link sm-margin-bottom-ten" href="#">Read More</a>
+                <div class="col-md-6 col-sm-10 text-center center-col">
+                    <span class="margin-five no-margin-top display-block letter-spacing-2">EST. 2016</span>
+                    <h1>IITDU Alumni Association</h1>
+                    <p class="text-med width-90 center-col margin-seven no-margin-bottom"> We've been crafting beautiful websites, launching stunning brands and making clients happy for years. With our prestigious craftsmanship, remarkable client care and passion for design.</p>
                 </div>
-                <div class="col-md-3 col-sm-6 text-center col-md-offset-1 xs-margin-bottom-ten">
-                    <img src="{{ asset('images/spa-img3.jpg') }}" class="xs-img-full" alt="" />
-                </div>
-                <div class="col-md-3 col-sm-6 text-center ">
-                    <img src="{{ asset('images/spa-img4.jpg') }}" class="xs-img-full" alt="" />
+            </div>
+        </div>
+        <div class="container-fluid margin-five no-margin-bottom">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 bg-fast-yellow padding-three text-center">
+                    <span class="text-small text-uppercase font-weight-600 black-text letter-spacing-2">Professionalism &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Excellence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Respect</span>
                 </div>
             </div>
         </div>
     </section>
-    <section style="padding: 13px 0;">
+    <!-- end about section -->
+    <section class="wow fadeInUp bg-gray">
         <div class="container">
+            <div class="row">
+                <!-- call to action -->
+                <div class="col-md-7 col-sm-12 text-center center-col">
+                    <p class="title-large text-uppercase letter-spacing-1 black-text font-weight-600 wow fadeIn">Want to be a memeber of IITAluni?</p>
+                    <a href="{{ route('index.application') }}" class="highlight-button-black-border btn margin-six wow fadeInUp">Apply Now!</a>
+                </div>
+                <!-- end call to action -->
+            </div>
+        </div>
+    </section>
+    <section style="padding: 13px 0;">
+        <div class="container margin-five wow fadeInUp">
             <div class="row">
                 <!-- features item -->
                 <div class="col-md-4 col-sm-6 sm-margin-bottom-ten xs-text-center">
-                    <h3>news</h3>
+                    <h3>Latest News</h3>
                     <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">We're ready
                         <br> to start now</span>
                     <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
@@ -45,7 +57,7 @@
                 <!-- end features item -->
                 <!-- features item -->
                 <div class="col-md-4 col-sm-6 sm-margin-bottom-ten xs-text-center">
-                    <h3>Event</h3>
+                    <h3>Latest Event</h3>
                     <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">Always on time
                         <br> call support</span>
                     <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
@@ -56,7 +68,7 @@
                 <!-- end features item -->
                 <!-- features item -->
                 <div class="col-md-4 col-sm-6 xs-margin-bottom-ten xs-text-center">
-                    <h3>Notice</h3>
+                    <h3>Latest Notice</h3>
                     <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">We Deliver the
                         <br> highest quality</span>
                     <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
@@ -69,25 +81,50 @@
             </div>
         </div>
     </section>
-    <section class="wow fadeIn bg-gray">
+    <!-- counter section -->
+    <section id="counter" class="fix-background" style="background-image:url('images/slider/slider-img45.jpg');">
+        <div class="opacity-full bg-dark-gray"></div>
+        <div class="container position-relative">
+            <div class="row">
+                <!-- counter item -->
+                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="300ms">
+                    <i class="icon-heart medium-icon"></i>
+                    <span class="timer counter-number white-text main-font font-weight-600" data-to="250" data-speed="7000"></span>
+                    <span class="counter-title light-gray-text">Alumnis</span>
+                </div>
+                <!-- end counter item -->
+                <!-- counter item -->
+                <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="600ms">
+                    <i class="icon-happy medium-icon"></i>
+                    <span class="timer counter-number white-text main-font font-weight-600" data-to="20" data-speed="7000"></span>
+                    <span class="counter-title light-gray-text">Batch</span>
+                </div>
+                <!-- end counter item -->
+                <!-- counter item -->
+                <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten" data-wow-duration="900ms">
+                    <i class="icon-anchor medium-icon"></i>
+                    <span class="timer counter-number white-text main-font font-weight-600" data-to="20" data-speed="7000"></span>
+                    <span class="counter-title light-gray-text">Projects Completed</span>
+                </div>
+                <!-- end counter item -->
+                <!-- counter item -->
+                <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp" data-wow-duration="1200ms">
+                    <i class="icon-chat medium-icon"></i>
+                    <span class="timer counter-number white-text main-font font-weight-600" data-to="5" data-speed="7000"></span>
+                    <span class="counter-title light-gray-text">Events</span>
+                </div>
+                <!-- end counter item -->
+            </div>
+        </div>
+    </section>
+    <!-- end counter section -->
+    <!-- blog content section -->
+    <section class="">
         <div class="container">
             <div class="row">
                 <!-- call to action -->
                 <div class="col-md-7 col-sm-12 text-center center-col">
-                    <p class="title-large text-uppercase letter-spacing-1 black-text font-weight-600 wow fadeIn">Want to be a memeber of IITAluni?</p>
-                    <a href="{{ route('index.application') }}" class="highlight-button-black-border btn margin-six wow fadeInUp">Apply Now!</a>
-                </div>
-                <!-- end call to action -->
-            </div>
-        </div>
-    </section>
-    <!-- blog content section -->
-    <section class="">
-        <div class="container">
-             <div class="row">
-                <!-- call to action -->
-                <div class="col-md-7 col-sm-12 text-center center-col">
-                    <p class="title-large text-uppercase letter-spacing-1 black-text font-weight-600 wow fadeIn">Latest Blogs</p>
+                    <p class="title-large text-uppercase letter-spacing-1 black-text font-weight-600 wow fadeIn">Latest Blogs</p><br/><br/>
                 </div>
                 <!-- end call to action -->
             </div>
@@ -97,7 +134,7 @@
                     $eventwaitduration = 300;
                 @endphp
                 @foreach($blogs as $blog)
-                <div class="col-md-3 col-sm-6 col-xs-6 blog-listing wow fadeInRight" data-wow-duration="{{ $eventwaitduration }}ms">
+                <div class="col-md-4 col-sm-4 blog-listing wow fadeInRight" data-wow-duration="{{ $eventwaitduration }}ms">
                     <div class="blog-image">
                         <a href="{{ route('blog.single', $blog->slug) }}">
                             @if($blog->featured_image != null)

@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('dob');
             $table->string('degree');
             $table->string('batch');
+            $table->string('roll');
             $table->string('passing_year');
             $table->string('current_job')->nullable();
             $table->string('designation')->nullable();

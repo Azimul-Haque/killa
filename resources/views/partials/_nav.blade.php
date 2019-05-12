@@ -1,11 +1,15 @@
 <!-- navigation panel -->
-<nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom bg-white" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom @if(\Request::is('/')) nav-white @endif" role="navigation">
     <div class="container">
         <div class="row">
             <!-- logo -->
             <div class="col-md-2 pull-left">
                 <a class="logo-light" href="{{ route('index.index') }}">
-                    <img alt="" src="{{ asset('images/logo.png') }}" class="logo" />
+                    @if(\Request::is('/'))
+                        <img alt="" src="{{ asset('images/logo-light.png') }}" class="logo" />
+                    @else
+                        <img alt="" src="{{ asset('images/logo.png') }}" class="logo" />
+                    @endif
                 </a>
                 <a class="logo-dark" href="{{ route('index.index') }}">
                     <img alt="" src="{{ asset('images/logo.png') }}" class="logo" />
@@ -22,7 +26,7 @@
                     <!-- end nav search -->
                 </div>
                 <!-- search input-->
-                <form id="search-header" method="post" action="#" name="search-header" class="mfp-hide search-form-result">
+                <form id="search-header" method="post" action="#!" name="search-header" class="mfp-hide search-form-result">
                     <div class="search-form position-relative">
                         <button type="submit" class="fa fa-search close-search search-button"></button>
                         <input type="text" name="search" class="search-input" placeholder="Enter your keywords..." autocomplete="off">
@@ -78,6 +82,9 @@
                             <ul id="committee_dropdown" class="dropdown-menu panel-collapse collapse" role="menu">
                                 <li>
                                     <a href="{{ route('index.adhoc') }}"><i class="icon-strategy i-plain"></i> Ad Hoc Committee</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('index.executive') }}"><i class="icon-strategy i-plain"></i> Executive Committee</a>
                                 </li>
                             </ul>
                             <!-- end sub menu item  -->

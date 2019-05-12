@@ -19,7 +19,7 @@
                     {!! csrf_field() !!}
                         <div class="form-group no-margin-bottom">
                             <!-- label  -->
-                            <label for="email" class="text-uppercase">Email</label>
+                            <label for="email" class="">Email</label>
                             <!-- end label  -->
                             <!-- input  -->
                             <input type="text" name="email" id="email">
@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group no-margin-bottom">
                             <!-- label  -->
-                            <label for="password" class="text-uppercase">Password</label>
+                            <label for="password" class="">Password</label>
                             <!-- end label  -->
                             <!-- input  -->
                             <input type="password" name="password" id="password">
@@ -50,7 +50,7 @@
                             <!-- end checkbox  -->
                         </div>
                         <button class="btn highlight-button-dark btn-small btn-round margin-five no-margin-right" type="submit">Login</button>
-                        <a href="#" class="display-block text-uppercase margin-five">Forgot Password?</a>
+                        <a href="#" class="display-block  margin-five">Forgot Password?</a>
                     </form>
                 </div>
             </div>

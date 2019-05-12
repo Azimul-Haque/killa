@@ -21,6 +21,7 @@ Route::get('/journey', ['as'=>'index.journey','uses'=>'IndexController@getJourne
 Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
 Route::get('/faq', ['as'=>'index.faq','uses'=>'IndexController@getFaq']);
 Route::get('/adhoc', ['as'=>'index.adhoc','uses'=>'IndexController@getAdhoc']);
+Route::get('/executive', ['as'=>'index.executive','uses'=>'IndexController@getExecutive']);
 Route::get('/news', ['as'=>'index.news','uses'=>'IndexController@getNews']);
 Route::get('/events', ['as'=>'index.events','uses'=>'IndexController@getEvents']);
 Route::get('/gallery', ['as'=>'index.gallery','uses'=>'IndexController@getGallery']);
@@ -62,6 +63,9 @@ Route::get('/dashboard/events', ['as'=>'dashboard.events','uses'=>'DashboardCont
 Route::get('/dashboard/gallery', ['as'=>'dashboard.gallery','uses'=>'DashboardController@getGallery']);
 Route::get('/dashboard/blogs', ['as'=>'dashboard.blogs','uses'=>'DashboardController@getBlogs']);
 Route::get('/dashboard/members', ['as'=>'dashboard.members','uses'=>'DashboardController@getMembers']);
+Route::delete('/dashboard/deletemember/{id}', ['as'=>'dashboard.deletemember','uses'=>'DashboardController@deleteMember']);
 Route::get('/dashboard/applications', ['as'=>'dashboard.applications','uses'=>'DashboardController@getApplications']);
+Route::patch('/dashboard/applications/{id}/approve', ['as'=>'dashboard.approveapplication','uses'=>'DashboardController@approveApplication']);
+Route::delete('/dashboard/application/{id}', ['as'=>'dashboard.deleteapplication','uses'=>'DashboardController@deleteApplication']);
 // dashboard routes
 // dashboard routes
