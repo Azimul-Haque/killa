@@ -83,7 +83,9 @@ class IndexController extends Controller
     {
         $members = User::where('role', 'alumni')
                        ->where('payment_status', 1)
-                       ->orderBy('passing_year')
+                       ->orderBy('degree', 'asc')
+                       ->orderBy('batch', 'asc')
+                       ->orderBy('roll', 'asc')
                        ->get();
         return view('index.members')->withMembers($members);
     }
