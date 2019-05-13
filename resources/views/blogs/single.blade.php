@@ -15,11 +15,11 @@
     <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}" />
-    <meta name="og:site_name" content="IIT Alumni Association">
-    <meta name="og:locale" content="en_US">
+    <meta property="og:site_name" content="IIT Alumni Association">
+    <meta property="og:locale" content="en_US">
     <meta name="fb:admins" content="100001596964477">
-    <meta name="fb:app_id" content="163879201229487">
-    <meta name="og:type" content="article">
+    <meta property="fb:app_id" content="163879201229487">
+    <meta property="og:type" content="article">
     <!-- Open Graph - Article -->
     <meta name="article:section" content="{{ $blog->category->name }}">
     <meta name="article:published_time" content="{{ $blog->created_at}}">
