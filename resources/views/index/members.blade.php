@@ -33,10 +33,10 @@
                     <div class="text-center">
                         <!-- work filter -->
                         <ul class="portfolio-filter nav nav-tabs nav-tabs-light wow fadeInUp">
-                            <li class="nav active"><a href="#" class="filter-button" data-filter="all">All</a></li>
-                            <li class="nav"><a href="#" class="filter-button" data-filter="BSSE">BSSE</a></li>
-                            <li class="nav"><a href="#" class="filter-button" data-filter="MIT">MIT</a></li>
-                            <li class="nav"><a href="#" class="filter-button" data-filter="PGDIT">PGDIT</a></li>
+                            <li class="nav"><button class="highlight-button btn btn-small button xs-margin-bottom-five filter-button" data-filter="all">All</button></li>
+                            <li class="nav"><button class="highlight-button btn btn-small button xs-margin-bottom-five filter-button" data-filter="BSSE">BSSE</button></li>
+                            <li class="nav"><button class="highlight-button btn btn-small button xs-margin-bottom-five filter-button" data-filter="MIT">MIT</button></li>
+                            <li class="nav"><button class="highlight-button btn btn-small button xs-margin-bottom-five filter-button" data-filter="PGDIT">PGDIT</button></li>
                         </ul>
                         <!-- end work filter -->
                     </div>
