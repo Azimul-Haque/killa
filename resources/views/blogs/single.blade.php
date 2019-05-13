@@ -11,7 +11,7 @@
         <meta property="og:image" content="{{ asset('images/600x315.png') }}" />
     @endif
 
-    <meta property="og:title" content="{{ $blog->title }}"/>
+    <meta property="og:title" content="{{ $blog->title }} | {{ $blog->user->name }}"/>
     <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}" />
