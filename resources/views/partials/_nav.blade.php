@@ -54,8 +54,8 @@
                         </li>
                         <!-- menu item -->
                         <li class="dropdown panel simple-dropdown">
-                            <a href="#about_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">About
-                                <i class="fa fa-angle-down"></i>
+                            <a href="#about_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">About ▽
+                                {{-- <i class="fa fa-angle-down"></i> --}}
                             </a>
                             <!-- sub menu single -->
                             <!-- sub menu item  -->
@@ -74,8 +74,8 @@
                             <!-- end sub menu single -->
                         </li>
                         <li class="dropdown panel simple-dropdown">
-                            <a href="#committee_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">Committee
-                                <i class="fa fa-angle-down"></i>
+                            <a href="#committee_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">Committee ▽
+                                {{-- <i class="fa fa-angle-down"></i> --}}
                             </a>
                             <!-- sub menu single -->
                             <!-- sub menu item  -->
@@ -91,8 +91,8 @@
                             <!-- end sub menu single -->
                         </li>
                         <li class="dropdown panel simple-dropdown">
-                            <a href="#others_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">Others
-                                <i class="fa fa-angle-down"></i>
+                            <a href="#others_dropdown" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">Others ▽
+                                {{-- <i class="fa fa-angle-down"></i> --}}
                             </a>
                             <!-- sub menu single -->
                             <!-- sub menu item  -->

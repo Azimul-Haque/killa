@@ -4,10 +4,40 @@
 @endsection
 
 @section('css')
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
 
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background-color:#fff; /* change if the mask should have another color then white */
+            z-index:99999;
+        }
+
+        #status {
+            width:200px;
+            height:200px;
+            position:absolute;
+            left:50%;
+            top:50%;
+            background-image:url({{ asset('images/3362406.gif') }}); /* path to your loading animation */
+            background-repeat:no-repeat;
+            background-position:center;
+            margin:-100px 0 0 -100px;
+        }
+    </style>
 @endsection
 
 @section('content')
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
     @extends('partials._slider')
     <!-- about section -->
     <section class="no-padding-bottom wow fadeIn">
@@ -189,5 +219,14 @@
 @endsection
 
 @section('js')
-
+<!-- Preloader -->
+<script type="text/javascript">
+    //<![CDATA[
+        $(window).load(function() { // makes sure the whole site is loaded
+            $('#status').fadeOut(); // will first fade out the loading animation
+            $('#preloader').delay(1000).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(1000).css({'overflow':'visible'});
+        })
+    //]]>
+</script>
 @endsection

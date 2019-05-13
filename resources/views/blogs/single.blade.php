@@ -1,28 +1,31 @@
 @extends('layouts.index')
 @section('title')
-    IIT Alumni | {{ $blog->slug }}
+    IIT Alumni | {{ $blog->title }}
 @endsection
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
-@if($blog->featured_image != null)
-    <meta name="og:image" content="{{ asset('images/blogs/'.$blog->featured_image) }}">
-@else
-    <meta name="og:image" content="{{ asset('images/600x315.png') }}">
-@endif
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
+    @if($blog->featured_image != null)
+        <meta name="og:image" content="{{ asset('images/blogs/'.$blog->featured_image) }}">
+    @else
+        <meta name="og:image" content="{{ asset('images/600x315.png') }}">
+    @endif
 
-<meta name="og:url" content="{{ Request::url() }}">
-<meta name="og:site_name" content="IIT Alumni Association">
-<meta name="og:locale" content="en_US">
-<meta name="fb:admins" content="100001596964477">
-<meta name="fb:app_id" content="163879201229487">
-<meta name="og:type" content="article">
-<!-- Open Graph - Article -->
-<meta name="article:section" content="{{ $blog->category->name }}">
-<meta name="article:published_time" content="{{ $blog->created_at}}">
-<meta name="article:author" content="{{ $blog->user->name }}">
-<meta name="article:tag" content="{{ $blog->category->name }}">
-<meta name="article:modified_time" content="{{ $blog->updated_at}}">
+    <meta property="og:title" content="{{ $blog->title }}"/>
+    <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
+    <meta property="og:type" content="iitdualumni:artice"/>
+    <meta name="og:url" content="{{ Request::url() }}">
+    <meta name="og:site_name" content="IIT Alumni Association">
+    <meta name="og:locale" content="en_US">
+    <meta name="fb:admins" content="100001596964477">
+    <meta name="fb:app_id" content="163879201229487">
+    <meta name="og:type" content="article">
+    <!-- Open Graph - Article -->
+    <meta name="article:section" content="{{ $blog->category->name }}">
+    <meta name="article:published_time" content="{{ $blog->created_at}}">
+    <meta name="article:author" content="{{ $blog->user->name }}">
+    <meta name="article:tag" content="{{ $blog->category->name }}">
+    <meta name="article:modified_time" content="{{ $blog->updated_at}}">
 @endsection
 
 @section('content')
