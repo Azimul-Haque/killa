@@ -6,15 +6,15 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
     @if($blog->featured_image != null)
-        <meta name="og:image" content="{{ asset('images/blogs/'.$blog->featured_image) }}" />
+        <meta property="og:image" content="{{ asset('images/blogs/'.$blog->featured_image) }}" />
     @else
-        <meta name="og:image" content="{{ asset('images/600x315.png') }}" />
+        <meta property="og:image" content="{{ asset('images/600x315.png') }}" />
     @endif
 
     <meta property="og:title" content="{{ $blog->title }}"/>
     <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
     <meta property="og:type" content="article"/>
-    <meta name="og:url" content="{{ Request::url() }}" />
+    <meta property="og:url" content="{{ Request::url() }}" />
     <meta name="og:site_name" content="IIT Alumni Association">
     <meta name="og:locale" content="en_US">
     <meta name="fb:admins" content="100001596964477">
