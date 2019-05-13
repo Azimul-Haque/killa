@@ -12,7 +12,7 @@
     @endif
 
     <meta property="og:title" content="{{ $blog->title }}"/>
-    <meta property="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
+    <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}" />
     <meta property="og:site_name" content="IIT Alumni Association">
