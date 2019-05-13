@@ -30,7 +30,12 @@ class IndexController extends Controller
     public function index()
     {
         $blogs = Blog::orderBy('id', 'DESC')->get()->take(3);
-        return view('index.index')->withBlogs($blogs);
+        $alumnis = User::where('payment_status', 1)
+                       ->where('role', 'alumni')->count();
+
+        return view('index.index')
+                    ->withBlogs($blogs)
+                    ->withAlumnis($alumnis);
     }
 
     public function getJourney()

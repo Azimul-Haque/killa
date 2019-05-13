@@ -71,7 +71,12 @@
                           <div class="col-md-6">
                             <div class="form-group no-margin-bottom">
                                 <label for="batch" class="text-uppercase">Batch</label>
-                                <input type="text" name="batch" id="batch"  required="">
+                                <select name="batch" required="">
+                                    <option value="" selected="" disabled="">Select one</option>
+                                    @for($i = 1; $i <= 50; $i++)
+                                      <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                </select>
                             </div>
                           </div>
                           <div class="col-md-6">

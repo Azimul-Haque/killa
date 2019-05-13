@@ -77,7 +77,7 @@
                     <!-- phone -->
                     <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-phone small-icon black-text"></i>
-                        <h6 class="black-text margin-two no-margin-bottom">+88 017********</h6>
+                        <h6 class="black-text margin-two no-margin-bottom"><a href="tel:+8801515297658">+88 01515297658</a></h6>
                     </div>
                     <!-- end phone -->
                     <!-- address -->
@@ -90,7 +90,7 @@
                     <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-envelope small-icon black-text"></i>
                         <h6 class="margin-two no-margin-bottom">
-                            <a href="mailto:no-reply@domain.com" class="black-text">info@iitdualumni.com</a>
+                            <a href="mailto:info@iitdualumni.com" class="black-text">info@iitdualumni.com</a>
                         </h6>
                     </div>
                     <!-- end email -->

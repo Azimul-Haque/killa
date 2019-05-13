@@ -36,10 +36,10 @@
                     <p class="text-med black-text letter-spacing-1 margin-ten no-margin-bottom text-uppercase font-weight-600 xs-margin-top-five">Head Office</p>
                     <div class="row">
                         <div class="col-md-6">
-                            <p>IIT, University of Dhaka</p>
+                            <p><i class="fa fa-map-marker black-text"></i> IIT, University of Dhaka</p>
                         </div>
                         <div class="col-md-6 xs-text-center">
-                            <p class="black-text no-margin-bottom"><strong><i class="fa fa-phone black-text"></i></strong> 01234567890</p>
+                            <p class="black-text no-margin-bottom"><strong><i class="fa fa-phone black-text"></i></strong> <a href="tel:+8801515297658">+88 01515297658</a></p>
                             <p class="black-text"><strong><i class="fa fa-envelope black-text"></i></strong> <a href="mailto:info@iitdualumni.com">info@iitdualumni.com</a></p>
                         </div>
                     </div>

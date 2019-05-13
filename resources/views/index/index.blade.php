@@ -119,7 +119,7 @@
                 <!-- counter item -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="300ms">
                     <i class="icon-heart medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="250" data-speed="7000"></span>
+                    <span class="timer counter-number white-text main-font font-weight-600" data-to="{{ $alumnis }}" data-speed="7000"></span>
                     <span class="counter-title light-gray-text">Alumnis</span>
                 </div>
                 <!-- end counter item -->
