@@ -13,7 +13,7 @@
 
     <meta property="og:title" content="{{ $blog->title }}"/>
     <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
-    <meta property="og:type" content="article:author"/>
+    <meta property="og:type" content="article"/>
     <meta name="og:url" content="{{ Request::url() }}">
     <meta name="og:site_name" content="IIT Alumni Association">
     <meta name="og:locale" content="en_US">
@@ -23,7 +23,7 @@
     <!-- Open Graph - Article -->
     <meta name="article:section" content="{{ $blog->category->name }}">
     <meta name="article:published_time" content="{{ $blog->created_at}}">
-    <meta name="article:author" content="{{ $blog->user->name }}">
+    <meta name="article:author" content="{{ Request::url('blogger/profile/'.$blog->user->unique_key) }}">
     <meta name="article:tag" content="{{ $blog->category->name }}">
     <meta name="article:modified_time" content="{{ $blog->updated_at}}">
 @endsection
