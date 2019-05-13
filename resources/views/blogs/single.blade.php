@@ -13,7 +13,7 @@
 
     <meta property="og:title" content="{{ $blog->title }}"/>
     <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
-    <meta property="og:type" content="iitdualumni:artice"/>
+    <meta property="og:type" content="artice"/>
     <meta name="og:url" content="{{ Request::url() }}">
     <meta name="og:site_name" content="IIT Alumni Association">
     <meta name="og:locale" content="en_US">
