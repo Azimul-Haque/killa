@@ -37,7 +37,7 @@
                         <table class="table table-condensed">
                             <tr>
                                 <td>Batch</td>
-                                <td>: {{ $user->degree }} {{ $user->batch }}</td>
+                                <td>: {{ $user->degree }} {{ ordinal($user->batch) }}</td>
                             </tr>
                             <tr>
                                 <td>Passing Year</td>

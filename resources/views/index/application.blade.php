@@ -74,7 +74,7 @@
                                 <select name="batch" required="">
                                     <option value="" selected="" disabled="">Select one</option>
                                     @for($i = 1; $i <= 50; $i++)
-                                      <option value="{{ $i }}">{{ $i }}</option>
+                                      <option value="{{ $i }}">{{ ordinal($i) }}</option>
                                     @endfor
                                 </select>
                             </div>

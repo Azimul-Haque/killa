@@ -66,7 +66,7 @@
                         <figure class="position-relative bg-white" style="min-height: 230px;">
                             <span class="team-name text-uppercase black-text letter-spacing-2 display-block font-weight-600">{{ $member->name }}</span>
                             <span class="team-post text-uppercase letter-spacing-2 display-block">
-                                {{ $member->degree }} {{ $member->batch }}
+                                {{ $member->degree }} {{ ordinal($member->batch) }}
                             </span>
                             <div class="person-social margin-five no-margin-bottom">
                                 <a href="{{ $member->fb }}"><i class="fa fa-facebook"></i></a>

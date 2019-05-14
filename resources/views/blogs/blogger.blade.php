@@ -18,7 +18,7 @@
                     <!-- end page title -->
                     <!-- page title tagline -->
                     <span class="">
-                      <i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ $blogger->degree }} {{ $blogger->batch }}, {{ $blogger->passing_year }}<br/>
+                      <i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ $blogger->degree }} {{ ordinal($blogger->batch) }}, {{ $blogger->passing_year }}<br/>
                       <i class="fa fa-briefcase" aria-hidden="true"></i> {{ $blogger->designation }}, {{ $blogger->current_job }}
                     </span>
                     <!-- end title tagline -->
