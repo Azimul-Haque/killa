@@ -29,7 +29,32 @@
     <meta name="theme-color" content="#252525">
     <!-- animation -->
     
-    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/app.css') }}" />
+    <!-- animation -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/animate.css') }}" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/bootstrap.css') }}" />
+    <!-- et line icon -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/et-line-icons.css') }}" />
+    <!-- font-awesome icon -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/font-awesome.min.css') }}" />
+    <!-- revolution slider -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/extralayers.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/settings.css') }}" />
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/magnific-popup.css') }}" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/owl.carousel.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/owl.transitions.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/full-slider.css') }}" />
+    <!-- text animation -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/text-effect.css') }}" />
+    <!-- hamburger menu  -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/menu-hamburger.css') }}" />
+    <!-- common -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/style.css') }}" />
+    <!-- responsive -->
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/responsive.css') }}" />
+    {{-- <link rel="stylesheet" href="{{ asset('vendor/hcode/css/app.css') }}" /> --}}
     <!--[if IE]>
             <link rel="stylesheet" href="{{ asset('vendor/hcode/css/style-ie.css') }}" />
         <![endif]-->
