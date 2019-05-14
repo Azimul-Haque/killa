@@ -38,7 +38,7 @@
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
-    @extends('partials._slider')
+    @include('partials._slider')
     <!-- about section -->
     <section class="no-padding-bottom wow fadeIn">
         <div class="container">
