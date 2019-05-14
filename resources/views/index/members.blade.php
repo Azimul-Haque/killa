@@ -62,7 +62,7 @@
                     @endif
                     style="min-height: 500px;"
                     >
-                        <img src="{{ asset('images/users/'.$member->image) }}" alt="" style="width: 100%;" />
+                        <img src="{{ asset('images/users/'.$member->image) }}" class="img-responsive" alt="Photograph of {{ $member->name }}" style="width: 100%;" />
                         <figure class="position-relative bg-white" style="min-height: 230px;">
                             <span class="team-name text-uppercase black-text letter-spacing-2 display-block font-weight-600">{{ $member->name }}</span>
                             <span class="team-post text-uppercase letter-spacing-2 display-block">

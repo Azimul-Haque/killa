@@ -224,9 +224,9 @@
             var imagewidth = this.width;
             var imageheight = this.height;
             filesize = parseInt((file.size / 1024));
-            if(filesize > 250) {
+            if(filesize > 300) {
               $("#image").val('');
-              toastr.warning('Filesize: '+filesize+' KB. Please upload within 250KB', 'WARNING').css('width', '400px;');
+              toastr.warning('Filesize: '+filesize+' KB. Please upload within 300KB', 'WARNING').css('width', '400px;');
               setTimeout(function() {
                 $("#img-upload").attr('src', '{{ asset('images/user.png') }}');
               }, 1000);

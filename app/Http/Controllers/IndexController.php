@@ -164,7 +164,7 @@ class IndexController extends Controller
             'twitter'                   => 'sometimes|max:255',
             'gplus'                     => 'sometimes|max:255',
             'linkedin'                  => 'sometimes|max:255',
-            'image'                     => 'required|image|max:200',
+            'image'                     => 'required|image|max:300',
             'password'                  => 'required|min:8|same:password_confirmation'
         ));
 
@@ -191,7 +191,7 @@ class IndexController extends Controller
             $image      = $request->file('image');
             $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/users/'. $filename);
-            Image::make($image)->resize(200, 200)->save($location);
+            Image::make($image)->resize(250, 250)->save($location);
             $application->image = $filename;
         }
         $application->password = Hash::make($request->password);
