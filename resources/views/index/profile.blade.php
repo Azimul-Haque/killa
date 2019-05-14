@@ -36,7 +36,7 @@
                     <div class="col-md-12 col-sm-12 no-padding">
                         <table class="table table-condensed">
                             <tr>
-                                <td>Batch</td>
+                                <td width="30%">Batch</td>
                                 <td>: {{ $user->degree }} {{ ordinal($user->batch) }}</td>
                             </tr>
                             <tr>
