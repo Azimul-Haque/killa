@@ -5,6 +5,7 @@
 
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('css/DateTimePicker.css') }}">
+  {!!Html::style('css/parsley.css')!!}
 @stop
 
 @section('content')
@@ -13,7 +14,7 @@
             <div class="row">
                 <div class="col-md-10 col-sm-10 col-xs-11 center-col login-box">
                     <h1 style="text-align: center">Registration Form</h1><br/>
-                    <form action="{{ route('index.storeapplication') }}" method="post" enctype='multipart/form-data'>
+                    <form action="{{ route('index.storeapplication') }}" method="post" enctype='multipart/form-data' data-parsley-validate="">
                         {!! csrf_field() !!}
                         <div class="row">
                           <div class="col-md-6">
@@ -178,6 +179,7 @@
 
 @section('js')
   <script type="text/javascript" src="{{ asset('js/DateTimePicker.min.js') }}"></script>
+  {!!Html::script('js/parsley.min.js')!!}
     <script type="text/javascript">
         $(document).ready(function() {
             $("#dtBox").DateTimePicker({
