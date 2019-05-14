@@ -35,7 +35,7 @@
           <div class="container">
               <div class="row margin-six">
               @foreach($adhocmembers as $adhocmember)
-                <div class="col-md-3 col-sm-4 bottom-margin text-center xs-margin-bottom-one wow fadeInUp">
+                <div class="col-md-3 col-sm-4 bottom-margin text-center xs-margin-bottom-one wow fadeInUp" style="min-height: 480px;">
                     <div class="key-person">
                         <div class="key-person-img">
                           @if($adhocmember->image != null)

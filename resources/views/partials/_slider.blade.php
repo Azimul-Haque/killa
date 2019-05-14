@@ -38,7 +38,7 @@
                 <div class="slider-typography text-center">
                     <div class="slider-text-middle-main">
                         <div class="slider-text-middle slider-text-middle6 padding-left-right-px wow fadeInUp">
-                            <span class="slider-title-big6 white-text text-uppercase font-weight-700 letter-spacing-3">Expertise</span>
+                            <span class="slider-title-big6 white-text text-uppercase font-weight-700 letter-spacing-3">Fraternity</span>
                             <span class="white-text text-small text-uppercase letter-spacing-10 margin-three no-margin-bottom display-block">We craft unique digital experiences</span>
                         </div>
                     </div>
