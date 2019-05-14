@@ -47,14 +47,14 @@ class DashboardController extends Controller
     {
         $this->validate($request,array(
             'name'                      => 'required|max:255',
-            'email'                     => 'required|email',
-            'phone'                     => 'required|numeric',
+            'email'                     => 'sometimes|email',
+            'phone'                     => 'sometimes|numeric',
             'designation'               => 'required|max:255',
             'fb'                        => 'sometimes|max:255',
             'twitter'                   => 'sometimes|max:255',
             'gplus'                     => 'sometimes|max:255',
             'linkedin'                  => 'sometimes|max:255',
-            'image'                     => 'sometimes|image|max:250'
+            'image'                     => 'sometimes|image|max:400'
         ));
 
         $adhocmember = new Adhocmember();
@@ -72,7 +72,7 @@ class DashboardController extends Controller
             $image      = $request->file('image');
             $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/committee/adhoc/'. $filename);
-            Image::make($image)->resize(250, 250)->save($location);
+            Image::make($image)->resize(400, 400)->save($location);
             $adhocmember->image = $filename;
         }
 
@@ -85,14 +85,14 @@ class DashboardController extends Controller
     public function updateCommittee(Request $request, $id) {
         $this->validate($request,array(
             'name'                      => 'required|max:255',
-            'email'                     => 'required|email',
-            'phone'                     => 'required|numeric',
+            'email'                     => 'sometimes|email',
+            'phone'                     => 'sometimes|numeric',
             'designation'               => 'required|max:255',
             'fb'                        => 'sometimes|max:255',
             'twitter'                   => 'sometimes|max:255',
             'gplus'                     => 'sometimes|max:255',
             'linkedin'                  => 'sometimes|max:255',
-            'image'                     => 'sometimes|image|max:250'
+            'image'                     => 'sometimes|image|max:400'
         ));
 
         $adhocmember = Adhocmember::find($id);
@@ -111,15 +111,19 @@ class DashboardController extends Controller
                 $image      = $request->file('image');
                 $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
                 $location   = public_path('/images/committee/adhoc/'. $filename);
-                Image::make($image)->resize(250, 250)->save($location);
+                Image::make($image)->resize(400, 400)->save($location);
                 $adhocmember->image = $filename;
             }
         } else {
             if($request->hasFile('image')) {
+                $image_path = public_path('images/committee/adhoc/'. $adhocmember->image);
+                if(File::exists($image_path)) {
+                    File::delete($image_path);
+                }
                 $image      = $request->file('image');
-                $filename   = $adhocmember->image;
+                $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
                 $location   = public_path('/images/committee/adhoc/'. $filename);
-                Image::make($image)->resize(250, 250)->save($location);
+                Image::make($image)->resize(400, 400)->save($location);
                 $adhocmember->image = $filename;
             }
         }

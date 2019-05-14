@@ -114,7 +114,7 @@
                         <div class="row">
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label>Photo (300 X 300 &amp; 250Kb Max):</label>
+                                  <label>Photo (300 X 300 &amp; 400Kb Max):</label>
                                   <div class="input-group">
                                       <span class="input-group-btn">
                                           <span class="btn btn-default btn-file">
@@ -170,9 +170,9 @@
                 $("#image{{ $adhocmember->id }}").change(function(){
                     readURL(this);
                     var filesize = parseInt((this.files[0].size)/1024);
-                    if(filesize > 250) {
+                    if(filesize > 400) {
                       $("#image{{ $adhocmember->id }}").val('');
-                      toastr.warning('File size is: '+filesize+' Kb. try uploading less than 250Kb', 'WARNING').css('width', '400px;');
+                      toastr.warning('File size is: '+filesize+' Kb. try uploading less than 400Kb', 'WARNING').css('width', '400px;');
                         setTimeout(function() {
                           $("#img-update{{ $adhocmember->id }}").attr('src', '{{ asset('images/user.png') }}');
                         }, 1000);
