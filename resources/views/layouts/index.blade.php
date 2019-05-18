@@ -211,7 +211,7 @@
                 <div class="row margin-three">
                     <!-- copyright -->
                     <div class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
-                        &copy; {{ date('Y') }} Mannan and Co.
+                        &copy; {{ date('Y') }} Soft360 Ltd.
                     </div>
                     <!-- end copyright -->
                     <!-- logo -->
