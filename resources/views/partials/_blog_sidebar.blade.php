@@ -35,7 +35,10 @@
                     <img src="{{ asset('images/600x315.png') }}" alt=""/>
                     @endif
                 </a>
-                <div class="widget-posts-details"><a href="{{ route('blog.single', $popular->slug) }}">{{ $popular->title }}</a> {{ $popular->user->name }} - {{ date('d F', strtotime($popular->created_at)) }}</div>
+                <div class="widget-posts-details">
+                    <a href="{{ route('blog.single', $popular->slug) }}" class="overflowellipsis">{{ $popular->title }}</a>
+                    <span class="overflowellipsis">{{ $popular->user->name }} - {{ date('F d, Y', strtotime($popular->created_at)) }}</span>
+                </div>
             </li>
             @endforeach
         </ul>
