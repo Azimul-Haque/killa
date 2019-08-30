@@ -38,184 +38,238 @@
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
-    @include('partials._slider')
+    {{-- @include('partials._slider') --}}
+    <!-- start section -->
+    <section class="bg-gray" style="margin-top: 80px; padding: 60px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 xs-margin-bottom-four">
+                    <span class="owl-subtitle">K I L L A</span>
+                    <span class="owl-title" style="line-height: 35px;font-size: 25px; font-weight: 600; display: block; letter-spacing: 4px;">sjdhd sdjhdsh sdjhdsfh sdjhksjdh sdhkjdsh dsjhdh skdhjkdfh sdhkjdfhk</span>
+                    <a href="contact.html" class="highlight-button-dark btn margin-four">Let Explore Our Works</a>
+
+                </div>
+                <!-- end section title -->
+                <!-- section highlight text -->
+                <div class="col-md-4 col-sm-4 text-right xs-text-left">
+                    <img alt="" class="get-bg xs-display-none" style="padding-top: 12%;" src="{{ asset('images/abc.png') }}" />
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- end start section -->
     <!-- about section -->
-    <section class="no-padding-bottom wow fadeIn">
+    <section class=" wow fadeIn">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-10 text-center center-col">
-                    <span class="margin-five no-margin-top display-block letter-spacing-2">EST. 2016</span>
-                    <h1>IITDU Alumni Association</h1>
+                    <span class="margin-five no-margin-top display-block letter-spacing-2">EST. 2018</span>
+                    <h2>Killa-Knowledge Information and Learning for Local Adaptation</h2>
                     <p class="text-med width-90 center-col margin-seven no-margin-bottom"> We've been crafting beautiful websites, launching stunning brands and making clients happy for years. With our prestigious craftsmanship, remarkable client care and passion for design.</p>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid margin-five no-margin-bottom">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 bg-fast-yellow padding-three text-center">
-                    <span class="text-small text-uppercase font-weight-600 black-text letter-spacing-2">Professionalism &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Excellence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Respect</span>
                 </div>
             </div>
         </div>
     </section>
     <!-- end about section -->
-    <section class="wow fadeInUp bg-gray">
+    <section class="padding-three bg-gray">
         <div class="container">
             <div class="row">
-                <!-- call to action -->
-                <div class="col-md-7 col-sm-12 text-center center-col">
-                    <p class="title-large text-uppercase letter-spacing-1 black-text font-weight-600 wow fadeIn">Want to be a memeber of IITAluni?</p>
-                    <a href="{{ route('index.application') }}" class="highlight-button-black-border btn margin-six wow fadeInUp">Apply Now!</a>
+                <!-- section title -->
+                <div class="col-md-6 col-sm-6">
+                    <span class="text-large letter-spacing-2 black-text font-weight-600 agency-title">Recent Works</span>
                 </div>
-                <!-- end call to action -->
+                <!-- end section title -->
+                <!-- section highlight text -->
+                <div class="col-md-6 col-sm-6 text-right xs-text-left">
+                </div>
+                <!-- end section highlight text -->
             </div>
         </div>
     </section>
-    <section style="padding: 13px 0;">
-        <div class="container margin-five wow fadeInUp">
+    <section class="work-4col gutter work-with-title wide wide-title padding-three">
+        <div class="container">
             <div class="row">
-                <!-- features item -->
-                <div class="col-md-4 col-sm-6 sm-margin-bottom-ten xs-text-center">
-                    <h3>Latest News</h3>
-                    <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">We're ready
-                        <br> to start now</span>
-                    <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
-                    <a href="#" class="highlight-link text-uppercase white-text">Read More
-                        <i class="fa fa-long-arrow-right extra-small-icon white-text"></i>
-                    </a>
+                <div class="col-md-12 grid-gallery overflow-hidden no-padding" >
+                    <div class="tab-content">
+                        <!-- tour grid -->
+                        <ul class="grid masonry-items">
+                            <!-- tour item -->
+                            <li class="holidays luxury safari">
+                                <figure>
+                                    <div class="gallery-img"><a href="project-single.html"><img src="{{ asset('images/travel-agency-packages08.jpg') }}" alt=""></a></div>
+                                    <figcaption>
+                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                                        <a class="btn inner-link btn-black btn-small" href="project-single.html">Explore Now</a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end tour item -->
+                            <!-- tour item -->
+                            <li class="holidays luxury">
+                                <figure>
+                                    <div class="gallery-img"><a href=""><img src="{{ asset('images/travel-agency-packages01.jpg') }}" alt=""></a></div>
+                                    <figcaption>
+                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                                        <a class="btn inner-link btn-black btn-small" href="#contact-us">Explore Now</a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end tour item -->
+                            <!-- tour item -->
+                            <li class="honeymoon family safari luxury">
+                                <figure>
+                                    <div class="gallery-img"><a href=""><img src="{{ asset('images/travel-agency-packages04.jpg') }}" alt=""></a></div>
+                                    <figcaption>
+                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                                        <a class="btn inner-link btn-black btn-small" href="#contact-us">Explore Now</a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end tour item -->
+                            <!-- tour item -->
+                            <li class="holidays luxury safari">
+                                <figure>
+                                    <div class="gallery-img"><a href="project-single.html"><img src="{{ asset('images/travel-agency-packages08.jpg') }}" alt=""></a></div>
+                                    <figcaption>
+                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                                        <a class="btn inner-link btn-black btn-small" href="project-single.html">Explore Now</a>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <!-- end tour item -->
+                            
+                        </ul>
+                        <!-- end tour grid -->
+                    </div>
                 </div>
-                <!-- end features item -->
-                <!-- features item -->
-                <div class="col-md-4 col-sm-6 sm-margin-bottom-ten xs-text-center">
-                    <h3>Latest Event</h3>
-                    <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">Always on time
-                        <br> call support</span>
-                    <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
-                    <a href="#" class="highlight-link text-uppercase white-text">Read More
-                        <i class="fa fa-long-arrow-right extra-small-icon white-text"></i>
-                    </a>
+            </div>
+        </div>
+    </section>
+    <section class="padding-three bg-gray">
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                <div class="col-md-6 col-sm-6">
+                    <span class="text-large letter-spacing-2 black-text font-weight-600 agency-title">Latest Publications</span>
                 </div>
-                <!-- end features item -->
-                <!-- features item -->
-                <div class="col-md-4 col-sm-6 xs-margin-bottom-ten xs-text-center">
-                    <h3>Latest Notice</h3>
-                    <span class="title-small text-uppercase font-weight-700 black-text letter-spacing-1 margin-seven display-block">We Deliver the
-                        <br> highest quality</span>
-                    <p class="margin-ten no-margin-top width-90 xs-center-col xs-display-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the text.</p>
-                    <a href="#" class="highlight-link text-uppercase white-text">Read More
-                        <i class="fa fa-long-arrow-right extra-small-icon white-text"></i>
-                    </a>
+                <!-- end section title -->
+                <!-- section highlight text -->
+                <div class="col-md-6 col-sm-6 text-right xs-text-left">
                 </div>
-                <!-- end features item -->
-
+                <!-- end section highlight text -->
+            </div>
+        </div>
+    </section>
+    <section id="features" class="features wow fadeIn" style="margin-bottom: 40px; padding: 60px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <!-- features item -->
+                    <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp">
+                        <div class="col-md-3 col-sm-2 col-xs-2 ">
+                            <a href=""><img src="{{ asset('images/photography-15.jpg') }}" alt=""></a>
+                        </div>
+                        <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
+                            <a href=""><h5 style="margin: 5px;">Lorem Ipsum is simply dummy text of the printing and typesetting</h5></a>
+                            <div class="separator-line bg-yellow"></div>
+                        </div>
+                    </div>
+                    <!-- end features item -->
+                    <!-- features item -->
+                    <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp">
+                        <div class="col-md-3 col-sm-2 col-xs-2 ">
+                            <a href=""><img src="{{ asset('images/photography-15.jpg') }}" alt=""></a>
+                        </div>
+                        <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
+                            <a href=""><h5 style="margin: 5px;">Lorem Ipsum is simply dummy text of the printing and typesetting</h5></a>
+                            <div class="separator-line bg-yellow"></div>
+                        </div>
+                    </div>
+                    <!-- end features item -->
+                    <!-- features item -->
+                    <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp">
+                        <div class="col-md-3 col-sm-2 col-xs-2 ">
+                            <a href=""><img src="{{ asset('images/photography-15.jpg') }}" alt=""></a>
+                        </div>
+                        <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
+                            <a href=""><h5 style="margin: 5px;">Lorem Ipsum is simply dummy text of the printing and typesetting</h5></a>
+                            <div class="separator-line bg-yellow"></div>
+                        </div>
+                    </div>
+                    <!-- end features item -->
+                   
+                     
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="padding-three bg-gray">
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                <div class="col-md-6 col-sm-6">
+                    <span class="text-large letter-spacing-2 black-text font-weight-600 agency-title">Killa at a Glance</span>
+                </div>
+                <!-- end section title -->
+                <!-- section highlight text -->
+                <div class="col-md-6 col-sm-6 text-right xs-text-left">
+                </div>
+                <!-- end section highlight text -->
             </div>
         </div>
     </section>
     <!-- counter section -->
-    <section id="counter" class="fix-background" style="background-image:url('images/slider/slider-img45.jpg');">
-        <div class="opacity-full bg-dark-gray"></div>
-        <div class="container position-relative">
+    <section id="counter" class="wow fadeIn border-bottom">
+        <div class="container">
             <div class="row">
-                <!-- counter item -->
+                <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="300ms">
-                    <i class="icon-heart medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="{{ $alumnis }}" data-speed="7000"></span>
-                    <span class="counter-title light-gray-text">Alumnis</span>
+                    <span class="timer counter-number" data-to="312" data-speed="7000"></span>
+                    <span class="counter-title">Employee</span>
                 </div>
-                <!-- end counter item -->
-                <!-- counter item -->
+                <!-- end counter -->
+                <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="600ms">
-                    <i class="icon-happy medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="20" data-speed="7000"></span>
-                    <span class="counter-title light-gray-text">Batch</span>
+                    <span class="timer counter-number" data-to="430" data-speed="7000"></span>
+                    <span class="counter-title">Ongoing Project</span>
                 </div>
-                <!-- end counter item -->
-                <!-- counter item -->
+                <!-- end counter -->
+                <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten" data-wow-duration="900ms">
-                    <i class="icon-anchor medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="20" data-speed="7000"></span>
-                    <span class="counter-title light-gray-text">Projects Completed</span>
+                    <span class="timer counter-number" data-to="690" data-speed="7000"></span>
+                    <span class="counter-title">Projects Completed</span>
                 </div>
-                <!-- end counter item -->
-                <!-- counter item -->
+                <!-- end counter -->
+                <!-- counter -->
                 <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp" data-wow-duration="1200ms">
-                    <i class="icon-chat medium-icon"></i>
-                    <span class="timer counter-number white-text main-font font-weight-600" data-to="5" data-speed="7000"></span>
-                    <span class="counter-title light-gray-text">Events</span>
+                    <span class="timer counter-number" data-to="826" data-speed="7000"></span>
+                    <span class="counter-title">Publications</span>
                 </div>
-                <!-- end counter item -->
+                <!-- end counter -->
             </div>
         </div>
     </section>
     <!-- end counter section -->
-    <!-- blog content section -->
-    <section class="">
+    <!-- highlight section -->
+    <section class="bg-fast-yellow no-padding wow fadeInUp">
         <div class="container">
-            <div class="row">
-                <!-- call to action -->
-                <div class="col-md-7 col-sm-12 text-center center-col">
-                    <p class="title-large text-uppercase letter-spacing-1 black-text font-weight-600 wow fadeIn">Latest Blogs</p><br/><br/>
+            <div class="row padding-five sm-text-center">
+                <div class="col-md-1">
+                    <i class="medium-icon black-text no-margin icon-toolbox"></i>
                 </div>
-                <!-- end call to action -->
-            </div>
-            <div class="row">
-                <!-- post item -->
-                @php
-                    $eventwaitduration = 300;
-                @endphp
-                @foreach($blogs as $blog)
-                <div class="col-md-4 col-sm-4 blog-listing wow fadeInRight" data-wow-duration="{{ $eventwaitduration }}ms">
-                    <div class="blog-image">
-                        <a href="{{ route('blog.single', $blog->slug) }}">
-                            @if($blog->featured_image != null)
-                            <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt=""/>
-                            @else
-                            <img src="{{ asset('images/600x315.png') }}" alt=""/>
-                            @endif
-                        </a>
-                    </div>
-                    <div class="blog-details">
-                        <div class="blog-date"><a href="{{ route('blog.single', $blog->slug) }}">{{ $blog->user->name }}</a> | {{ date('F d, Y', strtotime($blog->created_at)) }}</div>
-                        <div class="blog-title"><a href="{{ route('blog.single', $blog->slug) }}">{{ $blog->title }}</a></div>
-                        <div class="blog-short-description" style="text-align: justify; text-justify: inter-word; width: 100%; min-height: 160px;">
-                            @if(strlen(strip_tags($blog->body))>300)
-                            {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))." [...] " }}
-                            @else
-                                {{ strip_tags($blog->body) }}
-                            @endif
-                        </div>
-                        <div class="separator-line bg-black no-margin-lr"></div>
-                        <div>
-                            <a href="#!" class="blog-like"><i class="fa fa-heart-o"></i>{{ $blog->likes }} Like(s)</a>
-                            <a href="#" class="comment"><i class="fa fa-comment-o"></i>
-                            <span id="comment_count{{ $blog->id }}"></span> comment(s)</a>
-                            <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
-                            <script type="text/javascript">
-                                $.ajax({
-                                    url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ url('/blog/'.$blog->slug) }}",
-                                    dataType: "jsonp",
-                                    success: function(data) {
-                                        if(data.share) {
-                                            $('#comment_count{{ $blog->id }}').text(data.share.comment_count);
-                                        } else {
-                                            $('#comment_count{{ $blog->id }}').text(0);
-                                        }
-                                        
-                                    }
-                                });
-                            </script>
-                        </div>
-                    </div>
+                <div class="col-md-6 no-padding">
+                    <span class="text-med text-uppercase letter-spacing-2 margin-two black-text font-weight-600 xs-margin-top-six xs-margin-bottom-six display-block">Want to Work With Us?</span>
                 </div>
-                @php
-                    $eventwaitduration = $eventwaitduration + 300;
-                @endphp
-                @endforeach
-                <!-- end post item -->
+                <div class="col-md-5 no-padding">
+                    <a class="highlight-button-dark btn btn-medium button xs-margin-bottom-five xs-no-margin-right" href="portfolio-wide-with-title-gutter-4columns.html">View Our Projects</a>
+                    <a class="highlight-button btn btn-medium button xs-margin-bottom-five xs-no-margin-right" href="#">Contact Us</a>
+                </div>
             </div>
         </div>
     </section>
-    <!-- end blog content section -->
+    <!-- end highlight section -->
 @endsection
 
 @section('js')

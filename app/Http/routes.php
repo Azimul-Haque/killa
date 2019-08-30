@@ -17,10 +17,12 @@ Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 // index routes
 // index routes
 Route::get('/', ['as'=>'index.index','uses'=>'IndexController@index']);
-Route::get('/journey', ['as'=>'index.journey','uses'=>'IndexController@getJourney']);
+Route::get('/about', ['as'=>'index.about','uses'=>'IndexController@getAbout']);
 Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
+Route::get('/projects', ['as'=>'index.projects','uses'=>'IndexController@getgetProjects']);
+Route::get('/publications', ['as'=>'index.publications','uses'=>'IndexController@getgetPublications']);
+Route::get('/disaster/data', ['as'=>'index.disasterdata','uses'=>'IndexController@getDisasterdata']);
 Route::get('/faq', ['as'=>'index.faq','uses'=>'IndexController@getFaq']);
-Route::get('/adhoc', ['as'=>'index.adhoc','uses'=>'IndexController@getAdhoc']);
 Route::get('/executive', ['as'=>'index.executive','uses'=>'IndexController@getExecutive']);
 Route::get('/news', ['as'=>'index.news','uses'=>'IndexController@getNews']);
 Route::get('/events', ['as'=>'index.events','uses'=>'IndexController@getEvents']);
@@ -30,7 +32,7 @@ Route::get('/contact', ['as'=>'index.contact','uses'=>'IndexController@getContac
 Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses'=>'IndexController@storeFormMessage']);
 Route::get('/application', ['as'=>'index.application','uses'=>'IndexController@getApplication']);
 Route::get('/member/login', ['as'=>'index.login','uses'=>'IndexController@getLogin']);
-Route::get('/member/profile/{unique_key}', ['as'=>'index.profile','uses'=>'IndexController@getProfile']);
+Route::get('/profile/{unique_key}', ['as'=>'index.profile','uses'=>'IndexController@getProfile']);
 Route::post('/member/application/store', ['as'=>'index.storeapplication','uses'=>'IndexController@storeApplication']);
 // index routes
 // index routes

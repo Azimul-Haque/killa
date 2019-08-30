@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\User;
 use App\Blog;
 use App\Category;
-use App\Adhocmember;
+use App\Districtscord;
 
 use Carbon\Carbon;
 use DB;
@@ -23,24 +23,39 @@ class IndexController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest')->only('getLogin');
-        $this->middleware('auth')->only('getProfile');
+        // $this->middleware('guest')->only('getLogin');
+        // $this->middleware('auth')->only('getProfile');
     }
 
     public function index()
     {
-        $blogs = Blog::orderBy('id', 'DESC')->get()->take(3);
-        $alumnis = User::where('payment_status', 1)
-                       ->where('role', 'alumni')->count();
+        // $blogs = Blog::orderBy('id', 'DESC')->get()->take(3);
+        // $alumnis = User::where('payment_status', 1)
+        //                ->where('role', 'alumni')->count();
 
-        return view('index.index')
-                    ->withBlogs($blogs)
-                    ->withAlumnis($alumnis);
+        return view('index.index');
     }
 
-    public function getJourney()
+    public function getAbout()
     {
-        return view('index.journey');
+        return view('index.about');
+    }
+
+    public function getgetProjects()
+    {
+        return view('index.projects');
+    }
+
+    public function getgetPublications()
+    {
+        return view('index.publications');
+    }
+
+    public function getDisasterdata()
+    {   
+        $districts = Districtscord::where('cordx', '>', 0)->get();
+
+        return view('index.disasterdata')->withDistricts($districts);
     }
 
     public function getConstitution()
@@ -131,18 +146,18 @@ class IndexController extends Controller
 
     public function getProfile($unique_key)
     {
-        $blogs = Blog::where('user_id', Auth::user()->id)->get();
-        $categories = Category::all();
-        $user = User::where('unique_key', $unique_key)->first();
-        if(Auth::user()->unique_key == $unique_key) {
-            return view('index.profile')
-                    ->withUser($user)
-                    ->withCategories($categories)
-                    ->withBlogs($blogs);
-        } else {
-            Session::flash('info', 'Redirected to your profile!');
-            return redirect()->route('index.profile', Auth::user()->unique_key); 
-        }
+        // $blogs = Blog::where('user_id', Auth::user()->id)->get();
+        // $categories = Category::all();
+        // $user = User::where('unique_key', $unique_key)->first();
+        // if(Auth::user()->unique_key == $unique_key) {
+        //     return view('index.profile')
+        //             ->withUser($user)
+        //             ->withCategories($categories)
+        //             ->withBlogs($blogs);
+        // } else {
+        //     Session::flash('info', 'Redirected to your profile!');
+        //     return redirect()->route('index.profile', Auth::user()->unique_key); 
+        // }
         
     }
 

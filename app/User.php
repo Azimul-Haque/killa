@@ -10,6 +10,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Blog');
     }
 
+    public function publications(){
+        return $this->belongsToMany('App\Publication');
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];

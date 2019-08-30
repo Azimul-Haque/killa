@@ -117,7 +117,7 @@
                     <!-- link -->
                     <ul>
                         <li>
-                            <a href="{{ route('index.journey') }}">Journey</a>
+                            <a href="{{ route('index.about') }}">About Us</a>
                         </li>
                         <li>
                             <a href="{{ route('index.constitution') }}">Constitution</a>
@@ -156,7 +156,7 @@
                             <a href="{{ route('index.application') }}">Apply</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.adhoc') }}">Ad Hoc Committee</a>
+                            <a href="#">People</a>
                         </li>
                         <li>
                             <a href="{{ route('index.members') }}">Members</a>
@@ -211,7 +211,7 @@
                 <div class="row margin-three">
                     <!-- copyright -->
                     <div class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
-                        &copy; {{ date('Y') }} Soft360 Ltd.
+                        &copy; {{ date('Y') }} <a href="http://loencebd.com/" style="text-decoration: none; color: #888888;">Loence Bangladesh</a>.
                     </div>
                     <!-- end copyright -->
                     <!-- logo -->

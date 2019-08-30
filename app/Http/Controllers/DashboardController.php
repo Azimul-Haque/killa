@@ -24,7 +24,8 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin');
+        $this->middleware('admin')->only('');
+
     }
 
     /**
@@ -169,9 +170,7 @@ class DashboardController extends Controller
 
     public function getMembers()
     {
-        $members = User::where('payment_status', 1)
-                            ->where('role', 'alumni')
-                            ->get();
+        $members = User::orderBy('id', 'desc')->get();
         return view('dashboard.members')->withMembers($members);
     }
 
