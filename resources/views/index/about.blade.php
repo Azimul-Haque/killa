@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    IIT Alumni | About Us
+    KillaBD | About Us
 @endsection
 
 @section('css')
@@ -149,7 +149,7 @@
                         typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy
                         text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing
                         and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
-                        <a href="people-employee.html" class=" margin-three highlight-button-dark btn btn-small btn-round button xs-margin-bottom-five">Find all our staff and board of directors</a>
+                        <a href="{{ route('index.employees') }}" class="margin-three highlight-button-dark btn-big btn-round button xs-margin-bottom-five">Find all our staff and board of directors</a>
 
                 </div>
             </div>
@@ -170,26 +170,37 @@
             </div>
         </div>
     </section>
-    <!-- portfolio item  -->
-    <section class="portfolio-short-description bg-gray padding-three">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="portfolio-short-description-bg pull-left" style="background-image:url('images/parallax-img33.jpg');">
-                        <figure class="pull-right wow fadeInRight">
-                            <figcaption>
-                                <div class="separator-line bg-yellow no-margin-lr margin-ten no-margin-top"></div>
-                                <h3 class="white-text">Tailoring Interior</h3>
-                                <p class="light-gray-text text-uppercase margin-seven text-med">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <a href="single-project-page1.html" class="btn-small-white-background btn margin-ten no-margin-bottom">View Details</a>
-                            </figcaption>
-                        </figure>
+    @php
+      $oddoreven = 1;
+    @endphp
+    @foreach($expertises as $expertise)
+        <!-- portfolio item  -->
+        <section class="portfolio-short-description bg-gray padding-three">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portfolio-short-description-bg pull-left" style="background-image:url('{{ asset('images/expertises/'. $expertise->image)  }}');">
+                            <figure class="@if($oddoreven % 2 == 0) pull-left wow fadeInLeft @else pull-right wow fadeInRight @endif">
+                                <figcaption>
+                                    <div class="separator-line bg-yellow no-margin-lr margin-ten no-margin-top"></div>
+                                    <h3 class="white-text">{{ $expertise->title }}</h3>
+                                    <p class="light-gray-text text-uppercase margin-seven text-med">
+                                        {{ substr(strip_tags($expertise->description), 0, 100) }}...
+                                    </p>
+                                    <a href="{{ route('index.expertise', $expertise->slug) }}" class="btn-small-white-background btn margin-ten no-margin-bottom">View Details</a>
+                                </figcaption>
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- end portfolio item  -->
+        </section>
+        <!-- end portfolio item  -->
+        @php
+          $oddoreven++;
+        @endphp
+    @endforeach
+    
 @endsection
 
 @section('js')

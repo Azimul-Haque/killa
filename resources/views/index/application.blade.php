@@ -1,11 +1,12 @@
 @extends('layouts.index')
 @section('title')
-    IIT Alumni | Member Application
+    KillaBD | Member Application
 @endsection
 
 @section('css')
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/DateTimePicker.css') }}">
   {!!Html::style('css/parsley.css')!!}
+  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}">
 @stop
 
 @section('content')
@@ -39,77 +40,6 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group no-margin-bottom">
-                                <label for="dob" class="text-uppercase">Date of Birth</label>
-                                <input type="text" name="dob" id="dob" data-field="date" readonly autocomplete="off"  required="" readonly>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="text-uppercase">Degree</label>
-                                <select name="degree" required="">
-                                    <option value="" selected="" disabled="">Select one</option>
-                                    <option value="BSSE">BSSE</option>
-                                    <option value="MIT">MIT</option>
-                                    <option value="PGDIT">PGDIT</option>
-                                </select>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="passing_year" class="text-uppercase">Passing Year</label>
-                                <select name="passing_year" required="">
-                                    <option value="" selected="" disabled="">Select one</option>
-                                    @for($yr = date('Y'); $yr >= 1985; $yr--)
-                                    <option value="{{ $yr }}">{{ $yr }}</option>
-                                    @endfor
-                                </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="batch" class="text-uppercase">Batch</label>
-                                <select name="batch" required="">
-                                    <option value="" selected="" disabled="">Select one</option>
-                                    @for($i = 1; $i <= 50; $i++)
-                                      <option value="{{ $i }}">{{ ordinal($i) }}</option>
-                                    @endfor
-                                </select>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="roll" class="text-uppercase">Roll</label>
-                                <input type="text" name="roll" id="roll"  required="">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="current_job" class="text-uppercase">Current Job</label>
-                                <input type="text" name="current_job" id="current_job">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="designation" class="text-uppercase">Job Designation</label>
-                                <input type="text" name="designation" id="designation">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="address" class="text-uppercase">Address</label>
-                                <input type="text" id="address" name="address" required="">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
                                 <label for="fb" class="text-uppercase">Facebook Url</label>
                                 <input type="text" name="fb" id="fb">
                             </div>
@@ -124,16 +54,16 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group no-margin-bottom">
-                                <label for="gplus" class="text-uppercase">Google plus Url</label>
-                                <input type="text" name="gplus" id="gplus">
+                                <label for="linkedin" class="text-uppercase">Linkedin Url</label>
+                                <input type="text" name="linkedin" id="linkedin">
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group no-margin-bottom">
-                                <label for="linkedin" class="text-uppercase">Linkedin Url</label>
-                                <input type="text" name="linkedin" id="linkedin">
+                                <label for="password" class="text-uppercase">Password</label>
+                                <input type="password" name="password" id="password" required="">
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -150,21 +80,11 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="password" class="text-uppercase">Password</label>
-                                <input type="password" name="password" id="password" required="">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="password_confirmation" class="text-uppercase">Retype Password</label>
-                                <input type="password" name="password_confirmation" id="password_confirmation" required="">
-                            </div>
-                          </div>
+                        <div class="form-group no-margin-bottom">
+                            <label for="bio" class="text-uppercase">Biography</label>
+                            <textarea type="text" name="bio" id="bio" class="summernote" required=""></textarea>
                         </div>
-                        <button class="btn highlight-button-dark btn-bg btn-round margin-five no-margin-right" type="submit">Next</button>
+                        <button class="btn highlight-button-dark btn-bg btn-round margin-five no-margin-right" type="submit">Submit</button>
                     </form>
                 </div>
 
@@ -178,18 +98,21 @@
 @endsection
 
 @section('js')
-  <script type="text/javascript" src="{{ asset('js/DateTimePicker.min.js') }}"></script>
   {!!Html::script('js/parsley.min.js')!!}
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#dtBox").DateTimePicker({
-                mode:"date",
-                dateFormat: "dd-MM-yyyy",
-                titleContentDate: 'Select Date of Birth'
-            }); 
+  <script type="text/javascript" src="{{ asset('vendor/summernote/summernote.min.js') }}"></script>
+  
+  <script>
+    $(document).ready(function(){
+        $('.summernote').summernote({
+            placeholder: 'Write Biography',
+            tabsize: 2,
+            height: 200,
+            dialogsInBody: true
         });
-    </script>
-    <script type="text/javascript">
+        $('div.note-group-select-from-files').remove();
+    });
+  </script>
+  <script type="text/javascript">
     var _URL = window.URL || window.webkitURL;
     $(document).ready( function() {
       $(document).on('change', '.btn-file :file', function() {

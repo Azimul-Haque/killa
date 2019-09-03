@@ -301,6 +301,12 @@ ul.errorlist > li {
     width: 40px;
 }
 
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 /* print css */
 @media print {
     header, .footer, footer {

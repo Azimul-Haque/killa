@@ -73,6 +73,9 @@
                             <!-- sub menu item  -->
                             <ul id="nav_auth_user" class="dropdown-menu panel-collapse collapse" role="menu">
                                 <li>
+                                    <a href="{{ route('dashboard.index') }}"><i class="icon-speedometer i-plain"></i> Dashboard</a>
+                                </li>
+                                <li>
                                     <a href="{{ route('index.profile', Auth::user()->unique_key) }}"><i class="icon-profile-male i-plain"></i> Profile</a>
                                 </li>
                                 <li>
@@ -81,8 +84,20 @@
                             </ul>
                         </li>
                         @else
-                        <li>
-                            <a href="{{ url('/login') }}" class="">Login</a>
+                        <li class="dropdown panel simple-dropdown">
+                            <a href="#nav_auth_user" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">
+                                Membership
+                            </a>
+                            <!-- sub menu single -->
+                            <!-- sub menu item  -->
+                            <ul id="nav_auth_user" class="dropdown-menu panel-collapse collapse" role="menu">
+                                <li>
+                                    <a href="{{ route('index.application') }}"><i class="icon-profile-male i-plain"></i> Apply</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('login') }}"><i class="icon-key i-plain"></i> Login</a>
+                                </li>
+                            </ul>
                         </li>
                         @endif
                         <!-- end menu item -->

@@ -9,15 +9,12 @@ use App\User;
 use App\Blog;
 use App\Category;
 use App\Districtscord;
+use App\Expertise;
 
 use Carbon\Carbon;
-use DB;
-use Hash;
-use Auth;
-use Image;
-use File;
-use Session;
-use Artisan;
+
+use DB, Hash, Auth, Image, File, Session, Artisan;
+use Purifier;
 
 class IndexController extends Controller
 {
@@ -38,7 +35,35 @@ class IndexController extends Controller
 
     public function getAbout()
     {
-        return view('index.about');
+        $expertises = Expertise::orderBy('id', 'desc')->get()->take(5);
+        return view('index.about')->withExpertises($expertises);
+    }
+
+    public function getExpertise($slug)
+    {
+        $expertise = Expertise::where('slug', $slug)->first();
+        return view('index.singleexpertise')->withExpertise($expertise);
+    }
+
+    public function getEmployees()
+    {
+        $people = User::where('type', 'Employee')
+                         ->where('activation_status', 1)->get();
+        return view('index.people')->withPeople($people);
+    }
+
+    public function getDirectors()
+    {
+        $people = User::where('type', 'Director')
+                         ->where('activation_status', 1)->get();
+        return view('index.people')->withPeople($people);
+    }
+
+    public function getMembers()
+    {
+        $people = User::where('type', 'Member')
+                         ->where('activation_status', 1)->get();
+        return view('index.people')->withPeople($people);
     }
 
     public function getgetProjects()
@@ -94,17 +119,6 @@ class IndexController extends Controller
         return view('index.gallery');
     }
 
-    public function getMembers()
-    {
-        $members = User::where('role', 'alumni')
-                       ->where('payment_status', 1)
-                       ->orderBy('degree', 'asc')
-                       ->orderBy('batch', 'asc')
-                       ->orderBy('roll', 'asc')
-                       ->get();
-        return view('index.members')->withMembers($members);
-    }
-
     public function getContact()
     {
         return view('index.contact');
@@ -148,16 +162,8 @@ class IndexController extends Controller
     {
         // $blogs = Blog::where('user_id', Auth::user()->id)->get();
         // $categories = Category::all();
-        // $user = User::where('unique_key', $unique_key)->first();
-        // if(Auth::user()->unique_key == $unique_key) {
-        //     return view('index.profile')
-        //             ->withUser($user)
-        //             ->withCategories($categories)
-        //             ->withBlogs($blogs);
-        // } else {
-        //     Session::flash('info', 'Redirected to your profile!');
-        //     return redirect()->route('index.profile', Auth::user()->unique_key); 
-        // }
+        $user = User::where('unique_key', $unique_key)->first();
+        return view('index.profile')->withUser($user);
         
     }
 
@@ -167,38 +173,22 @@ class IndexController extends Controller
             'name'                      => 'required|max:255',
             'email'                     => 'required|email|unique:users,email',
             'phone'                     => 'required|numeric',
-            'dob'                       => 'required|max:255',
-            'degree'                    => 'required|max:255',
-            'batch'                     => 'required|max:255',
-            'roll'                      => 'required|max:255',
-            'passing_year'              => 'required|numeric',
-            'current_job'               => 'sometimes|max:255',
-            'designation'               => 'sometimes|max:255',
-            'address'                   => 'required|max:255',
             'fb'                        => 'sometimes|max:255',
             'twitter'                   => 'sometimes|max:255',
-            'gplus'                     => 'sometimes|max:255',
             'linkedin'                  => 'sometimes|max:255',
             'image'                     => 'required|image|max:300',
-            'password'                  => 'required|min:8|same:password_confirmation'
+            'bio'                       => 'required',
+            'password'                  => 'required|min:8'
         ));
 
         $application = new User();
         $application->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
         $application->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
         $application->phone = htmlspecialchars(preg_replace("/\s+/", " ", $request->phone));
-        $dob = htmlspecialchars(preg_replace("/\s+/", " ", $request->dob));
-        $application->dob = new Carbon($dob);
-        $application->degree = htmlspecialchars(preg_replace("/\s+/", " ", $request->degree));
-        $application->batch = htmlspecialchars(preg_replace("/\s+/", " ", $request->batch));
-        $application->roll = htmlspecialchars(preg_replace("/\s+/", " ", $request->roll));
-        $application->passing_year = htmlspecialchars(preg_replace("/\s+/", " ", $request->passing_year));
-        $application->current_job = htmlspecialchars(preg_replace("/\s+/", " ", $request->current_job));
-        $application->designation = htmlspecialchars(preg_replace("/\s+/", " ", $request->designation));
-        $application->address = htmlspecialchars(preg_replace("/\s+/", " ", $request->address));
+        
+        $application->designation = 'Member';
         $application->fb = htmlspecialchars(preg_replace("/\s+/", " ", $request->fb));
         $application->twitter = htmlspecialchars(preg_replace("/\s+/", " ", $request->twitter));
-        $application->gplus = htmlspecialchars(preg_replace("/\s+/", " ", $request->gplus));
         $application->linkedin = htmlspecialchars(preg_replace("/\s+/", " ", $request->linkedin));
 
         // image upload
@@ -211,12 +201,10 @@ class IndexController extends Controller
         }
         $application->password = Hash::make($request->password);
 
-        $application->role = 'alumni';
-        $application->payment_status = 0;
-
-        // amount will be set dynamically
-        // $application->amount = null;
-        // $application->trxid = null;
+        $application->bio    = Purifier::clean($request->bio, 'youtube');
+        $application->type = 'Member';
+        $application->role = 'member';
+        $application->activation_status = 0;
 
         // generate unique_key
         $unique_key_length = 100;
@@ -224,6 +212,7 @@ class IndexController extends Controller
         $unique_key = substr(str_shuffle(str_repeat($pool, 100)), 0, $unique_key_length);
         // generate unique_key
         $application->unique_key = $unique_key;
+        $application->password = Hash::make($request->password);
         $application->save();
         
         Session::flash('success', 'You have registered Successfully!');

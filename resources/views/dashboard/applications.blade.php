@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'IIT Alumni | Applications')
+@section('title', 'KillaBD | Applications')
 
 @section('css')
 
@@ -10,19 +10,19 @@
     <h1>
       Applications
       <div class="pull-right">
-        <a class="btn btn-success" href="{{ route('index.application') }}" target="_blank"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Add Member</a>
+        {{-- <a class="btn btn-success" href="{{ route('index.application') }}" target="_blank"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Add Member</a> --}}
       </div>
     </h1>
 @stop
 
 @section('content')
+  <div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
           <th>Name</th>
           <th>Email & Phone</th>
-          <th>Degree, Batch & Roll</th>
-          <th>Job & Designation</th>
+          <th>Designation</th>
           <th>Photo</th>
           <th>Action</th>
         </tr>
@@ -33,8 +33,7 @@
         <tr>
           <td>{{ $application->name }}</td>
           <td>{{ $application->email }}<br/>{{ $application->phone }}</td>
-          <td>{{ $application->degree }} {{ $application->batch }}, {{ $application->roll }}</td>
-          <td>{{ $application->designation }}<br/>{{ $application->current_job }}</td>
+          <td>{{ $application->designation }}</td>
           <td>
             @if($application->image != null)
             <img src="{{ asset('images/users/'.$application->image)}}" style="height: 40px; width: auto;" />
@@ -56,20 +55,6 @@
                   <div class="modal-body">
                     {!! Form::model($application, ['route' => ['dashboard.approveapplication', $application->id], 'method' => 'PATCH', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                         Confirm approve this application of <b>{{ $application->name }}</b>?<br/>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="amount">Amount</label>
-                                <input type="text" name="amount" id="amount" class="form-control" required="">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group no-margin-bottom">
-                                <label for="trxid">Transaction ID (Optional)</label>
-                                <input type="text" name="trxid" id="trxid" class="form-control"> 
-                            </div>
-                          </div>
-                        </div>
                   </div>
                   <div class="modal-footer">
                         {!! Form::submit('Approve', array('class' => 'btn btn-success')) !!}
@@ -111,6 +96,10 @@
         @endforeach
       </tbody>
     </table>
+  </div>
+  <div>
+    {{ $applications->links() }}
+  </div>
 
 
     

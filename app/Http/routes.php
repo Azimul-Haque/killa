@@ -18,6 +18,11 @@ Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 // index routes
 Route::get('/', ['as'=>'index.index','uses'=>'IndexController@index']);
 Route::get('/about', ['as'=>'index.about','uses'=>'IndexController@getAbout']);
+Route::get('/people/employees', ['as'=>'index.employees','uses'=>'IndexController@getEmployees']);
+Route::get('/people/directors', ['as'=>'index.directors','uses'=>'IndexController@getDirectors']);
+Route::get('/people/members', ['as'=>'index.members','uses'=>'IndexController@getMembers']);
+Route::get('/research/expertise/{slug}', ['as'=>'index.expertise','uses'=>'IndexController@getExpertise']);
+
 Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
 Route::get('/projects', ['as'=>'index.projects','uses'=>'IndexController@getgetProjects']);
 Route::get('/publications', ['as'=>'index.publications','uses'=>'IndexController@getgetPublications']);
@@ -27,7 +32,6 @@ Route::get('/executive', ['as'=>'index.executive','uses'=>'IndexController@getEx
 Route::get('/news', ['as'=>'index.news','uses'=>'IndexController@getNews']);
 Route::get('/events', ['as'=>'index.events','uses'=>'IndexController@getEvents']);
 Route::get('/gallery', ['as'=>'index.gallery','uses'=>'IndexController@getGallery']);
-Route::get('/members', ['as'=>'index.members','uses'=>'IndexController@getMembers']);
 Route::get('/contact', ['as'=>'index.contact','uses'=>'IndexController@getContact']);
 Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses'=>'IndexController@storeFormMessage']);
 Route::get('/application', ['as'=>'index.application','uses'=>'IndexController@getApplication']);
@@ -65,9 +69,15 @@ Route::get('/dashboard/events', ['as'=>'dashboard.events','uses'=>'DashboardCont
 Route::get('/dashboard/gallery', ['as'=>'dashboard.gallery','uses'=>'DashboardController@getGallery']);
 Route::get('/dashboard/blogs', ['as'=>'dashboard.blogs','uses'=>'DashboardController@getBlogs']);
 Route::get('/dashboard/members', ['as'=>'dashboard.members','uses'=>'DashboardController@getMembers']);
+Route::get('/dashboard/member/create', ['as'=>'dashboard.member.create','uses'=>'DashboardController@createMember']);
+Route::post('/dashboard/member/store', ['as'=>'dashboard.member.store','uses'=>'DashboardController@storeMember']);
 Route::delete('/dashboard/deletemember/{id}', ['as'=>'dashboard.deletemember','uses'=>'DashboardController@deleteMember']);
 Route::get('/dashboard/applications', ['as'=>'dashboard.applications','uses'=>'DashboardController@getApplications']);
 Route::patch('/dashboard/applications/{id}/approve', ['as'=>'dashboard.approveapplication','uses'=>'DashboardController@approveApplication']);
 Route::delete('/dashboard/application/{id}', ['as'=>'dashboard.deleteapplication','uses'=>'DashboardController@deleteApplication']);
+
+Route::get('/dashboard/expertises', ['as'=>'dashboard.expertises','uses'=>'DashboardController@getExpertises']);
+Route::get('/dashboard/expertise/create', ['as'=>'dashboard.expertise.create','uses'=>'DashboardController@createExpertise']);
+Route::post('/dashboard/expertise/store', ['as'=>'dashboard.expertise.store','uses'=>'DashboardController@storeExpertise']);
 // dashboard routes
 // dashboard routes

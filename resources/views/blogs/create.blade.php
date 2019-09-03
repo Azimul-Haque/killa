@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    IIT Alumni | Create New Blog
+    KillaBD | Create New Blog
 @endsection
 
 @section('css')

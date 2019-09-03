@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'IIT Alumni',
+    'title' => 'KillaBD',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>IIT</b>Alumni',
+    'logo' => '<b>Killa</b>BD',
 
-    'logo_mini' => '<b>IIT</b>A',
+    'logo_mini' => '<b>Killa</b>',
 
     /*
     |--------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    IIT Alumni | Projects
+    KillaBD | Projects
 @endsection
 
 @section('css')

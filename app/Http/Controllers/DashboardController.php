@@ -7,12 +7,10 @@ use Illuminate\Http\Request;
 
 use App\Adhocmember;
 use App\User;
+use App\Expertise;
 
-use DB;
-use Auth;
-use Image;
-use File;
-use Session;
+use DB, Hash, Auth, Image, File, Session;
+use Purifier;
 
 class DashboardController extends Controller
 {
@@ -24,8 +22,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin')->only('');
-
+        $this->middleware('admin')->except('index');
     }
 
     /**
@@ -170,8 +167,67 @@ class DashboardController extends Controller
 
     public function getMembers()
     {
-        $members = User::orderBy('id', 'desc')->get();
+        $members = User::where('activation_status', 1)->orderBy('id', 'desc')->paginate(20);
         return view('dashboard.members')->withMembers($members);
+    }
+
+    public function createMember()
+    {
+        return view('dashboard.createmember');
+    }
+
+    public function storeMember(Request $request)
+    {
+        $this->validate($request,array(
+            'name'                      => 'required|max:255',
+            'email'                     => 'required|email|unique:users,email',
+            'phone'                     => 'required|numeric',
+            'designation'               => 'sometimes|max:255',
+            'fb'                        => 'sometimes|max:255',
+            'twitter'                   => 'sometimes|max:255',
+            'linkedin'                  => 'sometimes|max:255',
+            'image'                     => 'required|image|max:300',
+            'bio'                       => 'required',
+            'type'                      => 'required',
+            'password'                  => 'required|min:8'
+        ));
+
+        $member = new User();
+        $member->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
+        $member->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
+        $member->phone = htmlspecialchars(preg_replace("/\s+/", " ", $request->phone));
+        
+        $member->designation = htmlspecialchars(preg_replace("/\s+/", " ", $request->designation));
+        $member->fb = htmlspecialchars(preg_replace("/\s+/", " ", $request->fb));
+        $member->twitter = htmlspecialchars(preg_replace("/\s+/", " ", $request->twitter));
+        $member->linkedin = htmlspecialchars(preg_replace("/\s+/", " ", $request->linkedin));
+
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/users/'. $filename);
+            Image::make($image)->resize(250, 250)->save($location);
+            $member->image = $filename;
+        }
+        $member->password = Hash::make($request->password);
+
+        $member->bio    = Purifier::clean($request->bio, 'youtube');
+        $member->type = $request->type;
+        $member->role = 'member';
+        $member->activation_status = 1;
+
+        // generate unique_key
+        $unique_key_length = 100;
+        $pool = '0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $unique_key = substr(str_shuffle(str_repeat($pool, 100)), 0, $unique_key_length);
+        // generate unique_key
+        $member->unique_key = $unique_key;
+        $member->password = Hash::make($request->password);
+        $member->save();
+        
+        Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.members');
     }
 
     public function deleteMember($id)
@@ -179,25 +235,59 @@ class DashboardController extends Controller
         //
     }
 
+    public function getExpertises()
+    {
+        $expertises = Expertise::orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.expertises')->withExpertises($expertises);
+    }
+
+    public function createExpertise()
+    {
+        return view('dashboard.createexpertise');
+    }
+
+    public function storeExpertise(Request $request)
+    {
+        $this->validate($request,array(
+            'title'                      => 'required|max:255',
+            'description'                => 'required',
+            'image'                     => 'required|image|max:500'
+        ));
+
+        $expertise = new Expertise();
+        $expertise->title = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->title)));
+        $expertise->description = Purifier::clean($request->description, 'youtube');
+        
+
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = str_replace(' ','', $request->title).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/expertises/'. $filename);
+            Image::make($image)->resize(1000, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $expertise->image = $filename;
+        }
+
+        $expertise->slug = str_replace(' ', '_', strtolower($request->title)).'_'.time();
+        $expertise->save();
+        
+        Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.expertises');
+    }
+
     public function getApplications()
     {
-        $applications = User::where('payment_status', 0)
-                            ->where('role', 'alumni')
-                            ->get();
+        $applications = User::where('activation_status', 0)
+                            ->where('role', 'member')
+                            ->paginate(20);
         return view('dashboard.applications')->withApplications($applications);
     }
 
     public function approveApplication(Request $request, $id)
     {
-        $this->validate($request,array(
-            'amount'    => 'required',
-            'trxid'     => 'sometimes'
-        ));
 
         $application = User::findOrFail($id);
-        $application->payment_status = 1;
-        $application->amount = $request->amount;
-        $application->trxid = $request->trxid;
+        $application->activation_status = 1;
         $application->save();
 
         Session::flash('success', 'Approved Successfully!');

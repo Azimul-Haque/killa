@@ -127,7 +127,33 @@
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
+                    {{-- @each('adminlte::partials.menu-item', $adminlte->menu(), 'item') --}}
+                    <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.index') }}">
+                            <i class="fa fa-fw fa-tachometer"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    @if(Auth::user()->role == 'admin')
+                    <li class="{{ Request::is('dashboard/applications') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.applications') }}">
+                            <i class="fa fa-fw fa-plus"></i>
+                            <span>Applications</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/members') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.members') }}">
+                            <i class="fa fa-fw fa-users"></i>
+                            <span>Members</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/expertises') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.expertises') }}">
+                            <i class="fa fa-fw fa-flask"></i>
+                            <span>Research Expertises</span>
+                        </a>
+                    </li>
+                    @endif
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
