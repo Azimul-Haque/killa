@@ -32,7 +32,12 @@ class IndexController extends Controller
         // $alumnis = User::where('payment_status', 1)
         //                ->where('role', 'alumni')->count();
 
-        return view('index.index');
+        $projects = Project::orderBy('id', 'desc')->get()->take(4);
+        $publications = Publication::orderBy('id', 'desc')->get()->take(3);
+        
+        return view('index.index')
+                            ->withProjects($projects)
+                            ->withPublications($publications);
     }
 
     public function getAbout()

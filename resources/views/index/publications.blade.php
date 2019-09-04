@@ -59,7 +59,6 @@
                       </div>
                       <!-- end features item -->
                     @endforeach
-                    
                     <br/>      
                   </div>
               </div>

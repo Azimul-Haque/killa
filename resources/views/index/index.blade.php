@@ -46,7 +46,7 @@
                 <div class="col-md-8 col-sm-8 xs-margin-bottom-four">
                     <span class="owl-subtitle">K I L L A</span>
                     <span class="owl-title" style="line-height: 35px;font-size: 25px; font-weight: 600; display: block; letter-spacing: 4px;">sjdhd sdjhdsh sdjhdsfh sdjhksjdh sdhkjdsh dsjhdh skdhjkdfh sdhkjdfhk</span>
-                    <a href="contact.html" class="highlight-button-dark btn margin-four">Let Explore Our Works</a>
+                    <a href="{{ route('index.projects') }}" class="highlight-button-dark btn margin-four">Let Explore Our Works</a>
 
                 </div>
                 <!-- end section title -->
@@ -78,7 +78,7 @@
             <div class="row">
                 <!-- section title -->
                 <div class="col-md-6 col-sm-6">
-                    <span class="text-large letter-spacing-2 black-text font-weight-600 agency-title">Recent Works</span>
+                    <span class="text-large letter-spacing-2 black-text font-weight-600 agency-title">Recent Projects</span>
                 </div>
                 <!-- end section title -->
                 <!-- section highlight text -->
@@ -95,51 +95,27 @@
                     <div class="tab-content">
                         <!-- tour grid -->
                         <ul class="grid masonry-items">
-                            <!-- tour item -->
-                            <li class="holidays luxury safari">
-                                <figure>
-                                    <div class="gallery-img"><a href="project-single.html"><img src="{{ asset('images/travel-agency-packages08.jpg') }}" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="project-single.html">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            <!-- tour item -->
-                            <li class="holidays luxury">
-                                <figure>
-                                    <div class="gallery-img"><a href=""><img src="{{ asset('images/travel-agency-packages01.jpg') }}" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="#contact-us">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            <!-- tour item -->
-                            <li class="honeymoon family safari luxury">
-                                <figure>
-                                    <div class="gallery-img"><a href=""><img src="{{ asset('images/travel-agency-packages04.jpg') }}" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="#contact-us">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            <!-- tour item -->
-                            <li class="holidays luxury safari">
-                                <figure>
-                                    <div class="gallery-img"><a href="project-single.html"><img src="{{ asset('images/travel-agency-packages08.jpg') }}" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="project-single.html">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            
+                            @foreach($projects as $project)
+                                <!-- project -->
+                                <li class="@if($project->status == 0) ongoing @else completed @endif">
+                                    <figure>
+                                        <div class="gallery-img">
+                                            <a href="{{ route('index.project', $project->slug) }}">
+                                                @if($project->image != null)
+                                                  <img src="{{ asset('images/projects/'.$project->image)}}" />
+                                                @else
+                                                  <img src="{{ asset('images/abc.png')}}"  class="img-responsive" />
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <figcaption>
+                                            <p>{{ substr(strip_tags($project->title), 0, 50) }}...</p>
+                                            <a class="btn inner-link btn-black btn-small" href="{{ route('index.project', $project->slug) }}">Explore Now</a>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <!-- end project -->
+                            @endforeach
                         </ul>
                         <!-- end tour grid -->
                     </div>
@@ -166,41 +142,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
-                    <!-- features item -->
-                    <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp">
-                        <div class="col-md-3 col-sm-2 col-xs-2 ">
-                            <a href=""><img src="{{ asset('images/photography-15.jpg') }}" alt=""></a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
-                            <a href=""><h5 style="margin: 5px;">Lorem Ipsum is simply dummy text of the printing and typesetting</h5></a>
-                            <div class="separator-line bg-yellow"></div>
-                        </div>
-                    </div>
-                    <!-- end features item -->
-                    <!-- features item -->
-                    <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp">
-                        <div class="col-md-3 col-sm-2 col-xs-2 ">
-                            <a href=""><img src="{{ asset('images/photography-15.jpg') }}" alt=""></a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
-                            <a href=""><h5 style="margin: 5px;">Lorem Ipsum is simply dummy text of the printing and typesetting</h5></a>
-                            <div class="separator-line bg-yellow"></div>
-                        </div>
-                    </div>
-                    <!-- end features item -->
-                    <!-- features item -->
-                    <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp">
-                        <div class="col-md-3 col-sm-2 col-xs-2 ">
-                            <a href=""><img src="{{ asset('images/photography-15.jpg') }}" alt=""></a>
-                        </div>
-                        <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
-                            <a href=""><h5 style="margin: 5px;">Lorem Ipsum is simply dummy text of the printing and typesetting</h5></a>
-                            <div class="separator-line bg-yellow"></div>
-                        </div>
-                    </div>
-                    <!-- end features item -->
-                   
-                     
+                    @foreach($publications as $publication)
+                      <!-- features item -->
+                      <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp" style="min-height: 100px;">
+                          <div class="col-md-3 col-sm-2 col-xs-2 ">
+                              <a href="{{ route('index.publication', $publication->code) }}">
+                                @if($publication->image != null)
+                                  <img src="{{ asset('images/publications/'.$publication->image)}}" />
+                                @else
+                                  <img src="{{ asset('images/pub.png')}}" />
+                                @endif
+                              </a>
+                          </div>
+                          <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
+                              <a href="{{ route('index.publication', $publication->code) }}"><h5 style="margin: 5px;">{{ substr(strip_tags($publication->title), 0, 60) }}...</h5></a>
+                              <div class="separator-line bg-yellow"></div>{{ date('F d, Y', strtotime($publication->publishing_date)) }}
+
+                          </div>
+                      </div>
+                      <!-- end features item -->
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -263,8 +224,8 @@
                     <span class="text-med text-uppercase letter-spacing-2 margin-two black-text font-weight-600 xs-margin-top-six xs-margin-bottom-six display-block">Want to Work With Us?</span>
                 </div>
                 <div class="col-md-5 no-padding">
-                    <a class="highlight-button-dark btn btn-medium button xs-margin-bottom-five xs-no-margin-right" href="portfolio-wide-with-title-gutter-4columns.html">View Our Projects</a>
-                    <a class="highlight-button btn btn-medium button xs-margin-bottom-five xs-no-margin-right" href="#">Contact Us</a>
+                    <a class="highlight-button-dark btn btn-medium button xs-margin-bottom-five xs-no-margin-right" href="{{ route('index.projects') }}">View Our Projects</a>
+                    <a class="highlight-button btn btn-medium button xs-margin-bottom-five xs-no-margin-right" href="{{ route('index.contact') }}">Contact Us</a>
                 </div>
             </div>
         </div>

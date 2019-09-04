@@ -32,15 +32,15 @@
             <div class="row">
                 <!-- office address -->
                 <div class="col-md-6 col-sm-6 xs-margin-bottom-ten">
-                    <div class="position-relative"><img src="{{ asset('images/contact2.jpg') }}" alt=""/><a class="highlight-button-dark btn btn-very-small view-map no-margin bg-black white-text" href="https://www.google.co.in/maps" target="_blank">See on Map</a></div>
+                    <div class="position-relative"><img src="{{ asset('images/abc.png') }}" alt=""/><a class="highlight-button-dark btn btn-very-small view-map no-margin bg-black white-text" href="https://www.google.co.in/maps" target="_blank">See on Map</a></div>
                     <p class="text-med black-text letter-spacing-1 margin-ten no-margin-bottom text-uppercase font-weight-600 xs-margin-top-five">Head Office</p>
                     <div class="row">
                         <div class="col-md-6">
-                            <p><i class="fa fa-map-marker black-text"></i> IIT, University of Dhaka</p>
+                            <p><i class="fa fa-map-marker black-text"></i> Killa BD</p>
                         </div>
                         <div class="col-md-6 xs-text-center">
                             <p class="black-text no-margin-bottom"><strong><i class="fa fa-phone black-text"></i></strong> <a href="tel:+8801515297658">+88 01515297658</a></p>
-                            <p class="black-text"><strong><i class="fa fa-envelope black-text"></i></strong> <a href="mailto:info@iitdualumni.com">info@iitdualumni.com</a></p>
+                            <p class="black-text"><strong><i class="fa fa-envelope black-text"></i></strong> <a href="mailto:info@killabd.com">info@killabd.com</a></p>
                         </div>
                     </div>
                 </div>

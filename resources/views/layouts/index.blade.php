@@ -3,8 +3,8 @@
 
 <head>
     <title>@yield('title')</title>
-    <meta name="description" content="Official website of IITDU Alimni Association. Developed by A. H. M. Azimul Haque and Md. Abdul Mannan.">
-    <meta name="keywords" content="IITDU, IIT, University of Dhaka, IIT Alumni">
+    <meta name="description" content="Official website of Killa BD. Developed by A. H. M. Azimul Haque and Md. Abdul Mannan.">
+    <meta name="keywords" content="Killa, Killa BD">
     <meta charset="utf-8">
     <meta name="author" content="A. H. M. Azimul Haque">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
@@ -86,14 +86,14 @@
                     <!-- address -->
                     <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-map-pin small-icon black-text"></i>
-                        <h6 class="black-text margin-two no-margin-bottom">IIT, University of Dhaka</h6>
+                        <h6 class="black-text margin-two no-margin-bottom">Killa BD, Dhaka</h6>
                     </div>
                     <!-- end address -->
                     <!-- email -->
                     <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-envelope small-icon black-text"></i>
                         <h6 class="margin-two no-margin-bottom">
-                            <a href="mailto:info@iitdualumni.com" class="black-text">info@iitdualumni.com</a>
+                            <a href="mailto:info@killabd.com" class="black-text">info@killabd.com</a>
                         </h6>
                     </div>
                     <!-- end email -->
@@ -107,10 +107,16 @@
                     <h5>About Us</h5>
                     <!-- end headline -->
                     <!-- text -->
-                    <p class="footer-text">IIT Alumni Association was established in the year 201* with a view to .... ... ...</p>
+                    <p class="footer-text">Killa BD was established in the year 201* with a view to .... ... ...</p>
                     <!-- end text -->
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-4 footer-link2 col-md-offset-3">
+                    
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-4  footer-link3">
+                    
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-4  footer-link4">
                     <!-- headline -->
                     <h5>About</h5>
                     <!-- end headline -->
@@ -120,46 +126,10 @@
                             <a href="{{ route('index.about') }}">About Us</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.constitution') }}">Constitution</a>
+                            <a href="{{ route('index.projects') }}">Projects</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.faq') }}">FAQ</a>
-                        </li>
-                    </ul>
-                    <!-- end link -->
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-4  footer-link3">
-                    <!-- headline -->
-                    <h5>Others</h5>
-                    <!-- end headline -->
-                    <!-- link -->
-                    <ul>
-                        <li>
-                            <a href="{{ route('index.news') }}">News</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index.events') }}">Events</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index.gallery') }}">Gallery</a>
-                        </li>
-                    </ul>
-                    <!-- end link -->
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-4  footer-link4">
-                    <!-- headline -->
-                    <h5>Alumni</h5>
-                    <!-- end headline -->
-                    <!-- link -->
-                    <ul>
-                        <li>
-                            <a href="{{ route('index.application') }}">Apply</a>
-                        </li>
-                        <li>
-                            <a href="#">People</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index.members') }}">Members</a>
+                            <a href="{{ route('index.publications') }}">Publications</a>
                         </li>
                     </ul>
                     <!-- end link -->
@@ -174,10 +144,13 @@
                             <a href="{{ route('blogs.index') }}">Blog</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.news') }}">News</a>
+                            <a href="{{ route('index.projects') }}">Projects</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.events') }}">Events</a>
+                            <a href="{{ route('index.publications') }}">Publications</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('index.disasterdata') }}">Disaster Data</a>
                         </li>
                         <li>
                             <a href="{{ route('index.contact') }}">Contact</a>
@@ -193,9 +166,9 @@
                     <a target="_blank" href="https://twitter.com/">
                         <i class="fa fa-twitter"></i>
                     </a>
-                    <a target="_blank" href="https://plus.google.com/">
+                    {{-- <a target="_blank" href="https://plus.google.com/">
                         <i class="fa fa-google-plus"></i>
-                    </a>
+                    </a> --}}
                     <a target="_blank" href="https://www.youtube.com/">
                         <i class="fa fa-youtube"></i>
                     </a>
