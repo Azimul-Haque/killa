@@ -57,59 +57,64 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
-                        <li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                            <img src="{{ asset('images/user.png')}}" class="user-image" alt="User Image">
-                            {{ Auth::User()->name }}</a>
-                            <ul class="dropdown-menu" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                              <!-- User image -->
-                              <li class="user-header">
-                                <img src="{{ asset('images/user.png') }}" class="img-circle" alt="User Image">
-                                <p>
-                                  {{ Auth::User()->name }}
-                                  <small>Member since {{ date('F, Y', strtotime(Auth::User()->created_at)) }}</small>
-                                </p>
-                              </li>
-                              <!-- Menu Body -->
-                              <li class="user-body">
-                                {{-- <div class="row">
-                                  <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
-                                  </div>
-                                  <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
-                                  </div>
-                                  <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
-                                  </div>
-                                </div> --}}
-                                <!-- /.row -->
-                              </li>
-                              <!-- Menu Footer-->
-                              <li class="user-footer">
-                                <div class="pull-left">
-                                  <a href="{{ route('users.edit', Auth::User()->id) }}" class="btn btn-default btn-flat">Profile</a>
+                      <li class="tasks-menu">
+                          <a href="{{ url('/') }}" target="_blank" title="View Website" data-placement="bottom">
+                              <i class="fa fa-fw fa-eye" aria-hidden="true"></i>
+                          </a>
+                      </li>
+                      <li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                          <img src="{{ asset('images/user.png')}}" class="user-image" alt="User Image">
+                          {{ Auth::User()->name }}</a>
+                          <ul class="dropdown-menu" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                            <!-- User image -->
+                            <li class="user-header">
+                              <img src="{{ asset('images/user.png') }}" class="img-circle" alt="User Image">
+                              <p>
+                                {{ Auth::User()->name }}
+                                <small>Member since {{ date('F, Y', strtotime(Auth::User()->created_at)) }}</small>
+                              </p>
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="user-body">
+                              {{-- <div class="row">
+                                <div class="col-xs-4 text-center">
+                                  <a href="#">Followers</a>
                                 </div>
-                                <div class="pull-right">
-                                  @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
-                                      <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" class="btn btn-default btn-flat">
-                                          <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
-                                      </a>
-                                  @else
-                                      <a href="#"
-                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">
-                                          <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
-                                      </a>
-                                      <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;" class="btn btn-default btn-flat">
-                                          @if(config('adminlte.logout_method'))
-                                              {{ method_field(config('adminlte.logout_method')) }}
-                                          @endif
-                                          {{ csrf_field() }}
-                                      </form>
-                                  @endif
+                                <div class="col-xs-4 text-center">
+                                  <a href="#">Sales</a>
                                 </div>
-                              </li>
-                            </ul>                            
-                        </li>
+                                <div class="col-xs-4 text-center">
+                                  <a href="#">Friends</a>
+                                </div>
+                              </div> --}}
+                              <!-- /.row -->
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                              <div class="pull-left">
+                                <a href="{{ route('users.edit', Auth::User()->id) }}" class="btn btn-default btn-flat">Profile</a>
+                              </div>
+                              <div class="pull-right">
+                                @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
+                                    <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" class="btn btn-default btn-flat">
+                                        <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
+                                    </a>
+                                @else
+                                    <a href="#"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">
+                                        <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;" class="btn btn-default btn-flat">
+                                        @if(config('adminlte.logout_method'))
+                                            {{ method_field(config('adminlte.logout_method')) }}
+                                        @endif
+                                        {{ csrf_field() }}
+                                    </form>
+                                @endif
+                              </div>
+                            </li>
+                          </ul>                            
+                      </li>
                     </ul>
                 </div>
                 @if(config('adminlte.layout') == 'top-nav')
@@ -151,6 +156,18 @@
                         <a href="{{ route('dashboard.expertises') }}">
                             <i class="fa fa-fw fa-flask"></i>
                             <span>Research Expertises</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/projects') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.projects') }}">
+                            <i class="fa fa-fw fa-cogs"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/publications') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.publications') }}">
+                            <i class="fa fa-fw fa-book"></i>
+                            <span>Publications</span>
                         </a>
                     </li>
                     @endif

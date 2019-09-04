@@ -1,15 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'KillaBD | Add Expertise')
+@section('title', 'KillaBD | Add Publication')
 
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/DateTimePicker.css') }}">
+  {!!Html::style('css/parsley.css')!!}
 @stop
 
 @section('content_header')
     <h1>
-      Add Expertise
+      Add Publication
       <div class="pull-right">
         
       </div>
@@ -21,16 +23,37 @@
       <div class="col-md-10">
           <div class="box box-success">
             <div class="box-body">
-              <form action="{{ route('dashboard.expertise.store') }}" method="post" enctype='multipart/form-data' data-parsley-validate="">
+              <form action="{{ route('dashboard.publication.store') }}" method="post" enctype='multipart/form-data' data-parsley-validate="">
                   {!! csrf_field() !!}
-                  <div class="form-group no-margin-bottom">
-                      <label for="title" class="text-uppercase">Title</label>
-                      <input class="form-control" type="text" name="title" id="title" required="">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group no-margin-bottom">
+                          <label for="title" class="text-uppercase">Title</label>
+                          <input class="form-control" type="text" name="title" id="title" required="">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group no-margin-bottom">
+                        <div class="form-group no-margin-bottom">
+                            <label for="publishing_date" class="text-uppercase">Publishing Date</label>
+                            <input class="form-control" type="text" name="publishing_date" id="publishing_date" data-field="date" autocomplete="off" required="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="member_id">Reseach Associates</label><br/>
+                    <select class="form-control multiple" name="member_ids[]" id="member_ids" multiple="" data-placeholder="Select Reseach Associates">
+                      <option disabled>Select Reseach Associates</option>
+                      @foreach($members as $member)
+                        <option value="{{ $member->id }}">{{ $member->name }}</option>
+                      @endforeach
+                    </select>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
                         <div class="form-group no-margin-bottom">
-                            <label><strong>Image (500Kb Max, 1000 x 625 Suggested):</strong></label>
+                            <label><strong>Image (500Kb Max, 300 x 400 Suggested):</strong></label>
                             <input class="form-control" type="file" id="image" name="image" required="">
                         </div>
                     </div>
@@ -38,10 +61,18 @@
                       <img src="{{ asset('images/abc.png')}}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" />
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin-bottom">
+                            <label><strong>File (1000Kb Max, File Type: .doc, .docx, .ppt, .pptx, .pdf, .jpg, .png):</strong></label>
+                            <input class="form-control" type="file" id="attachment" name="attachment" required="">
+                        </div>
+                    </div>
+                  </div>
                 
                   <div class="form-group no-margin-bottom">
-                      <label for="description" class="text-uppercase">Description</label>
-                      <textarea type="text" name="description" id="description" class="summernote" required=""></textarea>
+                      <label for="body" class="text-uppercase">Body</label>
+                      <textarea type="text" name="body" id="body" class="summernote" required=""></textarea>
                   </div>
                   <button class="btn btn-primary" type="submit">Submit</button>
               </form>
@@ -49,20 +80,30 @@
           </div>
       </div>
     </div>
+
+    {{-- datebox --}}
+    <div id="dtBox"></div>
+    {{-- datebox --}}
 @stop
 
 @section('js')
   <script type="text/javascript" src="{{ asset('vendor/summernote/summernote.min.js') }}"></script>
-  
+  <script type="text/javascript" src="{{ asset('js/DateTimePicker.min.js') }}"></script>
+  {!!Html::script('js/parsley.min.js')!!}
   <script>
       $(document).ready(function(){
-          $('.summernote').summernote({
-              placeholder: 'Write Biography',
-              tabsize: 2,
-              height: 200,
-              dialogsInBody: true
-          });
-          $('div.note-group-select-from-files').remove();
+        $('.multiple').select2();
+        $("#dtBox").DateTimePicker({
+            mode:"date",
+            dateFormat: "dd-MM-yyyy"
+        });
+        $('.summernote').summernote({
+            placeholder: 'Write Biography',
+            tabsize: 2,
+            height: 200,
+            dialogsInBody: true
+        });
+        $('div.note-group-select-from-files').remove();
       });
   </script>
     <script type="text/javascript">

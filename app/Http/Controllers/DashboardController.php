@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use App\Adhocmember;
 use App\User;
 use App\Expertise;
+use App\Project;
+use App\Publication;
 
+use Carbon\Carbon;
 use DB, Hash, Auth, Image, File, Session;
 use Purifier;
 
@@ -255,24 +258,129 @@ class DashboardController extends Controller
         ));
 
         $expertise = new Expertise();
-        $expertise->title = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->title)));
+        $expertise->title = $request->title;
         $expertise->description = Purifier::clean($request->description, 'youtube');
         
 
         // image upload
         if($request->hasFile('image')) {
             $image      = $request->file('image');
-            $filename   = str_replace(' ','', $request->title).time() .'.' . $image->getClientOriginalExtension();
+            $filename   = preg_replace('/[^A-Za-z0-9\-]/', '', $request->title).time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/expertises/'. $filename);
             Image::make($image)->resize(1000, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $expertise->image = $filename;
         }
 
-        $expertise->slug = str_replace(' ', '_', strtolower($request->title)).'_'.time();
+        $expertise->slug = preg_replace('/[^A-Za-z0-9\-]/', '_', strtolower($request->title)).'_'.time();
         $expertise->save();
         
         Session::flash('success', 'Added Successfully!');
         return redirect()->route('dashboard.expertises');
+    }
+
+    public function getProjects()
+    {
+        $projects = Project::orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.projects')->withProjects($projects);
+    }
+
+    public function createProject()
+    {
+        return view('dashboard.createproject');
+    }
+
+    public function storeProject(Request $request)
+    {
+        $this->validate($request,array(
+            'title'                   => 'required|max:255',
+            'status'                  => 'required|max:255',
+            'starts'                  => 'required|max:255',
+            'ends'                    => 'required|max:255',
+            'body'                    => 'required',
+            'image'                   => 'required|image|max:500'
+        ));
+
+        $project = new Project();
+        $project->title = $request->title;
+        $project->status = $request->status;
+        $project->starts = new Carbon($request->starts);
+        $project->ends = new Carbon($request->ends);
+        $project->body = Purifier::clean($request->body, 'youtube');
+        
+
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = preg_replace('/[^A-Za-z0-9\-]/', '', $request->title).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/projects/'. $filename);
+            Image::make($image)->resize(1000, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $project->image = $filename;
+        }
+
+        $project->slug = preg_replace('/[^A-Za-z0-9\-]/', '_', strtolower($request->title)).'_'.time();
+        $project->save();
+        
+        Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.projects');
+    }
+
+    public function getPublications()
+    {
+        $publications = Publication::orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.publications')->withPublications($publications);
+    }
+
+    public function createPublication()
+    {
+        $members = User::all();
+        return view('dashboard.createpublication')->withMembers($members);
+    }
+
+    public function storePublication(Request $request)
+    {
+        $this->validate($request,array(
+            'title'                   => 'required|max:255',
+            'publishing_date'         => 'required|max:255',
+            'member_ids'              => 'required|max:255',
+            'body'                    => 'required',
+            'image'                   => 'required|image|max:500',
+            'attachment'              => 'required|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000'
+        ));
+
+        $publication = new Publication();
+        $publication->title = $request->title;
+        $publication->code = random_string(10);
+        $publication->publishing_date = new Carbon($request->publishing_date);
+
+        // file upload
+        if($request->hasFile('attachment')) {
+            $newfile = $request->file('attachment');
+            $filename   = $publication->code.'_file_'.time() .'.' . $newfile->getClientOriginalExtension();
+            $location   = public_path('/files/');
+            $newfile->move($location, $filename);
+            $publication->file = $filename;
+        }
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = $publication->code.'_'.time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/publications/'. $filename);
+            Image::make($image)->resize(200, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $publication->image = $filename;
+        }
+        $publication->body = Purifier::clean($request->body, 'youtube');
+
+        $publication->save();
+        // associate members
+        // foreach ($request->member_ids as $key => $value) {
+        //     $publication->users()->attach($value);
+        // }
+        $publication->users()->sync($request->member_ids, false);
+
+        
+        
+        Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.publications');
     }
 
     public function getApplications()

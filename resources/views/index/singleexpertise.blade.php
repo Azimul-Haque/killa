@@ -35,9 +35,9 @@
             <div class="row">
                 <div class="col-md-12">
                   @if($expertise->image != null)
-                  <img src="{{ asset('images/expertises/'.$expertise->image)}}"  class="img-responsive" />
+                    <img src="{{ asset('images/expertises/'.$expertise->image)}}"  class="img-responsive" style="width: 100%;" />
                   @else
-                  <img src="{{ asset('images/abc.png')}}"  class="img-responsive" />
+                    <img src="{{ asset('images/abc.png')}}"  class="img-responsive" />
                   @endif
                   <br/><br/>
 

@@ -149,7 +149,7 @@
                         typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy
                         text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing
                         and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
-                        <a href="{{ route('index.employees') }}" class="margin-three highlight-button-dark btn-big btn-round button xs-margin-bottom-five">Find all our staff and board of directors</a>
+                        <a href="{{ route('index.directors') }}" class="margin-three highlight-button-dark btn-big btn-round button xs-margin-bottom-five">Find all our staff and board of directors</a>
 
                 </div>
             </div>

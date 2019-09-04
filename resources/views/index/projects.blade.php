@@ -47,62 +47,27 @@
                     <div class="tab-content">
                         <!-- tour grid -->
                         <ul class="grid masonry-items">
-                            <!-- tour item -->
-                            <li class="completed">
-                                <figure>
-                                    <div class="gallery-img"><a href="project-single.html"><img src="images/travel-agency-packages08.jpg" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="project-single.html">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            <!-- tour item -->
-                            <li class="completed">
-                                <figure>
-                                    <div class="gallery-img"><a href=""><img src="images/travel-agency-packages01.jpg" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="#contact-us">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            <!-- tour item -->
-                            <li class="ongoing">
-                                <figure>
-                                    <div class="gallery-img"><a href=""><img src="images/travel-agency-packages04.jpg" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="#contact-us">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            <!-- tour item -->
-                            <li class="completed">
-                                <figure>
-                                    <div class="gallery-img"><a href=""><img src="images/travel-agency-packages05.jpg" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="#contact-us">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            <!-- tour item -->
-                            <li class="honeymoon ongoing">
-                                <figure>
-                                    <div class="gallery-img"><a href=""><img src="images/travel-agency-packages07.jpg" alt=""></a></div>
-                                    <figcaption>
-                                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                                        <a class="btn inner-link btn-black btn-small" href="#contact-us">Explore Now</a>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <!-- end tour item -->
-                            
+                            @foreach($projects as $project)
+                                <!-- project -->
+                                <li class="@if($project->status == 0) ongoing @else completed @endif">
+                                    <figure>
+                                        <div class="gallery-img">
+                                            <a href="{{ route('index.project', $project->slug) }}">
+                                                @if($project->image != null)
+                                                  <img src="{{ asset('images/projects/'.$project->image)}}" />
+                                                @else
+                                                  <img src="{{ asset('images/abc.png')}}"  class="img-responsive" />
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <figcaption>
+                                            <p>{{ substr(strip_tags($project->title), 0, 50) }}...</p>
+                                            <a class="btn inner-link btn-black btn-small" href="{{ route('index.project', $project->slug) }}">Explore Now</a>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <!-- end project -->
+                            @endforeach
                         </ul>
                         <!-- end tour grid -->
                     </div>

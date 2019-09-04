@@ -1,15 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'KillaBD | Add Expertise')
+@section('title', 'KillaBD | Add Project')
 
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/DateTimePicker.css') }}">
 @stop
 
 @section('content_header')
     <h1>
-      Add Expertise
+      Add Project
       <div class="pull-right">
         
       </div>
@@ -21,11 +22,39 @@
       <div class="col-md-10">
           <div class="box box-success">
             <div class="box-body">
-              <form action="{{ route('dashboard.expertise.store') }}" method="post" enctype='multipart/form-data' data-parsley-validate="">
+              <form action="{{ route('dashboard.project.store') }}" method="post" enctype='multipart/form-data' data-parsley-validate="">
                   {!! csrf_field() !!}
-                  <div class="form-group no-margin-bottom">
-                      <label for="title" class="text-uppercase">Title</label>
-                      <input class="form-control" type="text" name="title" id="title" required="">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group no-margin-bottom">
+                          <label for="title" class="text-uppercase">Title</label>
+                          <input class="form-control" type="text" name="title" id="title" required="">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group no-margin-bottom">
+                          <label for="status" class="text-uppercase">Status</label>
+                          <select class="form-control" name="status" id="status" required="">
+                            <option value="" selected="" disabled="">Select Status</option>
+                            <option value="0">Ongoing</option>
+                            <option value="1">Complete</option>
+                          </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group no-margin-bottom">
+                          <label for="starts" class="text-uppercase">Starts</label>
+                          <input class="form-control" type="text" name="starts" id="starts" data-field="date" autocomplete="off" required="">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group no-margin-bottom">
+                          <label for="ends" class="text-uppercase">Ends</label>
+                          <input class="form-control" type="text" name="ends" id="ends" data-field="date" autocomplete="off" required="">
+                      </div>
+                    </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
@@ -40,8 +69,8 @@
                   </div>
                 
                   <div class="form-group no-margin-bottom">
-                      <label for="description" class="text-uppercase">Description</label>
-                      <textarea type="text" name="description" id="description" class="summernote" required=""></textarea>
+                      <label for="body" class="text-uppercase">Body</label>
+                      <textarea type="text" name="body" id="body" class="summernote" required=""></textarea>
                   </div>
                   <button class="btn btn-primary" type="submit">Submit</button>
               </form>
@@ -49,20 +78,28 @@
           </div>
       </div>
     </div>
+
+    {{-- datebox --}}
+    <div id="dtBox"></div>
+    {{-- datebox --}}
 @stop
 
 @section('js')
   <script type="text/javascript" src="{{ asset('vendor/summernote/summernote.min.js') }}"></script>
-  
+  <script type="text/javascript" src="{{ asset('js/DateTimePicker.min.js') }}"></script>
   <script>
       $(document).ready(function(){
-          $('.summernote').summernote({
-              placeholder: 'Write Biography',
-              tabsize: 2,
-              height: 200,
-              dialogsInBody: true
-          });
-          $('div.note-group-select-from-files').remove();
+        $("#dtBox").DateTimePicker({
+            mode:"date",
+            dateFormat: "dd-MM-yyyy"
+        });
+        $('.summernote').summernote({
+            placeholder: 'Write Biography',
+            tabsize: 2,
+            height: 200,
+            dialogsInBody: true
+        });
+        $('div.note-group-select-from-files').remove();
       });
   </script>
     <script type="text/javascript">

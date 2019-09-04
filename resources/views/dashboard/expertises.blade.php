@@ -22,7 +22,7 @@
         <tr>
           <th width="25%">Title</th>
           <th>Description</th>
-          <th width="35%">Image</th>
+          <th width="30%">Image</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -31,7 +31,7 @@
         @foreach($expertises as $expertise)
         <tr>
           <td>{{ $expertise->title }}</td>
-          <td><span class="ellipsis">{{ substr(strip_tags($expertise->description), 0, 100) }}...</span></td>
+          <td><span class="">{{ substr(strip_tags($expertise->description), 0, 100) }}...</span></td>
           <td>
             @if($expertise->image != null)
             <img src="{{ asset('images/expertises/'.$expertise->image)}}" style="height: 120px; width: auto;" />

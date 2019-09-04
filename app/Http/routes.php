@@ -23,9 +23,13 @@ Route::get('/people/directors', ['as'=>'index.directors','uses'=>'IndexControlle
 Route::get('/people/members', ['as'=>'index.members','uses'=>'IndexController@getMembers']);
 Route::get('/research/expertise/{slug}', ['as'=>'index.expertise','uses'=>'IndexController@getExpertise']);
 
+Route::get('/projects', ['as'=>'index.projects','uses'=>'IndexController@getProjects']);
+Route::get('/project/{slug}', ['as'=>'index.project','uses'=>'IndexController@getProject']);
+
+Route::get('/publications', ['as'=>'index.publications','uses'=>'IndexController@getPublications']);
+Route::get('/publication/{code}', ['as'=>'index.publication','uses'=>'IndexController@getPublication']);
+
 Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
-Route::get('/projects', ['as'=>'index.projects','uses'=>'IndexController@getgetProjects']);
-Route::get('/publications', ['as'=>'index.publications','uses'=>'IndexController@getgetPublications']);
 Route::get('/disaster/data', ['as'=>'index.disasterdata','uses'=>'IndexController@getDisasterdata']);
 Route::get('/faq', ['as'=>'index.faq','uses'=>'IndexController@getFaq']);
 Route::get('/executive', ['as'=>'index.executive','uses'=>'IndexController@getExecutive']);
@@ -79,5 +83,13 @@ Route::delete('/dashboard/application/{id}', ['as'=>'dashboard.deleteapplication
 Route::get('/dashboard/expertises', ['as'=>'dashboard.expertises','uses'=>'DashboardController@getExpertises']);
 Route::get('/dashboard/expertise/create', ['as'=>'dashboard.expertise.create','uses'=>'DashboardController@createExpertise']);
 Route::post('/dashboard/expertise/store', ['as'=>'dashboard.expertise.store','uses'=>'DashboardController@storeExpertise']);
+
+Route::get('/dashboard/projects', ['as'=>'dashboard.projects','uses'=>'DashboardController@getProjects']);
+Route::get('/dashboard/project/create', ['as'=>'dashboard.project.create','uses'=>'DashboardController@createProject']);
+Route::post('/dashboard/project/store', ['as'=>'dashboard.project.store','uses'=>'DashboardController@storeProject']);
+
+Route::get('/dashboard/publications', ['as'=>'dashboard.publications','uses'=>'DashboardController@getPublications']);
+Route::get('/dashboard/publication/create', ['as'=>'dashboard.publication.create','uses'=>'DashboardController@createPublication']);
+Route::post('/dashboard/publication/store', ['as'=>'dashboard.publication.store','uses'=>'DashboardController@storePublication']);
 // dashboard routes
 // dashboard routes

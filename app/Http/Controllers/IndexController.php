@@ -10,6 +10,8 @@ use App\Blog;
 use App\Category;
 use App\Districtscord;
 use App\Expertise;
+use App\Project;
+use App\Publication;
 
 use Carbon\Carbon;
 
@@ -66,14 +68,34 @@ class IndexController extends Controller
         return view('index.people')->withPeople($people);
     }
 
-    public function getgetProjects()
+    public function getProjects()
     {
-        return view('index.projects');
+        $projects = Project::orderBy('id', 'desc')->get();
+        return view('index.projects')->withProjects($projects);
     }
 
-    public function getgetPublications()
+    public function getProject($slug)
     {
-        return view('index.publications');
+        $project = Project::where('slug', $slug)->first();
+        $randomprojects = Project::inRandomOrder()->get()->take(7);
+        return view('index.singleproject')
+                            ->withProject($project)
+                            ->withProjects($randomprojects);
+    }
+
+    public function getPublications()
+    {
+        $publications = Publication::orderBy('id', 'desc')->paginate(12);
+        return view('index.publications')->withPublications($publications);
+    }
+
+    public function getPublication($code)
+    {
+        $publication = Publication::where('code', $code)->first();
+        $randompublications = Publication::inRandomOrder()->get()->take(5);
+        return view('index.singlepublication')
+                            ->withPublication($publication)
+                            ->withPublications($randompublications);
     }
 
     public function getDisasterdata()
