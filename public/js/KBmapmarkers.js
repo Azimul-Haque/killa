@@ -183,7 +183,13 @@ function MarkerModal(modalTitle, content, linkedMapMarker){
 		this.linkedMapMarker.map.openedModals.push(this);					
 
 		// center opened modal on map marker (css);
-		this.clearPosition();
+		// this.clearPosition();
+
+		// commented out the last line
+		// commented out the last line
+		// commented out the last line
+		// commented out the last line
+		// commented out the last line
 
 	}
 

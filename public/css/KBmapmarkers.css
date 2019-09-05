@@ -54,20 +54,24 @@
           transform: translate(-50%, -100%);
   top: 42%;
   left: 69%;
-  z-index: 1; }
-  .KBmap__marker.current {
-    z-index: 2; }
-  .KBmap__marker img {
-    cursor: pointer;
-    position: relative;
-    z-index: 3; }
-    .KBmap__marker img:hover {
-      -webkit-animation-name: mapMarkerAnimation;
-              animation-name: mapMarkerAnimation;
-      -webkit-animation-duration: .5s;
-              animation-duration: .5s;
-      -webkit-animation-iteration-count: infinite;
-              animation-iteration-count: infinite; }
+  z-index: 1; 
+}
+.KBmap__marker.current {
+  z-index: 2;
+}
+.KBmap__marker img {
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+}
+.KBmap__marker img:hover {
+  -webkit-animation-name: mapMarkerAnimation;
+          animation-name: mapMarkerAnimation;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; 
+}
 
 .KBmap__markerContent {
   width: 200px;
