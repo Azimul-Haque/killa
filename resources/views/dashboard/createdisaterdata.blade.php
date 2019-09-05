@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'KillaBD | Add Disaster Data')
+@section('title', 'Killa Consultancy | Add Disaster Data')
 
 @section('css')
   {!!Html::style('css/parsley.css')!!}

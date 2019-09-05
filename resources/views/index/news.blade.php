@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    KillaBD | News
+    Killa Consultancy | News
 @endsection
 
 @section('css')

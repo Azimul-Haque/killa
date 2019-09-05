@@ -3,8 +3,8 @@
 
 <head>
     <title>@yield('title')</title>
-    <meta name="description" content="Official website of Killa BD. Developed by A. H. M. Azimul Haque and Md. Abdul Mannan.">
-    <meta name="keywords" content="Killa, Killa BD">
+    <meta name="description" content="Official website of Killa Consultancy. Developed by A. H. M. Azimul Haque and Md. Abdul Mannan.">
+    <meta name="keywords" content="Killa, Killa Consultancy, Killa BD, KillaBD">
     <meta charset="utf-8">
     <meta name="author" content="A. H. M. Azimul Haque">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
@@ -86,7 +86,7 @@
                     <!-- address -->
                     <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-map-pin small-icon black-text"></i>
-                        <h6 class="black-text margin-two no-margin-bottom">Killa BD, Dhaka</h6>
+                        <h6 class="black-text margin-two no-margin-bottom">Killa Consultancy, Dhaka</h6>
                     </div>
                     <!-- end address -->
                     <!-- email -->
@@ -107,7 +107,7 @@
                     <h5>About Us</h5>
                     <!-- end headline -->
                     <!-- text -->
-                    <p class="footer-text">Killa BD was established in the year 201* with a view to .... ... ...</p>
+                    <p class="footer-text">Killa Consultancy was established in the year 201* with a view to .... ... ...</p>
                     <!-- end text -->
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-4 footer-link2 col-md-offset-3">

@@ -36,10 +36,19 @@ class IndexController extends Controller
 
         $projects = Project::orderBy('id', 'desc')->get()->take(4);
         $publications = Publication::orderBy('id', 'desc')->get()->take(3);
+
+        $employeecount = User::all()->count();
+        $ongoingprojectcount = Project::where('status', 0)->count();
+        $completeprojectcount = Project::where('status', 1)->count();
+        $publicationcount = Publication::all()->count();
         
         return view('index.index')
                             ->withProjects($projects)
-                            ->withPublications($publications);
+                            ->withPublications($publications)
+                            ->withEmployeecount($employeecount)
+                            ->withOngoingprojectcount($ongoingprojectcount)
+                            ->withCompleteprojectcount($completeprojectcount)
+                            ->withPublicationcount($publicationcount);
     }
 
     public function getAbout()

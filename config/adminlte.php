@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'KillaBD',
+    'title' => 'Killa Consultancy',
 
     'title_prefix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Killa</b>BD',
+    'logo' => '<b>Killa</b>Consultancy',
 
     'logo_mini' => '<b>Killa</b>',
 

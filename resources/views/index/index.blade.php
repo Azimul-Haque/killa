@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    KillaBD
+    Killa Consultancy
 @endsection
 
 @section('css')
@@ -187,25 +187,25 @@
             <div class="row">
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="300ms">
-                    <span class="timer counter-number" data-to="312" data-speed="7000"></span>
+                    <span class="timer counter-number" data-to="{{ $employeecount }}" data-speed="7000"></span>
                     <span class="counter-title">Employee</span>
                 </div>
                 <!-- end counter -->
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="600ms">
-                    <span class="timer counter-number" data-to="430" data-speed="7000"></span>
+                    <span class="timer counter-number" data-to="{{ $ongoingprojectcount }}" data-speed="7000"></span>
                     <span class="counter-title">Ongoing Project</span>
                 </div>
                 <!-- end counter -->
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten" data-wow-duration="900ms">
-                    <span class="timer counter-number" data-to="690" data-speed="7000"></span>
+                    <span class="timer counter-number" data-to="{{ $completeprojectcount }}" data-speed="7000"></span>
                     <span class="counter-title">Projects Completed</span>
                 </div>
                 <!-- end counter -->
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp" data-wow-duration="1200ms">
-                    <span class="timer counter-number" data-to="826" data-speed="7000"></span>
+                    <span class="timer counter-number" data-to="{{ $publicationcount }}" data-speed="7000"></span>
                     <span class="counter-title">Publications</span>
                 </div>
                 <!-- end counter -->

@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    KillaBD | {{ $blog->title }}
+    Killa Consultancy | {{ $blog->title }}
 @endsection
 
 @section('css')
