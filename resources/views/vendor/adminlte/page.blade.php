@@ -170,6 +170,12 @@
                             <span>Publications</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('dashboard/disasterdatas') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.disasterdatas') }}">
+                            <i class="fa fa-fw fa-tree"></i>
+                            <span>Disaster Data</span>
+                        </a>
+                    </li>
                     @endif
                 </ul>
                 <!-- /.sidebar-menu -->

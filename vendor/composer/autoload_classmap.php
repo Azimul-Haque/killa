@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'CreateBlogcategoriesTable' => $baseDir . '/database/migrations/2018_10_25_114844_create_blogcategories_table.php',
     'CreateBlogsTable' => $baseDir . '/database/migrations/2018_10_25_113938_create_blogs_table.php',
+    'CreateDisastercategoriesTable' => $baseDir . '/database/migrations/2019_09_05_212308_create_disastercategories_table.php',
+    'CreateDisasterdatasTable' => $baseDir . '/database/migrations/2019_09_05_212121_create_disasterdatas_table.php',
     'CreateDistrictscordsTable' => $baseDir . '/database/migrations/2019_08_31_011122_create_districtscords_table.php',
     'CreateExpertisesTable' => $baseDir . '/database/migrations/2019_09_04_014311_create_expertises_table.php',
     'CreateLikesTable' => $baseDir . '/database/migrations/2018_10_26_095608_create_likes_table.php',

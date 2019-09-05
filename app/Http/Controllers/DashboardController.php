@@ -10,6 +10,9 @@ use App\User;
 use App\Expertise;
 use App\Project;
 use App\Publication;
+use App\Discategory;
+use App\Districtscord;
+use App\Disdata;
 
 use Carbon\Carbon;
 use DB, Hash, Auth, Image, File, Session;
@@ -377,10 +380,96 @@ class DashboardController extends Controller
         // }
         $publication->users()->sync($request->member_ids, false);
 
-        
-        
         Session::flash('success', 'Added Successfully!');
         return redirect()->route('dashboard.publications');
+    }
+
+    public function getDisasterdatas()
+    {
+        $disasterdatas = Disdata::all();
+        $discategories = Discategory::all();
+        return view('dashboard.disasterdatas')
+                            ->withDisasterdatas($disasterdatas)
+                            ->withDiscategories($discategories);
+    }
+
+    public function storeDisasterCategory(Request $request)
+    {
+        $category = new Discategory();
+        $category->name = $request->name;
+        $category->save();
+
+        Session::flash('success', 'Stored Successfully!');
+        return redirect()->route('dashboard.disasterdatas');
+    }
+
+    public function updateDisasterCategory(Request $request, $id)
+    {
+        $category = Discategory::findOrFail($id);
+        $category->name = $request->name;
+        $category->save();
+
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.disasterdatas');
+    }
+
+    public function createDisasterData()
+    {
+        $discategories = Discategory::all();
+        $districtscords = Districtscord::all();
+        return view('dashboard.createdisaterdata')
+                            ->withDiscategories($discategories)
+                            ->withDistrictscords($districtscords);
+    }
+
+    public function storeDisasterdata(Request $request)
+    {
+        $this->validate($request,array(
+            'discategory_id'      => 'required',
+            'districtscords'      => 'required'
+        ));
+
+        $disasterdata = Disdata::where('discategory_id', $request->discategory_id)->first();
+
+        if($disasterdata) {
+            $disasterdata->districtscords()->sync($request->districtscords, false); // false will append previous record...
+        } else {
+            $disasterdata = new Disdata();
+            $disasterdata->discategory_id = $request->discategory_id;
+        }
+        $disasterdata->save();
+        $disasterdata->districtscords()->sync($request->districtscords, false); // false will append previous record...
+        
+        
+
+        Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.disasterdatas');
+    }
+
+    public function editDisasterdata($id)
+    {
+        $disasterdata = Disdata::findOrFail($id);
+        $discategories = Discategory::all();
+        $districtscords = Districtscord::all();
+
+        return view('dashboard.editdisaterdata')
+                            ->withDisasterdata($disasterdata)
+                            ->withDiscategories($discategories)
+                            ->withDistrictscords($districtscords);
+    }
+
+    public function updateDisasterdata(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'districtscords'      => 'required'
+        ));
+
+        $disasterdata = Disdata::findOrFail($id);
+
+        $disasterdata->districtscords()->sync($request->districtscords, true); // true will delete previous record...
+
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.disasterdatas');
     }
 
     public function getApplications()

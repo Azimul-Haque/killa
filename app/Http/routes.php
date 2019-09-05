@@ -29,8 +29,11 @@ Route::get('/project/{slug}', ['as'=>'index.project','uses'=>'IndexController@ge
 Route::get('/publications', ['as'=>'index.publications','uses'=>'IndexController@getPublications']);
 Route::get('/publication/{code}', ['as'=>'index.publication','uses'=>'IndexController@getPublication']);
 
-Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
+
 Route::get('/disaster/data', ['as'=>'index.disasterdata','uses'=>'IndexController@getDisasterdata']);
+Route::get('/disaster/data/{category_id}/api', ['as'=>'index.disasterdata.api','uses'=>'IndexController@getDisasterdataAPI']);
+
+Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
 Route::get('/faq', ['as'=>'index.faq','uses'=>'IndexController@getFaq']);
 Route::get('/executive', ['as'=>'index.executive','uses'=>'IndexController@getExecutive']);
 Route::get('/news', ['as'=>'index.news','uses'=>'IndexController@getNews']);
@@ -91,5 +94,13 @@ Route::post('/dashboard/project/store', ['as'=>'dashboard.project.store','uses'=
 Route::get('/dashboard/publications', ['as'=>'dashboard.publications','uses'=>'DashboardController@getPublications']);
 Route::get('/dashboard/publication/create', ['as'=>'dashboard.publication.create','uses'=>'DashboardController@createPublication']);
 Route::post('/dashboard/publication/store', ['as'=>'dashboard.publication.store','uses'=>'DashboardController@storePublication']);
+
+Route::get('/dashboard/disasterdatas', ['as'=>'dashboard.disasterdatas','uses'=>'DashboardController@getDisasterdatas']);
+Route::post('/dashboard/disasterdata/category/store', ['as'=>'dashboard.discategory.store','uses'=>'DashboardController@storeDisasterCategory']);
+Route::put('/dashboard/disasterdata/category/{id}/update', ['as'=>'dashboard.discategory.update','uses'=>'DashboardController@updateDisasterCategory']);
+Route::get('/dashboard/disasterdata/create', ['as'=>'dashboard.disasterdata.create','uses'=>'DashboardController@createDisasterdata']);
+Route::post('/dashboard/disasterdata/store', ['as'=>'dashboard.disasterdata.store','uses'=>'DashboardController@storeDisasterdata']);
+Route::get('/dashboard/disasterdata/{id}/edit', ['as'=>'dashboard.disasterdata.edit','uses'=>'DashboardController@editDisasterdata']);
+Route::put('/dashboard/disasterdata/{id}/update', ['as'=>'dashboard.disasterdata.update','uses'=>'DashboardController@updateDisasterdata']);
 // dashboard routes
 // dashboard routes

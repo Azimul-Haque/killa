@@ -8,10 +8,12 @@ use App\Http\Requests;
 use App\User;
 use App\Blog;
 use App\Category;
-use App\Districtscord;
 use App\Expertise;
 use App\Project;
 use App\Publication;
+use App\Discategory;
+use App\Districtscord;
+use App\Disdata;
 
 use Carbon\Carbon;
 
@@ -105,9 +107,24 @@ class IndexController extends Controller
 
     public function getDisasterdata()
     {   
-        $districts = Districtscord::where('cordx', '>', 0)->get();
+        $discategories = Discategory::all();
+        $districtscords = Districtscord::all();
+        return view('index.disasterdata')
+                            ->withDiscategories($discategories)
+                            ->withDistrictscords($districtscords);
+    }
 
-        return view('index.disasterdata')->withDistricts($districts);
+    public function getDisasterdataAPI($discategory_id)
+    {   
+        $disasterdata = Disdata::where('discategory_id', $discategory_id)->first();
+        if($disasterdata) {
+            $disasterdata->load('discategory');
+            $disasterdata->load('districtscords');
+        } else {
+            return 'No Data.';
+        }
+        
+        return $disasterdata;
     }
 
     public function getConstitution()
