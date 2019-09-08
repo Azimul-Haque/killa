@@ -69,7 +69,9 @@
                 <div class="col-md-8">
                   <div>
                     @foreach($publication->users as $member)
-                      <span class="badge badge-primary">{{ $member->name }}</span> 
+                      <a href="{{ route('index.profile', $member->unique_key) }}">
+                        <span class="badge badge-primary">{{ $member->name }}</span>
+                      </a>
                     @endforeach
                     <br/><br/>
                   </div>

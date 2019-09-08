@@ -21,6 +21,8 @@ Route::get('/about', ['as'=>'index.about','uses'=>'IndexController@getAbout']);
 Route::get('/people/employees', ['as'=>'index.employees','uses'=>'IndexController@getEmployees']);
 Route::get('/people/directors', ['as'=>'index.directors','uses'=>'IndexController@getDirectors']);
 Route::get('/people/members', ['as'=>'index.members','uses'=>'IndexController@getMembers']);
+Route::get('/profile/{unique_key}', ['as'=>'index.profile','uses'=>'IndexController@getProfile']);
+
 Route::get('/research/expertise/{slug}', ['as'=>'index.expertise','uses'=>'IndexController@getExpertise']);
 
 Route::get('/projects', ['as'=>'index.projects','uses'=>'IndexController@getProjects']);
@@ -43,7 +45,6 @@ Route::get('/contact', ['as'=>'index.contact','uses'=>'IndexController@getContac
 Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses'=>'IndexController@storeFormMessage']);
 Route::get('/application', ['as'=>'index.application','uses'=>'IndexController@getApplication']);
 Route::get('/member/login', ['as'=>'index.login','uses'=>'IndexController@getLogin']);
-Route::get('/profile/{unique_key}', ['as'=>'index.profile','uses'=>'IndexController@getProfile']);
 Route::post('/member/application/store', ['as'=>'index.storeapplication','uses'=>'IndexController@storeApplication']);
 // index routes
 // index routes

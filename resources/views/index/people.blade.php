@@ -44,11 +44,15 @@
             <div class="col-md-6 col-sm-6 xs-margin-bottom-ten">
                 <div class="model-details clearfix xs-no-margin">
                     <div class="col-md-6 no-padding">
+                      <a href="{{ route('index.profile', $single->unique_key) }}">
                         <img src="{{ asset('images/users/'. $single->image) }}" alt="{{ $single->name }}'s Photo"/>
+                      </a>
                     </div>
                     <div class="col-md-6 no-padding">
                         <div class="architecture-team team-member xs-no-padding">
-                            <span class="team-name text-uppercase black-text display-block font-weight-600">{{ $single->name }}</span>
+                            <a href="{{ route('index.profile', $single->unique_key) }}">
+                              <span class="team-name text-uppercase black-text display-block font-weight-600">{{ $single->name }}</span>
+                            </a>
                             <span class="team-post text-uppercase letter-spacing-2 display-block">{{ $single->designation }}</span>
                             <div class="separator-line bg-black no-margin-lr margin-ten"></div>
                             <span class="margin-ten display-block clearfix xs-no-margin"></span>

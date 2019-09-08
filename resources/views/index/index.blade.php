@@ -43,7 +43,7 @@
     <section class="bg-gray" style="margin-top: 80px; padding: 60px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-sm-8 xs-margin-bottom-four">
+                <div class="col-md-7 xs-margin-bottom-four">
                     <span class="owl-subtitle">K I L L A</span>
                     <span class="owl-title" style="line-height: 35px;font-size: 25px; font-weight: 600; display: block; letter-spacing: 4px;">sjdhd sdjhdsh sdjhdsfh sdjhksjdh sdhkjdsh dsjhdh skdhjkdfh sdhkjdfhk</span>
                     <a href="{{ route('index.projects') }}" class="highlight-button-dark btn margin-four">Let Explore Our Works</a>
@@ -51,8 +51,41 @@
                 </div>
                 <!-- end section title -->
                 <!-- section highlight text -->
-                <div class="col-md-4 col-sm-4 text-right xs-text-left">
-                    <img alt="" class="get-bg xs-display-none" style="padding-top: 12%;" src="{{ asset('images/abc.png') }}" />
+                <div class="col-md-5  wow fadeIn"> {{-- xs-no-padding --}}
+                    <div class="carousel slide jumbotron testimonial" id="slider-content" data-ride="carousel" data-interval="3000">
+                        {{-- <ol class="carousel-indicators">
+                            <li data-slide-to="0" data-target="#slider-content" class="active"></li>
+                            <li data-slide-to="1" data-target="#slider-content" class=""></li>
+                            <li data-slide-to="2" data-target="#slider-content" class=""></li>
+                        </ol> --}}
+                        <div class="carousel-inner">
+                            <!-- testimonial item -->
+                            <div class="item active">
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages01.jpg') }}" />
+                            </div>
+                            <!-- end testimonial item -->
+                            <!-- testimonial item -->
+                            <div class="item">
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages04.jpg') }}" />
+                            </div>
+                            <!-- end testimonial item -->
+                            <!-- testimonial item -->
+                            <div class="item">
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages05.jpg') }}" />
+                            </div>
+                            <!-- end testimonial item -->
+                            <!-- testimonial item -->
+                            <div class="item">
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages07.jpg') }}" />
+                            </div>
+                            <!-- end testimonial item -->
+                            <!-- testimonial item -->
+                            <div class="item">
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages08.jpg') }}" />
+                            </div>
+                            <!-- end testimonial item -->
+                        </div>
+                    </div>
                 </div>
 
 
