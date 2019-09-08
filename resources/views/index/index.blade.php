@@ -51,37 +51,37 @@
                 </div>
                 <!-- end section title -->
                 <!-- section highlight text -->
-                <div class="col-md-5  wow fadeIn"> {{-- xs-no-padding --}}
-                    <div class="carousel slide jumbotron testimonial" id="slider-content" data-ride="carousel" data-interval="3000">
+                <div class="col-md-5 wow fadeIn"> {{-- xs-no-padding --}}
+                    <div class="carousel slide jumbotron testimonial" id="slider-content" data-ride="carousel" data-interval="3000" style="padding-top: 12%;">
                         {{-- <ol class="carousel-indicators">
                             <li data-slide-to="0" data-target="#slider-content" class="active"></li>
                             <li data-slide-to="1" data-target="#slider-content" class=""></li>
                             <li data-slide-to="2" data-target="#slider-content" class=""></li>
                         </ol> --}}
-                        <div class="carousel-inner">
+                        <div class="carousel-inner shadow" >
                             <!-- testimonial item -->
                             <div class="item active">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages01.jpg') }}" />
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages01.jpg') }}" />
                             </div>
                             <!-- end testimonial item -->
                             <!-- testimonial item -->
                             <div class="item">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages04.jpg') }}" />
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages04.jpg') }}" />
                             </div>
                             <!-- end testimonial item -->
                             <!-- testimonial item -->
                             <div class="item">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages05.jpg') }}" />
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages05.jpg') }}" />
                             </div>
                             <!-- end testimonial item -->
                             <!-- testimonial item -->
                             <div class="item">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages07.jpg') }}" />
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages07.jpg') }}" />
                             </div>
                             <!-- end testimonial item -->
                             <!-- testimonial item -->
                             <div class="item">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} style="padding-top: 12%;" src="{{ asset('images/travel-agency-packages08.jpg') }}" />
+                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages08.jpg') }}" />
                             </div>
                             <!-- end testimonial item -->
                         </div>
