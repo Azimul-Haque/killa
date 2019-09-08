@@ -76,6 +76,25 @@
     </section> 
     <!-- end about user section -->
 
+    <!-- about user's biography section -->
+    <section id="features" class="border-bottom xs-onepage-section"> {{-- border-bottom no-padding-bottom --}}
+        <div class="container">
+            <div class="row">
+                <!-- section title -->
+                <div class="col-md-12 text-center">
+                    <span class="title-number">Biography</span>
+                </div>
+                <!-- end section title -->
+            </div>
+            <div class="row margin-five no-margin-bottom">
+                <div class="col-md-12">
+                    {!! $user->bio !!}
+                </div>
+            </div>
+        </div>
+    </section> 
+    <!-- end about user's biography section -->
+
     <!-- about user's publications section -->
     <section id="features" class="xs-onepage-section"> {{-- border-bottom no-padding-bottom --}}
         <div class="container">

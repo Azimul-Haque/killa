@@ -34,6 +34,9 @@
                             <a href="{{ route('index.about') }}" class="inner-link">About Us</a>
                         </li>
                         <li>
+                            <a href="{{ route('index.directors') }}" class="inner-link">People</a>
+                        </li>
+                        <li>
                             <a href="{{ route('index.projects') }}" class="inner-link">Projects</a>
                         </li>
                         <li>
