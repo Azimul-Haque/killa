@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
+use Session;
 
 trait ResetsPasswords
 {
@@ -311,6 +312,7 @@ trait ResetsPasswords
      */
     protected function getResetSuccessResponse($response)
     {
+        Session::flash('success', 'Password RESET success, logged in too!');
         return redirect($this->redirectPath())->with('status', trans($response));
     }
 
