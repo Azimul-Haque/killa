@@ -34,16 +34,22 @@
                             <a href="{{ route('index.about') }}" class="inner-link">About Us</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.directors') }}" class="inner-link">People</a>
-                        </li>
-                        <li>
                             <a href="{{ route('index.projects') }}" class="inner-link">Projects</a>
                         </li>
-                        <li>
-                            <a href="{{ route('index.publications') }}" class="inner-link">Publications</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index.disasterdata') }}" class="inner-link">Disaster Data</a>
+                        <li class="dropdown panel simple-dropdown">
+                            <a href="#nav_archive" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">
+                                Archive
+                            </a>
+                            <!-- sub menu single -->
+                            <!-- sub menu item  -->
+                            <ul id="nav_archive" class="dropdown-menu panel-collapse collapse" role="menu">
+                                <li>
+                                    <a href="{{ route('index.publications') }}"><i class="icon-newspaper i-plain"></i> Publications</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('index.disasterdata') }}"><i class="icon-cloud i-plain"></i> Data</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="{{ route('index.contact') }}">Contact</a>
@@ -87,20 +93,8 @@
                             </ul>
                         </li>
                         @else
-                        <li class="dropdown panel simple-dropdown">
-                            <a href="#nav_auth_user" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">
-                                Membership
-                            </a>
-                            <!-- sub menu single -->
-                            <!-- sub menu item  -->
-                            <ul id="nav_auth_user" class="dropdown-menu panel-collapse collapse" role="menu">
-                                <li>
-                                    <a href="{{ route('index.application') }}"><i class="icon-profile-male i-plain"></i> Apply</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('login') }}"><i class="icon-key i-plain"></i> Login</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="{{ url('login') }}" class="inner-link">Login</a>
                         </li>
                         @endif
                         <!-- end menu item -->

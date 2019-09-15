@@ -131,6 +131,9 @@
                         <li>
                             <a href="{{ route('index.publications') }}">Publications</a>
                         </li>
+                        <li>
+                            <a href="{{ route('index.directors') }}">People</a>
+                        </li>
                     </ul>
                     <!-- end link -->
                 </div>
@@ -150,7 +153,7 @@
                             <a href="{{ route('index.publications') }}">Publications</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.disasterdata') }}">Disaster Data</a>
+                            <a href="{{ route('index.disasterdata') }}">Data</a>
                         </li>
                         <li>
                             <a href="{{ route('index.contact') }}">Contact</a>

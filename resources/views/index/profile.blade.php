@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    Killa Consultancy | {{ Auth::user()->name }}
+    Killa Consultancy | {{ $user->name }}
 @endsection
 
 @section('css')
