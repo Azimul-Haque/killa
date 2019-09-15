@@ -17,6 +17,7 @@ Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 // index routes
 // index routes
 Route::get('/', ['as'=>'index.index','uses'=>'IndexController@index']);
+Route::get('/home', ['as'=>'index.index','uses'=>'IndexController@index']); // reset password redirect adhoc solve
 Route::get('/about', ['as'=>'index.about','uses'=>'IndexController@getAbout']);
 Route::get('/people/employees', ['as'=>'index.employees','uses'=>'IndexController@getEmployees']);
 Route::get('/people/directors', ['as'=>'index.directors','uses'=>'IndexController@getDirectors']);
