@@ -53,7 +53,7 @@ class IndexController extends Controller
 
     public function homeAdhoc()
     {
-        return route('index.index');
+        return redirect()->route('index.index');
     }
 
     public function getAbout()
