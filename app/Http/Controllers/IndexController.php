@@ -51,6 +51,11 @@ class IndexController extends Controller
                             ->withPublicationcount($publicationcount);
     }
 
+    public function homeAdhoc()
+    {
+        return route('index.index');
+    }
+
     public function getAbout()
     {
         $expertises = Expertise::orderBy('id', 'desc')->get()->take(5);
