@@ -4167,7 +4167,7 @@
  .grid-gallery figcaption p {
      display:block;
      font-size:12px;
-     letter-spacing:3px;
+     letter-spacing:1px;
      text-transform:uppercase;
      text-decoration:none;
      color: #aeaeae;
@@ -8143,7 +8143,7 @@
     white-space: nowrap;
 }
 .project-min-height {
-     min-height: 70px;
+     min-height: 50px;
 }
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
