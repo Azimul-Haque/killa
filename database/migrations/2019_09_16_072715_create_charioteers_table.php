@@ -17,7 +17,6 @@ class CreateCharioteersTable extends Migration
             $table->string('question');
             $table->string('answer');
             $table->integer('count');
-            $table->timestamps();
         });
     }
 

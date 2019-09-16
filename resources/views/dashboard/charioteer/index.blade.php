@@ -35,6 +35,7 @@
                   <th>No.</th>
                   <th width="">Question</th>
                   <th width="">Answer</th>
+                  <th width="">Count</th>
                   <th width="15%">Action</th>
                 </tr>
               </thead>
@@ -48,6 +49,9 @@
                   </td>
                   <td>
                     {{ $charioteer->answer }}
+                  </td>
+                  <td>
+                    {{ $charioteer->count }}
                   </td>
                   
                   <td>

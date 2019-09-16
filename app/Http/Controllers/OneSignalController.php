@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Charioteer;
-use Session;
+use Session, Auth;
 use OneSignal;
 
 class OneSignalController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('sendPush');
     }
 
     public function index()
@@ -77,6 +77,8 @@ class OneSignalController extends Controller
     public function sendPush()
     {
         $charioteer = Charioteer::inRandomOrder()->first();
+        $charioteer->count = $charioteer->count + 1;
+        $charioteer->save();
 
         
         OneSignal::sendNotificationToAll(
@@ -89,6 +91,11 @@ class OneSignalController extends Controller
         );
 
         Session::flash('success', 'Sent Successfully!');
-        return redirect()->route('dashboard.onesignal');
+        if(Auth::check()) {
+        	return redirect()->route('dashboard.onesignal');
+        } else {
+        	return '200';
+        }
+        
     }
 }
