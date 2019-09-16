@@ -78,7 +78,7 @@
                 <div class="col-md-4">
                   <div class="widget">
                       <h5 class="widget-title font-alt">Project Status</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body">
                         @if($project->status == 0)
                           <span class="text-muted">Ongoing</span>
@@ -90,7 +90,7 @@
 
                   <div class="widget">
                       <h5 class="widget-title font-alt">Project Active</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body">
                         <b>{{ date('F d, Y', strtotime($project->starts)) }}</b> to
                         <b>{{ date('F d, Y', strtotime($project->ends)) }}</b>
@@ -99,7 +99,7 @@
 
                   <div class="widget">
                       <h5 class="widget-title font-alt">Share This Project</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body padding-three">
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a>
                         <a href="https://twitter.com/intent/tweet?url={{ Request::url() }}" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-twitter"></i></a>
@@ -110,7 +110,7 @@
 
                   <div class="widget">
                       <h5 class="widget-title font-alt">Other Projects</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body">
                         <ul class="widget-posts">
                           @foreach($projects as $project)

@@ -455,9 +455,16 @@
  .bg-fast-yellow{
      background: #fdd947 !important;
 }
+ .bg-fast-killa{
+     background: #FB0B0B !important;
+}
  .bg-dark-gray{
      background: #252525 !important;
+} 
+.bg-killa-gray{
+     background: #949494 !important;
 }
+
  .bg-mid-gray{
      background: #d4d4d4 !important;
 }
@@ -8134,6 +8141,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.project-min-height {
+     min-height: 70px;
 }
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

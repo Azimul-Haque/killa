@@ -182,18 +182,18 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid bg-dark-gray footer-bottom">
+        <div class="container-fluid bg-killa-gray footer-bottom">
             <div class="container">
                 <div class="row margin-three">
                     <!-- copyright -->
-                    <div class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
-                        &copy; {{ date('Y') }} <a href="http://loencebd.com/" style="text-decoration: none; color: #888888;">Loence Bangladesh</a>.
+                    <div class="col-md-6 col-sm-6 col-xs-12 dark-gray-text text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
+                        &copy; {{ date('Y') }} <a href="http://loencebd.com/" style="text-decoration: none;" class="dark-gray-text">Loence Bangladesh</a>.
                     </div>
                     <!-- end copyright -->
                     <!-- logo -->
                     <div class="col-md-6 col-sm-6 col-xs-12 footer-logo text-right xs-text-center">
                         <a href="{{ route('index.index') }}">
-                            <img src="{{ asset('images/logo-light.png') }}" alt="" />
+                            <img src="{{ asset('images/logo.png') }}" alt="" />
                         </a>
                     </div>
                     <!-- end logo -->

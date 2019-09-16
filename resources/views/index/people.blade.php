@@ -20,8 +20,8 @@
             <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                 <!-- breadcrumb -->
                 <ul>
-                    <li><a href="{{ route('index.index') }}">Home</a></li>
-                    <li><a href="#">People</a></li>
+                   {{--  <li><a href="{{ route('index.index') }}">Home</a></li>
+                    <li><a href="#">People</a></li> --}}
                 </ul>
                 <!-- end breadcrumb -->
             </div>
@@ -35,7 +35,7 @@
           <div class="col-md-12 col-sm-12 center-col text-left">
             <a href="{{ route('index.directors') }}" class="{{ Request::is('people/directors') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Board of Directors</a>
             <a href="{{ route('index.employees') }}" class="{{ Request::is('people/employees') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Employees</a>
-            <a href="{{ route('index.members') }}" class="{{ Request::is('people/members') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Members</a>
+            {{-- <a href="{{ route('index.members') }}" class="{{ Request::is('people/members') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Members</a> --}}
           </div>
       </div>
       <div class="row margin-five no-margin-bottom">
@@ -45,7 +45,7 @@
                 <div class="model-details clearfix xs-no-margin">
                     <div class="col-md-6 no-padding">
                       <a href="{{ route('index.profile', $single->unique_key) }}">
-                        <img src="{{ asset('images/users/'. $single->image) }}" alt="{{ $single->name }}'s Photo"/>
+                        <img src="{{ asset('images/users/'. $single->image) }}" alt="{{ $single->name }}'s Photo" class="img-circle shadow" />
                       </a>
                     </div>
                     <div class="col-md-6 no-padding">

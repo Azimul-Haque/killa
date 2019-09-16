@@ -49,7 +49,7 @@
             </div>
             <div class="row margin-five no-margin-bottom">
                 <div class="col-md-6 col-sm-6 text-center xs-margin-bottom-ten">
-                    <img src="{{ asset('images/users/'.$user->image) }}" alt="image of {{ $user->name }}" class="img-responsive shadow" style="width: 250px; height: auto;" />
+                    <img src="{{ asset('images/users/'.$user->image) }}" alt="image of {{ $user->name }}" class="img-responsive img-circle shadow" style="width: 250px; height: auto;" />
                 </div>
                 <div class="col-md-6 col-sm-6 sm-margin-bottom-ten">
                     <div class="col-md-12 col-sm-12 no-padding">

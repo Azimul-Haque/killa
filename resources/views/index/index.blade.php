@@ -38,61 +38,8 @@
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
-    {{-- @include('partials._slider') --}}
-    <!-- start section -->
-    <section class="bg-gray" style="margin-top: 80px; padding: 60px 0;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 xs-margin-bottom-four">
-                    <span class="owl-subtitle">K I L L A</span>
-                    <span class="owl-title" style="line-height: 35px;font-size: 25px; font-weight: 600; display: block; letter-spacing: 4px;">sjdhd sdjhdsh sdjhdsfh sdjhksjdh sdhkjdsh dsjhdh skdhjkdfh sdhkjdfhk</span>
-                    <a href="{{ route('index.projects') }}" class="highlight-button-dark btn margin-four">Let Explore Our Works</a>
-
-                </div>
-                <!-- end section title -->
-                <!-- section highlight text -->
-                <div class="col-md-5 wow fadeIn"> {{-- xs-no-padding --}}
-                    <div class="carousel slide jumbotron testimonial" id="slider-content" data-ride="carousel" data-interval="3000" style="padding-top: 12%;">
-                        {{-- <ol class="carousel-indicators">
-                            <li data-slide-to="0" data-target="#slider-content" class="active"></li>
-                            <li data-slide-to="1" data-target="#slider-content" class=""></li>
-                            <li data-slide-to="2" data-target="#slider-content" class=""></li>
-                        </ol> --}}
-                        <div class="carousel-inner shadow" >
-                            <!-- testimonial item -->
-                            <div class="item active">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages01.jpg') }}" />
-                            </div>
-                            <!-- end testimonial item -->
-                            <!-- testimonial item -->
-                            <div class="item">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages04.jpg') }}" />
-                            </div>
-                            <!-- end testimonial item -->
-                            <!-- testimonial item -->
-                            <div class="item">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages05.jpg') }}" />
-                            </div>
-                            <!-- end testimonial item -->
-                            <!-- testimonial item -->
-                            <div class="item">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages07.jpg') }}" />
-                            </div>
-                            <!-- end testimonial item -->
-                            <!-- testimonial item -->
-                            <div class="item">
-                                <img alt="" class="get-bg" {{-- xs-display-none --}} src="{{ asset('images/travel-agency-packages08.jpg') }}" />
-                            </div>
-                            <!-- end testimonial item -->
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-    <!-- end start section -->
+    @include('partials._slider')
+    
     <!-- about section -->
     <section class=" wow fadeIn">
         <div class="container">
@@ -142,7 +89,7 @@
                                             </a>
                                         </div>
                                         <figcaption>
-                                            <p>{{ substr(strip_tags($project->title), 0, 50) }}...</p>
+                                            <p class="project-min-height">{{ substr(strip_tags($project->title), 0, 50) }}...</p>
                                             <a class="btn inner-link btn-black btn-small" href="{{ route('index.project', $project->slug) }}">Explore Now</a>
                                         </figcaption>
                                     </figure>
@@ -220,26 +167,34 @@
             <div class="row">
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="300ms">
-                    <span class="timer counter-number" data-to="{{ $employeecount }}" data-speed="7000"></span>
-                    <span class="counter-title">Employee</span>
+                    <a href="{{ route('index.directors') }}">
+                        <span class="timer counter-number" data-to="{{ $employeecount }}" data-speed="7000"></span>
+                        <span class="counter-title">Employee</span>
+                    </a>
                 </div>
                 <!-- end counter -->
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="600ms">
-                    <span class="timer counter-number" data-to="{{ $ongoingprojectcount }}" data-speed="7000"></span>
-                    <span class="counter-title">Ongoing Project</span>
+                    <a href="{{ url('/projects#ongoing') }}">
+                        <span class="timer counter-number" data-to="{{ $ongoingprojectcount }}" data-speed="7000"></span>
+                        <span class="counter-title">Ongoing Project</span>
+                    </a>
                 </div>
                 <!-- end counter -->
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 bottom-margin-small text-center counter-section wow fadeInUp xs-margin-bottom-ten" data-wow-duration="900ms">
-                    <span class="timer counter-number" data-to="{{ $completeprojectcount }}" data-speed="7000"></span>
-                    <span class="counter-title">Projects Completed</span>
+                    <a href="{{ url('/projects#completed') }}">
+                        <span class="timer counter-number" data-to="{{ $completeprojectcount }}" data-speed="7000"></span>
+                        <span class="counter-title">Projects Completed</span>
+                    </a>
                 </div>
                 <!-- end counter -->
                 <!-- counter -->
                 <div class="col-md-3 col-sm-6 text-center counter-section wow fadeInUp" data-wow-duration="1200ms">
-                    <span class="timer counter-number" data-to="{{ $publicationcount }}" data-speed="7000"></span>
-                    <span class="counter-title">Publications</span>
+                    <a href="{{ route('index.publications') }}">
+                        <span class="timer counter-number" data-to="{{ $publicationcount }}" data-speed="7000"></span>
+                        <span class="counter-title">Publications</span>
+                    </a>
                 </div>
                 <!-- end counter -->
             </div>
@@ -247,7 +202,7 @@
     </section>
     <!-- end counter section -->
     <!-- highlight section -->
-    <section class="bg-fast-yellow no-padding wow fadeInUp">
+    <section class="bg-fast-killa no-padding wow fadeInUp">
         <div class="container">
             <div class="row padding-five sm-text-center">
                 <div class="col-md-1">

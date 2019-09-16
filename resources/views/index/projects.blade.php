@@ -20,8 +20,8 @@
                 <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                     <!-- breadcrumb -->
                     <ul>
-                        <li><a href="{{ route('index.index') }}">Home</a></li>
-                        <li><a href="#">Projects</a></li>
+                        {{-- <li><a href="{{ route('index.index') }}">Home</a></li>
+                        <li><a href="#">Projects</a></li> --}}
                     </ul>
                     <!-- end breadcrumb -->
                 </div>
@@ -61,7 +61,7 @@
                                             </a>
                                         </div>
                                         <figcaption>
-                                            <p>{{ substr(strip_tags($project->title), 0, 50) }}...</p>
+                                            <p class="project-min-height">{{ substr(strip_tags($project->title), 0, 50) }}...</p>
                                             <a class="btn inner-link btn-black btn-small" href="{{ route('index.project', $project->slug) }}">Explore Now</a>
                                         </figcaption>
                                     </figure>

@@ -25,8 +25,8 @@
                 <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                     <!-- breadcrumb -->
                     <ul>
-                        <li><a href="{{ route('index.index') }}">Home</a></li>
-                        <li><a href="#">Publications</a></li>
+                        {{-- <li><a href="{{ route('index.index') }}">Home</a></li>
+                        <li><a href="#">Publications</a></li> --}}
                     </ul>
                     <!-- end breadcrumb -->
                 </div>

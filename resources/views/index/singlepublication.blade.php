@@ -88,7 +88,7 @@
                   <br/><br/>
                   <div class="widget">
                       <h5 class="widget-title font-alt">Publication Code</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body padding-three">
                         <big><b>{{ $publication->code }}</b></big>
                       </div>
@@ -96,7 +96,7 @@
 
                   <div class="widget">
                       <h5 class="widget-title font-alt">Published</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body">
                         <b>{{ date('F d, Y', strtotime($publication->publishing_date)) }}</b>
                       </div>
@@ -104,16 +104,16 @@
 
                   <div class="widget">
                       <h5 class="widget-title font-alt">File Download</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body padding-three">
                         @if(Auth::check())
                           @if($publication->file != null)
-                            <a class="highlight-button btn btn-small btn-round button xs-margin-bottom-five" href="{{ asset('files/'.$publication->file)}}" download=""><i class="fa fa-download"></i> Download</a>
+                            <a class="highlight-button btn btn-small btn-round button xs-margin-bottom-five" href="{{ asset('files/'.$publication->file)}}" title="You can download." download=""><i class="fa fa-download"></i> Download</a>
                           @else
                             No File Found.
                           @endif
                         @else
-                          <a class="highlight-button btn btn-small btn-round button xs-margin-bottom-five" href="{{ url('login')}}"> Login to Download</a>
+                          <a class="highlight-button btn btn-small btn-round button xs-margin-bottom-five" href="{{ url('login')}}" title="Login to download."><i class="fa fa-download"></i> Download</a>
                         @endif
 
                         
@@ -122,7 +122,7 @@
 
                   <div class="widget">
                       <h5 class="widget-title font-alt">Share This Publication</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body padding-three">
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a>
                         <a href="https://twitter.com/intent/tweet?url={{ Request::url() }}" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-twitter"></i></a>
@@ -133,7 +133,7 @@
 
                   <div class="widget">
                       <h5 class="widget-title font-alt">Other Publications</h5>
-                      <div class="thin-separator-line bg-dark-gray no-margin-lr"></div>
+                      {{-- <div class="thin-separator-line bg-dark-gray no-margin-lr"></div> --}}
                       <div class="widget-body">
                         <ul class="widget-posts">
                           @foreach($publications as $publication)
@@ -162,5 +162,10 @@
 @endsection
 
 @section('js')
-   
+   <script type="text/javascript">
+     $(function(){
+      $('a[title]').tooltip();
+      $('button[title]').tooltip();
+     });
+   </script>
 @endsection
