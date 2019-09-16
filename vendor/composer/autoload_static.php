@@ -10,15 +10,17 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
@@ -62,6 +64,7 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
             'SuperClosure\\' => 13,
         ),
         'P' => 
@@ -94,6 +97,8 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
         ),
         'F' => 
         array (
@@ -111,6 +116,10 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
+        ),
+        'B' => 
+        array (
+            'Berkayk\\OneSignal\\' => 18,
         ),
         'A' => 
         array (
@@ -205,6 +214,10 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Symfony\\Bridge\\PsrHttpMessage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
+        ),
         'SuperClosure\\' => 
         array (
             0 => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src',
@@ -261,6 +274,14 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
@@ -292,6 +313,10 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         'ClassPreloader\\' => 
         array (
             0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
+        ),
+        'Berkayk\\OneSignal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/berkayk/onesignal-laravel/src',
         ),
         'App\\' => 
         array (
@@ -337,8 +362,9 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
     public static $classMap = array (
         'CreateBlogcategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_25_114844_create_blogcategories_table.php',
         'CreateBlogsTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_25_113938_create_blogs_table.php',
-        'CreateDisastercategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2019_09_05_212308_create_disastercategories_table.php',
-        'CreateDisasterdatasTable' => __DIR__ . '/../..' . '/database/migrations/2019_09_05_212121_create_disasterdatas_table.php',
+        'CreateCharioteersTable' => __DIR__ . '/../..' . '/database/migrations/2019_09_16_072715_create_charioteers_table.php',
+        'CreateDiscategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2019_09_05_212308_create_discategories_table.php',
+        'CreateDisdatasTable' => __DIR__ . '/../..' . '/database/migrations/2019_09_05_212121_create_disdatas_table.php',
         'CreateDistrictscordsTable' => __DIR__ . '/../..' . '/database/migrations/2019_08_31_011122_create_districtscords_table.php',
         'CreateExpertisesTable' => __DIR__ . '/../..' . '/database/migrations/2019_09_04_014311_create_expertises_table.php',
         'CreateLikesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_26_095608_create_likes_table.php',

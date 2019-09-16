@@ -47,6 +47,7 @@ Route::post('/contact/form/message/store', ['as'=>'index.storeformmessage','uses
 Route::get('/application', ['as'=>'index.application','uses'=>'IndexController@getApplication']);
 Route::get('/member/login', ['as'=>'index.login','uses'=>'IndexController@getLogin']);
 Route::post('/member/application/store', ['as'=>'index.storeapplication','uses'=>'IndexController@storeApplication']);
+
 // index routes
 // index routes
 
@@ -104,5 +105,13 @@ Route::get('/dashboard/disasterdata/create', ['as'=>'dashboard.disasterdata.crea
 Route::post('/dashboard/disasterdata/store', ['as'=>'dashboard.disasterdata.store','uses'=>'DashboardController@storeDisasterdata']);
 Route::get('/dashboard/disasterdata/{id}/edit', ['as'=>'dashboard.disasterdata.edit','uses'=>'DashboardController@editDisasterdata']);
 Route::put('/dashboard/disasterdata/{id}/update', ['as'=>'dashboard.disasterdata.update','uses'=>'DashboardController@updateDisasterdata']);
+
+
+Route::get('/onesignal', ['as'=>'dashboard.onesignal','uses'=>'OneSignalController@index']);
+Route::post('/onesignal/store/qa', ['as'=>'dashboard.onesignal.storeqa','uses'=>'OneSignalController@storeQA']);
+Route::delete('/onesignal/qa/{id}/delete', ['as'=>'dashboard.onesignal.delqa','uses'=>'OneSignalController@delQA']);
+Route::put('/onesignal/qa/{id}/update', ['as'=>'dashboard.onesignal.updateqa','uses'=>'OneSignalController@updateQA']);
+
+Route::get('/onesignal/send/push', ['as'=>'dashboard.onesignal.sendpush','uses'=>'OneSignalController@sendPush']);
 // dashboard routes
 // dashboard routes
