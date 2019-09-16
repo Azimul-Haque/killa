@@ -232,4 +232,16 @@
         })
     //]]>
 </script>
+<script>
+    $("#owl-demo").owlCarousel ({
+
+        slideSpeed : 800,
+        autoPlay: 4000,
+        items : 1,
+        stopOnHover : false,
+        itemsDesktop : [1199,1],
+        itemsDesktopSmall : [979,1],
+        itemsTablet :   [768,1],
+      });
+</script>
 @endsection

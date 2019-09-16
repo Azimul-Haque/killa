@@ -38,7 +38,7 @@
                         </li>
                         <li class="dropdown panel simple-dropdown">
                             <a href="#nav_archive" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">
-                                Archive
+                                Archive ▽
                             </a>
                             <!-- sub menu single -->
                             <!-- sub menu item  -->
@@ -76,7 +76,7 @@
                                     $nav_user_name = explode(' ', Auth::user()->name);
                                     $last_name = array_pop($nav_user_name);
                                 @endphp
-                                {{ $last_name }}
+                                {{ $last_name }} ▽
                             </a>
                             <!-- sub menu single -->
                             <!-- sub menu item  -->
