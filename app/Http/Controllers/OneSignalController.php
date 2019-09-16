@@ -14,8 +14,7 @@ class OneSignalController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('guest')->only('getLogin');
-        // $this->middleware('auth')->only('getProfile');
+        $this->middleware('auth');
     }
 
     public function index()
