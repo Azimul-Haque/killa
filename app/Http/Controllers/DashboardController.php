@@ -173,8 +173,24 @@ class DashboardController extends Controller
 
     public function getMembers()
     {
-        $members = User::where('activation_status', 1)->orderBy('id', 'desc')->paginate(20);
-        return view('dashboard.members')->withMembers($members);
+        $directors = User::where('activation_status', 1)
+                         ->where('type', 'Director')
+                         ->orderBy('id', 'desc')->get();
+        $advisors = User::where('activation_status', 1)
+                         ->where('type', 'Advisor')
+                         ->orderBy('id', 'desc')->get();
+        $employees = User::where('activation_status', 1)
+                         ->where('type', 'Employee')
+                         ->orderBy('id', 'desc')->get();
+        $members = User::where('activation_status', 1)
+                         ->where('type', 'Member')
+                         ->orderBy('id', 'desc')->paginate(20);
+
+        return view('dashboard.members')
+                        ->withDirectors($directors)
+                        ->withAdvisors($advisors)
+                        ->withEmployees($employees)
+                        ->withMembers($members);
     }
 
     public function createMember()
@@ -195,6 +211,7 @@ class DashboardController extends Controller
             'image'                     => 'required|image|max:300',
             'bio'                       => 'required',
             'type'                      => 'required',
+            'adminornot'                => 'required',
             'password'                  => 'required|min:8'
         ));
 
@@ -216,11 +233,14 @@ class DashboardController extends Controller
             Image::make($image)->resize(250, 250)->save($location);
             $member->image = $filename;
         }
-        $member->password = Hash::make($request->password);
 
         $member->bio    = Purifier::clean($request->bio, 'youtube');
         $member->type = $request->type;
-        $member->role = 'member';
+        if($request->adminornot == 0) {
+            $member->role = 'member';
+        } else {
+            $member->role = 'admin';
+        }
         $member->activation_status = 1;
 
         // generate unique_key
@@ -233,6 +253,70 @@ class DashboardController extends Controller
         $member->save();
         
         Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.members');
+    }
+
+    public function editMember($id)
+    {
+        $member = User::findOrFail($id);
+        return view('dashboard.editmember')->withMember($member);
+    }
+
+    public function updateMember(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'name'                      => 'required|max:255',
+            // 'email'                     => 'required|email|unique:users,email',
+            'phone'                     => 'required|numeric',
+            'designation'               => 'sometimes|max:255',
+            'fb'                        => 'sometimes|max:255',
+            'twitter'                   => 'sometimes|max:255',
+            'linkedin'                  => 'sometimes|max:255',
+            'image'                     => 'sometimes|image|max:300',
+            'bio'                       => 'required',
+            'type'                      => 'required',
+            'adminornot'                => 'required',
+            'password'                  => 'sometimes'
+        ));
+
+        $member = User::findOrFail($id);
+        $member->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
+        // $member->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
+        $member->phone = htmlspecialchars(preg_replace("/\s+/", " ", $request->phone));
+        
+        $member->designation = htmlspecialchars(preg_replace("/\s+/", " ", $request->designation));
+        $member->fb = htmlspecialchars(preg_replace("/\s+/", " ", $request->fb));
+        $member->twitter = htmlspecialchars(preg_replace("/\s+/", " ", $request->twitter));
+        $member->linkedin = htmlspecialchars(preg_replace("/\s+/", " ", $request->linkedin));
+
+        // image upload, if has any
+        if($request->hasFile('image')) {
+            // delete the previous one
+            $image_path = public_path('images/users/'. $member->image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image      = $request->file('image');
+            $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/users/'. $filename);
+            Image::make($image)->resize(250, 250)->save($location);
+            $member->image = $filename;
+        }
+        if($request->password) {
+            $member->password = Hash::make($request->password);
+        }
+        
+
+        $member->bio    = Purifier::clean($request->bio, 'youtube');
+        $member->type = $request->type;
+        if($request->adminornot == 0) {
+            $member->role = 'member';
+        } else {
+            $member->role = 'admin';
+        }
+        $member->save();
+        
+        Session::flash('success', 'Updated Successfully!');
         return redirect()->route('dashboard.members');
     }
 
@@ -502,5 +586,16 @@ class DashboardController extends Controller
 
         // Session::flash('success', 'Deleted Successfully!');
         // return redirect()->route('dashboard.committee');
+    }
+
+
+    public function getPersonalPubs()
+    {
+        return view('dashboard.personalpubs');
+    }
+
+    public function getPersonalProfile()
+    {
+        return view('dashboard.personalprofile');
     }
 }

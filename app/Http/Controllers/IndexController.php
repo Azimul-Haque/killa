@@ -68,16 +68,23 @@ class IndexController extends Controller
         return view('index.singleexpertise')->withExpertise($expertise);
     }
 
-    public function getEmployees()
+    public function getDirectors()
     {
-        $people = User::where('type', 'Employee')
+        $people = User::where('type', 'Director')
                          ->where('activation_status', 1)->get();
         return view('index.people')->withPeople($people);
     }
 
-    public function getDirectors()
+    public function getAdvisors()
     {
-        $people = User::where('type', 'Director')
+        $people = User::where('type', 'Advisor')
+                         ->where('activation_status', 1)->get();
+        return view('index.people')->withPeople($people);
+    }
+
+    public function getEmployees()
+    {
+        $people = User::where('type', 'Employee')
                          ->where('activation_status', 1)->get();
         return view('index.people')->withPeople($people);
     }

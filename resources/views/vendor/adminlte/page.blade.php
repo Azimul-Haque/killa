@@ -92,7 +92,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                               <div class="pull-left">
-                                <a href="{{ route('users.edit', Auth::User()->id) }}" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ route('dashboard.personal.profile') }}" class="btn btn-default btn-flat">Profile</a>
                               </div>
                               <div class="pull-right">
                                 @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
@@ -149,7 +149,7 @@
                     <li class="{{ Request::is('dashboard/members') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.members') }}">
                             <i class="fa fa-fw fa-users"></i>
-                            <span>Members</span>
+                            <span>People</span>
                         </a>
                     </li>
                     <li class="{{ Request::is('dashboard/expertises') ? 'active' : '' }}">
@@ -177,6 +177,19 @@
                         </a>
                     </li>
                     @endif
+                    <li class="header">Personal Profile</li>
+                    <li class="{{ Request::is('dashboard/personal/profile') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.personal.profile') }}">
+                            <i class="fa fa-fw fa-user"></i>
+                            <span>Your Profile</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/personal/publications') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.personal.pubs') }}">
+                            <i class="fa fa-fw fa-files-o"></i>
+                            <span>Your Publications</span>
+                        </a>
+                    </li>
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
@@ -217,8 +230,9 @@
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     <script type="text/javascript">
       $(function(){
-       $('a[title]').tooltip();
-       $('button[title]').tooltip();
+       // $('a[title]').tooltip();
+       // $('button[title]').tooltip();
+       $('[title]').tooltip();
       });
     </script>
     @stack('js')

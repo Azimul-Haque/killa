@@ -19,8 +19,9 @@ Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 Route::get('/', ['as'=>'index.index','uses'=>'IndexController@index']);
 Route::get('/home', ['as'=>'index.homeadhoc','uses'=>'IndexController@homeAdhoc']); // reset password redirect adhoc solve
 Route::get('/about', ['as'=>'index.about','uses'=>'IndexController@getAbout']);
-Route::get('/people/employees', ['as'=>'index.employees','uses'=>'IndexController@getEmployees']);
 Route::get('/people/directors', ['as'=>'index.directors','uses'=>'IndexController@getDirectors']);
+Route::get('/people/advisors', ['as'=>'index.advisors','uses'=>'IndexController@getAdvisors']);
+Route::get('/people/employees', ['as'=>'index.employees','uses'=>'IndexController@getEmployees']);
 Route::get('/people/members', ['as'=>'index.members','uses'=>'IndexController@getMembers']);
 Route::get('/profile/{unique_key}', ['as'=>'index.profile','uses'=>'IndexController@getProfile']);
 
@@ -81,7 +82,10 @@ Route::get('/dashboard/blogs', ['as'=>'dashboard.blogs','uses'=>'DashboardContro
 Route::get('/dashboard/members', ['as'=>'dashboard.members','uses'=>'DashboardController@getMembers']);
 Route::get('/dashboard/member/create', ['as'=>'dashboard.member.create','uses'=>'DashboardController@createMember']);
 Route::post('/dashboard/member/store', ['as'=>'dashboard.member.store','uses'=>'DashboardController@storeMember']);
+Route::get('/dashboard/member/{id}/edit', ['as'=>'dashboard.member.edit','uses'=>'DashboardController@editMember']);
+Route::put('/dashboard/member/{id}/update', ['as'=>'dashboard.member.update','uses'=>'DashboardController@updateMember']);
 Route::delete('/dashboard/deletemember/{id}', ['as'=>'dashboard.deletemember','uses'=>'DashboardController@deleteMember']);
+
 Route::get('/dashboard/applications', ['as'=>'dashboard.applications','uses'=>'DashboardController@getApplications']);
 Route::patch('/dashboard/applications/{id}/approve', ['as'=>'dashboard.approveapplication','uses'=>'DashboardController@approveApplication']);
 Route::delete('/dashboard/application/{id}', ['as'=>'dashboard.deleteapplication','uses'=>'DashboardController@deleteApplication']);
@@ -105,6 +109,9 @@ Route::get('/dashboard/disasterdata/create', ['as'=>'dashboard.disasterdata.crea
 Route::post('/dashboard/disasterdata/store', ['as'=>'dashboard.disasterdata.store','uses'=>'DashboardController@storeDisasterdata']);
 Route::get('/dashboard/disasterdata/{id}/edit', ['as'=>'dashboard.disasterdata.edit','uses'=>'DashboardController@editDisasterdata']);
 Route::put('/dashboard/disasterdata/{id}/update', ['as'=>'dashboard.disasterdata.update','uses'=>'DashboardController@updateDisasterdata']);
+
+Route::get('/dashboard/personal/publications', ['as'=>'dashboard.personal.pubs','uses'=>'DashboardController@getPersonalPubs']);
+Route::get('/dashboard/personal/profile', ['as'=>'dashboard.personal.profile','uses'=>'DashboardController@getPersonalProfile']);
 
 
 Route::get('/onesignal', ['as'=>'dashboard.onesignal','uses'=>'OneSignalController@index']);

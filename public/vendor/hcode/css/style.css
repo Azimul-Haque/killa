@@ -7287,13 +7287,14 @@
 }
  .model-details {
      margin-bottom:40px;
+     padding: 20px;
 }
  .model-details-text {
     padding:25px 45px
 }
  .architecture-team {
-    padding:30px 45px;
-     margin-bottom: 45px;
+    padding:45px 45px;
+   margin-bottom: 0px;
 }
 /* spa */
  .spa-slider h1 {

@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    Killa Consultancy | Employees
+    Killa Consultancy | People
 @endsection
 
 @section('css')
@@ -32,23 +32,29 @@
   <section>
     <div class="container">
       <div class="row">
-          <div class="col-md-12 col-sm-12 center-col text-left">
+        <div class="col-md-12 col-sm-12 center-col">
+          <center>
             <a href="{{ route('index.directors') }}" class="{{ Request::is('people/directors') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Board of Directors</a>
+            <a href="{{ route('index.advisors') }}" class="{{ Request::is('people/advisors') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Advisors</a>
             <a href="{{ route('index.employees') }}" class="{{ Request::is('people/employees') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Employees</a>
             {{-- <a href="{{ route('index.members') }}" class="{{ Request::is('people/members') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Members</a> --}}
-          </div>
+          </center>
+        </div>
       </div>
       <div class="row margin-five no-margin-bottom">
           @foreach($people as $single)
             <!-- model -->
-            <div class="col-md-6 col-sm-6 xs-margin-bottom-ten">
-                <div class="model-details clearfix xs-no-margin">
+            <div class="col-md-6 col-sm-6 xs-margin-bottom-ten sm-margin-bottom-ten">
+                <div class="model-details clearfix xs-no-margin box">
                     <div class="col-md-6 no-padding">
-                      <a href="{{ route('index.profile', $single->unique_key) }}">
-                        <img src="{{ asset('images/users/'. $single->image) }}" alt="{{ $single->name }}'s Photo" class="img-circle shadow" />
-                      </a>
+                      <center>
+                        <a href="{{ route('index.profile', $single->unique_key) }}">
+                          <img src="{{ asset('images/users/'. $single->image) }}" alt="{{ $single->name }}'s Photo" class="img-circle shadow xs-margin-bottom-ten" />
+                        </a>
+                      </center>
                     </div>
                     <div class="col-md-6 no-padding">
+                      <center>
                         <div class="architecture-team team-member xs-no-padding">
                             <a href="{{ route('index.profile', $single->unique_key) }}">
                               <span class="team-name text-uppercase black-text display-block font-weight-600">{{ $single->name }}</span>
@@ -63,6 +69,7 @@
                               <a href="#"><i class="fa fa-linkedin black-text"></i></a>
                             </div>
                         </div>
+                      </center>
                     </div>
                 </div>
             </div>

@@ -94,7 +94,7 @@
             dateFormat: "dd-MM-yyyy"
         });
         $('.summernote').summernote({
-            placeholder: 'Write Biography',
+            placeholder: 'Write Body',
             tabsize: 2,
             height: 200,
             dialogsInBody: true
