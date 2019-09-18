@@ -82,7 +82,8 @@ class OneSignalController extends Controller
 
         
         OneSignal::sendNotificationToAll(
-            '----------------------------------------------------------------------------------------------' . $charioteer->answer,
+            '                                                                                                                                                      
+            ' . chr(10)  . $charioteer->answer,
             $url = null, 
             $data = null,
             $buttons = null, 
