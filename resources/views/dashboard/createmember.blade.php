@@ -21,7 +21,7 @@
       <div class="col-md-10">
           <div class="box box-success">
             <div class="box-body">
-              <form action="{{ route('dashboard.member.store') }}" method="post" enctype='multipart/form-data' data-parsley-validate="">
+              <form action="{{ route('dashboard.member.store') }}" method="POST" enctype='multipart/form-data' data-parsley-validate="">
                   {!! csrf_field() !!}
                   <div class="row">
                     <div class="col-md-6">
