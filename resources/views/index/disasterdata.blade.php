@@ -33,19 +33,10 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
 
   <style type="text/css">
-    @mobile
-      #map {
-        height: 580px;
-        width: 100%;
-        padding: 0px 10px 0px 0px;    
-      }
-    @endmobile
-    @desktop
-      #map {
-        height: 620px;
-        width: 100%;      
-      }
-    @enddesktop
+    #map {
+      height: 620px;
+      width: 100%;      
+    }
   </style>
 @stop
 
@@ -56,11 +47,7 @@
           <div class="row">
               <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                   <!-- page title -->
-                  <h1 class="black-text">Disaster Data <span id="datacetnameheader"></span>
-                    @mobile
-                      asd
-                    @endmobile
-                  </h1>
+                  <h1 class="black-text">Disaster Data <span id="datacetnameheader"></span></h1>
                   <!-- end page title -->
               </div>
               <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
@@ -86,7 +73,7 @@
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                   @endforeach
                 </select>
-                <br/><br/>
+                <br/>
                 <h3>Showing data for: <span id="datacetnameh3"></span></h3><br/>
               </div>
               <div class="col-md-8">
@@ -113,9 +100,16 @@
 
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
   <script type="text/javascript">
+    var zoomlevel = 7;
+    if($(window).width() < 768) {
+      $('#map').css({"height": "550px"});
+      zoomlevel = 6.6;
+    }
+
     var map = L.map('map', {
         center: [23.7104, 90.40744],
-        zoom: 7
+        zoom: zoomlevel,
+        zoomSnap: 0.1
     });
 
     L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=Xc4XzgyVoZy8flkszn6a', {
@@ -147,17 +141,17 @@
           }
           oldmarkercount = marker.length;
         } else {
-          toastr.info('No data on this Category', 'INFO').css('width', '400px');
+          if($(window).width() > 768) {
+            toastr.info('No data on this Category', 'INFO').css('width', '400px');
+          } else {
+            toastr.info('No data on this Category', 'INFO').css('width', ($(window).width()-25)+'px');
+          }
         }
       });
     });
 
     $(document).ready(function(){
       // $('.select').select2();
-    });
-    $(function(){
-     // $('a[title]').tooltip();
-     // $('button[title]').tooltip();
     });
   </script>
 @stop
