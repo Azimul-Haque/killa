@@ -16,8 +16,7 @@ class CreateDistrictscordsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('name_bangla');
-            $table->float('cordx');
-            $table->float('cordy');
+            $table->string('coordinates');
         });
     }
 

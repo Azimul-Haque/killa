@@ -73,8 +73,8 @@
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                   @endforeach
                 </select>
-                <br/><br/><br/>
-                <h3>Showing data for: <span id="datacetnameh3"></span></h3>
+                <br/><br/>
+                <h3>Showing data for: <span id="datacetnameh3"></span></h3><br/>
               </div>
               <div class="col-md-8">
                 <div id="map" class="shadow"></div>
@@ -109,65 +109,42 @@
       attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a>'
     }).addTo(map);
 
-    var marker1 = L.marker([50.5, 30.5]).addTo(map);
-    marker1.bindPopup("Test<br/><a href='#!'>Click</a>"); // .openPopup() to open it onready
-
-    L.marker([50.5, 20.5]).addTo(map);
-    L.marker([40.5, 20.5]).addTo(map);
-    @foreach($districtscords as $district)
-
-    @endforeach
-  </script>
-
-
-
-  <script>
-    $(document).ready(function(){
-      $('.select').select2();
-    });
-  </script>
-  <script type="text/javascript">
-    $(function(){
-     // $('a[title]').tooltip();
-     // $('button[title]').tooltip();
-    });
-
-    var myData = {};
-    var json = {};
+    var marker = [];
+    var oldmarkercount = 0;
 
     $('#discategory_id').change(function() {
-      // console.log(location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/disaster/data/'+ $('#discategory_id').val() +'/api');
       var api_url = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/disaster/data/'+ $('#discategory_id').val() +'/api';
       $.get(api_url, function(data, status){
         if(data.districtscords) {
           $('#datacetnameh3').text(data.discategory.name);
           $('#datacetnameheader').html('<big>- '+ data.discategory.name +'</big>');
-          // console.log(data);
-          myData = {};
-          console.log(myData);
-          for(var i=0; i<data.districtscords.length; i++) {
-            // var obj = { 
-            //       cordX: data.districtscords[i].cordx,
-            //       cordY: data.districtscords[i].cordy,
-            //       icon: "/images/map/map-marker.svg",
-            //       modal: {
-            //         "title": data.districtscords[i].name,
-            //         "content": "<p>ফাইলঃ <a href='/images/map/districts.png' target='_blank' download>⭳ ডাউনলোড</a></p>"
-            //       }
-            //   };
-            //   myData['mapMarker'+i] = obj;
+          
+          // console.log(oldmarkercount);
+          for(var j=0; j<oldmarkercount; j++) {
+            if(marker[j] != undefined) {
+              map.removeLayer(marker[j]);
+            }
           }
-          json = myData;
-          console.log(json);
-          // createKBmap('KBtestmap', '/images/map/districts.png');
-
-          // KBtestmap.importJSON(json);
-
-          // KBtestmap.showAllMapMarkers();
+          
+          marker = [];
+          for(var i=0; i<data.districtscords.length; i++) {
+            var cords = data.districtscords[i].coordinates.split(",");
+            marker[i] = L.marker([cords[0], cords[1]]).bindPopup("<big>"+ data.discategory.name +"</big><br/><b>District: "+ data.districtscords[i].name +"</b><br/><a href='#!'>⇓ Download</a>").addTo(map);
+            // marker1.bindPopup("Test<br/><a href='#!'>Click</a>"); // .openPopup() to open it onready
+          }
+          oldmarkercount = marker.length;
         } else {
           toastr.info('No data on this Category', 'INFO').css('width', '400px');
         }
       });
+    });
+
+    $(document).ready(function(){
+      $('.select').select2();
+    });
+    $(function(){
+     // $('a[title]').tooltip();
+     // $('button[title]').tooltip();
     });
   </script>
 @stop
