@@ -6,8 +6,8 @@
 @section('css')
   {{-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> --}}
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/KBmapmarkers.css') }}">
-  <style type="text/css">
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/KBmapmarkers.css') }}"> --}}
+  {{-- <style type="text/css">
     body {
       overflow-x: hidden;
     }
@@ -28,7 +28,16 @@
         width: auto;
         height: 100%;
     }
-  </style>  
+  </style> --}}
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+
+  <style type="text/css">
+    #map {
+      height: 620px;
+      width: 100%;
+    }
+  </style>
 @stop
 
 @section('content')
@@ -68,11 +77,13 @@
                 <h3>Showing data for: <span id="datacetnameh3"></span></h3>
               </div>
               <div class="col-md-8">
-                <section class="no-padding KBmap" id="KBtestmap" style="float: right;">
+                <div id="map" class="shadow"></div>
+
+                {{-- <section class="no-padding KBmap" id="KBtestmap" style="float: right;">
                   <div class="KBmap__mapContainer">
                     <div class="KBmap__mapHolder"><img src="/images/map/districts.png" alt="Bangladesh Districts Map"></div>
                   </div>
-                </section>
+                </section> --}}
               </div>
             </div>
         </div>
@@ -83,9 +94,33 @@
 
 @section('js')
   {{-- <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script> --}}
-  <script type="text/javascript" src="{{ asset('js/KBmapmarkers.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('js/KBmapmarkersCords.js') }}"></script>
+  {{-- <script type="text/javascript" src="{{ asset('js/KBmapmarkers.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/KBmapmarkersCords.js') }}"></script> --}}
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+  <script type="text/javascript">
+    var map = L.map('map', {
+        center: [23.7104, 90.40744],
+        zoom: 7
+    });
+
+    L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=Xc4XzgyVoZy8flkszn6a', {
+      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a>'
+    }).addTo(map);
+
+    var marker1 = L.marker([50.5, 30.5]).addTo(map);
+    marker1.bindPopup("Test<br/><a href='#!'>Click</a>"); // .openPopup() to open it onready
+
+    L.marker([50.5, 20.5]).addTo(map);
+    L.marker([40.5, 20.5]).addTo(map);
+    @foreach($districtscords as $district)
+
+    @endforeach
+  </script>
+
+
+
   <script>
     $(document).ready(function(){
       $('.select').select2();
@@ -96,35 +131,6 @@
      // $('a[title]').tooltip();
      // $('button[title]').tooltip();
     });
-
-    var json2 =
-    {
-      @foreach($districtscords as $district)
-      "mapMarker{{ $district->id }}": {
-        "cordX": "{{ $district->cordx }}",
-        "cordY": "{{ $district->cordy }}",
-        "icon": "/images/map/map-marker.svg",
-        "modal": {
-          "title": "{{ $district->name }}",
-          "content": "<p>ফাইলঃ <a href='/images/map/districts.png' target='_blank' download>⭳ ডাউনলোড</a></p>"
-        }
-      },
-      @endforeach
-    };
-
-    // (function($) {
-
-    //   $(document).ready(function(){
-
-    //     createKBmap('KBtestmap', '/images/map/districts.png');
-
-    //     KBtestmap.importJSON(json2);
-
-    //     KBtestmap.showAllMapMarkers();
-
-    //   });
-
-    // })(jQuery);
 
     var myData = {};
     var json = {};
@@ -140,24 +146,24 @@
           myData = {};
           console.log(myData);
           for(var i=0; i<data.districtscords.length; i++) {
-            var obj = { 
-                  cordX: data.districtscords[i].cordx,
-                  cordY: data.districtscords[i].cordy,
-                  icon: "/images/map/map-marker.svg",
-                  modal: {
-                    "title": data.districtscords[i].name,
-                    "content": "<p>ফাইলঃ <a href='/images/map/districts.png' target='_blank' download>⭳ ডাউনলোড</a></p>"
-                  }
-              };
-              myData['mapMarker'+i] = obj;
+            // var obj = { 
+            //       cordX: data.districtscords[i].cordx,
+            //       cordY: data.districtscords[i].cordy,
+            //       icon: "/images/map/map-marker.svg",
+            //       modal: {
+            //         "title": data.districtscords[i].name,
+            //         "content": "<p>ফাইলঃ <a href='/images/map/districts.png' target='_blank' download>⭳ ডাউনলোড</a></p>"
+            //       }
+            //   };
+            //   myData['mapMarker'+i] = obj;
           }
           json = myData;
           console.log(json);
-          createKBmap('KBtestmap', '/images/map/districts.png');
+          // createKBmap('KBtestmap', '/images/map/districts.png');
 
-          KBtestmap.importJSON(json);
+          // KBtestmap.importJSON(json);
 
-          KBtestmap.showAllMapMarkers();
+          // KBtestmap.showAllMapMarkers();
         } else {
           toastr.info('No data on this Category', 'INFO').css('width', '400px');
         }
