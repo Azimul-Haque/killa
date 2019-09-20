@@ -63,7 +63,7 @@
     </section>
     <!-- end head section -->
     
-    <section id="" class="padding-one">
+    <section id="" class="padding-three">
         <div class="container">
             <div class="row">
               <div class="col-md-4">
@@ -105,7 +105,7 @@
         zoom: 7
     });
 
-    L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=Xc4XzgyVoZy8flkszn6a', {
+    L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=Xc4XzgyVoZy8flkszn6a', {
       attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a>'
     }).addTo(map);
 
