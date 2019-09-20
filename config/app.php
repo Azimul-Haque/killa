@@ -164,7 +164,9 @@ return [
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
-        Berkayk\OneSignal\OneSignalServiceProvider::class
+        Berkayk\OneSignal\OneSignalServiceProvider::class,
+        Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class,
+        Hisorange\BrowserDetect\ServiceProvider::class,
 
 
     ],
@@ -219,7 +221,9 @@ return [
         'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
-        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class
+        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
+        'MobileDetect' => Riverskies\Laravel\MobileDetect\Facades\MobileDetect::class,
+        'Browser' => \hisorange\BrowserDetect\Facade::class,
 
     ],
 

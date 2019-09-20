@@ -5,7 +5,7 @@
 
 @section('css')
   {{-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> --}}
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
+  {{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css"> --}}
   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/KBmapmarkers.css') }}"> --}}
   {{-- <style type="text/css">
     body {
@@ -33,10 +33,19 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
 
   <style type="text/css">
-    #map {
-      height: 620px;
-      width: 100%;
-    }
+    @mobile
+      #map {
+        height: 580px;
+        width: 100%;
+        padding: 0px 10px 0px 0px;    
+      }
+    @endmobile
+    @desktop
+      #map {
+        height: 620px;
+        width: 100%;      
+      }
+    @enddesktop
   </style>
 @stop
 
@@ -47,7 +56,11 @@
           <div class="row">
               <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                   <!-- page title -->
-                  <h1 class="black-text">Disaster Data <span id="datacetnameheader"></span></h1>
+                  <h1 class="black-text">Disaster Data <span id="datacetnameheader"></span>
+                    @mobile
+                      asd
+                    @endmobile
+                  </h1>
                   <!-- end page title -->
               </div>
               <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
@@ -96,7 +109,7 @@
   {{-- <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script> --}}
   {{-- <script type="text/javascript" src="{{ asset('js/KBmapmarkers.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/KBmapmarkersCords.js') }}"></script> --}}
-  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> --}}
 
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
   <script type="text/javascript">
@@ -140,7 +153,7 @@
     });
 
     $(document).ready(function(){
-      $('.select').select2();
+      // $('.select').select2();
     });
     $(function(){
      // $('a[title]').tooltip();
