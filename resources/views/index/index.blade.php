@@ -1,4 +1,5 @@
 @extends('layouts.index')
+
 @section('title')
     Killa Consultancy
 @endsection
