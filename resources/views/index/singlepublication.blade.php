@@ -127,7 +127,7 @@
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-facebook"></i></a>
                         <a href="https://twitter.com/intent/tweet?url={{ Request::url() }}" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fa fa-twitter"></i></a>
                         {{-- <a href="https://plus.google.com/share?url={{ Request::url() }}" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400');  return false;"><i class="fa fa-google-plus"></i></a> --}}
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ Request::url()}}&title=IIT%20Alumni%20Association&summary={{ $publication->title }}&source=IITAlumni" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400');  return false;"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ Request::url()}}&title=IIT%20Alumni%20Association&summary={{ $publication->title }}&source=Killa%20Consultancy" class="btn social-icon social-icon-small button" onclick="window.open(this.href,'newwindow', 'width=500,height=400');  return false;"><i class="fa fa-linkedin"></i></a>
                       </div>
                   </div>
 
