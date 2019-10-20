@@ -365,6 +365,46 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.expertises');
     }
 
+    public function getSliders()
+    {
+        $expertises = Expertise::orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.expertises')->withExpertises($expertises);
+    }
+
+    public function createSlider()
+    {
+        return view('dashboard.createexpertise');
+    }
+
+    public function storeSlider(Request $request)
+    {
+        $this->validate($request,array(
+            'title'                      => 'required|max:255',
+            'description'                => 'required',
+            'image'                     => 'required|image|max:500'
+        ));
+
+        $expertise = new Expertise();
+        $expertise->title = $request->title;
+        $expertise->description = Purifier::clean($request->description, 'youtube');
+        
+
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = preg_replace('/[^A-Za-z0-9\-]/', '', $request->title).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/expertises/'. $filename);
+            Image::make($image)->resize(1000, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $expertise->image = $filename;
+        }
+
+        $expertise->slug = preg_replace('/[^A-Za-z0-9\-]/', '_', strtolower($request->title)).'_'.time();
+        $expertise->save();
+        
+        Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.expertises');
+    }
+
     public function getProjects()
     {
         $projects = Project::orderBy('id', 'desc')->paginate(10);

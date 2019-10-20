@@ -152,6 +152,18 @@
                             <span>People</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('dashboard/sliders') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.sliders') }}">
+                            <i class="fa fa-fw fa-list-alt"></i>
+                            <span>Sliders</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/expertises') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.expertises') }}">
+                            <i class="fa fa-fw fa-briefcase"></i>
+                            <span>Our Strategies</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('dashboard/expertises') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.expertises') }}">
                             <i class="fa fa-fw fa-flask"></i>

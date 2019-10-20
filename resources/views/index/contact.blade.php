@@ -75,7 +75,7 @@
         <div class="container-fuild">
             <div class="row no-margin">
                 <div id="canvas1" class="col-md-12 col-sm-12 no-padding contact-map map">
-                    <iframe id="map_canvas1" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14610.052956266321!2d90.3983461!3d23.7290706!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfde166eb920114d4!2sInstitute+of+Information+Technology!5e0!3m2!1sen!2sbd!4v1557415545548!5m2!1sen!2sbd"></iframe>
+                    <iframe id="map_canvas1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.0504462044805!2d90.36544581538512!3d23.78121789351428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa19b3a900e5de37f!2sKilla%20Consultancy!5e0!3m2!1sen!2sbd!4v1571605991033!5m2!1sen!2sbd"></iframe>
                 </div>
             </div>
         </div>

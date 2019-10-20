@@ -3,12 +3,16 @@
     <div class="container">
         <div class="row">
             <!-- logo -->
-            <div class="col-md-2 pull-left">
+            <div class="col-md-4 pull-left">
                 <a class="logo-light" href="{{ route('index.index') }}">
-                    <img alt="" src="{{ asset('images/logo.png') }}" class="logo" />
+                    <img alt="" src="{{ asset('images/logo.png') }}" class="logo" style="float: left;"/>
+                    <span style="float: left; font-size: 15px; font-weight: bold; margin-top: 7px; display: block;" class="hidden-xs">Knowledge Information and<br/> Learning for Local Adaptation</span>
+                    <span style="float: left; font-size: 12px; font-weight: bold; margin-top: 7px; display: block;" class="visible-xs">Knowledge Information and<br/> Learning for Local Adaptation</span>
                 </a>
                 <a class="logo-dark" href="{{ route('index.index') }}">
-                    <img alt="" src="{{ asset('images/logo.png') }}" class="logo" />
+                    <img alt="" src="{{ asset('images/logo.png') }}" class="logo" style="float: left;"/>
+                    <span style="float: left; font-size: 15px; font-weight: bold; margin-top: 7px; display: block;" class="hidden-xs">Knowledge Information and<br/> Learning for Local Adaptation</span>
+                    <span style="float: left; font-size: 12px; font-weight: bold; margin-top: 7px; display: block;" class="visible-xs">Knowledge Information and<br/> Learning for Local Adaptation</span>
                 </a>
             </div>
             <!-- end logo -->
@@ -23,7 +27,7 @@
             </div>
             <!-- toggle navigation end -->
             <!-- main menu -->
-            <div class="col-md-9 no-padding-right accordion-menu text-right">
+            <div class="col-md-8 no-padding-right accordion-menu text-right">
                 <div class="navbar-collapse collapse">
                     <ul id="accordion" class="nav navbar-nav navbar-right panel-group">
                         <li>
@@ -38,7 +42,7 @@
                         </li>
                         <li class="dropdown panel simple-dropdown">
                             <a href="#nav_archive" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">
-                                Archive ▽
+                                Resourses ▽
                             </a>
                             <!-- sub menu single -->
                             <!-- sub menu item  -->

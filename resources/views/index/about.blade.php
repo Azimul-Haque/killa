@@ -33,10 +33,11 @@
     <section class="bg-black wow fadeIn">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-8 text-center center-col">
-                    <div class="about-year text-uppercase white-text"><span class="clearfix">15</span> Years</div>
-                    <p class="title-small letter-spacing-1 white-text font-weight-100">Open since 2000, we're digital
-                        natives with a pioneering approach to open-source development.</p>
+                <div class="col-md-10 col-sm-10 text-center center-col">
+                    <div class="about-year text-uppercase white-text"><span class="clearfix">{{ date('Y') - 2017 }}</span> Years</div>
+                    <p class="title-small letter-spacing-1 white-text font-weight-100">
+                        To give everyone the power to build resilience through sharing local knowledge, ideas, information and experience. KILLA is a consultancy organization that intends to provide services in the field of Climate Change Adaptation (CCA) and Disaster Risk Management (DRM). Climate Change and the increased frequency of natural disasters are the greatest concerns of the current century. Adaptation to such abrupt erratic nature of climate, requires intervention both at local and global scale. Our aim is to provide consultancy focusing upon the local level adaptation and implementation of Climate Change Adaptation (CCA) and Disaster Risk Management (DRM) strategies with the application of best available tools and technologies towards the achievement of Sustainable Development Goals (SDGs) 
+                    </p>
                 </div>
             </div>
         </div>
@@ -62,10 +63,10 @@
         <div class="opacity-full bg-dark-gray"></div>
         <div class="container position-relative">
             <div class="row">
-                <div class="col-md-6 col-sm-11 center-col text-center">
-                    <p class="text-large white-text margin-five no-margin-bottom">Lorem Ipsum is simply dummy text of
-                        the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.<p>
+                <div class="col-md-8 col-sm-11 center-col text-center">
+                    <p class="text-large white-text margin-five no-margin-bottom">
+                        Identifying the right solution is all about understanding the problem. We deliver unique and rigorous research that helps to create knowledge, ensure sustainable development and protect the nature. We identify indigenous knowledge that can work at scale and introduce these to global forums. We are strategic collaborators, innovators, knowledge brokers and agents of change. Our strategy outlines how we aim to grow in scope, reach and reputation. So expect us to bring a high degree of attention to your demands, as well as consideration for your budget.
+                    <p>
                 </div>
             </div>
         </div>
@@ -136,21 +137,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 pull-left text-center sm-margin-bottom-eight wow fadeInUp" data-wow-duration="300ms">
-                    <p class="center-col width-90 text-med">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                        unknown printer took a galley.</p>
-                    <div class="margin-two"><i class="fa fa-star yellow-text"></i><i
-                            class="fa fa-star yellow-text"></i><i class="fa fa-star yellow-text"></i><i
-                            class="fa fa-star yellow-text"></i><i class="fa fa-star yellow-text"></i></div>
-                    <span class="name black-text">Alexander Harvard-CEO</span>
+                    <p class="center-col width-90 text-med">
+                        KILLA is led by a successful team with experience in the field of Climate Change and Disaster. Also, has experience to work with National & International Development Partners, NGOs, and INGOs etc. Moreover, has proficiency over working with different tools and techniques. 
+                    </p>
                 </div>
                 <div class="col-md-6 col-sm-12 pull-right text-center wow fadeInUp" data-wow-duration="600ms">
-                    <p class="margin-right-seven no-margin-bottom  text-med">Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy
-                        text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing
-                        and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
-                        <a href="{{ route('index.directors') }}" class="margin-three highlight-button-dark btn-big btn-round button xs-margin-bottom-five">Find all our staff and board of directors</a>
-
+                    <p class="margin-right-seven no-margin-bottom  text-med"></p>
+                    <a href="{{ route('index.directors') }}" class="margin-three highlight-button-dark btn-big btn-round button xs-margin-bottom-five">Find all our staff and board of directors</a>
                 </div>
             </div>
         </div>
@@ -173,34 +166,22 @@
     @php
       $oddoreven = 1;
     @endphp
-    @foreach($expertises as $expertise)
+    
         <!-- portfolio item  -->
         <section class="portfolio-short-description bg-gray padding-three">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="portfolio-short-description-bg pull-left" style="background-image:url('{{ asset('images/expertises/'. $expertise->image)  }}');">
-                            <figure class="@if($oddoreven % 2 == 0) pull-left wow fadeInLeft @else pull-right wow fadeInRight @endif">
-                                <figcaption>
-                                    <div class="separator-line bg-yellow no-margin-lr margin-ten no-margin-top"></div>
-                                    <h3 class="white-text">{{ $expertise->title }}</h3>
-                                    <p class="light-gray-text text-uppercase margin-seven text-med">
-                                        {{ substr(strip_tags($expertise->description), 0, 100) }}...
-                                    </p>
-                                    <a href="{{ route('index.expertise', $expertise->slug) }}" class="btn-small-white-background btn margin-ten no-margin-bottom">View Details</a>
-                                </figcaption>
-                            </figure>
-                        </div>
+                    @foreach($expertises as $expertise)
+                    <div class="col-md-4 col-sm-6 text-center xs-margin-bottom-ten" style="min-height: 220px;">
+                        <a href="{{ route('index.expertise', $expertise->slug) }}"><img src="{{ asset('images/expertises/'. $expertise->image)  }}" style="max-height: 100px; width: auto;"></a>
+                        <span class="text-uppercase letter-spacing-2 black-text font-weight-600 display-block margin-ten no-margin-bottom xs-margin-top-five"><a href="{{ route('index.expertise', $expertise->slug) }}">{{ $expertise->title }}</a></span>
+                        <p class="width-80 center-col margin-three">{{ substr(strip_tags($expertise->description), 0, 100) }}...</p>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </section>
         <!-- end portfolio item  -->
-        @php
-          $oddoreven++;
-        @endphp
-    @endforeach
-    
 @endsection
 
 @section('js')

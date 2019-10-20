@@ -45,10 +45,10 @@
     <section class=" wow fadeIn">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-10 text-center center-col">
-                    <span class="margin-five no-margin-top display-block letter-spacing-2">EST. 2018</span>
-                    <h2>Killa-Knowledge Information and Learning for Local Adaptation</h2>
-                    <p class="text-med width-90 center-col margin-seven no-margin-bottom"> We've been crafting beautiful websites, launching stunning brands and making clients happy for years. With our prestigious craftsmanship, remarkable client care and passion for design.</p>
+                <div class="col-md-8 col-sm-10 text-center center-col">
+                    <span class="margin-five no-margin-top display-block letter-spacing-2">Established in 2017</span>
+                    <span style="font-size: 20px; font-weight: bold;">Killa-Knowledge Information and Learning for Local Adaptation</span>
+                    <p class="text-med width-90 center-col margin-seven no-margin-bottom">Knowledge, Information & Learning for Local Adaptation (KILLA) a globally leading organization providing productive and technologically sustainable solutions for reshaping today and constructing a resilient tomorrow. </p>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
                         <ul class="grid masonry-items">
                             @foreach($projects as $project)
                                 <!-- project -->
-                                <li class="@if($project->status == 0) ongoing @else completed @endif">
+                                <li class="@if($project->status == 0) ongoing @else completed @endif" style="min-height: 450px;">
                                     <figure>
                                         <div class="gallery-img">
                                             <a href="{{ route('index.project', $project->slug) }}">

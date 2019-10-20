@@ -34,8 +34,8 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 center-col">
           <center>
-            <a href="{{ route('index.directors') }}" class="{{ Request::is('people/directors') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Board of Directors</a>
             <a href="{{ route('index.advisors') }}" class="{{ Request::is('people/advisors') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Advisors</a>
+            <a href="{{ route('index.directors') }}" class="{{ Request::is('people/directors') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Board of Directors</a>
             <a href="{{ route('index.employees') }}" class="{{ Request::is('people/employees') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Employees</a>
             {{-- <a href="{{ route('index.members') }}" class="{{ Request::is('people/members') ? 'highlight-button-dark' : 'highlight-button' }} btn btn-small btn-round button xs-margin-bottom-five">Members</a> --}}
           </center>
@@ -55,13 +55,13 @@
                     </div>
                     <div class="col-md-6 no-padding">
                       <center>
-                        <div class="architecture-team team-member xs-no-padding">
+                        <div class="team-member xs-no-padding">
+                            <span class="hidden-xs"><br/><br/></span>
                             <a href="{{ route('index.profile', $single->unique_key) }}">
                               <span class="team-name text-uppercase black-text display-block font-weight-600">{{ $single->name }}</span>
                             </a>
                             <span class="team-post text-uppercase letter-spacing-2 display-block">{{ $single->designation }}</span>
                             <div class="separator-line bg-black no-margin-lr margin-ten"></div>
-                            <span class="margin-ten display-block clearfix xs-no-margin"></span>
                             <span class="margin-ten display-block clearfix xs-no-margin"></span>
                             <div class="person-social margin-ten xs-no-margin">
                               <a href="#"><i class="fa fa-facebook black-text no-margin-left"></i></a>

@@ -80,20 +80,20 @@
                     <!-- phone -->
                     <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-phone small-icon black-text"></i>
-                        <h6 class="black-text margin-two no-margin-bottom"><a href="tel:+8801515297658">+88 01515297658</a></h6>
+                        <h6 class="black-text margin-two no-margin-bottom"><a href="tel:+8801515297658">+88 01670718171</a></h6>
                     </div>
                     <!-- end phone -->
                     <!-- address -->
                     <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-map-pin small-icon black-text"></i>
-                        <h6 class="black-text margin-two no-margin-bottom">Killa Consultancy, Dhaka</h6>
+                        <h6 class="black-text margin-two no-margin-bottom">272/5, West Agargaon,  Sher-E-Bangla Nagar, Dhaka-1207</h6>
                     </div>
                     <!-- end address -->
                     <!-- email -->
                     <div class="col-md-4 col-sm-4 text-center">
                         <i class="icon-envelope small-icon black-text"></i>
                         <h6 class="margin-two no-margin-bottom">
-                            <a href="mailto:info@killabd.com" class="black-text">info@killabd.com</a>
+                            <a href="mailto:info.killabd@gmail.com" class="black-text">info.killabd@gmail.com</a>
                         </h6>
                     </div>
                     <!-- end email -->
@@ -102,17 +102,15 @@
         </div>
         <div class="container footer-middle">
             <div class="row">
-                <div class="col-md-3 col-sm-3 footer-link1 xs-display-none">
+                <div class="col-md-6 col-sm-6 footer-link1 xs-display-none">
                     <!-- headline -->
                     <h5>About Us</h5>
                     <!-- end headline -->
                     <!-- text -->
-                    <p class="footer-text">Killa Consultancy was established in the year 201* with a view to .... ... ...</p>
+                    <p class="footer-text">We are KILLA: an independent Asian consulting organization with a strong focus on the Climate and Disaster. Our Consultants use indigenous knowledge and expertise to create sustainable solutions for a resilient future. </p>
                     <!-- end text -->
                 </div>
-                <div class="col-md-2 col-sm-3 col-xs-4 footer-link2 col-md-offset-3">
-                    
-                </div>
+                
                 <div class="col-md-2 col-sm-3 col-xs-4  footer-link3">
                     
                 </div>
@@ -187,7 +185,8 @@
                 <div class="row margin-three">
                     <!-- copyright -->
                     <div class="col-md-6 col-sm-6 col-xs-12 dark-gray-text text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
-                        &copy; {{ date('Y') }} <a href="http://loencebd.com/" style="text-decoration: none;" class="dark-gray-text">Loence Bangladesh</a>.
+                        &copy; {{ date('Y') }} <a href="{{ url('/') }}" style="text-decoration: none;" class="dark-gray-text"><b>Killa Consultancy</b></a>.
+                        <br/>Developed by <a href="http://loencebd.com/" style="text-decoration: none;" class="dark-gray-text"><b>Loence Bangladesh</b></a>.
                     </div>
                     <!-- end copyright -->
                     <!-- logo -->
