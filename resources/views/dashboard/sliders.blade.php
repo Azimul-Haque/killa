@@ -164,7 +164,7 @@
             var imagewidth = this.width;
             var imageheight = this.height;
             filesize = parseInt((file.size / 1024));
-            if(filesize > 500) {
+            if(filesize > 400) {
               $("#image").val('');
               toastr.warning('Filesize: '+filesize+' KB. Please upload within 400KB', 'WARNING').css('width', '400px;');
               setTimeout(function() {

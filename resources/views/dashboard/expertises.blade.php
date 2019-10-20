@@ -22,8 +22,8 @@
         <tr>
           <th width="25%">Title</th>
           <th>Description</th>
-          <th width="30%">Image</th>
-          <th>Action</th>
+          <th width="20%">Image</th>
+          <th width="10%">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -40,11 +40,11 @@
             @endif
           </td>
           <td>
-            <a href="{{ route('dashboard.expertise.edit', $expertise->id) }}" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMemberModal{{ $expertise->id }}" data-backdrop="static" title="Delete Application" disabled=""><i class="fa fa-trash-o"></i></a>
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMemberModal{{ $expertise->id }}" data-backdrop="static" title="Delete Application" disabled=""><i class="fa fa-trash-o"></i></button>
+            <a href="{{ route('dashboard.expertise.edit', $expertise->id) }}" class="btn btn-sm btn-success" title="Edit Expertise"><i class="fa fa-pencil"></i></a>
+            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $expertise->id }}" data-backdrop="static" title="Delete Expertise"><i class="fa fa-trash-o"></i></button>
             <!-- Delete Expertise Modal -->
             <!-- Delete Expertise Modal -->
-            <div class="modal fade" id="deleteMemberModal{{ $expertise->id }}" role="dialog">
+            <div class="modal fade" id="deleteModal{{ $expertise->id }}" role="dialog">
               <div class="modal-dialog modal-md">
                 <div class="modal-content">
                   <div class="modal-header modal-header-danger">

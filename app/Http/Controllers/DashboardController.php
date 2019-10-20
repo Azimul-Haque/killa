@@ -341,9 +341,38 @@ class DashboardController extends Controller
     public function storeExpertise(Request $request)
     {
         $this->validate($request,array(
-            'title'                      => 'required|max:255',
-            'description'                => 'required',
-            'image'                     => 'required|image|max:500'
+            'title'                    => 'required|max:255',
+            'description'              => 'required',
+            'image'                    => 'required|image|max:200'
+        ));
+
+        $expertise = Expertise::find($id);
+        $expertise->title = $request->title;
+        $expertise->description = Purifier::clean($request->description, 'youtube');
+        
+
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = random_string(5) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/expertises/'. $filename);
+            Image::make($image)->resize(300, 300, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $expertise->image = $filename;
+        }
+
+        $expertise->slug = preg_replace('/[^A-Za-z0-9\-]/', '-', strtolower($request->title)).'-'.time();
+        $expertise->save();
+        
+        Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.expertises');
+    }
+
+    public function updateExpertise(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'title'                     => 'required|max:255',
+            'description'               => 'required',
+            'image'                     => 'sometimes|image|max:200'
         ));
 
         $expertise = new Expertise();
@@ -353,18 +382,29 @@ class DashboardController extends Controller
 
         // image upload
         if($request->hasFile('image')) {
+            // delete the previous one
+            $image_path = public_path('images/expertises/'. $expertise->image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $image      = $request->file('image');
-            $filename   = preg_replace('/[^A-Za-z0-9\-]/', '', $request->title).time() .'.' . $image->getClientOriginalExtension();
+            $filename   = random_string(5) . time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/expertises/'. $filename);
-            Image::make($image)->resize(1000, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->resize(300, 300, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $expertise->image = $filename;
         }
 
-        $expertise->slug = preg_replace('/[^A-Za-z0-9\-]/', '_', strtolower($request->title)).'_'.time();
+        $expertise->slug = preg_replace('/[^A-Za-z0-9\-]/', '-', strtolower($request->title)).'-'.time();
         $expertise->save();
         
-        Session::flash('success', 'Added Successfully!');
+        Session::flash('success', 'Updated Successfully!');
         return redirect()->route('dashboard.expertises');
+    }
+
+    public function editExpertise($id)
+    {
+        $expertise = Expertise::find($id);
+        return view('dashboard.editexpertise')->withExpertise($expertise);
     }
 
     public function getSliders()
