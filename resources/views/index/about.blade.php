@@ -93,24 +93,16 @@
     <section class="bg-gray">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-4 text-center xs-margin-bottom-ten">
-                    <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-five no-margin-bottom">
-                        Web Interactive</p>
-                    <p class="margin-two text-med width-90 center-col">Lorem Ipsum is simply dummy text of the printing
-                        &amp; typesetting industry.</p>
-                </div>
-                <div class="col-md-4 col-sm-4 text-center xs-margin-bottom-ten">
-                    <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-five no-margin-bottom">
-                        Logo and Identity</p>
-                    <p class="margin-two text-med width-90 center-col">Lorem Ipsum is simply dummy text of the printing
-                        &amp; typesetting industry.</p>
-                </div>
-                <div class="col-md-4 col-sm-4 text-center">
-                    <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-five no-margin-bottom">
-                        Graphic Design</p>
-                    <p class="margin-two text-med width-90 center-col">Lorem Ipsum is simply dummy text of the printing
-                        &amp; typesetting industry.</p>
-                </div>
+                @foreach($strategies as $strategy)
+                    <div class="col-md-4 col-sm-4 text-center xs-margin-bottom-ten" style="min-height: 150px;">
+                        <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-five no-margin-bottom">
+                            {{ $strategy->title }}
+                        </p>
+                        <p class="margin-two text-med width-90 center-col">
+                            {{ $strategy->description }}
+                        </p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

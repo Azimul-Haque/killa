@@ -105,6 +105,7 @@ Route::get('/dashboard/expertise/create', ['as'=>'dashboard.expertise.create','u
 Route::post('/dashboard/expertise/store', ['as'=>'dashboard.expertise.store','uses'=>'DashboardController@storeExpertise']);
 Route::get('/dashboard/expertise/{id}/edit', ['as'=>'dashboard.expertise.edit','uses'=>'DashboardController@editExpertise']);
 Route::put('/dashboard/expertise/{id}/update', ['as'=>'dashboard.expertise.update','uses'=>'DashboardController@updateExpertise']);
+Route::delete('/dashboard/expertise/{id}/delete', ['as'=>'dashboard.expertise.delete','uses'=>'DashboardController@deleteExpertise']);
 
 Route::get('/dashboard/projects', ['as'=>'dashboard.projects','uses'=>'DashboardController@getProjects']);
 Route::get('/dashboard/project/create', ['as'=>'dashboard.project.create','uses'=>'DashboardController@createProject']);

@@ -80,7 +80,7 @@
                         <h4 class="modal-title">Delete Slider</h4>
                       </div>
                       <div class="modal-body">
-                        Confirm Delete this slider?</b>
+                        Confirm Delete this slider?
                       </div>
                       <div class="modal-footer">
                         {!! Form::model($slider, ['route' => ['dashboard.slider.delete', $slider->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}

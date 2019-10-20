@@ -36,26 +36,26 @@
             @if($expertise->image != null)
             <img src="{{ asset('images/expertises/'.$expertise->image)}}" style="height: 70px; width: auto;" />
             @else
-            <img src="{{ asset('images/abc.png')}}" style="height: 700px; width: auto;" />
+            <img src="{{ asset('images/abc.png')}}" style="height: 70px; width: auto;" />
             @endif
           </td>
           <td>
             <a href="{{ route('dashboard.expertise.edit', $expertise->id) }}" class="btn btn-sm btn-success" title="Edit Expertise"><i class="fa fa-pencil"></i></a>
             <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $expertise->id }}" data-backdrop="static" title="Delete Expertise"><i class="fa fa-trash-o"></i></button>
-            <!-- Delete Expertise Modal -->
-            <!-- Delete Expertise Modal -->
+            <!-- Delete Modal -->
+            <!-- Delete Modal -->
             <div class="modal fade" id="deleteModal{{ $expertise->id }}" role="dialog">
               <div class="modal-dialog modal-md">
                 <div class="modal-content">
                   <div class="modal-header modal-header-danger">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Delete Member</h4>
+                    <h4 class="modal-title">Delete Expretise</h4>
                   </div>
                   <div class="modal-body">
-                    Confirm Delete the member of <b>{{ $expertise->name }}</b>
+                    Confirm Delete this Expretise?
                   </div>
                   <div class="modal-footer">
-                    {!! Form::model($expertise, ['route' => ['dashboard.deletemember', $expertise->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                    {!! Form::model($expertise, ['route' => ['dashboard.expertise.delete', $expertise->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                         {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     {!! Form::close() !!}
@@ -63,8 +63,8 @@
                 </div>
               </div>
             </div>
-            <!-- Delete Expertise Modal -->
-            <!-- Delete Expertise Modal -->
+            <!-- Delete Modal -->
+            <!-- Delete Modal -->
           </td>
         </tr>
         @endforeach

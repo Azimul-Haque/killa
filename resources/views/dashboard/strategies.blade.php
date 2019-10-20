@@ -79,7 +79,7 @@
                         <h4 class="modal-title">Delete Strategy</h4>
                       </div>
                       <div class="modal-body">
-                        Confirm Delete this Strategy</b>
+                        Confirm Delete this Strategy?
                       </div>
                       <div class="modal-footer">
                         {!! Form::model($strategy, ['route' => ['dashboard.strategy.delete', $strategy->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}

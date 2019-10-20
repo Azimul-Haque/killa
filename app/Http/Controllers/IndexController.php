@@ -15,6 +15,7 @@ use App\Discategory;
 use App\Districtscord;
 use App\Disdata;
 use App\Slider;
+use App\Strategy;
 
 use Carbon\Carbon;
 
@@ -61,8 +62,11 @@ class IndexController extends Controller
 
     public function getAbout()
     {
-        $expertises = Expertise::orderBy('id', 'desc')->get()->take(5);
-        return view('index.about')->withExpertises($expertises);
+        $strategies = Strategy::orderBy('id', 'desc')->get();
+        $expertises = Expertise::orderBy('id', 'desc')->get();
+        return view('index.about')
+                        ->withStrategies($strategies)
+                        ->withExpertises($expertises);
     }
 
     public function getExpertise($slug)

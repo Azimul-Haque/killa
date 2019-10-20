@@ -356,7 +356,7 @@ class DashboardController extends Controller
             $image      = $request->file('image');
             $filename   = random_string(5) . time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/expertises/'. $filename);
-            Image::make($image)->resize(300, 300, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->resize(200, 200, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $expertise->image = $filename;
         }
 
@@ -367,6 +367,12 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.expertises');
     }
 
+    public function editExpertise($id)
+    {
+        $expertise = Expertise::find($id);
+        return view('dashboard.editexpertise')->withExpertise($expertise);
+    }
+
     public function updateExpertise(Request $request, $id)
     {
         $this->validate($request,array(
@@ -375,7 +381,7 @@ class DashboardController extends Controller
             'image'                     => 'sometimes|image|max:200'
         ));
 
-        $expertise = new Expertise();
+        $expertise = Expertise::find($id);
         $expertise->title = $request->title;
         $expertise->description = Purifier::clean($request->description, 'youtube');
         
@@ -390,7 +396,7 @@ class DashboardController extends Controller
             $image      = $request->file('image');
             $filename   = random_string(5) . time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/expertises/'. $filename);
-            Image::make($image)->resize(300, 300, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->resize(200, 200, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $expertise->image = $filename;
         }
 
@@ -401,11 +407,19 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.expertises');
     }
 
-    public function editExpertise($id)
+    public function deleteExpertise($id)
     {
         $expertise = Expertise::find($id);
-        return view('dashboard.editexpertise')->withExpertise($expertise);
-    }
+
+        $image_path = public_path('images/expertises/'. $expertise->image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $expertise->delete();
+        
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.expertises');
+    }   
 
     public function getSliders()
     {
