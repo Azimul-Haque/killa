@@ -14,6 +14,7 @@ use App\Publication;
 use App\Discategory;
 use App\Districtscord;
 use App\Disdata;
+use App\Slider;
 
 use Carbon\Carbon;
 
@@ -34,6 +35,7 @@ class IndexController extends Controller
         // $alumnis = User::where('payment_status', 1)
         //                ->where('role', 'alumni')->count();
 
+        $sliders = Slider::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->get()->take(4);
         $publications = Publication::orderBy('id', 'desc')->get()->take(3);
 
@@ -43,6 +45,7 @@ class IndexController extends Controller
         $publicationcount = Publication::all()->count();
         
         return view('index.index')
+                            ->withSliders($sliders)
                             ->withProjects($projects)
                             ->withPublications($publications)
                             ->withEmployeecount($employeecount)

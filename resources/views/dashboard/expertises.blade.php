@@ -34,9 +34,9 @@
           <td><span class="">{{ substr(strip_tags($expertise->description), 0, 100) }}...</span></td>
           <td>
             @if($expertise->image != null)
-            <img src="{{ asset('images/expertises/'.$expertise->image)}}" style="height: 120px; width: auto;" />
+            <img src="{{ asset('images/expertises/'.$expertise->image)}}" style="height: 700px; width: auto;" />
             @else
-            <img src="{{ asset('images/abc.png')}}" style="height: 120px; width: auto;" />
+            <img src="{{ asset('images/abc.png')}}" style="height: 700px; width: auto;" />
             @endif
           </td>
           <td>

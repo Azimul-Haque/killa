@@ -158,10 +158,10 @@
                             <span>Sliders</span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('dashboard/expertises') ? 'active' : '' }}">
-                        <a href="{{ route('dashboard.expertises') }}">
+                    <li class="{{ Request::is('dashboard/strategies') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.strategies') }}">
                             <i class="fa fa-fw fa-briefcase"></i>
-                            <span>Our Strategies</span>
+                            <span>Strategies</span>
                         </a>
                     </li>
                     <li class="{{ Request::is('dashboard/expertises') ? 'active' : '' }}">
@@ -234,6 +234,14 @@
         </div>
         <!-- /.content-wrapper -->
 
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+          <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.28
+          </div>
+          <strong>Copyright © {{ date('Y') }}</strong> 
+          All rights reserved.
+        </footer>
     </div>
     <!-- ./wrapper -->
 @stop

@@ -13,6 +13,8 @@ use App\Publication;
 use App\Discategory;
 use App\Districtscord;
 use App\Disdata;
+use App\Slider;
+use App\Strategy;
 
 use Carbon\Carbon;
 use DB, Hash, Auth, Image, File, Session;
@@ -367,42 +369,124 @@ class DashboardController extends Controller
 
     public function getSliders()
     {
-        $expertises = Expertise::orderBy('id', 'desc')->paginate(10);
-        return view('dashboard.expertises')->withExpertises($expertises);
-    }
-
-    public function createSlider()
-    {
-        return view('dashboard.createexpertise');
+        $sliders = Slider::orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.sliders')->withSliders($sliders);
     }
 
     public function storeSlider(Request $request)
     {
         $this->validate($request,array(
-            'title'                      => 'required|max:255',
-            'description'                => 'required',
+            'title'                     => 'required|max:255',
             'image'                     => 'required|image|max:500'
         ));
 
-        $expertise = new Expertise();
-        $expertise->title = $request->title;
-        $expertise->description = Purifier::clean($request->description, 'youtube');
+        $slider = new Slider();
+        $slider->title = $request->title;
         
 
         // image upload
         if($request->hasFile('image')) {
             $image      = $request->file('image');
-            $filename   = preg_replace('/[^A-Za-z0-9\-]/', '', $request->title).time() .'.' . $image->getClientOriginalExtension();
-            $location   = public_path('/images/expertises/'. $filename);
+            $filename   = random_string(5) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/sliders/'. $filename);
             Image::make($image)->resize(1000, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
-            $expertise->image = $filename;
+            $slider->image = $filename;
         }
-
-        $expertise->slug = preg_replace('/[^A-Za-z0-9\-]/', '_', strtolower($request->title)).'_'.time();
-        $expertise->save();
+        $slider->save();
         
         Session::flash('success', 'Added Successfully!');
-        return redirect()->route('dashboard.expertises');
+        return redirect()->route('dashboard.sliders');
+    }
+
+    public function updateSlider(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'title'                     => 'required|max:255',
+            'image'                     => 'required|image|max:500'
+        ));
+
+        $slider = Slider::find($id);
+        $slider->title = $request->title;
+        
+
+        // image upload
+        if($request->hasFile('image')) {
+            // delete the previous one
+            $image_path = public_path('images/sliders/'. $slider->image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image      = $request->file('image');
+            $filename   = random_string(5) . time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/sliders/'. $filename);
+            Image::make($image)->resize(1000, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $slider->image = $filename;
+        }
+        $slider->save();
+        
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.sliders');
+    }
+
+    public function deleteSlider($id)
+    {
+        $slider = Slider::find($id);
+
+        $image_path = public_path('images/sliders/'. $slider->image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $slider->delete();
+        
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.sliders');
+    }
+
+    public function getStrategies()
+    {
+        $strategies = Strategy::orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.strategies')->withStrategies($strategies);
+    }
+
+    public function storeStrategy(Request $request)
+    {
+        $this->validate($request,array(
+            'title'                   => 'required|max:255',
+            'description'             => 'required|max:255'
+        ));
+
+        $strategy = new Strategy();
+        $strategy->title = $request->title;
+        $strategy->description = $request->description;
+        $strategy->save();
+        
+        Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.strategies');
+    }
+
+    public function updateStrategy(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'title'                   => 'required|max:255',
+            'description'             => 'required|max:255'
+        ));
+
+        $strategy = Strategy::find($id);
+        $strategy->title = $request->title;
+        $strategy->description = $request->description;
+        $strategy->save();
+
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.strategies');
+    }
+
+    public function deleteStrategy($id)
+    {
+        $strategy = Strategy::find($id);
+        $strategy->delete();
+        
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.strategies');
     }
 
     public function getProjects()

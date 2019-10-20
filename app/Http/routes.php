@@ -91,8 +91,14 @@ Route::patch('/dashboard/applications/{id}/approve', ['as'=>'dashboard.approveap
 Route::delete('/dashboard/application/{id}', ['as'=>'dashboard.deleteapplication','uses'=>'DashboardController@deleteApplication']);
 
 Route::get('/dashboard/sliders', ['as'=>'dashboard.sliders','uses'=>'DashboardController@getSliders']);
-Route::get('/dashboard/slider/create', ['as'=>'dashboard.slider.create','uses'=>'DashboardController@createSlider']);
 Route::post('/dashboard/slider/store', ['as'=>'dashboard.slider.store','uses'=>'DashboardController@storeSlider']);
+Route::put('/dashboard/slider/{id}/update', ['as'=>'dashboard.slider.update','uses'=>'DashboardController@updateSlider']);
+Route::delete('/dashboard/slider/{id}/delete', ['as'=>'dashboard.slider.delete','uses'=>'DashboardController@deleteSlider']);
+
+Route::get('/dashboard/strategies', ['as'=>'dashboard.strategies','uses'=>'DashboardController@getStrategies']);
+Route::post('/dashboard/strategy/store', ['as'=>'dashboard.strategy.store','uses'=>'DashboardController@storeStrategy']);
+Route::put('/dashboard/strategy/{id}/update', ['as'=>'dashboard.strategy.update','uses'=>'DashboardController@updateStrategy']);
+Route::delete('/dashboard/strategy/{id}/delete', ['as'=>'dashboard.strategy.delete','uses'=>'DashboardController@deleteStrategy']);
 
 Route::get('/dashboard/expertises', ['as'=>'dashboard.expertises','uses'=>'DashboardController@getExpertises']);
 Route::get('/dashboard/expertise/create', ['as'=>'dashboard.expertise.create','uses'=>'DashboardController@createExpertise']);
