@@ -34,12 +34,13 @@
           <td><span class="">{{ substr(strip_tags($expertise->description), 0, 100) }}...</span></td>
           <td>
             @if($expertise->image != null)
-            <img src="{{ asset('images/expertises/'.$expertise->image)}}" style="height: 700px; width: auto;" />
+            <img src="{{ asset('images/expertises/'.$expertise->image)}}" style="height: 70px; width: auto;" />
             @else
             <img src="{{ asset('images/abc.png')}}" style="height: 700px; width: auto;" />
             @endif
           </td>
           <td>
+            <a href="{{ route('dashboard.expertise.edit', $expertise->id) }}" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMemberModal{{ $expertise->id }}" data-backdrop="static" title="Delete Application" disabled=""><i class="fa fa-trash-o"></i></a>
             <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMemberModal{{ $expertise->id }}" data-backdrop="static" title="Delete Application" disabled=""><i class="fa fa-trash-o"></i></button>
             <!-- Delete Expertise Modal -->
             <!-- Delete Expertise Modal -->
