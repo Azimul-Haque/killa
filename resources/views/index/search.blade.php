@@ -29,6 +29,7 @@
         height: 100%;
     }
   </style> --}}
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
 
@@ -72,29 +73,29 @@
     <section id="" class="padding-two">
         <div class="container">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-sm-12">
                 @if($disasterdatas->count() > 0)
-                  About {{ $disasterdatas->count() }} results ({{ number_format((float)(microtime(true) - LARAVEL_START), 2, '.', '') }} seconds)
+                  <h3>About {{ $disasterdatas->count() }} results ({{ number_format((float)(microtime(true) - LARAVEL_START), 2, '.', '') }} seconds)</h3>
                 @else
-                  No disaster related data is found! ({{ number_format((float)(microtime(true) - LARAVEL_START), 2, '.', '') }} seconds)
+                  <h3>No disaster related data is found! ({{ number_format((float)(microtime(true) - LARAVEL_START), 2, '.', '') }} seconds)</h3>
                 @endif
                 <br/><br/>
-                <div class="row">
-                  @foreach($disasterdatas as $disasterdata)
-                    <div class="col-md-4 col-sm-6 wow fadeInUp" style="min-height: 150px; position: relative; margin-bottom: 10px;">
-                      <h4>{{ $disasterdata->title }}</h4>
-                      <p>
-                        Category: <b>{{ $disasterdata->discategory->name }}</b>,
-                        District: <b>{{ $disasterdata->districtscord->name }}</b>
-                      </p>
-                      @if($disasterdata->file != '')
-                      <a href="{{ asset('files/' . $disasterdata->file) }}" class="highlight-button btn btn-small button xs-margin-bottom-five" download=""><i class="fa fa-download"></i> Download File</a>
-                      @endif
-                      <div class="separator-line bg-yellow" style="position: absolute; bottom: 0px;"></div>
-                    </div>
-                  @endforeach
-                </div>
               </div>
+              @foreach($disasterdatas as $disasterdata)
+                <div class="col-md-4 col-sm-6 wow fadeInUp" style="min-height: 150px; position: relative; margin-bottom: 10px;">
+                  <h4>{{ $disasterdata->title }}</h4>
+                  <p>
+                    Category: <b>{{ $disasterdata->discategory->name }}</b>,
+                    District: <b>{{ $disasterdata->districtscord->name }}</b>
+                  </p>
+                  @if($disasterdata->file != '')
+                  <a href="{{ asset('files/' . $disasterdata->file) }}" class="highlight-button btn btn-small button xs-margin-bottom-five" download=""><i class="fa fa-download"></i> Download File</a>
+                  @endif
+                  <div class="separator-line bg-yellow" style="position: absolute; bottom: 0px;"></div>
+                </div>
+              @endforeach
+            </div>
+            <div class="row">
               <div class="col-md-12">
                 <div id="map" class="shadow"></div>
               </div>
@@ -132,9 +133,11 @@
     var marker = [];
     var oldmarkercount = 0;
     @php
+      // we need to filter as there will be multiple data for same district
+      $disasterdatas_unique_data = $disasterdatas->unique('districtscord_id')->values()->all(); // make it unique, as multiple districts exists
       $i = 1;
     @endphp
-    @foreach($disasterdatas as $disasterdata)
+    @foreach($disasterdatas_unique_data as $disasterdata)
       var cordsraw = '{{ $disasterdata->districtscord->coordinates }}';
       var cords = cordsraw.split(",");
       marker[{{ $i }}] = L.marker([cords[0], cords[1]]).bindPopup("<big>{{ $disasterdata->districtscord->name }}</big><br/><b>Total data count: {{ $disasterdata->districtscord->disdatas->count() }}</b><br/><a href='{{ route('index.disasterdata.search', $disasterdata->districtscord->name) }}'>⇲ Browse Data</a>").addTo(map);
