@@ -30,7 +30,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin')->except('index');
+        $this->middleware('admin')->except(['index', 'getPersonalProfile', 'updatePersonalProfile']);
     }
 
     /**
@@ -266,9 +266,10 @@ class DashboardController extends Controller
 
     public function updateMember(Request $request, $id)
     {
+        $member = User::findOrFail($id);
         $this->validate($request,array(
             'name'                      => 'required|max:255',
-            // 'email'                     => 'required|email|unique:users,email',
+            'email'                     => 'required|email|unique:users,email,'.$member->id,
             'phone'                     => 'required|numeric',
             'designation'               => 'sometimes|max:255',
             'fb'                        => 'sometimes|max:255',
@@ -283,7 +284,7 @@ class DashboardController extends Controller
 
         $member = User::findOrFail($id);
         $member->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
-        // $member->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
+        $member->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
         $member->phone = htmlspecialchars(preg_replace("/\s+/", " ", $request->phone));
         
         $member->designation = htmlspecialchars(preg_replace("/\s+/", " ", $request->designation));
@@ -774,6 +775,58 @@ class DashboardController extends Controller
 
     public function getPersonalProfile()
     {
-        return view('dashboard.personalprofile');
+        $member = User::find(Auth::user()->id);
+        return view('dashboard.personalprofile')->withMember($member);
+    }
+
+    public function updatePersonalProfile(Request $request, $id)
+    {
+        $member = User::findOrFail($id);
+        $this->validate($request,array(
+            'name'                      => 'required|max:255',
+            'email'                     => 'required|email|unique:users,email,'.$member->id,
+            'phone'                     => 'required|numeric',
+            'designation'               => 'sometimes|max:255',
+            'fb'                        => 'sometimes|max:255',
+            'twitter'                   => 'sometimes|max:255',
+            'linkedin'                  => 'sometimes|max:255',
+            'image'                     => 'sometimes|image|max:300',
+            'bio'                       => 'required',
+            'password'                  => 'sometimes'
+        ));
+
+        $member = User::findOrFail($id);
+        $member->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
+        $member->email = htmlspecialchars(preg_replace("/\s+/", " ", $request->email));
+        $member->phone = htmlspecialchars(preg_replace("/\s+/", " ", $request->phone));
+        
+        $member->designation = htmlspecialchars(preg_replace("/\s+/", " ", $request->designation));
+        $member->fb = htmlspecialchars(preg_replace("/\s+/", " ", $request->fb));
+        $member->twitter = htmlspecialchars(preg_replace("/\s+/", " ", $request->twitter));
+        $member->linkedin = htmlspecialchars(preg_replace("/\s+/", " ", $request->linkedin));
+
+        // image upload, if has any
+        if($request->hasFile('image')) {
+            // delete the previous one
+            $image_path = public_path('images/users/'. $member->image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image      = $request->file('image');
+            $filename   = str_replace(' ','',$request->name).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/users/'. $filename);
+            Image::make($image)->resize(250, 250)->save($location);
+            $member->image = $filename;
+        }
+        if($request->password) {
+            $member->password = Hash::make($request->password);
+        }
+        
+
+        $member->bio    = Purifier::clean($request->bio, 'youtube');
+        $member->save();
+        
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.personal.profile');
     }
 }

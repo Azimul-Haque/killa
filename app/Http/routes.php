@@ -125,6 +125,7 @@ Route::put('/dashboard/disasterdata/{id}/update', ['as'=>'dashboard.disasterdata
 
 Route::get('/dashboard/personal/publications', ['as'=>'dashboard.personal.pubs','uses'=>'DashboardController@getPersonalPubs']);
 Route::get('/dashboard/personal/profile', ['as'=>'dashboard.personal.profile','uses'=>'DashboardController@getPersonalProfile']);
+Route::put('/dashboard/personal/profile/{id}/update', ['as'=>'dashboard.profile.update','uses'=>'DashboardController@updatePersonalProfile']);
 
 
 Route::get('/onesignal', ['as'=>'dashboard.onesignal','uses'=>'OneSignalController@index']);

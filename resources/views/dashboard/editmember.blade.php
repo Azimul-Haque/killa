@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Killa Consultancy | Add Member')
+@section('title', 'Killa Consultancy | Edit Member | ' . $member->name)
 
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
@@ -9,7 +9,7 @@
 
 @section('content_header')
     <h1>
-      Add Member
+      Edit Member: <b>{{ $member->name }}</b>
       <div class="pull-right">
         
       </div>
@@ -32,7 +32,7 @@
                     <div class="col-md-6">
                       <div class="form-group no-margin-bottom">
                           <label for="email" class="text-uppercase">Email</label>
-                          <input class="form-control" type="text" name="email" id="email" value="{{ $member->email }}" readonly="">
+                          <input class="form-control" type="text" name="email" id="email" value="{{ $member->email }}" required="">
                       </div>
                     </div>
                   </div>
