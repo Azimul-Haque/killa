@@ -767,6 +767,19 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.disasterdatas');
     }
 
+    public function deleteDisasterdata($id)
+    {
+        $disasterdata = Disdata::find($id);
+        $file_path = public_path('files/'. $disasterdata->file);
+        if(File::exists($file_path)) {
+            File::delete($file_path);
+        }
+        $disasterdata->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.disasterdatas');
+    }
+
     public function getApplications()
     {
         $applications = User::where('activation_status', 0)

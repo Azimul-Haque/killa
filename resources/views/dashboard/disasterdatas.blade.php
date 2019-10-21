@@ -55,7 +55,7 @@
                   
                   <td>
                     <a href="{{ route('dashboard.disasterdata.edit', $disasterdata->id) }}" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
-                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteDisasterDataModal{{ $disasterdata->id }}" data-backdrop="static" title="Delete" disabled=""><i class="fa fa-trash-o"></i></button>
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteDisasterDataModal{{ $disasterdata->id }}" data-backdrop="static" title="Delete"><i class="fa fa-trash-o"></i></button>
                     <!-- Delete Disaster Data Modal -->
                     <!-- Delete Disaster Data Modal -->
                     <div class="modal fade" id="deleteDisasterDataModal{{ $disasterdata->id }}" role="dialog">
@@ -69,7 +69,7 @@
                             Confirm Delete <b>{{ $disasterdata->name }}</b>
                           </div>
                           <div class="modal-footer">
-                            {!! Form::model($disasterdata, ['route' => ['dashboard.deletemember', $disasterdata->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                            {!! Form::model($disasterdata, ['route' => ['dashboard.disasterdata.delete', $disasterdata->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                                 {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             {!! Form::close() !!}
