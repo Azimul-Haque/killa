@@ -139,7 +139,8 @@ class IndexController extends Controller
         $districtscords = Districtscord::all();
         $disasterdatas = Disdata::all();
         $disasterdatas_unique_data = $disasterdatas->unique('districtscord_id')->values()->all(); // make it unique, as multiple districts exists
-        
+        $disasterdatas_unique_data = collect($disasterdatas_unique_data);
+
         return view('index.disasterdata')
                             ->withDiscategories($discategories)
                             ->withDistrictscords($districtscords)
@@ -157,6 +158,51 @@ class IndexController extends Controller
         }
         
         return $disasterdata;
+    }
+
+    public function searchDisasterdata($search_param)
+    {   
+        $searchresults = Disdata::orderBy('created_at', 'desc')
+                                ->where(function ($query) use ($search_param) {
+                                    $query->where('title', 'LIKE', '%' . $search_param . '%')
+                                          ->orWhere('file', 'LIKE', '%' . $search_param . '%');
+                                })
+                                ->get();
+                                
+        // category search
+        $categories = Discategory::where("name", 'LIKE', '%' . $search_param . '%')->get();
+        
+        $categorydatasbl = collect();
+        foreach($categories as $category) {
+            $categorydatas = Disdata::orderBy('created_at', 'desc')
+                                    ->where('discategory_id', $category->id)
+                                    ->get();
+            $categorydatasbl = $categorydatasbl->merge($categorydatas);
+        }
+        $categorydatasbl = $categorydatasbl->merge($searchresults); // eta districtdatasbl er sathe merge hobe
+        // category search
+
+        // district search
+        $districts = Districtscord::where("name", 'LIKE', '%' . $search_param . '%')
+                                 ->orWhere("name_bangla", 'LIKE', '%' . $search_param . '%')
+                                 ->get();
+        
+        $districtdatasbl = collect();
+        foreach($districts as $district) {
+            $districtdatas = Disdata::orderBy('created_at', 'desc')
+                                    ->where('districtscord_id', $district->id)
+                                    ->get();
+            $districtdatasbl = $districtdatasbl->merge($districtdatas);
+        }
+        $disasterdatas = $districtdatasbl->merge($categorydatasbl); // searchresults, categorydatasbl & districtdatasbl merged
+        // district search
+
+        $disasterdatas = $disasterdatas->unique()->values()->all();
+        $disasterdatas = collect($disasterdatas);
+                                  
+        return view('index.search')
+                    ->withSearchparam($search_param)
+                    ->withDisasterdatas($disasterdatas);
     }
 
     public function getConstitution()

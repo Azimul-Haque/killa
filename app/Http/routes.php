@@ -36,6 +36,7 @@ Route::get('/publication/{code}', ['as'=>'index.publication','uses'=>'IndexContr
 
 Route::get('/disaster/data', ['as'=>'index.disasterdata','uses'=>'IndexController@getDisasterdata']);
 Route::get('/disaster/data/{category_id}/api', ['as'=>'index.disasterdata.api','uses'=>'IndexController@getDisasterdataAPI']);
+Route::get('/disasterdata/search/{search_param}', ['as'=>'index.disasterdata.search','uses'=>'IndexController@searchDisasterdata']);
 
 Route::get('/constitution', ['as'=>'index.constitution','uses'=>'IndexController@getConstitution']);
 Route::get('/faq', ['as'=>'index.faq','uses'=>'IndexController@getFaq']);

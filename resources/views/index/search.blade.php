@@ -58,7 +58,7 @@
                   </ul>
                   <!-- end breadcrumb -->
                   <div class="input-group pull-right">
-                      <input type="text" class="form-control" name="x" placeholder="Search Disaster Data" id="searchParam" style="float: left; height: 40px;" required="">
+                      <input type="text" class="form-control" name="x" placeholder="Search Disaster Data" id="searchParam" style="float: left; height: 40px;" @if(!empty($searchparam)) value="{{ $searchparam }}" @endif required="">
                       <span class="input-group-btn">
                           <button type="submit" class="highlight-button-dark btn btn-small button xs-margin-bottom-five" id="searchBtn" style="float: left; height: 40px;"><i class="fa fa-search"></i></button>
                       </span>
@@ -69,27 +69,34 @@
     </section>
     <!-- end head section -->
     
-    <section id="" class="padding-three">
+    <section id="" class="padding-two">
         <div class="container">
             <div class="row">
-              {{-- <div class="col-md-4">
-                <select class="form-control select" name="discategory_id" id="discategory_id" data-placeholder="Select Disaster Category">
-                  <option value="" disabled="" selected="">Select Disaster Category</option>
-                  @foreach($discategories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+              <div class="col-md-12">
+                @if($disasterdatas->count() > 0)
+                  About {{ $disasterdatas->count() }} results ({{ number_format((float)(microtime(true) - LARAVEL_START), 2, '.', '') }} seconds)
+                @else
+                  No disaster related data is found! ({{ number_format((float)(microtime(true) - LARAVEL_START), 2, '.', '') }} seconds)
+                @endif
+                <br/><br/>
+                <div class="row">
+                  @foreach($disasterdatas as $disasterdata)
+                    <div class="col-md-4 col-sm-6 wow fadeInUp" style="min-height: 150px; position: relative; margin-bottom: 10px;">
+                      <h4>{{ $disasterdata->title }}</h4>
+                      <p>
+                        Category: <b>{{ $disasterdata->discategory->name }}</b>,
+                        District: <b>{{ $disasterdata->districtscord->name }}</b>
+                      </p>
+                      @if($disasterdata->file != '')
+                      <a href="{{ asset('files/' . $disasterdata->file) }}" class="highlight-button btn btn-small button xs-margin-bottom-five" download=""><i class="fa fa-download"></i> Download File</a>
+                      @endif
+                      <div class="separator-line bg-yellow" style="position: absolute; bottom: 0px;"></div>
+                    </div>
                   @endforeach
-                </select>
-                <br/>
-                <h3>Showing data for: <span id="datacatnameh"></span></h3><br/>
-              </div> --}}
+                </div>
+              </div>
               <div class="col-md-12">
                 <div id="map" class="shadow"></div>
-
-                {{-- <section class="no-padding KBmap" id="KBtestmap" style="float: right;">
-                  <div class="KBmap__mapContainer">
-                    <div class="KBmap__mapHolder"><img src="/images/map/districts.png" alt="Bangladesh Districts Map"></div>
-                  </div>
-                </section> --}}
               </div>
             </div>
         </div>
@@ -137,37 +144,6 @@
       @endphp
     @endforeach
 
-    // $('#discategory_id').change(function() {
-    //   var api_url = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/disaster/data/'+ $('#discategory_id').val() +'/api';
-    //   $.get(api_url, function(data, status){
-    //     if(data.districtscords) {
-    //       $('#datacatnameh').text(data.discategory.name);
-    //       $('#datacatnameheader').html('<big>- '+ data.discategory.name +'</big>');
-          
-    //       // console.log(oldmarkercount);
-    //       for(var j=0; j<oldmarkercount; j++) {
-    //         if(marker[j] != undefined) {
-    //           map.removeLayer(marker[j]);
-    //         }
-    //       }
-          
-    //       marker = [];
-    //       for(var i=0; i<data.districtscords.length; i++) {
-    //         var cords = data.districtscords[i].coordinates.split(",");
-    //         marker[i] = L.marker([cords[0], cords[1]]).bindPopup("<big>"+ data.discategory.name +"</big><br/><b>District: "+ data.districtscords[i].name +"</b><br/><a href='#!'>⇓ Download</a>").addTo(map);
-    //         // marker1.bindPopup("Test<br/><a href='#!'>Click</a>"); // .openPopup() to open it onready
-    //       }
-    //       oldmarkercount = marker.length;
-    //     } else {
-    //       if($(window).width() > 768) {
-    //         toastr.info('No data on this Category', 'INFO').css('width', '400px');
-    //       } else {
-    //         toastr.info('No data on this Category', 'INFO').css('width', ($(window).width()-25)+'px');
-    //       }
-    //     }
-    //   });
-    // });
-
     $('#searchBtn').click(function() {
       var searchParam = $('#searchParam').val();
       if(isEmptyOrSpaces(searchParam)) {
@@ -189,7 +165,7 @@
        document.getElementById("searchBtn").click();
       }
     });
-
+    
     // on enter search
     function isEmptyOrSpaces(str){
         return str === null || str.match(/^ *$/) !== null;

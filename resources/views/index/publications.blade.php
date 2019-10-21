@@ -39,26 +39,28 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-12 col-sm-12">
-                    @foreach($publications as $publication)
-                      <!-- features item -->
-                      <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp" style="min-height: 100px;">
-                          <div class="col-md-3 col-sm-2 col-xs-2 ">
-                              <a href="{{ route('index.publication', $publication->code) }}">
-                                @if($publication->image != null)
-                                  <img src="{{ asset('images/publications/'.$publication->image)}}" />
-                                @else
-                                  <img src="{{ asset('images/pub.png')}}" />
-                                @endif
-                              </a>
-                          </div>
-                          <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
-                              <a href="{{ route('index.publication', $publication->code) }}"><h5 style="margin: 5px;">{{ substr(strip_tags($publication->title), 0, 60) }}...</h5></a>
-                              <div class="separator-line bg-yellow"></div>{{ date('F d, Y', strtotime($publication->publishing_date)) }}
+                    <div class="row">
+                      @foreach($publications as $publication)
+                        <!-- features item -->
+                        <div class="features-section col-md-4 col-sm-6 no-padding wow fadeInUp" style="min-height: 100px;">
+                            <div class="col-md-3 col-sm-2 col-xs-2 ">
+                                <a href="{{ route('index.publication', $publication->code) }}">
+                                  @if($publication->image != null)
+                                    <img src="{{ asset('images/publications/'.$publication->image)}}" />
+                                  @else
+                                    <img src="{{ asset('images/pub.png')}}" />
+                                  @endif
+                                </a>
+                            </div>
+                            <div class="col-md-9 col-sm-9 no-padding col-xs-9 text-left f-right">
+                                <a href="{{ route('index.publication', $publication->code) }}"><h5 style="margin: 5px;">{{ substr(strip_tags($publication->title), 0, 60) }}...</h5></a>
+                                <div class="separator-line bg-yellow"></div>{{ date('F d, Y', strtotime($publication->publishing_date)) }}
 
-                          </div>
-                      </div>
-                      <!-- end features item -->
-                    @endforeach
+                            </div>
+                        </div>
+                        <!-- end features item -->
+                      @endforeach
+                    </div>
                     <br/>      
                   </div>
               </div>
