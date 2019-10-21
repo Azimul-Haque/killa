@@ -34,7 +34,7 @@
 
   <style type="text/css">
     #map {
-      height: 620px;
+      height: 650px;
       width: 100%;      
     }
   </style>
@@ -47,16 +47,22 @@
           <div class="row">
               <div class="col-lg-8 col-md-7 col-sm-12 wow fadeInUp" data-wow-duration="300ms">
                   <!-- page title -->
-                  <h1 class="black-text">Disaster Data <span id="datacetnameheader"></span></h1>
+                  <h1 class="black-text">Disaster Data <span id="datacatnameheader"></span></h1>
                   <!-- end page title -->
               </div>
-              <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
+              <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp" data-wow-duration="600ms">
                   <!-- breadcrumb -->
                   <ul>
                       {{-- <li><a href="{{ route('index.index') }}">Home</a></li>
                       <li><a href="#">Disaster Data</a></li> --}}
                   </ul>
                   <!-- end breadcrumb -->
+                  <div class="input-group pull-right">           
+                      <input type="text" class="form-control" name="x" placeholder="Search Disaster Data" style="height: 40px;">
+                      <span class="input-group-btn">
+                          <button class="highlight-button-dark btn btn-small button xs-margin-bottom-five" type="button" style="height: 40px;"><i class="fa fa-search"></i></button>
+                      </span>
+                  </div>
               </div>
           </div>
       </div>
@@ -66,7 +72,7 @@
     <section id="" class="padding-three">
         <div class="container">
             <div class="row">
-              <div class="col-md-4">
+              {{-- <div class="col-md-4">
                 <select class="form-control select" name="discategory_id" id="discategory_id" data-placeholder="Select Disaster Category">
                   <option value="" disabled="" selected="">Select Disaster Category</option>
                   @foreach($discategories as $category)
@@ -74,9 +80,9 @@
                   @endforeach
                 </select>
                 <br/>
-                <h3>Showing data for: <span id="datacetnameh3"></span></h3><br/>
-              </div>
-              <div class="col-md-8">
+                <h3>Showing data for: <span id="datacatnameh"></span></h3><br/>
+              </div> --}}
+              <div class="col-md-12">
                 <div id="map" class="shadow"></div>
 
                 {{-- <section class="no-padding KBmap" id="KBtestmap" style="float: right;">
@@ -118,13 +124,25 @@
 
     var marker = [];
     var oldmarkercount = 0;
+    @php
+      $i = 1;
+    @endphp
+    @foreach($disasterdatas as $disasterdata)
+      var cordsraw = '{{ $disasterdata->districtscord->coordinates }}';
+      var cords = cordsraw.split(",");
+      marker[{{ $i }}] = L.marker([cords[0], cords[1]]).bindPopup("<big>{{ $disasterdata->districtscord->name }}</big><br/><b>Total data count: {{ $disasterdata->districtscord->disdatas->count() }}</b><br/><a href='#!'>⇲ Browse Data</a>").addTo(map);
+      // marker1.bindPopup("Test<br/><a href='#!'>Click</a>"); // .openPopup() to open it onready
+      @php
+        $i++;
+      @endphp
+    @endforeach
 
     $('#discategory_id').change(function() {
       var api_url = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/disaster/data/'+ $('#discategory_id').val() +'/api';
       $.get(api_url, function(data, status){
         if(data.districtscords) {
-          $('#datacetnameh3').text(data.discategory.name);
-          $('#datacetnameheader').html('<big>- '+ data.discategory.name +'</big>');
+          $('#datacatnameh').text(data.discategory.name);
+          $('#datacatnameheader').html('<big>- '+ data.discategory.name +'</big>');
           
           // console.log(oldmarkercount);
           for(var j=0; j<oldmarkercount; j++) {

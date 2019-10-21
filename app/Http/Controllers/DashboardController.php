@@ -695,11 +695,10 @@ class DashboardController extends Controller
     public function storeDisasterdata(Request $request)
     {
         $this->validate($request,array(
-            'title'      => 'required',
-            'file'      => 'required',
+            'title'               => 'required',
+            'file'                => 'sometimes',
             'discategory_id'      => 'required',
-            'districtscord_id'      => 'required'
-            
+            'districtscord_id'    => 'required'
         ));
 
         // $disasterdata = Disdata::where('discategory_id', $request->discategory_id)
@@ -739,12 +738,30 @@ class DashboardController extends Controller
     public function updateDisasterdata(Request $request, $id)
     {
         $this->validate($request,array(
-            'districtscords'      => 'required'
+            'title'               => 'required',
+            'file'                => 'sometimes',
+            'discategory_id'      => 'required',
+            'districtscord_id'    => 'required'
         ));
 
-        $disasterdata = Disdata::findOrFail($id);
-
-        $disasterdata->districtscords()->sync($request->districtscords, true); // true will delete previous record...
+        $disasterdata = Disdata::find($id);
+        $disasterdata->title = $request->title;
+        // file upload
+        if($request->hasFile('file')) {
+            // delete the previous one
+            $file_path = public_path('files/'. $disasterdata->file);
+            if(File::exists($file_path)) {
+                File::delete($file_path);
+            }
+            $newfile = $request->file('file');
+            $filename   = 'disaster_data_'. random_string(4) .time() .'.' . $newfile->getClientOriginalExtension();
+            $location   = public_path('/files/');
+            $newfile->move($location, $filename);
+            $disasterdata->file = $filename;
+        }
+        $disasterdata->discategory_id = $request->discategory_id;
+        $disasterdata->districtscord_id = $request->districtscord_id;
+        $disasterdata->save();
 
         Session::flash('success', 'Updated Successfully!');
         return redirect()->route('dashboard.disasterdatas');

@@ -137,9 +137,13 @@ class IndexController extends Controller
     {   
         $discategories = Discategory::all();
         $districtscords = Districtscord::all();
+        $disasterdatas = Disdata::all();
+        $disasterdatas_unique_data = $disasterdatas->unique('districtscord_id')->values()->all(); // make it unique, as multiple districts exists
+        
         return view('index.disasterdata')
                             ->withDiscategories($discategories)
-                            ->withDistrictscords($districtscords);
+                            ->withDistrictscords($districtscords)
+                            ->withDisasterdatas($disasterdatas_unique_data);
     }
 
     public function getDisasterdataAPI($discategory_id)
