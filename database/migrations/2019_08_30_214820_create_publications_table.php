@@ -20,6 +20,7 @@ class CreatePublicationsTable extends Migration
             $table->string('file')->nullable();
             $table->string('image')->nullable();
             $table->text('body');
+            $table->integer('submitted_by')->unsigned();
             $table->timestamps();
         });
 

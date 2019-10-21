@@ -641,6 +641,7 @@ class DashboardController extends Controller
             $publication->image = $filename;
         }
         $publication->body = Purifier::clean($request->body, 'youtube');
+        $publication->submitted_by = Auth::user()->id;
 
         $publication->save();
         // associate members
@@ -694,23 +695,31 @@ class DashboardController extends Controller
     public function storeDisasterdata(Request $request)
     {
         $this->validate($request,array(
+            'title'      => 'required',
+            'file'      => 'required',
             'discategory_id'      => 'required',
-            'districtscords'      => 'required'
+            'districtscord_id'      => 'required'
+            
         ));
 
-        $disasterdata = Disdata::where('discategory_id', $request->discategory_id)->first();
+        // $disasterdata = Disdata::where('discategory_id', $request->discategory_id)
+        //                        ->where('districtscord_id', $request->districtscord_id)
+        //                        ->first();
 
-        if($disasterdata) {
-            $disasterdata->districtscords()->sync($request->districtscords, false); // false will append previous record...
-        } else {
-            $disasterdata = new Disdata();
-            $disasterdata->discategory_id = $request->discategory_id;
+        $disasterdata = new Disdata();
+        $disasterdata->title = $request->title;
+        // file upload
+        if($request->hasFile('file')) {
+            $newfile = $request->file('file');
+            $filename   = 'disaster_data_'. random_string(4) .time() .'.' . $newfile->getClientOriginalExtension();
+            $location   = public_path('/files/');
+            $newfile->move($location, $filename);
+            $disasterdata->file = $filename;
         }
+        $disasterdata->discategory_id = $request->discategory_id;
+        $disasterdata->districtscord_id = $request->districtscord_id;
         $disasterdata->save();
-        $disasterdata->districtscords()->sync($request->districtscords, false); // false will append previous record...
         
-        
-
         Session::flash('success', 'Added Successfully!');
         return redirect()->route('dashboard.disasterdatas');
     }
@@ -780,7 +789,8 @@ class DashboardController extends Controller
             Session::flash('info', 'Your account is not activated yet, after successfull activation, you can do things.');
             return redirect()->route('index.index');
         } else {
-            return view('dashboard.personalpubs');
+            $publications = Publication::where('submitted_by', Auth::user()->id)->paginate(10);
+            return view('dashboard.personalpubs')->withPublications($publications);
         }
     }
 

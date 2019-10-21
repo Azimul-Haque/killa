@@ -32,20 +32,25 @@
             <table class="table">
               <thead>
                 <tr>
+                  <th>Title</th>
+                  <th>File</th>
                   <th>Category</th>
-                  <th width="">Associated Districts</th>
+                  <th width="">District</th>
                   <th width="15%">Action</th>
                 </tr>
               </thead>
               <tbody>
-                @php $addmodalflag = 0; $editmodalflag = 0; @endphp
                 @foreach($disasterdatas as $disasterdata)
                 <tr>
+                  <td>{{ $disasterdata->title }}</td>
+                  <td>
+                    @if($disasterdata->file != '')
+                    <a href="{{ asset('files/'.$disasterdata->file)}}"><i class="fa fa-file-text-o"></i> File</a>
+                    @endif
+                  </td>
                   <td>{{ $disasterdata->discategory->name }}</td>
                   <td>
-                    @foreach($disasterdata->districtscords as $district)
-                      <span class="badge badge-success">{{ $district->name }}</span> 
-                    @endforeach
+                    <span class="badge badge-success">{{ $disasterdata->districtscord->name }}</span> 
                   </td>
                   
                   <td>

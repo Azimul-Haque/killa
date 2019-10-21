@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Disdata extends Model
 {
-    public function districtscords(){
-        return $this->belongsToMany('App\Districtscord');
+    public function districtscord(){
+        return $this->belongsTo('App\Districtscord');
     }
 
     public function discategory() {
