@@ -64,7 +64,7 @@
                       </li>
                       <li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                           @if(file_exists(public_path('images/users/'. Auth::user()->image)))
-                            <img src="{{ asset('images/users' . Auth::user()->image) }}" class="user-image" alt="{{ Auth::user()->name }}'s Image">
+                            <img src="{{ asset('images/users/' . Auth::user()->image) }}" class="user-image" alt="{{ Auth::user()->name }}'s Image">
                           @else
                             <img src="{{ asset('images/user.png')}}" class="user-image" alt="User Image">
                           @endif
@@ -73,7 +73,7 @@
                             <!-- User image -->
                             <li class="user-header">
                               @if(file_exists(public_path('images/users/'. Auth::user()->image)))
-                                <img src="{{ asset('images/users' . Auth::user()->image)}}" class="user-image" alt="{{ Auth::user()->name }}'s Image">
+                                <img src="{{ asset('images/users/' . Auth::user()->image)}}" class="user-image" alt="{{ Auth::user()->name }}'s Image">
                               @else
                                 <img src="{{ asset('images/user.png')}}" class="user-image" alt="User Image">
                               @endif
