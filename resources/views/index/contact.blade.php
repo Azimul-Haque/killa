@@ -37,12 +37,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <p class="text-med black-text letter-spacing-1 margin-ten no-margin-bottom text-uppercase font-weight-600 xs-margin-top-five">Head Office</p>
-                            <p><i class="fa fa-map-marker black-text"></i> Killa Consultancy</p>
+                            <p><i class="fa fa-map-marker black-text"></i> 272/5, WEST AGARGAON, SHER-E-BANGLA NAGAR, DHAKA-1207</p>
                         </div>
                         <div class="col-md-6 xs-text-center">
                             <p class="text-med black-text letter-spacing-1 margin-ten no-margin-bottom text-uppercase font-weight-600 xs-margin-top-five">Contact Info.</p>
-                            <p class="black-text no-margin-bottom"><strong><i class="fa fa-phone black-text"></i></strong> <a href="tel:+8801515297658">+88 01515297658</a></p>
-                            <p class="black-text"><strong><i class="fa fa-envelope black-text"></i></strong> <a href="mailto:info@killabd.com">info@killabd.com</a></p>
+                            <p class="black-text no-margin-bottom"><strong><i class="fa fa-phone black-text"></i></strong> <a href="tel:+8801670718171">+88 01670718171</a></p>
+                            <p class="black-text"><strong><i class="fa fa-envelope black-text"></i></strong> <a href="mailto:info.killabd@gmail.com">info.killabd@gmail.com</a></p>
                         </div>
                     </div>
                 </div>

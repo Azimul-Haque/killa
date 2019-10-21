@@ -30,7 +30,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin')->except(['index', 'getPersonalProfile', 'updatePersonalProfile']);
+        $this->middleware('admin')->except(['index', 'getPersonalPubs', 'getPersonalProfile', 'updatePersonalProfile']);
     }
 
     /**
@@ -40,7 +40,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        if(Auth::user()->activation_status == 0) {
+            Session::flash('info', 'Your account is not activated yet, after successfull activation, you can do things.');
+            return redirect()->route('index.index');
+        } else {
+            $member = User::find(Auth::user()->id);
+            return view('dashboard.index')->withMember($member);
+        }
     }
 
     public function getCommittee()
@@ -770,13 +776,23 @@ class DashboardController extends Controller
 
     public function getPersonalPubs()
     {
-        return view('dashboard.personalpubs');
+        if(Auth::user()->activation_status == 0) {
+            Session::flash('info', 'Your account is not activated yet, after successfull activation, you can do things.');
+            return redirect()->route('index.index');
+        } else {
+            return view('dashboard.personalpubs');
+        }
     }
 
     public function getPersonalProfile()
     {
-        $member = User::find(Auth::user()->id);
-        return view('dashboard.personalprofile')->withMember($member);
+        if(Auth::user()->activation_status == 0) {
+            Session::flash('info', 'Your account is not activated yet, after successfull activation, you can do things.');
+            return redirect()->route('index.index');
+        } else {
+            $member = User::find(Auth::user()->id);
+            return view('dashboard.personalprofile')->withMember($member);
+        }
     }
 
     public function updatePersonalProfile(Request $request, $id)
