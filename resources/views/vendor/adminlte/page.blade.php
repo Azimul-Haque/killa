@@ -73,9 +73,9 @@
                             <!-- User image -->
                             <li class="user-header">
                               @if(file_exists(public_path('images/users/'. Auth::user()->image)))
-                                <img src="{{ asset('images/users/' . Auth::user()->image)}}" class="user-image" alt="{{ Auth::user()->name }}'s Image">
+                                <img src="{{ asset('images/users/' . Auth::user()->image)}}" class="img-circle" alt="{{ Auth::user()->name }}'s Image">
                               @else
-                                <img src="{{ asset('images/user.png')}}" class="user-image" alt="User Image">
+                                <img src="{{ asset('images/user.png')}}" class="img-circle" alt="User Image">
                               @endif
                               <p>
                                 {{ Auth::User()->name }}
