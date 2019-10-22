@@ -94,8 +94,7 @@
                 <div class="row">
                   <div class="col-md-12">
                       <div class="form-group no-margin-bottom">
-                          <label for="status" class="text-uppercase">Status</label>
-                          <label for="bio" class="text-uppercase">Admin Role?</label><br/>
+                          <label for="status" class="text-uppercase">Status</label><br/>
                           <label class="radio-inline"><input type="radio" name="status" value="0" @if($publication->status == 0) checked @endif>Unpublished</label>
                           <label class="radio-inline"><input type="radio" name="status" value="1" @if($publication->status == 1) checked @endif>Published</label>
                       </div>
