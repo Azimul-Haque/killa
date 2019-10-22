@@ -170,7 +170,7 @@
                 <div class="col-md-3 col-sm-6 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten" data-wow-duration="300ms">
                     <a href="{{ route('index.directors') }}">
                         <span class="timer counter-number" data-to="{{ $employeecount }}" data-speed="7000"></span>
-                        <span class="counter-title">Employee</span>
+                        <span class="counter-title">People</span>
                     </a>
                 </div>
                 <!-- end counter -->
