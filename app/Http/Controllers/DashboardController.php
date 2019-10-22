@@ -779,7 +779,12 @@ class DashboardController extends Controller
         $publication->users()->sync($request->member_ids, true);
 
         Session::flash('success', 'Updated Successfully!');
-        return redirect()->route('dashboard.publications');
+        if($publication->status == 0) {
+            return redirect()->route('dashboard.publications.pending');
+        } else {
+            return redirect()->route('dashboard.publications');
+        }
+        
     }
 
     public function deletePublication($id)
