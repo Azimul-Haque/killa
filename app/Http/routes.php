@@ -111,10 +111,16 @@ Route::delete('/dashboard/expertise/{id}/delete', ['as'=>'dashboard.expertise.de
 Route::get('/dashboard/projects', ['as'=>'dashboard.projects','uses'=>'DashboardController@getProjects']);
 Route::get('/dashboard/project/create', ['as'=>'dashboard.project.create','uses'=>'DashboardController@createProject']);
 Route::post('/dashboard/project/store', ['as'=>'dashboard.project.store','uses'=>'DashboardController@storeProject']);
+Route::get('/dashboard/project/{id}/edit', ['as'=>'dashboard.project.edit','uses'=>'DashboardController@editProject']);
+Route::put('/dashboard/project/{id}/update', ['as'=>'dashboard.project.update','uses'=>'DashboardController@updateProject']);
+Route::delete('/dashboard/project/{id}/delete', ['as'=>'dashboard.project.delete','uses'=>'DashboardController@deleteProject']);
 
 Route::get('/dashboard/publications', ['as'=>'dashboard.publications','uses'=>'DashboardController@getPublications']);
 Route::get('/dashboard/publication/create', ['as'=>'dashboard.publication.create','uses'=>'DashboardController@createPublication']);
 Route::post('/dashboard/publication/store', ['as'=>'dashboard.publication.store','uses'=>'DashboardController@storePublication']);
+Route::get('/dashboard/publication/{id}/edit', ['as'=>'dashboard.publication.edit','uses'=>'DashboardController@editPublication']);
+Route::put('/dashboard/publication/{id}/update', ['as'=>'dashboard.publication.update','uses'=>'DashboardController@updatePublication']);
+Route::delete('/dashboard/publication/{id}/delete', ['as'=>'dashboard.publication.delete','uses'=>'DashboardController@deletePublication']);
 
 Route::get('/dashboard/disasterdatas', ['as'=>'dashboard.disasterdatas','uses'=>'DashboardController@getDisasterdatas']);
 Route::post('/dashboard/disasterdata/category/store', ['as'=>'dashboard.discategory.store','uses'=>'DashboardController@storeDisasterCategory']);

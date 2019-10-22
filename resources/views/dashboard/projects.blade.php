@@ -51,21 +51,22 @@
             @endif
           </td>
           <td>
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMemberModal{{ $project->id }}" data-backdrop="static" title="Delete Application" disabled=""><i class="fa fa-trash-o"></i></button>
+            <a href="{{ route('dashboard.project.edit', $project->id) }}" class="btn btn-sm btn-primary" title="Edit Project"><i class="fa fa-pencil"></i></a>
+            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $project->id }}" data-backdrop="static" title="Delete Project"><i class="fa fa-trash-o"></i></button>
             <!-- Delete Project Modal -->
             <!-- Delete Project Modal -->
-            <div class="modal fade" id="deleteMemberModal{{ $project->id }}" role="dialog">
+            <div class="modal fade" id="deleteModal{{ $project->id }}" role="dialog">
               <div class="modal-dialog modal-md">
                 <div class="modal-content">
                   <div class="modal-header modal-header-danger">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Delete Member</h4>
+                    <h4 class="modal-title">Delete Project</h4>
                   </div>
                   <div class="modal-body">
-                    Confirm Delete the member of <b>{{ $project->name }}</b>
+                    Confirm Delete this project: <b>{{ $project->title }}</b>
                   </div>
                   <div class="modal-footer">
-                    {!! Form::model($project, ['route' => ['dashboard.deletemember', $project->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                    {!! Form::model($project, ['route' => ['dashboard.project.delete', $project->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                         {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     {!! Form::close() !!}

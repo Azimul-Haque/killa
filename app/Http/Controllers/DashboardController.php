@@ -578,14 +578,13 @@ class DashboardController extends Controller
         $project->starts = new Carbon($request->starts);
         $project->ends = new Carbon($request->ends);
         $project->body = Purifier::clean($request->body, 'youtube');
-        
 
         // image upload
         if($request->hasFile('image')) {
             $image      = $request->file('image');
             $filename   = preg_replace('/[^A-Za-z0-9\-]/', '', $request->title).time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/projects/'. $filename);
-            Image::make($image)->resize(1000, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->resize(700, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $project->image = $filename;
         }
 
@@ -593,6 +592,64 @@ class DashboardController extends Controller
         $project->save();
         
         Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.projects');
+    }
+
+    public function editProject($id)
+    {
+        $project = Project::find($id);
+        return view('dashboard.editproject')->withProject($project);
+    }
+
+    public function updateProject(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'title'                   => 'required|max:255',
+            'status'                  => 'required|max:255',
+            'starts'                  => 'required|max:255',
+            'ends'                    => 'required|max:255',
+            'body'                    => 'required',
+            'image'                   => 'sometimes|image|max:500'
+        ));
+
+        $project = Project::find($id);
+        $project->title = $request->title;
+        $project->status = $request->status;
+        $project->starts = new Carbon($request->starts);
+        $project->ends = new Carbon($request->ends);
+        $project->body = Purifier::clean($request->body, 'youtube');
+        
+
+        // image upload
+        if($request->hasFile('image')) {
+            $image_path = public_path('images/projects/'. $project->image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image      = $request->file('image');
+            $filename   = preg_replace('/[^A-Za-z0-9\-]/', '', $request->title).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/projects/'. $filename);
+            Image::make($image)->resize(700, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $project->image = $filename;
+        }
+
+        $project->slug = preg_replace('/[^A-Za-z0-9\-]/', '_', strtolower($request->title)).'_'.time();
+        $project->save();
+        
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.projects');
+    }
+
+    public function deleteProject($id)
+    {
+        $project = Project::find($id);
+        $image_path = public_path('images/projects/'. $project->image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $project->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
         return redirect()->route('dashboard.projects');
     }
 
@@ -651,6 +708,61 @@ class DashboardController extends Controller
         $publication->users()->sync($request->member_ids, false);
 
         Session::flash('success', 'Added Successfully!');
+        return redirect()->route('dashboard.publications');
+    }
+
+    public function editPublication($id)
+    {
+        $publication = Publication::find($id);
+        $members = User::all();
+        return view('dashboard.editpublication')
+                            ->withPublication($publication)
+                            ->withMembers($members);
+    }
+
+    public function updatePublication(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'title'                   => 'required|max:255',
+            'publishing_date'         => 'required|max:255',
+            'member_ids'              => 'required|max:255',
+            'body'                    => 'required',
+            'image'                   => 'sometimes|image|max:500',
+            'attachment'              => 'sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000'
+        ));
+
+        $publication = Publication::find($id);
+        $publication->title = $request->title;
+        $publication->code = random_string(10);
+        $publication->publishing_date = new Carbon($request->publishing_date);
+
+        // file upload
+        if($request->hasFile('attachment')) {
+            $newfile = $request->file('attachment');
+            $filename   = $publication->code.'_file_'.time() .'.' . $newfile->getClientOriginalExtension();
+            $location   = public_path('/files/');
+            $newfile->move($location, $filename);
+            $publication->file = $filename;
+        }
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = $publication->code.'_'.time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/publications/'. $filename);
+            Image::make($image)->resize(200, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $publication->image = $filename;
+        }
+        $publication->body = Purifier::clean($request->body, 'youtube');
+        $publication->submitted_by = Auth::user()->id;
+
+        $publication->save();
+        // associate members
+        // foreach ($request->member_ids as $key => $value) {
+        //     $publication->users()->attach($value);
+        // }
+        $publication->users()->sync($request->member_ids, false);
+
+        Session::flash('success', 'Updated Successfully!');
         return redirect()->route('dashboard.publications');
     }
 

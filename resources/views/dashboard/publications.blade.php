@@ -27,7 +27,7 @@
           <th width="25%">Body</th>
           <th width="">File</th>
           <th width="">Image</th>
-          <th>Action</th>
+          <th width="10%">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -45,21 +45,22 @@
           <td><span class="">{{ substr(strip_tags($publication->body), 0, 100) }}...</span></td>
           <td>
             @if($publication->image != null)
-            <img src="{{ asset('images/publications/'.$publication->image)}}" style="height: 120px; width: auto;" />
+            <img src="{{ asset('images/publications/'.$publication->image)}}" style="height: 80px; width: auto;" />
             @else
-            <img src="{{ asset('images/abc.png')}}" style="height: 120px; width: auto;" />
+            <img src="{{ asset('images/abc.png')}}" style="height: 80px; width: auto;" />
             @endif
           </td>
           <td>
             @if($publication->file != null)
-              <a href="{{ asset('files/'.$publication->file)}}">Attachement</a>
+              <a href="{{ asset('files/'.$publication->file)}}"><i class="fa fa-download"></i> Attachement</a>
             @endif
           </td>
           <td>
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMemberModal{{ $publication->id }}" data-backdrop="static" title="Delete Application" disabled=""><i class="fa fa-trash-o"></i></button>
+            <a href="{{ route('dashboard.publication.edit', $publication->id) }}" class="btn btn-sm btn-primary" title="Edit Publication"><i class="fa fa-pencil"></i></a>
+            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $publication->id }}" data-backdrop="static" title="Delete Publication"><i class="fa fa-trash-o"></i></button>
             <!-- Delete Publication Modal -->
             <!-- Delete Publication Modal -->
-            <div class="modal fade" id="deleteMemberModal{{ $publication->id }}" role="dialog">
+            <div class="modal fade" id="deleteModal{{ $publication->id }}" role="dialog">
               <div class="modal-dialog modal-md">
                 <div class="modal-content">
                   <div class="modal-header modal-header-danger">
