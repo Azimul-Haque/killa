@@ -38,7 +38,7 @@ class IndexController extends Controller
 
         $sliders = Slider::orderBy('id', 'desc')->get();
         $projects = Project::orderBy('id', 'desc')->get()->take(4);
-        $publications = Publication::orderBy('id', 'desc')->get()->take(3);
+        $publications = Publication::where('status', 1)->orderBy('id', 'desc')->get()->take(3);
 
         $employeecount = User::all()->count();
         $ongoingprojectcount = Project::where('status', 0)->count();
@@ -120,7 +120,7 @@ class IndexController extends Controller
 
     public function getPublications()
     {
-        $publications = Publication::orderBy('id', 'desc')->paginate(12);
+        $publications = Publication::where('status', 1)->orderBy('id', 'desc')->paginate(12);
         return view('index.publications')->withPublications($publications);
     }
 

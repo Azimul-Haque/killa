@@ -653,16 +653,16 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.projects');
     }
 
-    public function getPublications()
-    {
-        $publications = Publication::where('status', 1)->orderBy('id', 'desc')->paginate(10);
-        return view('dashboard.publications')->withPublications($publications);
-    }
-
     public function getPendingPublications()
     {
         $publications = Publication::where('status', 0)->orderBy('id', 'desc')->paginate(10);
         return view('dashboard.pendingpublications')->withPublications($publications);
+    }
+
+    public function getPublications()
+    {
+        $publications = Publication::where('status', 1)->orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.publications')->withPublications($publications);
     }
 
     public function createPublication()
