@@ -22,8 +22,8 @@
         <tr>
           <th>Status</th>
           <th width="20%">Title</th>
-          <th width="">Associates</th>
           <th width="">Code</th>
+          <th width="">Associates</th>
           <th width="">Published</th>
           <th width="25%">Body</th>
           <th width="">Image</th>

@@ -14,6 +14,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Publication');
     }
 
+    public function publication(){
+        return $this->hasMany('App\Publication', 'id', 'submitted_by'); // submitted_by user
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];

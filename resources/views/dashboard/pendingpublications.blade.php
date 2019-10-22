@@ -20,8 +20,9 @@
       <thead>
         <tr>
           <th width="20%">Title</th>
-          <th width="">Associates</th>
+          <th width="">Submitted by</th>
           <th width="">Code</th>
+          <th width="">Associates</th>
           <th width="">Published</th>
           <th width="25%">Body</th>
           <th width="">Image</th>
@@ -34,6 +35,7 @@
         @foreach($publications as $publication)
         <tr>
           <td>{{ $publication->title }}</td>
+          <td>{{ $publication->user['name'] }}</td>
           <td>{{ $publication->code }}</td>
           <td>
             @foreach($publication->users as $member)
@@ -55,7 +57,7 @@
             @endif
           </td>
           <td>
-            <a href="{{ route('dashboard.publication.edit', $publication->id) }}" class="btn btn-sm btn-primary" title="Edit Publication"><i class="fa fa-pencil"></i></a>
+            <a href="{{ route('dashboard.publication.edit', $publication->id) }}" class="btn btn-sm btn-primary" title="Publish/ Edit Publication"><i class="fa fa-pencil"></i></a>
             <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $publication->id }}" data-backdrop="static" title="Delete Publication"><i class="fa fa-trash-o"></i></button>
             <!-- Delete Publication Modal -->
             <!-- Delete Publication Modal -->
