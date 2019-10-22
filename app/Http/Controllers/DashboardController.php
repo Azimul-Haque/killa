@@ -655,8 +655,14 @@ class DashboardController extends Controller
 
     public function getPublications()
     {
-        $publications = Publication::orderBy('id', 'desc')->paginate(10);
+        $publications = Publication::where('status', 1)->orderBy('id', 'desc')->paginate(10);
         return view('dashboard.publications')->withPublications($publications);
+    }
+
+    public function getPendingPublications()
+    {
+        $publications = Publication::where('status', 0)->orderBy('id', 'desc')->paginate(10);
+        return view('dashboard.pendingpublications')->withPublications($publications);
     }
 
     public function createPublication()
@@ -677,6 +683,7 @@ class DashboardController extends Controller
         ));
 
         $publication = new Publication();
+        $publication->status = 1; // published
         $publication->title = $request->title;
         $publication->code = random_string(10);
         $publication->publishing_date = new Carbon($request->publishing_date);
@@ -728,10 +735,12 @@ class DashboardController extends Controller
             'member_ids'              => 'required|max:255',
             'body'                    => 'required',
             'image'                   => 'sometimes|image|max:500',
-            'attachment'              => 'sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000'
+            'attachment'              => 'sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000',
+            'status'                  => 'required'
         ));
 
         $publication = Publication::find($id);
+        $publication->status = $request->status;
         $publication->title = $request->title;
         $publication->code = random_string(10);
         $publication->publishing_date = new Carbon($request->publishing_date);
@@ -768,9 +777,30 @@ class DashboardController extends Controller
         // foreach ($request->member_ids as $key => $value) {
         //     $publication->users()->attach($value);
         // }
-        $publication->users()->sync($request->member_ids, false);
+        $publication->users()->sync($request->member_ids, true);
 
         Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.publications');
+    }
+
+    public function deletePublication($id)
+    {
+        $publication = Publication::find($id);
+        $file_path = public_path('files/'. $publication->file);
+        if(File::exists($file_path)) {
+            File::delete($file_path);
+        }
+        $image_path = public_path('images/publications/'. $publication->image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        foreach ($publication->users as $key => $value) {
+            # code...
+        }
+        $publication->users()->sync([]);
+        $publication->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
         return redirect()->route('dashboard.publications');
     }
 

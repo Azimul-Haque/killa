@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                      <img src="{{ asset('images/pub.jpg')}}" id='img-upload' style="height: 200px; width: auto; padding: 5px;" />
+                      <img src="{{ asset('images/pub.jpg')}}" id='img-upload' style="height: 100px; width: auto; padding: 5px;" />
                     </div>
                   </div>
                   <div class="row">

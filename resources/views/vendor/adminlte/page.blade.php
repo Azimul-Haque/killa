@@ -184,6 +184,12 @@
                             <span>Projects</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('dashboard/publications/pending') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.publications.pending') }}">
+                            <i class="fa fa-fw fa-hourglass-half"></i>
+                            <span>Pending Publications</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('dashboard/publications') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.publications') }}">
                             <i class="fa fa-fw fa-book"></i>

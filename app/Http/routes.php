@@ -115,6 +115,7 @@ Route::get('/dashboard/project/{id}/edit', ['as'=>'dashboard.project.edit','uses
 Route::put('/dashboard/project/{id}/update', ['as'=>'dashboard.project.update','uses'=>'DashboardController@updateProject']);
 Route::delete('/dashboard/project/{id}/delete', ['as'=>'dashboard.project.delete','uses'=>'DashboardController@deleteProject']);
 
+Route::get('/dashboard/publications/pending', ['as'=>'dashboard.publications.pending','uses'=>'DashboardController@getPendingPublications']);
 Route::get('/dashboard/publications', ['as'=>'dashboard.publications','uses'=>'DashboardController@getPublications']);
 Route::get('/dashboard/publication/create', ['as'=>'dashboard.publication.create','uses'=>'DashboardController@createPublication']);
 Route::post('/dashboard/publication/store', ['as'=>'dashboard.publication.store','uses'=>'DashboardController@storePublication']);

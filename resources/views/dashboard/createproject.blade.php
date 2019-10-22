@@ -59,7 +59,7 @@
                   <div class="row">
                     <div class="col-md-6">
                         <div class="form-group no-margin-bottom">
-                            <label><strong>Image (500Kb Max, 1000 x 625 Suggested):</strong></label>
+                            <label>Image (500Kb Max, 1000 x 625 Suggested):</label>
                             <input class="form-control" type="file" id="image" name="image" required="">
                         </div>
                     </div>

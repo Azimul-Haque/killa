@@ -8,9 +8,8 @@
 
 @section('content_header')
     <h1>
-      Publications
+      Pending Publications
       <div class="pull-right">
-        <a href="{{ route('dashboard.publication.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Publication</a>
       </div>
     </h1>
 @stop

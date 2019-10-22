@@ -63,7 +63,7 @@
                     <h4 class="modal-title">Delete Project</h4>
                   </div>
                   <div class="modal-body">
-                    Confirm Delete this project: <b>{{ $project->title }}</b>
+                    Confirm Delete this project: <b>{{ $project->title }}</b>?
                   </div>
                   <div class="modal-footer">
                     {!! Form::model($project, ['route' => ['dashboard.project.delete', $project->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}

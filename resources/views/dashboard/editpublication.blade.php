@@ -36,7 +36,7 @@
                     <div class="form-group no-margin-bottom">
                       <div class="form-group no-margin-bottom">
                           <label for="publishing_date" class="text-uppercase">Publishing Date</label>
-                          <input class="form-control" type="text" name="publishing_date" id="publishing_date" data-field="date" autocomplete="off" value="{{ date('m-d-Y', strtotime($publication->publishing_date)) }}" required="">
+                          <input class="form-control" type="text" name="publishing_date" id="publishing_date" data-field="date" autocomplete="off" value="{{ date('d-m-Y', strtotime($publication->publishing_date)) }}" required="">
                       </div>
                     </div>
                   </div>
@@ -74,7 +74,7 @@
                 <div class="row">
                   <div class="col-md-6">
                       <div class="form-group no-margin-bottom">
-                          <label><strong>File (1000Kb Max, File Type: .doc, .docx, .ppt, .pptx, .pdf, .jpg, .png): [Optional]</strong></label>
+                          <label>File (1000Kb Max, File Type: .doc, .docx, .ppt, .pptx, .pdf, .jpg, .png): [Optional]</label>
                           <input class="form-control" type="file" id="attachment" name="attachment">
                       </div>
                   </div>
@@ -87,10 +87,19 @@
                       @endif
                   </div>
                 </div>
-              
                 <div class="form-group no-margin-bottom">
                     <label for="body" class="text-uppercase">Body</label>
                     <textarea type="text" name="body" id="body" class="summernote" required="">{!! $publication->body !!}</textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group no-margin-bottom">
+                          <label for="status" class="text-uppercase">Status</label>
+                          <label for="bio" class="text-uppercase">Admin Role?</label><br/>
+                          <label class="radio-inline"><input type="radio" name="status" value="0" @if($publication->status == 0) checked @endif>Unpublished</label>
+                          <label class="radio-inline"><input type="radio" name="status" value="1" @if($publication->status == 1) checked @endif>Published</label>
+                      </div>
+                  </div>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit</button>
               {{ Form::close() }}
