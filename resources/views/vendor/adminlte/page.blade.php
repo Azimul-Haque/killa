@@ -251,7 +251,7 @@
         <!-- /.content-wrapper -->
         <footer class="main-footer">
           <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.28
+            <b>Version</b> 2.0.1
           </div>
           <strong>Copyright © {{ date('Y') }}</strong> 
           All rights reserved.
