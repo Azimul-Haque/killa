@@ -10,7 +10,7 @@
     <h1>
       Your Publications [Publications submitted by you]
       <div class="pull-right">
-        <a href="{{ route('dashboard.publication.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Publication</a>
+        <a href="{{ route('dashboard.personal.pubs.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Publication</a>
       </div>
     </h1>
 @stop
@@ -20,20 +20,27 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Status</th>
           <th width="20%">Title</th>
           <th width="">Associates</th>
           <th width="">Code</th>
           <th width="">Published</th>
           <th width="25%">Body</th>
-          <th width="">File</th>
           <th width="">Image</th>
-          <th>Action</th>
+          <th width="">File</th>
         </tr>
       </thead>
       <tbody>
         @php $addmodalflag = 0; $editmodalflag = 0; @endphp
         @foreach($publications as $publication)
         <tr>
+          <td>
+            @if($publication->status == 0)
+              <i class="fa fa-hourglass-half"></i> Unpublished
+            @else
+              <i class="fa fa-check"></i> Published
+            @endif
+          </td>
           <td>{{ $publication->title }}</td>
           <td>{{ $publication->code }}</td>
           <td>
@@ -54,32 +61,6 @@
             @if($publication->file != null)
               <a href="{{ asset('files/'.$publication->file)}}">Attachement</a>
             @endif
-          </td>
-          <td>
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMemberModal{{ $publication->id }}" data-backdrop="static" title="Delete Application" disabled=""><i class="fa fa-trash-o"></i></button>
-            <!-- Delete Publication Modal -->
-            <!-- Delete Publication Modal -->
-            <div class="modal fade" id="deleteMemberModal{{ $publication->id }}" role="dialog">
-              <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                  <div class="modal-header modal-header-danger">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Delete Member</h4>
-                  </div>
-                  <div class="modal-body">
-                    Confirm Delete the member of <b>{{ $publication->name }}</b>
-                  </div>
-                  <div class="modal-footer">
-                    {!! Form::model($publication, ['route' => ['dashboard.deletemember', $publication->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
-                        {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    {!! Form::close() !!}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Delete Publication Modal -->
-            <!-- Delete Publication Modal -->
           </td>
         </tr>
         @endforeach

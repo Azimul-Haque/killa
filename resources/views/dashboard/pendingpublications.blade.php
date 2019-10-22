@@ -24,8 +24,8 @@
           <th width="">Code</th>
           <th width="">Published</th>
           <th width="25%">Body</th>
-          <th width="">File</th>
           <th width="">Image</th>
+          <th width="">File</th>
           <th width="10%">Action</th>
         </tr>
       </thead>

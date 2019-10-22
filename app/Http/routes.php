@@ -133,6 +133,8 @@ Route::put('/dashboard/disasterdata/{id}/update', ['as'=>'dashboard.disasterdata
 Route::delete('/dashboard/disasterdata/{id}/delete', ['as'=>'dashboard.disasterdata.delete','uses'=>'DashboardController@deleteDisasterdata']);
 
 Route::get('/dashboard/personal/publications', ['as'=>'dashboard.personal.pubs','uses'=>'DashboardController@getPersonalPubs']);
+Route::get('/dashboard/personal/publication/create', ['as'=>'dashboard.personal.pubs.create','uses'=>'DashboardController@createPersonalPub']);
+Route::post('/dashboard/personal/publication/store', ['as'=>'dashboard.personal.pubs.store','uses'=>'DashboardController@storePersonalPub']);
 Route::get('/dashboard/personal/profile', ['as'=>'dashboard.personal.profile','uses'=>'DashboardController@getPersonalProfile']);
 Route::put('/dashboard/personal/profile/{id}/update', ['as'=>'dashboard.profile.update','uses'=>'DashboardController@updatePersonalProfile']);
 

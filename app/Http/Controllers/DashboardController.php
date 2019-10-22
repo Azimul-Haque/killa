@@ -30,7 +30,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin')->except(['index', 'getPersonalPubs', 'getPersonalProfile', 'updatePersonalProfile']);
+        $this->middleware('admin')->except(['index', 'getPersonalPubs', 'createPersonalPub', 'storePersonalPub', 'getPersonalProfile', 'updatePersonalProfile']);
     }
 
     /**
@@ -770,7 +770,6 @@ class DashboardController extends Controller
             $publication->image = $filename;
         }
         $publication->body = Purifier::clean($request->body, 'youtube');
-        $publication->submitted_by = Auth::user()->id;
 
         $publication->save();
         // associate members
@@ -972,6 +971,59 @@ class DashboardController extends Controller
             $publications = Publication::where('submitted_by', Auth::user()->id)->paginate(10);
             return view('dashboard.personalpubs')->withPublications($publications);
         }
+    }
+
+    public function createPersonalPub()
+    {
+        $members = User::all();
+        return view('dashboard.createpersonalpub')->withMembers($members);
+    }
+
+    public function storePersonalPub(Request $request)
+    {
+        $this->validate($request,array(
+            'title'                   => 'required|max:255',
+            'publishing_date'         => 'required|max:255',
+            'member_ids'              => 'required|max:255',
+            'body'                    => 'required',
+            'image'                   => 'required|image|max:500',
+            'attachment'              => 'required|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000'
+        ));
+
+        $publication = new Publication();
+        $publication->status = 0; // as member is adding, it will be pending
+        $publication->title = $request->title;
+        $publication->code = random_string(10);
+        $publication->publishing_date = new Carbon($request->publishing_date);
+
+        // file upload
+        if($request->hasFile('attachment')) {
+            $newfile = $request->file('attachment');
+            $filename   = $publication->code.'_file_'.time() .'.' . $newfile->getClientOriginalExtension();
+            $location   = public_path('/files/');
+            $newfile->move($location, $filename);
+            $publication->file = $filename;
+        }
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $filename   = $publication->code.'_'.time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/publications/'. $filename);
+            Image::make($image)->resize(150, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $publication->image = $filename;
+        }
+        $publication->body = Purifier::clean($request->body, 'youtube');
+        $publication->submitted_by = Auth::user()->id;
+
+        $publication->save();
+        // associate members
+        // foreach ($request->member_ids as $key => $value) {
+        //     $publication->users()->attach($value);
+        // }
+        $publication->users()->sync($request->member_ids, false);
+
+        Session::flash('success', 'Added Successfully, our Admins will review it!');
+        return redirect()->route('dashboard.personal.pubs');
     }
 
     public function getPersonalProfile()
