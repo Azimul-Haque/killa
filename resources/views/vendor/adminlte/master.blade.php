@@ -7,7 +7,7 @@
     @yield('title', config('adminlte.title', 'AdminLTE 2'))
     @yield('title_postfix', config('adminlte.title_postfix', '')) | Knowledge, Information & Learning for Local Adaptation (KILLA)</title>
     
-    <meta name="description" content="A globally leading organization providing productive and technologically sustainable solutions for reshaping today and constructing a resilient tomorrow.">
+    <meta name="description" content="A globally leading organization providing productive and technologically sustainable solutions for reshaping today and constructing a resilient tomorrow. Knowledge, Information & Learning for Local Adaptation (KILLA)">
     <meta name="keywords" content="Killa, Killa BD">
     <meta name="author" content="A. H. M. Azimul Haque">
     <!-- Tell the browser to be responsive to screen width -->

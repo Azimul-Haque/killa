@@ -130,7 +130,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 pull-left text-center sm-margin-bottom-eight wow fadeInUp" data-wow-duration="300ms">
                     <p class="center-col width-90 text-med">
-                        KILLA is led by a successful team with experience in the field of Climate Change and Disaster. Also, has experience to work with National & International Development Partners, NGOs, and INGOs etc. Moreover, has proficiency over working with different tools and techniques. 
+                        KILLA is led by a successful team with experience in the field of Climate Change and Disaster Risk Management. Also, has experience to work with National & International Development Partners, NGOs, and INGOs etc. Moreover, has proficiency over working with different tools and techniques.
                     </p>
                 </div>
                 <div class="col-md-6 col-sm-12 pull-right text-center wow fadeInUp" data-wow-duration="600ms">
