@@ -252,6 +252,11 @@
     <script type="text/javascript" src="{{ asset('vendor/hcode/js/main.js') }}"></script>
     @include('partials._messages')
     @yield('js')
+    <script type="text/javascript">
+     $(function(){
+      $('[title]').tooltip();
+     });
+    </script>
 </body>
 
 <!-- Mirrored from www.themezaa.com/html/h-code/portfolio-short-description.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Sep 2018 20:27:12 GMT -->

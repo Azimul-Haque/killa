@@ -115,8 +115,6 @@
                         @else
                           <a class="highlight-button btn btn-small btn-round button xs-margin-bottom-five" href="{{ url('login')}}" title="Login to download."><i class="fa fa-download"></i> Download</a>
                         @endif
-
-                        
                       </div>
                   </div>
 
@@ -162,10 +160,5 @@
 @endsection
 
 @section('js')
-   <script type="text/javascript">
-     $(function(){
-      $('a[title]').tooltip();
-      $('button[title]').tooltip();
-     });
-   </script>
+  
 @endsection

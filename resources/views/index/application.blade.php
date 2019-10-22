@@ -20,13 +20,13 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group no-margin-bottom">
-                                <label for="name" class="text-uppercase">Name</label>
+                                <label for="name" class="text-uppercase">Name *</label>
                                 <input type="text" name="name" id="name" required="">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group no-margin-bottom">
-                                <label for="email" class="text-uppercase">Email</label>
+                                <label for="email" class="text-uppercase">Email *</label>
                                 <input type="text" name="email" id="email" required="">
                             </div>
                           </div>
@@ -34,7 +34,7 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group no-margin-bottom">
-                                <label for="phone" class="text-uppercase">Phone</label>
+                                <label for="phone" class="text-uppercase">Phone *</label>
                                 <input type="text" name="phone" id="phone" required="">
                             </div>
                           </div>

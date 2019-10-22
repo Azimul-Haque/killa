@@ -63,7 +63,7 @@
                 @if (config('adminlte.register_url', 'register'))
                     <a href="{{ route('index.application') }}"
                        class="text-center"
-                    >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
+                    >Create Account</a>
                 @endif
             </div>
         </div>

@@ -68,5 +68,7 @@
 @include('partials._messages')
 @yield('adminlte_js')
 
+
+
 </body>
 </html>

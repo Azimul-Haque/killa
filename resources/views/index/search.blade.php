@@ -88,8 +88,12 @@
                     Category: <b>{{ $disasterdata->discategory->name }}</b>,
                     District: <b>{{ $disasterdata->districtscord->name }}</b>
                   </p>
-                  @if($disasterdata->file != '')
-                  <a href="{{ asset('files/' . $disasterdata->file) }}" class="highlight-button btn btn-small button xs-margin-bottom-five" download=""><i class="fa fa-download"></i> Download File</a>
+                  @if(Auth::check())
+                    @if($disasterdata->file != '')
+                      <a href="{{ asset('files/' . $disasterdata->file) }}" class="highlight-button btn btn-small button xs-margin-bottom-five" download=""><i class="fa fa-download"></i> Download File</a>
+                    @endif
+                  @else
+                    <a class="highlight-button btn btn-small btn-round button xs-margin-bottom-five" href="{{ url('login')}}" title="Login to download."><i class="fa fa-download"></i> Download</a>
                   @endif
                   <div class="separator-line bg-yellow" style="position: absolute; bottom: 0px;"></div>
                 </div>
