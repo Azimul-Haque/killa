@@ -56,7 +56,7 @@
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
 
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav"> 
                       <li class="tasks-menu">
                           <a href="{{ url('/') }}" target="_blank" title="View Website" data-placement="bottom">
                               <i class="fa fa-fw fa-eye" aria-hidden="true"></i>
