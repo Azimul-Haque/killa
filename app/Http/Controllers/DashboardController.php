@@ -694,7 +694,7 @@ class DashboardController extends Controller
             $image      = $request->file('image');
             $filename   = $publication->code.'_'.time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/publications/'. $filename);
-            Image::make($image)->resize(200, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->resize(150, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $publication->image = $filename;
         }
         $publication->body = Purifier::clean($request->body, 'youtube');
@@ -738,6 +738,10 @@ class DashboardController extends Controller
 
         // file upload
         if($request->hasFile('attachment')) {
+            $file_path = public_path('files/'. $publication->file);
+            if(File::exists($file_path)) {
+                File::delete($file_path);
+            }
             $newfile = $request->file('attachment');
             $filename   = $publication->code.'_file_'.time() .'.' . $newfile->getClientOriginalExtension();
             $location   = public_path('/files/');
@@ -746,10 +750,14 @@ class DashboardController extends Controller
         }
         // image upload
         if($request->hasFile('image')) {
+            $image_path = public_path('images/publications/'. $publication->image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
             $image      = $request->file('image');
             $filename   = $publication->code.'_'.time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/images/publications/'. $filename);
-            Image::make($image)->resize(200, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->resize(150, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $publication->image = $filename;
         }
         $publication->body = Purifier::clean($request->body, 'youtube');
