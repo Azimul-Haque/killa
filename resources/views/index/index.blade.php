@@ -46,8 +46,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-10 text-center center-col">
-                    <span class="margin-five no-margin-top display-block letter-spacing-2">Established in 2017</span>
-                    <span style="font-size: 20px; font-weight: bold;">Killa-Knowledge Information and Learning for Local Adaptation</span>
+                    <span class="margin-five no-margin-top display-block letter-spacing-2">Established-2017</span>
+                    <span style="font-size: 20px; font-weight: bold;">Knowledge, Information & Learning for Local Adaptation (KILLA)</span>
                     <p class="text-med width-90 center-col margin-seven no-margin-bottom">Knowledge, Information & Learning for Local Adaptation (KILLA) a globally leading organization providing productive and technologically sustainable solutions for reshaping today and constructing a resilient tomorrow. </p>
                 </div>
             </div>

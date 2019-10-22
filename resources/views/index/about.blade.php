@@ -36,7 +36,7 @@
                 <div class="col-md-10 col-sm-10 text-center center-col">
                     <div class="about-year text-uppercase white-text"><span class="clearfix">{{ date('Y') - 2017 }}</span> Years</div>
                     <p class="title-small letter-spacing-1 white-text font-weight-100">
-                        To give everyone the power to build resilience through sharing local knowledge, ideas, information and experience. KILLA is a consultancy organization that intends to provide services in the field of Climate Change Adaptation (CCA) and Disaster Risk Management (DRM). Climate Change and the increased frequency of natural disasters are the greatest concerns of the current century. Adaptation to such abrupt erratic nature of climate, requires intervention both at local and global scale. Our aim is to provide consultancy focusing upon the local level adaptation and implementation of Climate Change Adaptation (CCA) and Disaster Risk Management (DRM) strategies with the application of best available tools and technologies towards the achievement of Sustainable Development Goals (SDGs) 
+                        KILLA is a consultancy organization that intends to provide services in the field of Climate Change Adaptation (CCA) and Disaster Risk Management (DRM) to give everyone the power to build resilience through sharing local knowledge, ideas, information and experience. Climate Change and the increased frequency of natural disasters are the greatest concerns of the current century. Adaptation to such abrupt erratic nature of climate, requires intervention both at local and global scale. Our aim is to provide consultancy focusing upon the local level adaptation and implementation of Climate Change Adaptation (CCA) and Disaster Risk Management (DRM) strategies with the application of best available tools and technologies towards the achievement of Sustainable Development Goals (SDGs).
                     </p>
                 </div>
             </div>
@@ -63,9 +63,9 @@
         <div class="opacity-full bg-dark-gray"></div>
         <div class="container position-relative">
             <div class="row">
-                <div class="col-md-8 col-sm-11 center-col text-center">
+                <div class="col-md-10 col-sm-11 center-col text-center">
                     <p class="text-large white-text margin-five no-margin-bottom">
-                        Identifying the right solution is all about understanding the problem. We deliver unique and rigorous research that helps to create knowledge, ensure sustainable development and protect the nature. We identify indigenous knowledge that can work at scale and introduce these to global forums. We are strategic collaborators, innovators, knowledge brokers and agents of change. Our strategy outlines how we aim to grow in scope, reach and reputation. So expect us to bring a high degree of attention to your demands, as well as consideration for your budget.
+                        Identifying the right solution is all about understanding the problem. We deliver unique and rigorous research that helps create knowledge, ensures sustainable development and protects the nature. We identify indigenous knowledge that can work at regional scale and introduce these to global forums. We are strategic collaborators, innovators, knowledge brokers and navigator of change. Our strategy outlines how we aim to grow in scope, reach and reputation. Expect us to bring a high degree of attention to your demands, as well as consideration for your budget. 
                     <p>
                 </div>
             </div>

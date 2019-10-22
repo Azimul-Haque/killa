@@ -284,8 +284,8 @@
  .text-extra-large strong {
      letter-spacing: 3px
 }
- .text-extra-large-normal {
-     font-weight: normal !important;
+ .text-extra-large-uppercase {
+     font-weight: uppercase !important;
 }
  .title-small{
      font-size:20px !important;
@@ -2361,9 +2361,9 @@
  .owl-title {
      font-size: 35px;
      font-weight: 600;
-     text-transform: uppercase;
+     /*text-transform: uppercase;*/
      display: block;
-     letter-spacing: 7px;
+     letter-spacing: 1px;
 }
  .owl-title-big {
      background: rgba(0, 0, 0, 0.5);
@@ -4168,7 +4168,7 @@
      display:block;
      font-size:12px;
      letter-spacing:1px;
-     text-transform:uppercase;
+     /*text-transform:uppercase;*/
      text-decoration:none;
      color: #aeaeae;
      margin-bottom: 0 
@@ -5822,7 +5822,7 @@
      color:#000
 }
  .flat-list li.active ul {
-     font-weight: normal;
+     font-weight: uppercase;
      color: #575757
 }
  .flat-list li ul {

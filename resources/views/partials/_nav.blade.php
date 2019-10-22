@@ -6,13 +6,13 @@
             <div class="col-md-4 pull-left">
                 <a class="logo-light" href="{{ route('index.index') }}">
                     <img alt="" src="{{ asset('images/logo.png') }}" class="logo" style="float: left;"/>
-                    <span style="float: left; font-size: 15px; font-weight: bold; margin-top: 7px; display: block;" class="hidden-xs">Knowledge Information and<br/> Learning for Local Adaptation</span>
-                    <span style="float: left; font-size: 12px; font-weight: bold; margin-top: 7px; display: block;" class="visible-xs">Knowledge Information and<br/> Learning for Local Adaptation</span>
+                    <span style="float: left; font-size: 15px; font-weight: bold; margin-top: 7px; display: block;" class="hidden-xs">Knowledge, Information &<br/>Learning for Local Adaptation</span>
+                    <span style="float: left; font-size: 12px; font-weight: bold; margin-top: 7px; display: block;" class="visible-xs">Knowledge, Information &<br/>Learning for Local Adaptation</span>
                 </a>
                 <a class="logo-dark" href="{{ route('index.index') }}">
                     <img alt="" src="{{ asset('images/logo.png') }}" class="logo" style="float: left;"/>
-                    <span style="float: left; font-size: 15px; font-weight: bold; margin-top: 7px; display: block;" class="hidden-xs">Knowledge Information and<br/> Learning for Local Adaptation</span>
-                    <span style="float: left; font-size: 12px; font-weight: bold; margin-top: 7px; display: block;" class="visible-xs">Knowledge Information and<br/> Learning for Local Adaptation</span>
+                    <span style="float: left; font-size: 15px; font-weight: bold; margin-top: 7px; display: block;" class="hidden-xs">Knowledge, Information &<br/>Learning for Local Adaptation</span>
+                    <span style="float: left; font-size: 12px; font-weight: bold; margin-top: 7px; display: block;" class="visible-xs">Knowledge, Information &<br/>Learning for Local Adaptation</span>
                 </a>
             </div>
             <!-- end logo -->

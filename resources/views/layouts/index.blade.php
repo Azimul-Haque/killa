@@ -3,8 +3,8 @@
 
 <head>
     <title>@yield('title')</title>
-    <meta name="description" content="Official website of Killa Consultancy. Developed by A. H. M. Azimul Haque and Md. Abdul Mannan.">
-    <meta name="keywords" content="Killa, Killa Consultancy, Killa BD, KillaBD">
+    <meta name="description" content="A globally leading organization providing productive and technologically sustainable solutions for reshaping today and constructing a resilient tomorrow. Knowledge, Information & Learning for Local Adaptation (KILLA) ">
+    <meta name="keywords" content="Killa, Killa Consultancy, Killa BD, KillaBD, Knowledge, Information & Learning for Local Adaptation (KILLA)">
     <meta charset="utf-8">
     <meta name="author" content="A. H. M. Azimul Haque">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
@@ -185,7 +185,7 @@
                 <div class="row margin-three">
                     <!-- copyright -->
                     <div class="col-md-6 col-sm-6 col-xs-12 dark-gray-text text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
-                        &copy; {{ date('Y') }} <a href="{{ url('/') }}" style="text-decoration: none;" class="dark-gray-text"><b>Killa Consultancy</b></a>.
+                        &copy; {{ date('Y') }} <a href="{{ url('/') }}" style="text-decoration: none;" class="dark-gray-text"><b>Knowledge, Information & Learning for Local Adaptation (KILLA)</b></a>.
                         <br/>Developed by <a href="http://loencebd.com/" style="text-decoration: none;" class="dark-gray-text"><b>Loence Bangladesh</b></a>.
                     </div>
                     <!-- end copyright -->
