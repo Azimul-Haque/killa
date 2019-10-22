@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Killa Consultancy | Add Member')
+@section('title', 'Add Member')
 
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">

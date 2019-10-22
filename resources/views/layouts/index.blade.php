@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-    <title>@yield('title')</title>
+    <title>@yield('title') | Knowledge, Information & Learning for Local Adaptation (KILLA)</title>
     <meta name="description" content="A globally leading organization providing productive and technologically sustainable solutions for reshaping today and constructing a resilient tomorrow. Knowledge, Information & Learning for Local Adaptation (KILLA) ">
     <meta name="keywords" content="Killa, Killa Consultancy, Killa BD, KillaBD, Knowledge, Information & Learning for Local Adaptation (KILLA)">
     <meta charset="utf-8">
@@ -107,7 +107,7 @@
                     <h5>About Us</h5>
                     <!-- end headline -->
                     <!-- text -->
-                    <p class="footer-text">We are KILLA: an independent Asian consulting organization with a strong focus on the Climate and Disaster. Our Consultants use indigenous knowledge and expertise to create sustainable solutions for a resilient future. </p>
+                    <p class="footer-text">We are KILLA: An independent Asian consulting organization with a strong focus on the Climate and Disaster. Our consultants use indigenous knowledge and expertise to create sustainable solutions for a resilient future.</p>
                     <!-- end text -->
                 </div>
                 

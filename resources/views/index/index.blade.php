@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('title')
-    Killa Consultancy
+    Knowledge, Information & Learning for Local Adaptation (KILLA)
 @endsection
 
 @section('css')

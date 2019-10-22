@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Killa Consultancy | Your Publications')
+@section('title', 'Your Publications')
 
 @section('css')
 

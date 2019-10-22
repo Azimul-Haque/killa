@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    Killa Consultancy | About Us
+    About Us
 @endsection
 
 @section('css')

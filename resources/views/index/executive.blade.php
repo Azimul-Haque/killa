@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    Killa Consultancy | Exexutive Committee
+    Exexutive Committee
 @endsection
 
 @section('css')

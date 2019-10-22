@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    Killa Consultancy | Contact Us
+    Contact Us
 @endsection
 
 @section('css')
@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <p class="text-med black-text letter-spacing-1 margin-ten no-margin-bottom text-uppercase font-weight-600 xs-margin-top-five">Head Office</p>
-                            <p><i class="fa fa-map-marker black-text"></i> 272/5, WEST AGARGAON, SHER-E-BANGLA NAGAR, DHAKA-1207</p>
+                            <p><i class="fa fa-map-marker black-text"></i> 272/5, West Agargaon, Sher-E-Bangla Nagar, Dhaka-1207</p>
                         </div>
                         <div class="col-md-6 xs-text-center">
                             <p class="text-med black-text letter-spacing-1 margin-ten no-margin-bottom text-uppercase font-weight-600 xs-margin-top-five">Contact Info.</p>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
     @yield('title', config('adminlte.title', 'AdminLTE 2'))
-    @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
+    @yield('title_postfix', config('adminlte.title_postfix', '')) | Knowledge, Information & Learning for Local Adaptation (KILLA)</title>
     
     <meta name="description" content="A globally leading organization providing productive and technologically sustainable solutions for reshaping today and constructing a resilient tomorrow.">
     <meta name="keywords" content="Killa, Killa BD">

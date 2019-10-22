@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('title')
-    Killa Consultancy | {{ $expertise->title }}
+    {{ $expertise->title }}
 @endsection
 
 @section('css')
