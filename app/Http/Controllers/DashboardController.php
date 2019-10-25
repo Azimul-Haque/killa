@@ -850,7 +850,7 @@ class DashboardController extends Controller
     {
         $this->validate($request,array(
             'title'               => 'required',
-            'file'                => 'sometimes',
+            'file'                => 'sometimes|sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000',
             'discategory_id'      => 'required',
             'districtscord_id'    => 'required'
         ));
@@ -893,7 +893,7 @@ class DashboardController extends Controller
     {
         $this->validate($request,array(
             'title'               => 'required',
-            'file'                => 'sometimes',
+            'file'                => 'sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000',
             'discategory_id'      => 'required',
             'districtscord_id'    => 'required'
         ));
