@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group no-margin-bottom">
-                            <label><strong>File <small>(Optional, 1000Kb Max, File Type: .doc, .docx, .ppt, .pptx, .pdf, .jpg, .png)</small></strong></label>
+                            <label><strong>File <small>(Optional, 2Mb Max, File Type: .doc, .docx, .ppt, .pptx, .pdf, .jpg, .png)</small></strong></label>
                             <input class="form-control" type="file" id="file" name="file">
                         </div>
                     </div>
