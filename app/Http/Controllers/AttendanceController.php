@@ -14,7 +14,6 @@ class AttendanceController extends Controller
 {
     public function test(Request $request) 
     {
-    	dd($request->all());
     	$visit = new Attendance;
     	$visit->data = $request->all();
     	$visit->save();
