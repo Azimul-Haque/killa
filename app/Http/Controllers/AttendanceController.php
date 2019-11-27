@@ -8,12 +8,18 @@ use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Attendance;
+
 class AttendanceController extends Controller
 {
     public function test() 
     {
-    	$ip = Request::ip();
+    	$visit = new Attendance;
+    	$visit->ip = Request::ip();
+    	$visit->save();
 
-    	return $ip;
+    	$visits = Attendance::orderBy('id', 'desc')->get();
+    	
+    	return view('attendance.index')->withVisits($visits);
     }
 }
