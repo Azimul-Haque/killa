@@ -12,10 +12,10 @@ use App\Attendance;
 
 class AttendanceController extends Controller
 {
-    public function test() 
+    public function test(Request $request) 
     {
     	$visit = new Attendance;
-    	$visit->ip = Request::ip();
+    	$visit->data = $request->all();
     	$visit->save();
 
     	$visits = Attendance::orderBy('id', 'desc')->get();
