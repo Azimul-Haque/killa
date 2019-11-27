@@ -15,7 +15,7 @@ class AttendanceController extends Controller
     public function test(Request $request) 
     {
     	$visit = new Attendance;
-    	$visit->data = $request->all();
+    	$visit->data = json_encode($request->all());
     	$visit->save();
 
     	$visits = Attendance::orderBy('id', 'desc')->get();
