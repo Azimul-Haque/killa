@@ -12,6 +12,11 @@ use App\Attendance;
 
 class AttendanceController extends Controller
 {
+    public function testNothing() 
+    {
+    	// do nothing
+    }
+    
     public function test() 
     {
     	$visit = new Attendance;
