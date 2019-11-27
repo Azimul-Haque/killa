@@ -137,13 +137,19 @@ Route::get('/dashboard/personal/publication/create', ['as'=>'dashboard.personal.
 Route::post('/dashboard/personal/publication/store', ['as'=>'dashboard.personal.pubs.store','uses'=>'DashboardController@storePersonalPub']);
 Route::get('/dashboard/personal/profile', ['as'=>'dashboard.personal.profile','uses'=>'DashboardController@getPersonalProfile']);
 Route::put('/dashboard/personal/profile/{id}/update', ['as'=>'dashboard.profile.update','uses'=>'DashboardController@updatePersonalProfile']);
+// dashboard routes
+// dashboard routes
 
-
+// bcs charioteer
+// bcs charioteer
 Route::get('/onesignal', ['as'=>'dashboard.onesignal','uses'=>'OneSignalController@index']);
 Route::post('/onesignal/store/qa', ['as'=>'dashboard.onesignal.storeqa','uses'=>'OneSignalController@storeQA']);
 Route::delete('/onesignal/qa/{id}/delete', ['as'=>'dashboard.onesignal.delqa','uses'=>'OneSignalController@delQA']);
 Route::put('/onesignal/qa/{id}/update', ['as'=>'dashboard.onesignal.updateqa','uses'=>'OneSignalController@updateQA']);
 
 Route::get('/onesignal/send/push', ['as'=>'dashboard.onesignal.sendpush','uses'=>'OneSignalController@sendPush']);
-// dashboard routes
-// dashboard routes
+
+// iClock Attendance Test
+// iClock Attendance Test
+Route::get('/iclock/test', ['as'=>'dashboard.attendance.test','uses'=>'AttendanceController@test']);
+
