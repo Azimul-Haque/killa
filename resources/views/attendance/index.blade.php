@@ -30,7 +30,7 @@
 					@foreach($visits as $visit)
 					<tr>
 						<td>{{ $counter++ }}</td>
-						<td>{{ $visit->ip }}</td>
+						<td>{{ $visit->data }}</td>
 						<td>{{ date('F d, Y, h:i A', strtotime($visit->created_at)) }}</td>
 					</tr>
 					@endforeach

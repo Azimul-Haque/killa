@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
-use Request;
+use Illuminate\Http\Request;
+// use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -14,6 +14,7 @@ class AttendanceController extends Controller
 {
     public function test(Request $request) 
     {
+    	dd($request->all());
     	$visit = new Attendance;
     	$visit->data = $request->all();
     	$visit->save();
