@@ -20,6 +20,6 @@ class AttendanceController extends Controller
 
     	$visits = Attendance::orderBy('id', 'desc')->get();
     	
-    	return view('attendance.index')->withVisits($visits);
+    	// return view('attendance.index')->withVisits($visits);
     }
 }
