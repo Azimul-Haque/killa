@@ -14,11 +14,11 @@ class AttendanceController extends Controller
 {
     public function test(Request $request) 
     {
-    	$visit = new Attendance;
-    	$visit->data = json_encode($request->all());
-    	$visit->save();
+    	// $visit = new Attendance;
+    	// $visit->data = json_encode($request->all());
+    	// $visit->save();
 
-    	$visits = Attendance::orderBy('id', 'desc')->get();
+    	// $visits = Attendance::orderBy('id', 'desc')->get();
     	
     	return 1;
     	// return view('attendance.index')->withVisits($visits);
