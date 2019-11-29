@@ -21,7 +21,7 @@ class AttendanceController extends Controller
         // $visits = Attendance::orderBy('id', 'desc')->get();
         
         // return 200;
-        return redirect('/iclock/getrequest?SN=' . $request->SN);
+        // return redirect('/iclock/getrequest?SN=' . $request->SN);
         // return view('attendance.index')->withVisits($visits);
     }
 
