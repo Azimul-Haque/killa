@@ -36,6 +36,18 @@ class AttendanceController extends Controller
         // return view('attendance.index')->withVisits($visits);
     }
 
+    public function testPost(Request $request) 
+    {
+        // $visit = new Attendance;
+        // $visit->data = json_encode($request->all());
+        // $visit->save();
+
+        // $visits = Attendance::orderBy('id', 'desc')->get();
+        
+        return 'OK';
+        // return view('attendance.index')->withVisits($visits);
+    }
+
     public function test2(Request $request) 
     {
     	// $visit = new Attendance;
