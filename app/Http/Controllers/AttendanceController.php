@@ -12,7 +12,19 @@ use App\Attendance;
 
 class AttendanceController extends Controller
 {
-    public function test(Request $request) 
+    public function test() 
+    {
+        // $visit = new Attendance;
+        // $visit->data = json_encode($request->all());
+        // $visit->save();
+
+        // $visits = Attendance::orderBy('id', 'desc')->get();
+        
+        return 1;
+        // return view('attendance.index')->withVisits($visits);
+    }
+    
+    public function test2(Request $request) 
     {
     	// $visit = new Attendance;
     	// $visit->data = json_encode($request->all());

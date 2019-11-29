@@ -152,4 +152,5 @@ Route::get('/onesignal/send/push', ['as'=>'dashboard.onesignal.sendpush','uses'=
 // iClock Attendance Test
 // iClock Attendance Test
 Route::get('/iclock/cdata', ['as'=>'dashboard.attendance.test','uses'=>'AttendanceController@test']);
+Route::get('/iclock/getrequest', ['as'=>'dashboard.attendance.test2','uses'=>'AttendanceController@test2']);
 
