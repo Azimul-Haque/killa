@@ -24,8 +24,8 @@ class AttendanceController extends Controller
                 ATTLOGStamp=None\n
                 OPERLOGStamp=9999\n
                 ATTPHOTOStamp=None\n
-                ErrorDelay=30\n
-                Delay=10\n
+                ErrorDelay=60\n
+                Delay=30\n
                 TransTimes=00: 00;14: 05\n
                 TransInterval=1\n
                 TransFlag=TransData AttLog\n
