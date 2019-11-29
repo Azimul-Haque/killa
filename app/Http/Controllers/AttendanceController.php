@@ -20,7 +20,18 @@ class AttendanceController extends Controller
 
         // $visits = Attendance::orderBy('id', 'desc')->get();
         
-        return 1;
+        return 'GET OPTION FROM: '. $request->SN .'\n
+                ATTLOGStamp=None\n
+                OPERLOGStamp=9999\n
+                ATTPHOTOStamp=None\n
+                ErrorDelay=30\n
+                Delay=10\n
+                TransTimes=00: 00;14: 05\n
+                TransInterval=1\n
+                TransFlag=TransData AttLog\n
+                TimeZone=6\n
+                Realtime=1\n
+                Encrypt=None';
         // return redirect('/iclock/getrequest?SN=' . $request->SN);
         // return view('attendance.index')->withVisits($visits);
     }
