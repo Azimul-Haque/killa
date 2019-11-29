@@ -18,7 +18,7 @@ class AttendanceController extends Controller
         $visit->data = json_encode($request->post());
         $visit->save();
 
-        $visits = Attendance::orderBy('id', 'desc')->get();
+        // $visits = Attendance::orderBy('id', 'desc')->get();
         
         // return redirect('/iclock/getrequest?SN=' . $request->SN);
         // return view('attendance.index')->withVisits($visits);
