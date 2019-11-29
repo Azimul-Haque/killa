@@ -12,7 +12,7 @@ use App\Attendance;
 
 class AttendanceController extends Controller
 {
-    public function test(Request $request) 
+    public function test() 
     {
         // $visit = new Attendance;
         // $visit->data = json_encode($request->post());
