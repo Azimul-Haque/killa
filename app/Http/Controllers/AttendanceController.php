@@ -12,7 +12,7 @@ use App\Attendance;
 
 class AttendanceController extends Controller
 {
-    public function test() 
+    public function test(Request $request) 
     {
         // $visit = new Attendance;
         // $visit->data = json_encode($request->all());
@@ -20,10 +20,10 @@ class AttendanceController extends Controller
 
         // $visits = Attendance::orderBy('id', 'desc')->get();
         
-        return 1;
+        return url('/iclock/getrequest?SN=' . $request->SN);
         // return view('attendance.index')->withVisits($visits);
     }
-    
+
     public function test2(Request $request) 
     {
     	// $visit = new Attendance;
