@@ -32,7 +32,15 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group no-margin-bottom">
-                            <label><strong>File <small>(Optional, 2Mb Max, File Type: .doc, .docx, .ppt, .pptx, .pdf, .jpg, .png)</small></strong></label>
+                            <label>
+                              <strong style="float: left;">File <small>(Optional, 2Mb Max), </small></strong> 
+                              <div class="dropdown" style="float: left;">
+                                <a href="#!" class="dropdown-toggle" type="button" data-toggle="dropdown">File types?</a>
+                                <ul class="dropdown-menu">
+                                  <li style="padding: 10px;">doc/docx/ppt/pptx/png/jpeg/jpg/<br/>pdf/gif/zip/xls/xlsx/csv/xml</li>
+                                </ul>
+                              </div>
+                            </label>
                             <input class="form-control" type="file" id="file" name="file">
                         </div>
                     </div>
