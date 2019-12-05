@@ -51,7 +51,7 @@
                       <div class="widget-body"><br/>
                         @foreach($strategies as $strategy)
                           <a href="{{ route('index.strategy', $strategy->id) }}">
-                            {{ $strategy->title }}
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ $strategy->title }}
                           </a><br/>
                         @endforeach
                       </div>
