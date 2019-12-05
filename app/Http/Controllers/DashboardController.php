@@ -851,7 +851,7 @@ class DashboardController extends Controller
     {
         $this->validate($request,array(
             'title'               => 'required',
-            'file'                => 'sometimes|sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:2000',
+            'file'                => 'sometimes|sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif,zip,xls,xlsx,csv,xml|max:2000',
             'discategory_id'      => 'required',
             'districtscord_id'    => 'required'
         ));
