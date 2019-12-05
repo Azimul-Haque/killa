@@ -15,6 +15,7 @@ use App\Districtscord;
 use App\Disdata;
 use App\Slider;
 use App\Strategy;
+use App\Formmessage;
 
 use Carbon\Carbon;
 use DB, Hash, Auth, Image, File, Session;
@@ -1092,4 +1093,10 @@ class DashboardController extends Controller
         Session::flash('success', 'Updated Successfully!');
         return redirect()->route('dashboard.personal.profile');
     }
+
+    public function getContactMessage() 
+    {
+        $messages = Formmessage::orderBy('id', 'desc')->paginate(15);
+        return view('dashboard.contactmessages')->withMessages($messages);
+    } 
 }

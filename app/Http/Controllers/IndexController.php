@@ -264,10 +264,10 @@ class IndexController extends Controller
             $message->message = htmlspecialchars(preg_replace("/\s+/", " ", $request->message));
             $message->save();
             
-            Session::flash('success', 'আপনার বার্তা আমাদের কাছে পৌঁছেছে। ধন্যবাদ!');
+            Session::flash('success', 'Thank you for your message! We will get back to you.');
             return redirect()->route('index.contact');
         } else {
-            return redirect()->route('index.contact')->with('warning', 'যোগফল ভুল হয়েছে! আবার চেষ্টা করুন।')->withInput();
+            return redirect()->route('index.contact')->with('warning', 'The SUM is not correct. Please try again.')->withInput();
         }
     }
 

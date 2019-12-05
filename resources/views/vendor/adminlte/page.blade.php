@@ -154,6 +154,12 @@
                             <span>Applications</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('dashboard/contact/messages') ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.contactmessages') }}">
+                            <i class="fa fa-fw fa-envelope-o"></i>
+                            <span>Contact Messages</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('dashboard/members') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.members') }}">
                             <i class="fa fa-fw fa-users"></i>
