@@ -353,7 +353,7 @@ class DashboardController extends Controller
             'image'                    => 'required|image|max:200'
         ));
 
-        $expertise = Expertise::find($id);
+        $expertise = new Expertise;
         $expertise->title = $request->title;
         $expertise->description = Purifier::clean($request->description, 'youtube');
         
