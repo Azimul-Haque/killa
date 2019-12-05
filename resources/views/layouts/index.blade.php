@@ -51,7 +51,7 @@
     <!-- hamburger menu  -->
     <link rel="stylesheet" href="{{ asset('vendor/hcode/css/menu-hamburger.css') }}" />
     <!-- common -->
-    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/hcode/css/style.css?month='. date('m-y')) }}" />
     <!-- responsive -->
     <link rel="stylesheet" href="{{ asset('vendor/hcode/css/responsive.css') }}" />
     {{-- <link rel="stylesheet" href="{{ asset('vendor/hcode/css/app.css') }}" /> --}}
