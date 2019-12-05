@@ -33,6 +33,8 @@ Route::get('/project/{slug}', ['as'=>'index.project','uses'=>'IndexController@ge
 Route::get('/publications', ['as'=>'index.publications','uses'=>'IndexController@getPublications']);
 Route::get('/publication/{code}', ['as'=>'index.publication','uses'=>'IndexController@getPublication']);
 
+Route::get('/strategy/{id}', ['as'=>'index.strategy','uses'=>'IndexController@getStrategy']);
+
 
 Route::get('/disaster/data', ['as'=>'index.disasterdata','uses'=>'IndexController@getDisasterdata']);
 Route::get('/disaster/data/{category_id}/api', ['as'=>'index.disasterdata.api','uses'=>'IndexController@getDisasterdataAPI']);

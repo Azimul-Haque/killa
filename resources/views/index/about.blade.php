@@ -98,9 +98,10 @@
                         <p class="text-uppercase letter-spacing-2 black-text font-weight-600 margin-five no-margin-bottom">
                             {{ $strategy->title }}
                         </p>
-                        <p class="margin-two text-med width-90 center-col">
-                            {{ $strategy->description }}
+                        <p class="margin-two text-med width-90 center-col" style="min-height: 100px;">
+                            {{ substr(strip_tags($strategy->description), 0, 50) }}...
                         </p>
+                        <a href="{{ route('index.strategy', $strategy->id) }}" class="btn btn-small margin-three highlight-button xs-margin-bottom-five">View Details</a>
                     </div>
                 @endforeach
             </div>

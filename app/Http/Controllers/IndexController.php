@@ -343,6 +343,16 @@ class IndexController extends Controller
         return redirect()->route('index.profile', $unique_key);
     }
 
+    public function getStrategy($id) 
+    {
+        $strategy = Strategy::find($id);
+        $strategies = Strategy::orderBy('id', 'desc')->get();
+
+        return view('index.strategy')
+                        ->withStrategy($strategy)
+                        ->withStrategies($strategies);
+    }
+
 
     // clear configs, routes and serve
     public function clear()

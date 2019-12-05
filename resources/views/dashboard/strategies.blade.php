@@ -21,7 +21,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -102,7 +102,7 @@
         {{ $strategies->links() }}
       </div> 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="box box-success">
         <div class="box-body">
           <p style="font-size: 20px; font-weight: bold;">Add New Strategy</p>
