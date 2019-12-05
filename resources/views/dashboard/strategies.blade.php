@@ -9,6 +9,8 @@
       resize: none;
     }
   </style>
+  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}">
 @stop
 
 @section('content_header')
@@ -35,7 +37,7 @@
             @foreach($strategies as $strategy)
             <tr>
               <td>{{ $strategy->title }}</td>
-              <td>{{ $strategy->description }}</td>
+              <td>{{ substr(strip_tags($strategy->description), 0, 50) }}...</td>
               <td>
                 <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#editModal{{ $strategy->id }}" data-backdrop="static" title="Edit Strategy"><i class="fa fa-pencil"></i></button>
                 <!-- Edit Modal -->
@@ -55,7 +57,7 @@
                         </div>
                         <div class="form-group no-margin-bottom">
                             <label for="title" class="text-uppercase">Description</label>
-                            <textarea class="form-control" name="description" required="">{{ $strategy->description }}</textarea>
+                            <textarea class="summernote" name="description" required="">{{ $strategy->description }}</textarea>
                         </div>
                       </div>
                       <div class="modal-footer">
@@ -114,7 +116,7 @@
               </div>
               <div class="form-group no-margin-bottom">
                   <label for="title" class="text-uppercase">Description</label>
-                  <textarea class="form-control" name="description" required=""></textarea>
+                  <textarea class="summernote" name="description" required=""></textarea>
               </div>
               <button class="btn btn-primary" type="submit">Submit</button>
           </form>
@@ -125,5 +127,16 @@
 @stop
 
 @section('js')
-  
+  <script type="text/javascript" src="{{ asset('vendor/summernote/summernote.min.js') }}"></script>
+  <script>
+      $(document).ready(function(){
+          $('.summernote').summernote({
+              placeholder: 'Write Biography',
+              tabsize: 2,
+              height: 200,
+              dialogsInBody: true
+          });
+          $('div.note-group-select-from-files').remove();
+      });
+  </script>
 @stop

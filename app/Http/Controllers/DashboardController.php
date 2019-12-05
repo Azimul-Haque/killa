@@ -514,12 +514,12 @@ class DashboardController extends Controller
     {
         $this->validate($request,array(
             'title'                   => 'required|max:255',
-            'description'             => 'required|max:255'
+            'description'             => 'required'
         ));
 
         $strategy = new Strategy();
         $strategy->title = $request->title;
-        $strategy->description = $request->description;
+        $strategy->description = Purifier::clean($request->description, 'youtube');
         $strategy->save();
         
         Session::flash('success', 'Added Successfully!');
@@ -530,12 +530,12 @@ class DashboardController extends Controller
     {
         $this->validate($request,array(
             'title'                   => 'required|max:255',
-            'description'             => 'required|max:255'
+            'description'             => 'required'
         ));
 
         $strategy = Strategy::find($id);
         $strategy->title = $request->title;
-        $strategy->description = $request->description;
+        $strategy->description = Purifier::clean($request->description, 'youtube');
         $strategy->save();
 
         Session::flash('success', 'Updated Successfully!');

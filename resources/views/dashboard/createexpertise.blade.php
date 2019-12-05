@@ -53,7 +53,6 @@
 
 @section('js')
   <script type="text/javascript" src="{{ asset('vendor/summernote/summernote.min.js') }}"></script>
-  
   <script>
       $(document).ready(function(){
           $('.summernote').summernote({
@@ -65,7 +64,7 @@
           $('div.note-group-select-from-files').remove();
       });
   </script>
-    <script type="text/javascript">
+  <script type="text/javascript">
     var _URL = window.URL || window.webkitURL;
     $(document).ready( function() {
       $(document).on('change', '.btn-file :file', function() {
