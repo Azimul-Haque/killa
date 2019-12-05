@@ -368,6 +368,7 @@ class ComposerStaticInit5ba844acaeab7533148c65467b83a279
         'CreateDisdatasTable' => __DIR__ . '/../..' . '/database/migrations/2019_09_05_212121_create_disdatas_table.php',
         'CreateDistrictscordsTable' => __DIR__ . '/../..' . '/database/migrations/2019_08_31_011122_create_districtscords_table.php',
         'CreateExpertisesTable' => __DIR__ . '/../..' . '/database/migrations/2019_09_04_014311_create_expertises_table.php',
+        'CreateFormmessagesTable' => __DIR__ . '/../..' . '/database/migrations/2019_12_06_012515_create_formmessages_table.php',
         'CreateLikesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_26_095608_create_likes_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProjectsTable' => __DIR__ . '/../..' . '/database/migrations/2019_08_30_220123_create_projects_table.php',
