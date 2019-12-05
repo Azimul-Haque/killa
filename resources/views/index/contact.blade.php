@@ -32,10 +32,12 @@
             <div class="row">
                 <!-- office address -->
                 <div class="col-md-6 col-sm-6 xs-margin-bottom-ten">
-                    <div class="position-relative"><img src="{{ asset('images/abc.png') }}" alt=""/><a class="highlight-button-dark btn btn-very-small view-map no-margin bg-black white-text" href="https://www.google.co.in/maps" target="_blank">See on Map</a></div>
-                    
+                    {{-- <div class="position-relative"><img src="{{ asset('images/abc.png') }}" alt=""/><a class="highlight-button-dark btn btn-very-small view-map no-margin bg-black white-text" href="https://www.google.co.in/maps" target="_blank">See on Map</a></div> --}}
+                    <div id="canvas1" class="col-md-12 col-sm-12 no-padding contact-map map">
+                        <iframe id="map_canvas1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.0504462044805!2d90.36544581538512!3d23.78121789351428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa19b3a900e5de37f!2sKilla%20Consultancy!5e0!3m2!1sen!2sbd!4v1571605991033!5m2!1sen!2sbd" style="max-height: 380px !important;"></iframe>
+                    </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 xs-text-center">
                             <p class="text-med black-text letter-spacing-1 margin-ten no-margin-bottom text-uppercase font-weight-600 xs-margin-top-five">Head Office</p>
                             <p><i class="fa fa-map-marker black-text"></i> 272/5, West Agargaon, Sher-E-Bangla Nagar, Dhaka-1207</p>
                         </div>
@@ -71,7 +73,7 @@
         </div>
     </section>
 
-    <section class="wow fadeIn no-padding">
+    {{-- <section class="wow fadeIn no-padding">
         <div class="container-fuild">
             <div class="row no-margin">
                 <div id="canvas1" class="col-md-12 col-sm-12 no-padding contact-map map">
@@ -79,7 +81,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
 
 @section('js')

@@ -20,8 +20,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
+          <th width="20%">Name</th>
+          <th width="20%">Email</th>
           <th>Message</th>
         </tr>
       </thead>

@@ -61,7 +61,7 @@
                                             </a>
                                         </div>
                                         <figcaption>
-                                            <p class="project-min-height">{{ substr(strip_tags($project->title), 0, 50) }}...</p>
+                                            <p class="project-min-height" style="font-weight: bold;">{{ substr(strip_tags($project->title), 0, 50) }}...</p>
                                             <a class="btn inner-link btn-black btn-small" href="{{ route('index.project', $project->slug) }}">Explore Now</a>
                                         </figcaption>
                                     </figure>
