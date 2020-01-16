@@ -19,10 +19,10 @@
               </div>
               <div class="col-lg-4 col-md-5 col-sm-12 breadcrumb text-uppercase wow fadeInUp xs-display-none" data-wow-duration="600ms">
                   <!-- breadcrumb -->
-                  <ul>
+                  {{-- <ul>
                       <li><a href="{{ route('index.index') }}">Home</a></li>
                       <li><a href="#">{{ $expertise->title }}</a></li>
-                  </ul>
+                  </ul> --}}
                   <!-- end breadcrumb -->
               </div>
           </div>
