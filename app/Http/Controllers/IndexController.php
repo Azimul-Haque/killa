@@ -252,7 +252,7 @@ class IndexController extends Controller
         $this->validate($request,array(
             'name'                      => 'required|max:255',
             'email'                     => 'required|max:255',
-            'message'                   => 'required',
+            'message'                   => 'required|max:255',
             'contact_sum_result_hidden'   => 'required',
             'contact_sum_result'   => 'required'
         ));
