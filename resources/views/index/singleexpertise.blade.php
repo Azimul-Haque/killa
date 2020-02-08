@@ -34,11 +34,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                  @if($expertise->image != null)
-                    <img src="{{ asset('images/expertises/'.$expertise->image)}}"  class="img-responsive" />
-                  @else
-                    <img src="{{ asset('images/abc.png')}}"  class="img-responsive" />
-                  @endif
+                  <center>
+                    @if($expertise->image != null)
+                      <img src="{{ asset('images/expertises/'.$expertise->image)}}"  class="img-responsive" />
+                    @else
+                      <img src="{{ asset('images/abc.png')}}"  class="img-responsive" />
+                    @endif
+                  </center>
                   <br/><br/>
 
                   <div class="text-large">
