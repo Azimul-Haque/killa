@@ -161,10 +161,10 @@
                 </div>
                 <div class="col-md-6 col-sm-12 footer-social text-right sm-text-center">
                     <!-- social media link -->
-                    <a target="_blank" href="https://www.facebook.com/killabd18">
+                    <a target="_blank" href="https://www.facebook.com/killa.com.bd/">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a target="_blank" href="https://twitter.com/">
+                    <a target="_blank" href="https://twitter.com/killa_bd">
                         <i class="fa fa-twitter"></i>
                     </a>
                     {{-- <a target="_blank" href="https://plus.google.com/">

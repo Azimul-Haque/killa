@@ -30,7 +30,7 @@
     </section>
 
     <!-- content section -->
-    <section class="bg-dark-gray wow fadeIn">
+    <section class="wow fadeIn padding-three">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -41,7 +41,7 @@
                   @endif
                   <br/><br/>
 
-                  <div class="text-large white-text">
+                  <div class="text-large">
                     {!! $expertise->description !!}
                   </div>
                 </div>
