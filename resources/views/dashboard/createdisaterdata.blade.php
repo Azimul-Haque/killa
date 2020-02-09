@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Add Disaster Data')
+@section('title', 'Add Data Description')
 
 @section('css')
 
@@ -8,7 +8,7 @@
 
 @section('content_header')
     <h1>
-      Add Disaster Data
+      Add Data Description
       <div class="pull-right">
         
       </div>

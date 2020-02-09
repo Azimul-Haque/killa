@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Add Disaster Data')
+@section('title', 'Edit Data Description')
 
 @section('css')
   {!!Html::style('css/parsley.css')!!}
@@ -8,7 +8,7 @@
 
 @section('content_header')
     <h1>
-      Edit Disaster Data
+      Edit Data Description
       <div class="pull-right">
         
       </div>

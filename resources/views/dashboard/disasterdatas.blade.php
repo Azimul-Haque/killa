@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Disaster Data')
+@section('title', 'Data Description')
 
 @section('css')
 
@@ -8,7 +8,7 @@
 
 @section('content_header')
     <h1>
-      Disaster Data
+      Data Description
       <div class="pull-right">
         
       </div>
@@ -21,9 +21,9 @@
       <div class="box box-primary">
         <div class="box-header with-border text-blue">
           <i class="fa fa-fw fa-tree"></i>
-          <h3 class="box-title">Disaster Data</h3>
+          <h3 class="box-title">Data Description</h3>
           <div class="box-tools pull-right">
-            <a href="{{ route('dashboard.disasterdata.create') }}" class="btn btn-primary btn-sm" title="Add Disaster Data" data-placement="top"><i class="fa fa-plus"></i></a>
+            <a href="{{ route('dashboard.disasterdata.create') }}" class="btn btn-primary btn-sm" title="Add Data Description" data-placement="top"><i class="fa fa-plus"></i></a>
           </div>
         </div>
         <!-- /.box-header -->
@@ -56,14 +56,14 @@
                   <td>
                     <a href="{{ route('dashboard.disasterdata.edit', $disasterdata->id) }}" class="btn btn-sm btn-primary" title="Edit"><i class="fa fa-pencil"></i></a>
                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteDisasterDataModal{{ $disasterdata->id }}" data-backdrop="static" title="Delete"><i class="fa fa-trash-o"></i></button>
-                    <!-- Delete Disaster Data Modal -->
-                    <!-- Delete Disaster Data Modal -->
+                    <!-- Delete Data Description Modal -->
+                    <!-- Delete Data Description Modal -->
                     <div class="modal fade" id="deleteDisasterDataModal{{ $disasterdata->id }}" role="dialog">
                       <div class="modal-dialog modal-md">
                         <div class="modal-content">
                           <div class="modal-header modal-header-danger">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Delete Disaster Data</h4>
+                            <h4 class="modal-title">Delete Data Description</h4>
                           </div>
                           <div class="modal-body">
                             Confirm Delete <b>{{ $disasterdata->name }}</b>
@@ -77,8 +77,8 @@
                         </div>
                       </div>
                     </div>
-                    <!-- Delete Disaster Data Modal -->
-                    <!-- Delete Disaster Data Modal -->
+                    <!-- Delete Data Description Modal -->
+                    <!-- Delete Data Description Modal -->
                   </td>
                 </tr>
                 @endforeach
