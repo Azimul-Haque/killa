@@ -64,7 +64,7 @@
                   <div class="row">
                     <div class="col-md-12">
                         <div class="form-group no-margin-bottom">
-                            <label><strong>File (1000Kb Max, File Type: .doc, .docx, .ppt, .pptx, .pdf, .jpg, .png):</strong></label>
+                            <label><strong>File (5MB Max, File Type: .doc, .docx, .ppt, .pptx, .pdf, .jpg, .png):</strong></label>
                             <input class="form-control" type="file" id="attachment" name="attachment" required="">
                         </div>
                     </div>

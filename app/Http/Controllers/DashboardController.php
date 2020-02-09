@@ -680,7 +680,7 @@ class DashboardController extends Controller
             'member_ids'              => 'required|max:255',
             'body'                    => 'required',
             'image'                   => 'required|image|max:500',
-            'attachment'              => 'required|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000'
+            'attachment'              => 'required|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:5000'
         ));
 
         $publication = new Publication();
@@ -736,14 +736,14 @@ class DashboardController extends Controller
             'member_ids'              => 'required|max:255',
             'body'                    => 'required',
             'image'                   => 'sometimes|image|max:500',
-            'attachment'              => 'sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000',
+            'attachment'              => 'sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:5000',
             'status'                  => 'required'
         ));
 
         $publication = Publication::find($id);
         $publication->status = $request->status;
         $publication->title = $request->title;
-        $publication->code = random_string(10);
+        // $publication->code = random_string(10);
         $publication->publishing_date = new Carbon($request->publishing_date);
 
         // file upload
@@ -894,7 +894,7 @@ class DashboardController extends Controller
     {
         $this->validate($request,array(
             'title'               => 'required',
-            'file'                => 'sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif,zip,xls,xlsx,csv,xml|max:1000',
+            'file'                => 'sometimes|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif,zip,xls,xlsx,csv,xml|max:2000',
             'discategory_id'      => 'required',
             'districtscord_id'    => 'required'
         ));
@@ -993,7 +993,7 @@ class DashboardController extends Controller
             'member_ids'              => 'required|max:255',
             'body'                    => 'required',
             'image'                   => 'required|image|max:500',
-            'attachment'              => 'required|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:1000'
+            'attachment'              => 'required|mimes:doc,docx,ppt,pptx,png,jpeg,jpg,pdf,gif|max:5000'
         ));
 
         $publication = new Publication();

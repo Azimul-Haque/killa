@@ -130,7 +130,7 @@
                             <a href="{{ route('index.publications') }}">Publications</a>
                         </li>
                         <li>
-                            <a href="{{ route('index.directors') }}">People</a>
+                            <a href="{{ route('index.employees') }}">People</a>
                         </li>
                     </ul>
                     <!-- end link -->

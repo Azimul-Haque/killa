@@ -33,6 +33,7 @@
       }
       .text-15 {
         font-size: 15px;
+        word-wrap: break-word;
       }
       .badge-primary {
         background: #33BDF1;
