@@ -205,7 +205,7 @@
                     <li class="{{ Request::is('dashboard/disasterdatas') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.disasterdatas') }}">
                             <i class="fa fa-fw fa-tree"></i>
-                            <span>Disaster Data</span>
+                            <span>Data Description</span>
                         </a>
                     </li>
                     @endif
