@@ -14,7 +14,7 @@ class OneSignalController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('sendPush');
+        $this->middleware('auth')->except('sendPush', 'broadcast');
     }
 
     public function index()
@@ -93,10 +93,16 @@ class OneSignalController extends Controller
 
         Session::flash('success', 'Sent Successfully!');
         if(Auth::check()) {
-        	return redirect()->route('dashboard.onesignal');
+            return redirect()->route('dashboard.onesignal');
         } else {
-        	return '200';
+            return '200';
         }
         
+    }
+
+    public function broadcast()
+    {
+        $questions = Charioteer::get()->take(5);
+        print(json_encode($questions));
     }
 }
