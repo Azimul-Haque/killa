@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use App\Charioteer;
+use App\Blog;
+
 use Session, Auth;
 use OneSignal;
 
@@ -102,7 +105,7 @@ class OneSignalController extends Controller
 
     public function broadcast()
     {
-        $questions = Charioteer::get()->take(5);
-        print(json_encode($questions));
+        $blogs = Blog::select('title', 'body')->get();
+        print(json_encode($blogs));
     }
 }
