@@ -86,7 +86,7 @@ class OneSignalController extends Controller
         $additionData = {"abc": "123", "foo": "bar"};
         
         OneSignal::sendNotificationToAll(
-            'উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন',
+            "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
             $url = null, 
             $data = $additionData,
             $buttons = null, 
