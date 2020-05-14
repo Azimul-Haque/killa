@@ -87,7 +87,7 @@ class OneSignalController extends Controller
         OneSignal::sendNotificationToAll(
             'উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন',
             $url = null, 
-            $data = {"ansewr": $charioteer->answer, "ansewrq": $charioteer->answer},
+            $data = {"abc": "123", "foo": "bar"},
             $buttons = null, 
             $schedule = null,
             $headings = $charioteer->question
