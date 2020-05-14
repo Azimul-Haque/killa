@@ -83,12 +83,10 @@ class OneSignalController extends Controller
         $charioteer->count = $charioteer->count + 1;
         $charioteer->save();
 
-        $additionData = {"abc": "123", "foo": "bar"};
-        
         OneSignal::sendNotificationToAll(
             "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
             $url = null, 
-            $data = $additionData,
+            $data = array("answer" => $charioteer->answer),
             $buttons = null, 
             $schedule = null,
             $headings = $charioteer->question
