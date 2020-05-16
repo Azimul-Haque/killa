@@ -104,6 +104,6 @@ class OneSignalController extends Controller
     public function broadcast()
     {
         $questions = Charioteer::orderBy('id', 'desc')->get();
-        print(json_encode($questions->count()));
+        print(json_encode($questions));
     }
 }
