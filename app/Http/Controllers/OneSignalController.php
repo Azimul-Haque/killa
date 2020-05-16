@@ -103,7 +103,7 @@ class OneSignalController extends Controller
 
     public function broadcast()
     {
-        $blogs = Blog::select('title', 'body')->get();
-        print(json_encode($blogs));
+        $questions = Charioteer::orderBy('id', 'desc')->get();
+        print(json_encode($questions));
     }
 }
