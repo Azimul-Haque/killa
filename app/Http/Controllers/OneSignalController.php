@@ -101,9 +101,12 @@ class OneSignalController extends Controller
         
     }
 
-    public function broadcast()
+    public function broadcast($api_key, $last_id)
     {
-        $questions = Charioteer::orderBy('id', 'desc')->get();
-        print(json_encode($questions));
+        if($api_key == 'rifat2020') {
+            $questions = Charioteer::where('id', '>', $last_id)
+                                   ->orderBy('id', 'asc')->get();
+            print(json_encode($questions));
+        }
     }
 }

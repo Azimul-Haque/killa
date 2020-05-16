@@ -153,7 +153,7 @@ Route::put('/onesignal/qa/{id}/update', ['as'=>'dashboard.onesignal.updateqa','u
 
 Route::get('/onesignal/send/push', ['as'=>'dashboard.onesignal.sendpush','uses'=>'OneSignalController@sendPush']);
 
-Route::get('/broadcast', ['as'=>'broadcast','uses'=>'OneSignalController@broadcast']);
+Route::get('/broadcast/{api_key}/{last_id}', ['as'=>'broadcast','uses'=>'OneSignalController@broadcast']);
 
 // iClock Attendance Test
 // iClock Attendance Test
