@@ -113,7 +113,9 @@ class OneSignalController extends Controller
     public function postQstnAPI(Request $request)
     {
         return response()->json([
-            'success' => true
+            'success' => true,
+            'question' => $request->question,
+            'answer' => $request->answer,
         ]);
     }
 }
