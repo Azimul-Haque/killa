@@ -96,7 +96,7 @@
                     <!-- Edit Question Modal -->
 
                     @if($charioteer->status == 0)
-                      <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#approveQuestionModel{{ $charioteer->id }}" data-backdrop="static" title="Edit Question" data-placement="top"><i class="fa fa-check"></i></button>
+                      <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#approveQuestionModel{{ $charioteer->id }}" data-backdrop="static" title="Approve Question" data-placement="top"><i class="fa fa-check"></i></button>
                       <!-- Approve Question Modal -->
                       <!-- Approve Question Modal -->
                       <div class="modal fade" id="approveQuestionModel{{ $charioteer->id }}" role="dialog">
@@ -128,13 +128,13 @@
                       <!-- Approve Question Modal -->
                       <!-- Approve Question Modal -->
                     @else
-                      <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#unapproveQuestionModel{{ $charioteer->id }}" data-backdrop="static" title="Edit Question" data-placement="top"><i class="fa fa-check"></i></button>
+                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#unapproveQuestionModel{{ $charioteer->id }}" data-backdrop="static" title="Make Pending Question" data-placement="top"><i class="fa fa-check"></i></button>
                       <!-- Approve Question Modal -->
                       <!-- Approve Question Modal -->
                       <div class="modal fade" id="unapproveQuestionModel{{ $charioteer->id }}" role="dialog">
                         <div class="modal-dialog">
                           <div class="modal-content">
-                            <div class="modal-header modal-header-success">
+                            <div class="modal-header modal-header-info">
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                               <h4 class="modal-title">Make Pending</h4>
                             </div>
@@ -144,7 +144,7 @@
                               </div>
                               <div class="modal-footer">
                                 {!! Form::model($charioteer, ['route' => ['dashboard.onesignal.unapprove', $charioteer->id], 'method' => 'PUT', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
-                                  {!! Form::submit('Approve', array('class' => 'btn btn-success')) !!}
+                                  {!! Form::submit('Submit', array('class' => 'btn btn-info')) !!}
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 {!! Form::close() !!}
                               </div>
