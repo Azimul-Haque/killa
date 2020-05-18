@@ -95,10 +95,10 @@
                         <div class="modal-content">
                           <div class="modal-header modal-header-danger">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Delete Disaster Data</h4>
+                            <h4 class="modal-title">Delete Question</h4>
                           </div>
                           <div class="modal-body">
-                            Confirm Delete <b>{{ $charioteer->question }}</b>
+                            Confirm Delete <b>{{ $charioteer->question }}</b>?
                           </div>
                           <div class="modal-footer">
                             {!! Form::model($charioteer, ['route' => ['dashboard.onesignal.delqa', $charioteer->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
