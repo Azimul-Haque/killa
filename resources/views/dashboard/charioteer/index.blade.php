@@ -95,6 +95,40 @@
                     <!-- Edit Question Modal -->
                     <!-- Edit Question Modal -->
 
+                    @if($charioteer->status == 0)
+                    <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#approveQuestionModel{{ $charioteer->id }}" data-backdrop="static" title="Edit Question" data-placement="top"><i class="fa fa-check"></i></button>
+                    <!-- Approve Question Modal -->
+                    <!-- Approve Question Modal -->
+                    <div class="modal fade" id="approveQuestionModel{{ $charioteer->id }}" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header modal-header-success">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Approve Question</h4>
+                          </div>
+                          {!! Form::model($charioteer, ['route' => ['dashboard.onesignal.approve', $charioteer->id], 'method' => 'PUT', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                            <div class="modal-body">
+                              <div class="form-group">
+                                {!! Form::label('question', 'Question') !!}
+                                {!! Form::text('question', null, array('class' => 'form-control', 'placeholder' => 'Write Question', 'required')) !!}
+                              </div>
+                              <div class="form-group">
+                                {!! Form::label('answer', 'Answer') !!}
+                                {!! Form::text('answer', null, array('class' => 'form-control', 'placeholder' => 'Write Answer', 'required')) !!}
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              {!! Form::submit('Approve', array('class' => 'btn btn-success')) !!}
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          {!! Form::close() !!}
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Approve Question Modal -->
+                    <!-- Approve Question Modal -->
+                    @endif
+
                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteQuestionModal{{ $charioteer->id }}" data-backdrop="static" title="Delete"><i class="fa fa-trash-o"></i></button>
                     <!-- Delete Charioteer Modal -->
                     <!-- Delete Charioteer Modal -->
