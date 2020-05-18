@@ -128,7 +128,7 @@
                       <!-- Approve Question Modal -->
                       <!-- Approve Question Modal -->
                     @else
-                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#unapproveQuestionModel{{ $charioteer->id }}" data-backdrop="static" title="Make Pending Question" data-placement="top"><i class="fa fa-check"></i></button>
+                      <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#unapproveQuestionModel{{ $charioteer->id }}" data-backdrop="static" title="Make Pending Question" data-placement="top"><i class="fa fa-ban"></i></button>
                       <!-- Approve Question Modal -->
                       <!-- Approve Question Modal -->
                       <div class="modal fade" id="unapproveQuestionModel{{ $charioteer->id }}" role="dialog">
