@@ -56,9 +56,9 @@
                   </td>
                   <td>
                     @if($charioteer->status == 0)
-                      <span class="badge">Pending</span>
+                      <span class="badge" style="background: red !important;">Pending</span>
                     @else
-                      <span class="badge">Approved</span>
+                      <span class="badge" style="background: green !important;">Approved</span>
                     @endif
                   </td>
                   
