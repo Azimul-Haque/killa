@@ -160,7 +160,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Add New Question</h4>
         </div>
-        {!! Form::open(['route' => 'dashboard.onesignal.storeqa', 'method' => 'POST', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
+        {!! Form::open(['route' => 'dashboard.onesignal.postqstnapi', 'method' => 'POST', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
           <div class="modal-body">
             <div class="form-group">
               {!! Form::label('question', 'Question') !!}
