@@ -115,10 +115,11 @@ class OneSignalController extends Controller
         ));
 
         $charioteer = new Charioteer;
+        $charioteer->status = 0; // as users send this...
         $charioteer->question = $request->question;
         $charioteer->answer = $request->answer;
         $charioteer->save();
-        
+
         return response()->json([
             'success' => true,
             'question' => $request->question,
