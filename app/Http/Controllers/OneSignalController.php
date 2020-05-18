@@ -109,6 +109,16 @@ class OneSignalController extends Controller
 
     public function postQstnAPI(Request $request)
     {
+        $this->validate($request,array(
+            'question'       => 'required|max:255',
+            'answer'         => 'required|max:255'
+        ));
+
+        $charioteer = new Charioteer();
+        $charioteer->question = $request->question;
+        $charioteer->answer = $request->answer;
+        $charioteer->save();
+        
         return response()->json([
             'success' => true,
             'question' => $request->question,
