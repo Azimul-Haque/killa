@@ -160,7 +160,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Add New Question</h4>
         </div>
-        {{-- {!! Form::open(['route' => 'dashboard.onesignal.postqstnapi', 'method' => 'POST', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
+        {!! Form::open(['route' => 'dashboard.onesignal.postqstnapi', 'method' => 'POST', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
           <div class="modal-body">
             <div class="form-group">
               {!! Form::label('question', 'Question') !!}
@@ -175,11 +175,11 @@
             {!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
-        {!! Form::close() !!} --}}
-        <form method="post" action="{{ route("dashboard.onesignal.postqstnapi") }}">
+        {!! Form::close() !!}
+        {{-- <form method="post" action="{{ route("dashboard.onesignal.postqstnapi") }}">
           <textarea class="form-control"></textarea>
           <button type="submit">Test</button>
-        </form>
+        </form> --}}
       </div>
     </div>
   </div>
