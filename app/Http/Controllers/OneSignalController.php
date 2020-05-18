@@ -109,4 +109,9 @@ class OneSignalController extends Controller
             print(json_encode($questions));
         }
     }
+
+    public function postQstnAPI(Request $request)
+    {
+        return 'কাজ করে তো!';
+    }
 }
