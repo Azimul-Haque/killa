@@ -105,6 +105,7 @@ class OneSignalController extends Controller
     {
         if($api_key == 'rifat2020') {
             $questions = Charioteer::where('id', '>', $last_id)
+                                   ->where('status', 1)
                                    ->orderBy('id', 'asc')->get();
             print(json_encode($questions));
         }
