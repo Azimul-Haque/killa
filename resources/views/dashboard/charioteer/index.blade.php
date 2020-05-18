@@ -87,7 +87,7 @@
                     <!-- Edit Question Modal -->
                     <!-- Edit Question Modal -->
 
-                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteQuestionModal{{ $charioteer->id }}" data-backdrop="static" title="Delete" disabled=""><i class="fa fa-trash-o"></i></button>
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteQuestionModal{{ $charioteer->id }}" data-backdrop="static" title="Delete"><i class="fa fa-trash-o"></i></button>
                     <!-- Delete Charioteer Modal -->
                     <!-- Delete Charioteer Modal -->
                     <div class="modal fade" id="deleteQuestionModal{{ $charioteer->id }}" role="dialog">

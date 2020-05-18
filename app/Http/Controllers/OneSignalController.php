@@ -66,15 +66,11 @@ class OneSignalController extends Controller
 
     public function delQA($id)
     {
-        // $adhocmember = Adhocmember::find($id);
-        // $image_path = public_path('images/committee/adhoc/'. $adhocmember->image);
-        // if(File::exists($image_path)) {
-        //     File::delete($image_path);
-        // }
-        // $adhocmember->delete();
+        $charioteer = Charioteer::findOrFail($id);
+        $charioteer->delete();
 
-        // Session::flash('success', 'Deleted Successfully!');
-        // return redirect()->route('dashboard.committee');
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.onesignal');
     }
 
     public function sendPush()
