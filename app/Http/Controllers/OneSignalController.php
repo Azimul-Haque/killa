@@ -114,7 +114,7 @@ class OneSignalController extends Controller
             'answer'         => 'required|max:255'
         ));
 
-        $charioteer = new Charioteer();
+        $charioteer = new Charioteer;
         $charioteer->question = $request->question;
         $charioteer->answer = $request->answer;
         $charioteer->save();
