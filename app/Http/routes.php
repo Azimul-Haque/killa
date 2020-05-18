@@ -151,6 +151,7 @@ Route::post('/onesignal/store/qa', ['as'=>'dashboard.onesignal.storeqa','uses'=>
 Route::delete('/onesignal/qa/{id}/delete', ['as'=>'dashboard.onesignal.delqa','uses'=>'OneSignalController@delQA']);
 Route::put('/onesignal/qa/{id}/update', ['as'=>'dashboard.onesignal.updateqa','uses'=>'OneSignalController@updateQA']);
 Route::put('/onesignal/qa/{id}/approve', ['as'=>'dashboard.onesignal.approve','uses'=>'OneSignalController@approveQA']);
+Route::put('/onesignal/qa/{id}/unapprove', ['as'=>'dashboard.onesignal.unapprove','uses'=>'OneSignalController@unapproveQA']);
 
 Route::get('/onesignal/send/push', ['as'=>'dashboard.onesignal.sendpush','uses'=>'OneSignalController@sendPush']);
 

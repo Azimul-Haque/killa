@@ -83,6 +83,16 @@ class OneSignalController extends Controller
         return redirect()->route('dashboard.onesignal');
     }
 
+    public function unapproveQA(Request $request, $id)
+    {
+        $charioteer = Charioteer::findOrFail($id);
+        $charioteer->status = 0;
+        $charioteer->save();
+
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.onesignal');
+    }
+
     public function delQA($id)
     {
         $charioteer = Charioteer::findOrFail($id);
