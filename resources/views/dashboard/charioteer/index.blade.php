@@ -17,7 +17,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div class="box box-primary">
         <div class="box-header with-border text-blue">
           <i class="fa fa-fw fa-tree"></i>
@@ -36,6 +36,7 @@
                   <th width="">Question</th>
                   <th width="">Answer</th>
                   <th width="">Count</th>
+                  <th width="">Status</th>
                   <th width="15%">Action</th>
                 </tr>
               </thead>
@@ -52,6 +53,13 @@
                   </td>
                   <td>
                     {{ $charioteer->count }}
+                  </td>
+                  <td>
+                    @if($charioteer->status == 0)
+                      <span class="badge">Pending</span>
+                    @else
+                      <span class="badge">Approved</span>
+                    @endif
                   </td>
                   
                   <td>
@@ -121,9 +129,8 @@
         </div>
         <!-- /.box-body -->
       </div>
-      
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="box box-success">
         <div class="box-header with-border text-green">
           <i class="fa fa-fw fa-tags"></i>
