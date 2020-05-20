@@ -16,6 +16,7 @@ class CreateCharioteersTable extends Migration
             $table->increments('id');
             $table->string('question');
             $table->string('answer');
+            $table->string('incanswer');
             $table->integer('count');
         });
     }

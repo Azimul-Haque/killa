@@ -136,6 +136,17 @@ class OneSignalController extends Controller
         }
     }
 
+    public function testJson()
+    {
+        // $arrayaa = ['aaa', 'bbb', 'ccc'];
+        // $arrayaas = serialize($arrayaa);
+        
+        // $unaaa = unserialize($arrayaas);
+        $testaa = "A,B,C";
+        $tesarray = explode(",", $testaa);
+        dd($tesarray);
+    }
+
     public function postQstnAPI(Request $request)
     {
         $this->validate($request,array(
