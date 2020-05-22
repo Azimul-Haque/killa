@@ -13,6 +13,7 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         'dashboard.attendance.test',
-        '/onesignal/post/question/api'
+        '/onesignal/post/question/api',
+        '/onesignal/report/question/api',
     ];
 }

@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Charioteer;
-use App\Blog;
+use App\Charioteerreport;
 
 use Session, Auth;
 use OneSignal;
@@ -172,6 +172,25 @@ class OneSignalController extends Controller
             'success' => true,
             'question' => $request->question,
             'answer' => $request->answer,
+        ]);
+    }
+
+    public function reportQstnAPI(Request $request)
+    {
+        $this->validate($request,array(
+            'question'       => 'required|max:255',
+            'answer'         => 'required|max:255'
+            'report'         => 'sometimes|max:255'
+        ));
+
+        $report = new Charioteerreport;
+        $report->question = $request->question;
+        $report->answer = $request->answer;
+        $report->report = $request->report;
+        $report->save();
+
+        return response()->json([
+            'success' => true
         ]);
     }
 }
