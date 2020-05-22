@@ -30,6 +30,21 @@ class OneSignalController extends Controller
                             ->withReports($reports);
     }
 
+    public function searchNow(Request $request)
+    {
+        
+        $charioteers = Charioteer::where('question', 'like', "%{$request->q}%")
+                                 ->orWhere('answer', 'like', "%{$request->q}%")
+                                 ->orWhere('incanswer', 'like', "%{$request->q}%")
+                                 ->orderBy('id', 'desc')->paginate(7);
+
+        $reports = Charioteerreport::orderBy('id', 'desc')->get();
+
+        return view('dashboard.charioteer.index')
+                            ->withCharioteers($charioteers)
+                            ->withReports($reports);
+    }
+
     public function storeQA(Request $request)
     {
         $this->validate($request,array(

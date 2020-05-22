@@ -23,6 +23,16 @@
           <i class="fa fa-fw fa-tree"></i>
           <h3 class="box-title">Questions</h3>
           <div class="box-tools pull-right">
+            <div style="max-width: 300px !important; float: left; margin-right: 20px;">
+              {!! Form::open(['route' => 'dashboard.onesignal.search', 'method' => 'GET', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" placeholder="Search term...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
+              {!! Form::close() !!}
+            </div>
             <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Question" data-placement="top"><i class="fa fa-plus"></i></button>
           </div>
         </div>
@@ -45,7 +55,7 @@
                 @foreach($charioteers as $charioteer)
                 <tr>
                   <td>
-                    {{ $charioteer->question }}
+                    {{ $charioteer->id }}. {{ $charioteer->question }}
                   </td>
                   <td>
                     {{ $charioteer->answer }}

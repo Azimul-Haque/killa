@@ -147,6 +147,7 @@ Route::put('/dashboard/personal/profile/{id}/update', ['as'=>'dashboard.profile.
 // bcs charioteer
 // bcs charioteer
 Route::get('/onesignal', ['as'=>'dashboard.onesignal','uses'=>'OneSignalController@index']);
+Route::get('/onesignal/search', ['as'=>'dashboard.onesignal.search','uses'=>'OneSignalController@searchNow']);
 Route::post('/onesignal/store/qa', ['as'=>'dashboard.onesignal.storeqa','uses'=>'OneSignalController@storeQA']);
 Route::delete('/onesignal/qa/{id}/delete', ['as'=>'dashboard.onesignal.delqa','uses'=>'OneSignalController@delQA']);
 Route::put('/onesignal/qa/{id}/update', ['as'=>'dashboard.onesignal.updateqa','uses'=>'OneSignalController@updateQA']);
