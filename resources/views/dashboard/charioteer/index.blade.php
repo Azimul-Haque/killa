@@ -67,7 +67,7 @@
                     <!-- Edit Question Modal -->
                     <!-- Edit Question Modal -->
                     <div class="modal fade" id="editQuestionModel{{ $charioteer->id }}" role="dialog">
-                      <div class="modal-dialog">
+                      <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <div class="modal-header modal-header-primary">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -82,6 +82,29 @@
                               <div class="form-group">
                                 {!! Form::label('answer', 'Answer') !!}
                                 {!! Form::text('answer', null, array('class' => 'form-control', 'placeholder' => 'Write Answer', 'required')) !!}
+                              </div>
+                              <div class="row">
+                                @php
+                                  $options = explode(',', $charioteer->incanswer);
+                                @endphp
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    {!! Form::label('option1', 'Option 1') !!}
+                                    {!! Form::text('option1', $options[0], array('class' => 'form-control', 'placeholder' => 'Write Option 1', 'required')) !!}
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    {!! Form::label('option2', 'Option 2') !!}
+                                    {!! Form::text('option2', $options[1], array('class' => 'form-control', 'placeholder' => 'Write Option 2', 'required')) !!}
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    {!! Form::label('option3', 'Option 3') !!}
+                                    {!! Form::text('option3', $options[2], array('class' => 'form-control', 'placeholder' => 'Write Option 3', 'required')) !!}
+                                  </div>
+                                </div>
                               </div>
                             </div>
                             <div class="modal-footer">
@@ -221,7 +244,7 @@
   <!-- Add Question Modal -->
   <!-- Add Question Modal -->
   <div class="modal fade" id="addQuestionModel" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header modal-header-primary">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -236,6 +259,26 @@
             <div class="form-group">
               {!! Form::label('answer', 'Answer') !!}
               {!! Form::text('answer', null, array('class' => 'form-control', 'placeholder' => 'Write Answer', 'required')) !!}
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  {!! Form::label('option1', 'Option 1') !!}
+                  {!! Form::text('option1', null, array('class' => 'form-control', 'placeholder' => 'Write Option 1', 'required')) !!}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  {!! Form::label('option2', 'Option 2') !!}
+                  {!! Form::text('option2', null, array('class' => 'form-control', 'placeholder' => 'Write Option 2', 'required')) !!}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  {!! Form::label('option3', 'Option 3') !!}
+                  {!! Form::text('option3', null, array('class' => 'form-control', 'placeholder' => 'Write Option 3', 'required')) !!}
+                </div>
+              </div>
             </div>
           </div>
           <div class="modal-footer">

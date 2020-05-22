@@ -32,13 +32,16 @@ class OneSignalController extends Controller
     {
         $this->validate($request,array(
             'question'       => 'required|max:255',
-            'answer'         => 'required|max:255'
+            'answer'         => 'required|max:255',
+            'option1'        => 'required|max:255',
+            'option2'        => 'required|max:255',
+            'option3'        => 'required|max:255'
         ));
 
         $charioteer = new Charioteer();
         $charioteer->question = $request->question;
         $charioteer->answer = $request->answer;
-        
+        $charioteer->incanswer = $request->option1 .','. $request->option2 .','. $request->option3;
 
         $charioteer->save();
 
@@ -50,14 +53,17 @@ class OneSignalController extends Controller
     {
         $this->validate($request,array(
             'question'       => 'required|max:255',
-            'answer'         => 'required|max:255'
+            'answer'         => 'required|max:255',
+            'option1'        => 'required|max:255',
+            'option2'        => 'required|max:255',
+            'option3'        => 'required|max:255'
         ));
 
         $charioteer = Charioteer::findOrFail($id);
         $charioteer->question = $request->question;
         $charioteer->answer = $request->answer;
+        $charioteer->incanswer = $request->option1 .','. $request->option2 .','. $request->option3;
         
-
         $charioteer->save();
 
         Session::flash('success', 'Updated Successfully!');
@@ -104,7 +110,9 @@ class OneSignalController extends Controller
 
     public function sendPush()
     {
-        $charioteer = Charioteer::inRandomOrder()->first();
+        $charioteer = Charioteer::inRandomOrder()
+                                ->where('status', 1)
+                                ->first();
         $charioteer->count = $charioteer->count + 1;
         $charioteer->save();
 
