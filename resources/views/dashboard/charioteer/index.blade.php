@@ -17,7 +17,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
       <div class="box box-primary">
         <div class="box-header with-border text-blue">
           <i class="fa fa-fw fa-tree"></i>
@@ -32,8 +32,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>No.</th>
-                  <th width="30%">Question</th>
+                  <th width="35%">Question</th>
                   <th width="">Answer</th>
                   <th width="">Options</th>
                   <th width="">Count</th>
@@ -45,7 +44,6 @@
                 @php $addmodalflag = 0; $editmodalflag = 0; @endphp
                 @foreach($charioteers as $charioteer)
                 <tr>
-                  <td>{{ $charioteer->id }}</td>
                   <td>
                     {{ $charioteer->question }}
                   </td>
@@ -217,11 +215,35 @@
         <!-- /.box-body -->
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="box box-success">
         <div class="box-header with-border text-green">
           <i class="fa fa-fw fa-tags"></i>
-          <h3 class="box-title">Send Notification</h3>
+          <h3 class="box-title">Send Question Notification</h3>
+          <div class="box-tools pull-right">
+            {{-- <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          {!! Form::open(['route' => 'dashboard.onesignal.sendpush', 'method' => 'GET', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
+            {{-- <div class="form-group">
+              {!! Form::label('question', 'Question') !!}
+              {!! Form::text('question', null, array('class' => 'form-control', 'placeholder' => 'Write Question', 'required')) !!}
+            </div>
+            <div class="form-group">
+              {!! Form::label('answer', 'Answer') !!}
+              {!! Form::text('answer', null, array('class' => 'form-control', 'placeholder' => 'Write Answer', 'required')) !!}
+            </div> --}}
+            {!! Form::submit('Send a Random Push', array('class' => 'btn btn-primary btn-block')) !!}
+          {!! Form::close() !!}
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <div class="box box-success">
+        <div class="box-header with-border text-green">
+          <i class="fa fa-fw fa-tags"></i>
+          <h3 class="box-title">Send Question Notification</h3>
           <div class="box-tools pull-right">
             {{-- <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
           </div>
