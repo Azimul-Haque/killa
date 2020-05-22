@@ -33,8 +33,9 @@
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th width="">Question</th>
+                  <th width="30%">Question</th>
                   <th width="">Answer</th>
+                  <th width="">Options</th>
                   <th width="">Count</th>
                   <th width="">Status</th>
                   <th width="15%">Action</th>
@@ -50,6 +51,9 @@
                   </td>
                   <td>
                     {{ $charioteer->answer }}
+                  </td>
+                  <td>
+                    {{ $charioteer->incanswer }}
                   </td>
                   <td>
                     {{ $charioteer->count }}
