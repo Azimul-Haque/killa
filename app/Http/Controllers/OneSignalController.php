@@ -179,7 +179,7 @@ class OneSignalController extends Controller
     {
         $this->validate($request,array(
             'question'       => 'required|max:255',
-            'answer'         => 'required|max:255'
+            'answer'         => 'required|max:255',
             'report'         => 'sometimes|max:255'
         ));
 
