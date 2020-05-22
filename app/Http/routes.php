@@ -154,6 +154,7 @@ Route::put('/onesignal/qa/{id}/approve', ['as'=>'dashboard.onesignal.approve','u
 Route::put('/onesignal/qa/{id}/unapprove', ['as'=>'dashboard.onesignal.unapprove','uses'=>'OneSignalController@unapproveQA']);
 
 Route::get('/onesignal/send/push', ['as'=>'dashboard.onesignal.sendpush','uses'=>'OneSignalController@sendPush']);
+Route::post('/onesignal/send/update', ['as'=>'dashboard.onesignal.sendupdate','uses'=>'OneSignalController@sendUpdate']);
 
 Route::get('/broadcast/{api_key}/{last_id}', ['as'=>'broadcast','uses'=>'OneSignalController@broadcast']);
 Route::post('/onesignal/post/question/api', ['as'=>'dashboard.onesignal.postqstnapi','uses'=>'OneSignalController@postQstnAPI']);

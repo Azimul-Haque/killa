@@ -131,7 +131,30 @@ class OneSignalController extends Controller
         } else {
             return '200';
         }
-        
+    }
+
+    public function sendUpdate(Request $request)
+    {
+        $this->validate($request,array(
+            'heading'       => 'required|max:255',
+            'subtitle'      => 'required|max:255'
+        ));
+
+        OneSignal::sendNotificationToAll(
+            $request->subtitle,
+            $url = null, 
+            $data = array("update" => "update"),
+            $buttons = null, 
+            $schedule = null,
+            $headings = $request->heading
+        );
+
+        Session::flash('success', 'Sent Successfully!');
+        if(Auth::check()) {
+            return redirect()->route('dashboard.onesignal');
+        } else {
+            return '200';
+        }
     }
 
     public function broadcast($api_key, $last_id)

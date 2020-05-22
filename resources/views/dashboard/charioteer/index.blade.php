@@ -218,7 +218,7 @@
     <div class="col-md-4">
       <div class="box box-success">
         <div class="box-header with-border text-green">
-          <i class="fa fa-fw fa-tags"></i>
+          <i class="fa fa-fw fa-bell-o"></i>
           <h3 class="box-title">Send Question Notification</h3>
           <div class="box-tools pull-right">
             {{-- <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
@@ -227,39 +227,31 @@
         <!-- /.box-header -->
         <div class="box-body">
           {!! Form::open(['route' => 'dashboard.onesignal.sendpush', 'method' => 'GET', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
-            {{-- <div class="form-group">
-              {!! Form::label('question', 'Question') !!}
-              {!! Form::text('question', null, array('class' => 'form-control', 'placeholder' => 'Write Question', 'required')) !!}
-            </div>
-            <div class="form-group">
-              {!! Form::label('answer', 'Answer') !!}
-              {!! Form::text('answer', null, array('class' => 'form-control', 'placeholder' => 'Write Answer', 'required')) !!}
-            </div> --}}
-            {!! Form::submit('Send a Random Push', array('class' => 'btn btn-primary btn-block')) !!}
+            {!! Form::submit('Send a Random Push', array('class' => 'btn btn-success btn-block')) !!}
           {!! Form::close() !!}
         </div>
         <!-- /.box-body -->
       </div>
-      <div class="box box-success">
-        <div class="box-header with-border text-green">
-          <i class="fa fa-fw fa-tags"></i>
-          <h3 class="box-title">Send Question Notification</h3>
+      <div class="box box-info">
+        <div class="box-header with-border text-aqua">
+          <i class="fa fa-fw fa-refresh"></i>
+          <h3 class="box-title">Send Update Notification</h3>
           <div class="box-tools pull-right">
-            {{-- <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
+            {{-- <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
           </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          {!! Form::open(['route' => 'dashboard.onesignal.sendpush', 'method' => 'GET', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
-            {{-- <div class="form-group">
-              {!! Form::label('question', 'Question') !!}
-              {!! Form::text('question', null, array('class' => 'form-control', 'placeholder' => 'Write Question', 'required')) !!}
+          {!! Form::open(['route' => 'dashboard.onesignal.sendupdate', 'method' => 'POST', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
+            <div class="form-group">
+              {!! Form::label('heading', 'Heading') !!}
+              {!! Form::text('heading', 'BCS সংবিধানে নতুন প্রশ্ন যোগ হয়েছে!', array('class' => 'form-control', 'placeholder' => 'Write Heading', 'required')) !!}
             </div>
             <div class="form-group">
-              {!! Form::label('answer', 'Answer') !!}
-              {!! Form::text('answer', null, array('class' => 'form-control', 'placeholder' => 'Write Answer', 'required')) !!}
-            </div> --}}
-            {!! Form::submit('Send a Random Push', array('class' => 'btn btn-primary btn-block')) !!}
+              {!! Form::label('subtitle', 'Subtitle') !!}
+              {!! Form::text('subtitle', 'প্রশ্নগুলো পেতে ক্লিক করুন !', array('class' => 'form-control', 'placeholder' => 'Write Subtitle', 'required')) !!}
+            </div>
+            {!! Form::submit('Send Update Notification', array('class' => 'btn btn-info btn-block')) !!}
           {!! Form::close() !!}
         </div>
         <!-- /.box-body -->
