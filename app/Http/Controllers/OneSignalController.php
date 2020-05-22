@@ -22,11 +22,11 @@ class OneSignalController extends Controller
 
     public function index()
     {
-        $charioteers = Charioteer::orderBy('id', 'desc')->paginate(10);
+        $charioteers = Charioteer::orderBy('id', 'desc')->paginate(7);
         $reports = Charioteerreport::orderBy('id', 'desc')->get();
 
         return view('dashboard.charioteer.index')
-                            ->withCharioteers($charioteers);
+                            ->withCharioteers($charioteers)
                             ->withReports($reports);
     }
 
@@ -105,6 +105,15 @@ class OneSignalController extends Controller
     {
         $charioteer = Charioteer::findOrFail($id);
         $charioteer->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.onesignal');
+    }
+
+    public function delReport($id)
+    {
+        $report = Charioteerreport::findOrFail($id);
+        $report->delete();
 
         Session::flash('success', 'Deleted Successfully!');
         return redirect()->route('dashboard.onesignal');

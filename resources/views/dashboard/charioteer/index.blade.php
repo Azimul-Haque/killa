@@ -214,6 +214,67 @@
         </div>
         <!-- /.box-body -->
       </div>
+
+      <div class="box box-warning">
+        <div class="box-header with-border text-yellow">
+          <i class="fa fa-fw fa-flag"></i>
+          <h3 class="box-title">Reports</h3>
+          <div class="box-tools pull-right">
+            {{-- <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Answer</th>
+                  <th>Report</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($reports as $report)
+                <tr>
+                  <td>{{ $report->question }}</td>
+                  <td>{{ $report->answer }}</td>
+                  <td>{{ $report->report }}</td>
+                  <td>
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#resolveReport{{ $report->id }}" data-backdrop="static" title="Resolve"><i class="fa fa-trash-o"></i></button>
+                    <!-- Delete Charioteer Modal -->
+                    <!-- Delete Charioteer Modal -->
+                    <div class="modal fade" id="resolveReport{{ $report->id }}" role="dialog">
+                      <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                          <div class="modal-header modal-header-danger">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Resolve Question</h4>
+                          </div>
+                          <div class="modal-body">
+                            Confirm resolve/ delete this question:<br/><b>{{ $report->question }}</b>?
+                          </div>
+                          <div class="modal-footer">
+                            {!! Form::model($report, ['route' => ['dashboard.onesignal.delreport', $report->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                                {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            {!! Form::close() !!}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Delete Charioteer Modal -->
+                    <!-- Delete Charioteer Modal -->
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
     </div>
     <div class="col-md-4">
       <div class="box box-success">
