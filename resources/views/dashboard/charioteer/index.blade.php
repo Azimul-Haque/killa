@@ -253,8 +253,8 @@
                   <td>{{ $report->report }}</td>
                   <td>
                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#resolveReport{{ $report->id }}" data-backdrop="static" title="Resolve"><i class="fa fa-trash-o"></i></button>
-                    <!-- Delete Charioteer Modal -->
-                    <!-- Delete Charioteer Modal -->
+                    <!-- Delete Report Modal -->
+                    <!-- Delete Report Modal -->
                     <div class="modal fade" id="resolveReport{{ $report->id }}" role="dialog">
                       <div class="modal-dialog modal-md">
                         <div class="modal-content">
@@ -274,8 +274,8 @@
                         </div>
                       </div>
                     </div>
-                    <!-- Delete Charioteer Modal -->
-                    <!-- Delete Charioteer Modal -->
+                    <!-- Delete Report Modal -->
+                    <!-- Delete Report Modal -->
                   </td>
                 </tr>
                 @endforeach
@@ -324,6 +324,66 @@
             </div>
             {!! Form::submit('Send Update Notification', array('class' => 'btn btn-info btn-block')) !!}
           {!! Form::close() !!}
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <div class="box box-danger">
+        <div class="box-header with-border text-red">
+          <i class="fa fa-fw fa-envelope-o"></i>
+          <h3 class="box-title">App Messages</h3>
+          <div class="box-tools pull-right">
+            {{-- <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Message</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($messages as $message)
+                <tr>
+                  <td>{{ $message->name }}</td>
+                  <td>{{ $message->email }}</td>
+                  <td>{{ $message->message }}</td>
+                  <td>
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMessage{{ $message->id }}" data-backdrop="static" title="Delete"><i class="fa fa-trash-o"></i></button>
+                    <!-- Delete Message Modal -->
+                    <!-- Delete Message Modal -->
+                    <div class="modal fade" id="deleteMessage{{ $message->id }}" role="dialog">
+                      <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                          <div class="modal-header modal-header-danger">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Delete Message</h4>
+                          </div>
+                          <div class="modal-body">
+                            Confirm resolve/ delete this message?
+                          </div>
+                          <div class="modal-footer">
+                            {!! Form::model($message, ['route' => ['dashboard.onesignal.delreport', $message->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                                {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            {!! Form::close() !!}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Delete Message Modal -->
+                    <!-- Delete Message Modal -->
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
         </div>
         <!-- /.box-body -->
       </div>

@@ -25,10 +25,12 @@ class OneSignalController extends Controller
     {
         $charioteers = Charioteer::orderBy('id', 'desc')->paginate(7);
         $reports = Charioteerreport::orderBy('id', 'desc')->get();
+        $messages = Charioteermessage::orderBy('id', 'desc')->get();
 
         return view('dashboard.charioteer.index')
                             ->withCharioteers($charioteers)
-                            ->withReports($reports);
+                            ->withReports($reports)
+                            ->withMessages($messages);
     }
 
     public function searchNow(Request $request)
@@ -39,11 +41,13 @@ class OneSignalController extends Controller
                                  ->orWhere('incanswer', 'like', "%{$request->q}%")
                                  ->orderBy('id', 'desc')->paginate(7);
 
-        $reports = Charioteerreport::orderBy('id', 'desc')->get();
+        $reports = Charioteerreport::orderBy('id', 'desc')->get();  
+        $messages = Charioteermessage::orderBy('id', 'desc')->get();
 
         return view('dashboard.charioteer.index')
                             ->withCharioteers($charioteers)
-                            ->withReports($reports);
+                            ->withReports($reports)
+                            ->withMessages($messages);
     }
 
     public function storeQA(Request $request)
