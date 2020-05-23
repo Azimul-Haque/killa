@@ -342,7 +342,7 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Email</th>
+                  <th>Email, Datetime</th>
                   <th>Message</th>
                   <th>Action</th>
                 </tr>
@@ -350,7 +350,10 @@
               <tbody>
                 @foreach($messages as $message)
                 <tr>
-                  <td>{{ $message->name }}</td>
+                  <td>
+                    {{ $message->name }}<br/>
+                    <small class="text-green">{{ date('F d, Y h:i A', strtotime($message->created_at)) }}</small>
+                  </td>
                   <td>{{ $message->email }}</td>
                   <td>{{ $message->message }}</td>
                   <td>
