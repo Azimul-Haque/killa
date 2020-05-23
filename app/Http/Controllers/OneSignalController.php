@@ -139,6 +139,15 @@ class OneSignalController extends Controller
         return redirect()->route('dashboard.onesignal');
     }
 
+    public function delMessage($id)
+    {
+        $message = Charioteermessage::findOrFail($id);
+        $message->delete();
+
+        Session::flash('success', 'Deleted Successfully!');
+        return redirect()->route('dashboard.onesignal');
+    }
+
     public function sendPush()
     {
         $charioteer = Charioteer::inRandomOrder()

@@ -368,7 +368,7 @@
                             Confirm resolve/ delete this message?
                           </div>
                           <div class="modal-footer">
-                            {!! Form::model($message, ['route' => ['dashboard.onesignal.delreport', $message->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+                            {!! Form::model($message, ['route' => ['dashboard.onesignal.delmessage', $message->id], 'method' => 'DELETE', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
                                 {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             {!! Form::close() !!}
