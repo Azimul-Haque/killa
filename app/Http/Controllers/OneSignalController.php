@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Charioteer;
 use App\Charioteerreport;
+use App\Charioteermessage;
 
 use Session, Auth;
 use OneSignal;
@@ -237,6 +238,25 @@ class OneSignalController extends Controller
         $report->answer = $request->answer;
         $report->report = $request->report;
         $report->save();
+
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function contactAPI(Request $request)
+    {
+        $this->validate($request,array(
+            'name'       => 'required|max:255',
+            'email'       => 'required|max:255',
+            'mesage'     => 'required|max:255'
+        ));
+
+        $message = new Charioteermessage;
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->message = $request->message;
+        $message->save();
 
         return response()->json([
             'success' => true
