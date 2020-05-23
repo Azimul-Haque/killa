@@ -160,7 +160,7 @@ Route::delete('/onesignal/message/{id}/delete', ['as'=>'dashboard.onesignal.delm
 Route::get('/onesignal/send/push', ['as'=>'dashboard.onesignal.sendpush','uses'=>'OneSignalController@sendPush']);
 Route::post('/onesignal/send/update', ['as'=>'dashboard.onesignal.sendupdate','uses'=>'OneSignalController@sendUpdate']);
 
-Route::get('/broadcast/{api_key}/{last_id}', ['as'=>'broadcast','uses'=>'OneSignalController@broadcast']);
+Route::get('/broadcast', ['as'=>'broadcast','uses'=>'OneSignalController@broadcast']);
 Route::post('/onesignal/post/question/api', ['as'=>'dashboard.onesignal.postqstnapi','uses'=>'OneSignalController@postQstnAPI']);
 Route::post('/onesignal/report/question/api', ['as'=>'dashboard.onesignal.reportqstnapi','uses'=>'OneSignalController@reportQstnAPI']);
 Route::post('/onesignal/contact/api', ['as'=>'dashboard.onesignal.contactapi','uses'=>'OneSignalController@contactAPI']);

@@ -197,20 +197,19 @@ class OneSignalController extends Controller
         }
     }
 
-    public function broadcast($api_key, $last_id)
+    public function broadcast(Request $request)
     {
-        if($api_key == 'rifat2020') {
+        $questions = collect();
+        if($request->api_key == 'rifat2020' && !empty($request->last_id)) {
             $questionscount = Charioteer::where('status', 1)->count();
-            $questions = collect();
-            if($questionscount > (int) $last_id) {
-                // dd($last_id);
+            if($questionscount > (int) $request->last_id) {
+                // dd($request->last_id);
                 $questions = Charioteer::where('status', 1)
-                                       ->orderBy('id', 'desc')->take($questionscount - (int) $last_id)->get();
+                                       ->orderBy('id', 'desc')->take($questionscount - (int) $request->last_id)->get();
                 $questions = $questions->reverse()->values();
             }
-            
-            print(json_encode($questions));
         }
+        print(json_encode($questions));
     }
 
     public function testJson()
