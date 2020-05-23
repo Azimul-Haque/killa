@@ -200,9 +200,15 @@ class OneSignalController extends Controller
     public function broadcast($api_key, $last_id)
     {
         if($api_key == 'rifat2020') {
-            $questions = Charioteer::where('id', '>', $last_id)
-                                   ->where('status', 1)
-                                   ->orderBy('id', 'asc')->get();
+            $questionscount = Charioteer::where('status', 1)->count();
+            $questions = collect();
+            if($questionscount > (int) $last_id) {
+                // dd($last_id);
+                $questions = Charioteer::where('status', 1)
+                                       ->orderBy('id', 'desc')->take($questionscount - (int) $last_id)->get();
+                $questions = $questions->reverse()->values();
+            }
+            
             print(json_encode($questions));
         }
     }
