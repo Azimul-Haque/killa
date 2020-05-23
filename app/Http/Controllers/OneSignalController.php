@@ -247,9 +247,9 @@ class OneSignalController extends Controller
     public function contactAPI(Request $request)
     {
         $this->validate($request,array(
-            'name'       => 'required|max:255',
+            'name'        => 'required|max:255',
             'email'       => 'required|max:255',
-            'mesage'     => 'required|max:255'
+            'message'     => 'required|max:255'
         ));
 
         $message = new Charioteermessage;
