@@ -89,7 +89,8 @@ class OneSignalController extends Controller
         $charioteer->save();
 
         Session::flash('success', 'Updated Successfully!');
-        return redirect()->route('dashboard.onesignal');
+        return redirect()->back();
+        // return redirect()->route('dashboard.onesignal');
     }
 
     public function approveQA(Request $request, $id)
