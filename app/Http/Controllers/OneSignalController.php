@@ -201,7 +201,7 @@ class OneSignalController extends Controller
     public function broadcast(Request $request)
     {
         $questions = collect();
-        if($request->api_key == 'rifat2020' && !empty($request->last_id)) {
+        if($request->api_key == 'rifat2020' && $request->last_id > -1) { // -1 karon, jokhon size 0 dibe tokhon jeno kaaj kore
             $questionscount = Charioteer::where('status', 1)->count();
             if($questionscount > (int) $request->last_id) {
                 // dd($request->last_id);
