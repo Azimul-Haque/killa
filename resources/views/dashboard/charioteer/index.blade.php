@@ -55,7 +55,7 @@
                 @foreach($charioteers as $charioteer)
                 <tr>
                   <td>
-                    {{ $charioteer->id }}. {{ $charioteer->question }}
+                    {{ $charioteer->question }}
                   </td>
                   <td>
                     {{ $charioteer->answer }}
