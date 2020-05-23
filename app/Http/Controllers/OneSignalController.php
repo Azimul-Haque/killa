@@ -18,7 +18,7 @@ class OneSignalController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('sendPush', 'broadcast', 'postQstnAPI', 'reportQstnAPI');
+        $this->middleware('auth')->except('sendPush', 'broadcast', 'postQstnAPI', 'reportQstnAPI', 'contactAPI');
     }
 
     public function index()

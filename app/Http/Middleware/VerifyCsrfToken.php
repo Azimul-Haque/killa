@@ -15,5 +15,6 @@ class VerifyCsrfToken extends BaseVerifier
         'dashboard.attendance.test',
         '/onesignal/post/question/api',
         '/onesignal/report/question/api',
+        '/onesignal/contact/api',
     ];
 }
