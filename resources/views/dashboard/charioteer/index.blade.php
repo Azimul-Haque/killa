@@ -21,7 +21,7 @@
       <div class="box box-primary">
         <div class="box-header with-border text-blue">
           <i class="fa fa-fw fa-tree"></i>
-          <h3 class="box-title"><a href="{{ route('dashboard.onesignal') }}">All Questions (Use no comma on options)</a></h3>
+          <h3 class="box-title"><a href="{{ route('dashboard.onesignal') }}">All Questions [{{ $totalqs }}] (Use no comma on options)</a></h3>
           <div class="box-tools pull-right">
             <div style="max-width: 300px !important; float: left; margin-right: 20px;">
               {!! Form::open(['route' => 'dashboard.onesignal.search', 'method' => 'GET', 'class' => 'form-default', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data']) !!}
