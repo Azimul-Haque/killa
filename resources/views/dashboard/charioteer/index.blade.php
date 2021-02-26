@@ -249,8 +249,8 @@
                 @foreach($reports as $report)
                 <tr>
                   <td>
-                    {{ $report->question }}
-                    <small class="text-aqua">{{ date('F d, Y h:i A', strtotime($report->created_at)) }}</small>
+                    {{ $report->question }}<br/>
+                    <small class="text-yellow">{{ date('F d, Y h:i A', strtotime($report->created_at)) }}</small>
                   </td>
                   <td>{{ $report->answer }}</td>
                   <td>{{ $report->report }}</td>
@@ -357,8 +357,8 @@
                     {{ $message->name }}<br/>
                     <small class="text-green">{{ date('F d, Y h:i A', strtotime($message->created_at)) }}</small>
                   </td>
-                  <td>{{ $message->email }}<br/>ASD</td>
-                  <td>{{ $message->message }}<br/>ASD</td>
+                  <td>{{ $message->email }}</td>
+                  <td>{{ $message->message }}</td>
                   <td>
                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMessage{{ $message->id }}" data-backdrop="static" title="Delete"><i class="fa fa-trash-o"></i></button>
                     <!-- Delete Message Modal -->
