@@ -37,7 +37,7 @@ class OneSignalController extends Controller
 
     public function searchNow(Request $request)
     {
-        
+        $totalqs = Charioteer::count();
         $charioteers = Charioteer::where('question', 'like', "%{$request->q}%")
                                  ->orWhere('answer', 'like', "%{$request->q}%")
                                  ->orWhere('incanswer', 'like', "%{$request->q}%")
@@ -49,7 +49,8 @@ class OneSignalController extends Controller
         return view('dashboard.charioteer.index')
                             ->withCharioteers($charioteers)
                             ->withReports($reports)
-                            ->withMessages($messages);
+                            ->withMessages($messages)
+                            ->withTotalqs($totalqs);
     }
 
     public function storeQA(Request $request)
