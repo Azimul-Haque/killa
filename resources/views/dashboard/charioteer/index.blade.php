@@ -354,8 +354,8 @@
                 @foreach($messages as $message)
                 <tr>
                   <td>
-                    {{ $message->name }}<br/><br/>
-                    <big class="text-green">{{ date('F d, Y h:i A', strtotime($message->created_at)) }}</big>
+                    {{ $message->name }}<br/><br/>ASDASD
+                    <small class="text-green">{{ date('F d, Y h:i A', strtotime($message->created_at)) }}</small>
                   </td>
                   <td>{{ $message->email }}</td>
                   <td>{{ $message->message }}</td>
