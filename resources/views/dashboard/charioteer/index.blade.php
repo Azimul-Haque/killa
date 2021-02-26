@@ -355,7 +355,7 @@
                 <tr>
                   <td>
                     {{ $message->name }}<br/><br/>
-                    <small class="text-green">{{ date('F d, Y h:i A', strtotime($message->created_at)) }}</small>
+                    <big class="text-green">{{ date('F d, Y h:i A', strtotime($message->created_at)) }}</big>
                   </td>
                   <td>{{ $message->email }}</td>
                   <td>{{ $message->message }}</td>
