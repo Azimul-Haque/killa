@@ -248,7 +248,10 @@
               <tbody>
                 @foreach($reports as $report)
                 <tr>
-                  <td>{{ $report->question }}</td>
+                  <td>
+                    {{ $report->question }}
+                    <small class="text-aqua">{{ date('F d, Y h:i A', strtotime($report->created_at)) }}</small>
+                  </td>
                   <td>{{ $report->answer }}</td>
                   <td>{{ $report->report }}</td>
                   <td>
