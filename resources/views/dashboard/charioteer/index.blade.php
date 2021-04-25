@@ -353,11 +353,11 @@
               <tbody>
                 @foreach($messages as $message)
                 <tr>
+                  <td>{{ $message->name }}</td>
                   <td>
-                    {{ $message->name }}<br/>
+                    {{ $message->email }}<br/>
                     <small class="text-green">{{ date('F d, Y h:i A', strtotime($message->created_at)) }}</small>
                   </td>
-                  <td>{{ $message->email }}</td>
                   <td>{{ $message->message }}</td>
                   <td>
                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMessage{{ $message->id }}" data-backdrop="static" title="Delete"><i class="fa fa-trash-o"></i></button>
