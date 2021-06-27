@@ -164,6 +164,9 @@ Route::get('/broadcast', ['as'=>'broadcast','uses'=>'OneSignalController@broadca
 Route::post('/onesignal/post/question/api', ['as'=>'dashboard.onesignal.postqstnapi','uses'=>'OneSignalController@postQstnAPI']);
 Route::post('/onesignal/report/question/api', ['as'=>'dashboard.onesignal.reportqstnapi','uses'=>'OneSignalController@reportQstnAPI']);
 Route::post('/onesignal/contact/api', ['as'=>'dashboard.onesignal.contactapi','uses'=>'OneSignalController@contactAPI']);
+Route::get('/onesignal/examcount/initiate/api', ['as'=>'dashboard.onesignal.examcountiapi','uses'=>'OneSignalController@examCountIAPI']);
+Route::get('/onesignal/examcount/complete/api', ['as'=>'dashboard.onesignal.examcountcapi','uses'=>'OneSignalController@examCountCAPI']);
+
 Route::get('/onesignal/test/json/array', ['as'=>'dashboard.onesignal.testjson','uses'=>'OneSignalController@testJson']);
 
 // iClock Attendance Test

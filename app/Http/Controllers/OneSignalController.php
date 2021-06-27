@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Charioteer;
 use App\Charioteerreport;
 use App\Charioteermessage;
+use App\Charioteerexamcount;
 
 use Session, Auth;
 use OneSignal;
@@ -18,7 +19,7 @@ class OneSignalController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('sendPush', 'broadcast', 'postQstnAPI', 'reportQstnAPI', 'contactAPI');
+        $this->middleware('auth')->except('sendPush', 'broadcast', 'postQstnAPI', 'reportQstnAPI', 'contactAPI', 'examCountIAPI', 'examCountCAPI');
     }
 
     public function index()
@@ -279,6 +280,44 @@ class OneSignalController extends Controller
         $message->email = $request->email;
         $message->message = $request->message;
         $message->save();
+
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function examCountIAPI()
+    {
+        $checktoday = Charioteerexamcount::where('date', date('Y-m-d'))->first();
+
+        if($checktoday != null || !empty($checktoday)) {
+            $checktoday->initiated = $checktoday->initiated + 1;
+            $checktoday->save();
+        } else {
+            $newtoday = new Charioteerexamcount;
+            $newtoday->date = date('Y-m-d');
+            $newtoday->initiated = 1;
+            $newtoday->save();
+        }
+
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function examCountCAPI()
+    {
+        $checktoday = Charioteerexamcount::where('date', date('Y-m-d'))->first();
+
+        if($checktoday != null || !empty($checktoday)) {
+            $checktoday->completed = $checktoday->completed + 1;
+            $checktoday->save();
+        } else {
+            $newtoday = new Charioteerexamcount;
+            $newtoday->date = date('Y-m-d');
+            $newtoday->completed = 1;
+            $newtoday->save();
+        }
 
         return response()->json([
             'success' => true
