@@ -28,12 +28,14 @@ class OneSignalController extends Controller
         $charioteers = Charioteer::orderBy('id', 'desc')->paginate(7);
         $reports = Charioteerreport::orderBy('id', 'desc')->get();
         $messages = Charioteermessage::orderBy('id', 'desc')->get();
+        $examcounts = Charioteerexamcount::orderBy('id', 'desc')->paginate(7);
 
         return view('dashboard.charioteer.index')
                             ->withCharioteers($charioteers)
                             ->withReports($reports)
                             ->withMessages($messages)
-                            ->withTotalqs($totalqs);
+                            ->withTotalqs($totalqs)
+                            ->withExamcounts($examcounts);
     }
 
     public function searchNow(Request $request)

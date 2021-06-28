@@ -288,6 +288,42 @@
         </div>
         <!-- /.box-body -->
       </div>
+
+      <div class="box box-success">
+        <div class="box-header with-border text-green">
+          <i class="fa fa-fw fa-users"></i>
+          <h3 class="box-title">Exam Counter</h3>
+          <div class="box-tools pull-right">
+            {{-- <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Initiated</th>
+                  <th>Completed</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($examcounts as $examcount)
+                <tr>
+                  <td>
+                    {{ date('F d, Y', strtotime($examcount->date)) }}
+                  </td>
+                  <td>{{ $examcount->initiated }}</td>
+                  <td>{{ $examcount->completed }}</td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
     </div>
     <div class="col-md-4">
       <div class="box box-success">
