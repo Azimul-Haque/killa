@@ -14,6 +14,7 @@ return array(
     'CreateCharioteermessagesTable' => $baseDir . '/database/migrations/2020_05_23_232338_create_charioteermessages_table.php',
     'CreateCharioteerreportsTable' => $baseDir . '/database/migrations/2020_05_22_174622_create_charioteerreports_table.php',
     'CreateCharioteersTable' => $baseDir . '/database/migrations/2019_09_16_072715_create_charioteers_table.php',
+    'CreateCharioteerupdatesTable' => $baseDir . '/database/migrations/2022_03_27_000447_create_charioteerupdates_table.php',
     'CreateDiscategoriesTable' => $baseDir . '/database/migrations/2019_09_05_212308_create_discategories_table.php',
     'CreateDisdatasTable' => $baseDir . '/database/migrations/2019_09_05_212121_create_disdatas_table.php',
     'CreateDistrictscordsTable' => $baseDir . '/database/migrations/2019_08_31_011122_create_districtscords_table.php',

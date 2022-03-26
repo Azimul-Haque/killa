@@ -11,6 +11,8 @@ use App\Charioteer;
 use App\Charioteerreport;
 use App\Charioteermessage;
 use App\Charioteerexamcount;
+use App\Charioteerupdate;
+
 
 use Session, Auth;
 use OneSignal;
@@ -19,7 +21,7 @@ class OneSignalController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('sendPush', 'broadcast', 'postQstnAPI', 'reportQstnAPI', 'contactAPI', 'examCountIAPI', 'examCountCAPI');
+        $this->middleware('auth')->except('sendPush', 'broadcast', 'postQstnAPI', 'reportQstnAPI', 'contactAPI', 'examCountIAPI', 'examCountCAPI', 'broadcastVersion');
     }
 
     public function index()
@@ -29,13 +31,15 @@ class OneSignalController extends Controller
         $reports = Charioteerreport::orderBy('id', 'desc')->get();
         $messages = Charioteermessage::orderBy('id', 'desc')->get();
         $examcounts = Charioteerexamcount::orderBy('id', 'desc')->paginate(7);
+        $appupdate = Charioteerupdate::orderBy('id', 'desc')->first();
 
         return view('dashboard.charioteer.index')
                             ->withCharioteers($charioteers)
                             ->withReports($reports)
                             ->withMessages($messages)
                             ->withTotalqs($totalqs)
-                            ->withExamcounts($examcounts);
+                            ->withExamcounts($examcounts)
+                            ->withAppupdate($appupdate);
     }
 
     public function searchNow(Request $request)
@@ -327,5 +331,22 @@ class OneSignalController extends Controller
         return response()->json([
             'success' => true
         ]);
+    }
+
+    public function chagneUpdateStatus(Request $request, $id)
+    {
+
+        $charioteerupdate = Charioteerupdate::findOrFail($id);
+        $charioteerupdate->version = $request->version;
+        $charioteerupdate->save();
+
+        Session::flash('success', 'Updated Successfully!');
+        return redirect()->route('dashboard.onesignal');
+    }
+
+    public function broadcastVersion(Request $request)
+    {
+        $charioteerupdate = Charioteerupdate::first();
+        print(json_encode($charioteerupdate->version));
     }
 }

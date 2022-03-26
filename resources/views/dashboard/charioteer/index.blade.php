@@ -342,6 +342,23 @@
         </div>
         <!-- /.box-body -->
       </div>
+      <div class="box box-warning">
+        <div class="box-header with-border text-green">
+          <i class="fa fa-fw fa-bell-o"></i>
+          <h3 class="box-title">App Version(<b>{{ $appupdate->version }}</b>)</h3>
+          <div class="box-tools pull-right">
+            {{-- <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          {!! Form::model($charioteer, ['route' => ['dashboard.onesignal.updatestatus', $appupdate->id], 'method' => 'PUT', 'class' => 'form-default', 'enctype' => 'multipart/form-data']) !!}
+          {!! Form::text('version', $appupdate->version, array('class' => 'form-control', 'placeholder' => 'Write Version (1.0.3)', 'required')) !!}<br/>
+            {!! Form::submit('Change Status', array('class' => 'btn btn-warning btn-block')) !!}
+          {!! Form::close() !!}
+        </div>
+        <!-- /.box-body -->
+      </div>
       <div class="box box-info">
         <div class="box-header with-border text-aqua">
           <i class="fa fa-fw fa-refresh"></i>
