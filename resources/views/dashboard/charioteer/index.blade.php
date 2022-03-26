@@ -344,7 +344,7 @@
       </div>
       <div class="box box-warning">
         <div class="box-header with-border text-green">
-          <i class="fa fa-fw fa-bell-o"></i>
+          <i class="fa fa-fw fa-code-fork"></i>
           <h3 class="box-title">App Version(<b>{{ $appupdate->version }}</b>)</h3>
           <div class="box-tools pull-right">
             {{-- <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#addQuestionModel" data-backdrop="static" title="Add New Disaster Category" data-placement="top"><i class="fa fa-plus"></i></button> --}}
