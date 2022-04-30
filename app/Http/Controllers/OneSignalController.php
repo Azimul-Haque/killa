@@ -53,13 +53,15 @@ class OneSignalController extends Controller
         $reports = Charioteerreport::orderBy('id', 'desc')->get();  
         $messages = Charioteermessage::orderBy('id', 'desc')->get();
         $examcounts = Charioteerexamcount::orderBy('id', 'desc')->paginate(7);
+        $appupdate = Charioteerupdate::orderBy('id', 'desc')->first();
 
         return view('dashboard.charioteer.index')
                             ->withCharioteers($charioteers)
                             ->withReports($reports)
                             ->withMessages($messages)
                             ->withTotalqs($totalqs)
-                            ->withExamcounts($examcounts);
+                            ->withExamcounts($examcounts)
+                            ->withAppupdate($appupdate);
     }
 
     public function storeQA(Request $request)
