@@ -5,8 +5,7 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote-bs3.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/summernote/summernote.min.css') }}">
 @endsection
 
 @section('content')

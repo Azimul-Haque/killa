@@ -169,7 +169,7 @@ class OneSignalController extends Controller
                                 ->where('status', 1)
                                 ->where('count', '<', 10)
                                 ->first();
-        $charioteer->count = $charioteer->count + 1;
+        $charioteer->count = $charioteer->count() + 1;
         $charioteer->save();
 
         OneSignal::sendNotificationToAll(
