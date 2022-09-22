@@ -169,7 +169,7 @@ class OneSignalController extends Controller
         $charioteer = Charioteer::inRandomOrder()
                                 ->where('status', 1)
                                 ->where('count', '<', 40)
-                                ->where('updated_at', '<',  \Carbon\Carbon::now()->subDays(30))
+                                ->where('updated_at', '<',  \Carbon\Carbon::now()->subDays(5))
                                 ->first();
         if(!$charioteer) {
             $charioteer = Charioteer::inRandomOrder()
