@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Charioteer extends Model
 {
-    public $timestamps = false;
+    public $timestamps = ['updated_at'];
 
-    public function setCreatedAtAttribute($value) { 
-        $this->attributes['updated_at'] = \Carbon\Carbon::now(); 
-    }
+    // public function setCreatedAtAttribute($value) { 
+    //     $this->attributes['updated_at'] = \Carbon\Carbon::now(); 
+    // }
 }
