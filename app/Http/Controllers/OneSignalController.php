@@ -99,7 +99,7 @@ class OneSignalController extends Controller
         $charioteer->question = $request->question;
         $charioteer->answer = $request->answer;
         $charioteer->incanswer = $request->option1 .','. $request->option2 .','. $request->option3;
-        $charioteer->updated_at = \Carbon\Carbon::now();
+        // $charioteer->updated_at = \Carbon\Carbon::now();
         
         $charioteer->save();
 
