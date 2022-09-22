@@ -172,24 +172,24 @@ class OneSignalController extends Controller
         $charioteer->count = $charioteer->count + 1;
         $charioteer->save();
 
-        OneSignal::sendNotificationToAll(
-            "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-            $url = null, 
-            $data = array("answer" => $charioteer->answer),
-            $buttons = null, 
-            $schedule = null,
-            $headings = $charioteer->question
-        );
-
-        // OneSignal::sendNotificationToUser(
+        // OneSignal::sendNotificationToAll(
         //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-        //     ["da8fc14d-736b-4982-ad61-4bfec5090937"],
         //     $url = null, 
         //     $data = array("answer" => $charioteer->answer),
         //     $buttons = null, 
         //     $schedule = null,
         //     $headings = $charioteer->question
         // );
+
+        OneSignal::sendNotificationToUser(
+            "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+            ["da8fc14d-736b-4982-ad61-4bfec5090937"],
+            $url = null, 
+            $data = array("answer" => $charioteer->answer),
+            $buttons = null, 
+            $schedule = null,
+            $headings = $charioteer->question
+        );
 
         Session::flash('success', 'Sent Successfully!');
         if(Auth::check()) {
