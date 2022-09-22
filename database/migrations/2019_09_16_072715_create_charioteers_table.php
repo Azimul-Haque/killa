@@ -18,6 +18,7 @@ class CreateCharioteersTable extends Migration
             $table->string('answer');
             $table->string('incanswer');
             $table->integer('count');
+            $table->date('updated_at');
         });
     }
 
